@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Sortable Repeater
+   ========================================================================== */
+.sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.sortable input[type="text"] {
+margin: 5px 5px 5px 0;
+width: 80%;
+color: #333;
+text-transform: CAPITALIZE;
+text-align: center;
+-webkit-box-shadow: 10px 87px 232px -75px rgba(102,91,102,0.69);
+-moz-box-shadow: 10px 87px 232px -75px rgba(102,91,102,0.69);
+box-shadow: 10px 87px 232px -75px rgba(102,91,102,0.69);
+/* border: 1px solid #ccc; */
+-webkit-box-shadow: 0px 10px 13px -7px #000000, 8px 12px 24px -10px rgba(0,0,0,0);
+box-shadow: 0px 10px 13px -7px #ccc, 8px 12px 24px -10px rgba(0,0,0,0);
+}
+.sortable div {
+	cursor: move;
+}
+.customize-control-sortable-repeater-delete {
+	color: #d4d4d4;
+}
+.customize-control-sortable-repeater-delete:hover {
+	color: #f00;
+}
+.customize-control-sortable-repeater-delete .dashicons-no-alt {
+	text-decoration: none;
+	margin: 8px 0 0 0;
+	font-weight: 600;
+}
+.customize-control-sortable-repeater-delete:active,
+.customize-control-sortable-repeater-delete:focus {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.repeater .dashicons-sort {
+	margin: 8px 5px 0 5px;
+	color: #d4d4d4;
+}
+.repeater .dashicons-sort:hover {
+	color: #a7a7a7;
+}
+.drag_and_drop_control .repeater {
+background: #eedfdb;
+text-align: center;
+margin: 10px auto;
+font-weight: 700;
+color: #555d66;
+}
+.drag_and_drop_control .repeater .repeater-input {
+padding-top: 5px;
+padding-bottom: 5px;
+width: 80%;
+display: inline-block;
+}
