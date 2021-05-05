@@ -40,18 +40,15 @@ class themes_Repeater_Custom_Control extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 		wp_enqueue_style( 'themes_custom_controls_css', CUSTOM_DIR_URL . 'classes/controls/customize-repeater/css/customize-repeater.css', array(), '' ); 
-	    wp_enqueue_script( 'themes_custom_controls_js', CUSTOM_DIR_URL . 'classes/controls/customize-repeater/js/customize-repeater.js', array( 'jquery'),'');
+	    wp_enqueue_script( 'themes_custom_controls_js', CUSTOM_DIR_URL . 'controls/customize-repeater/js/customize-repeater.js', array( 'jquery'),'');
 	}
 	/**
 	 * Render the control in the customizer
 	 */
 	public function render_content() {
 
-		$section_name = (array) get_option( 'themes_customization' );
-		if ( isset( $section_name['section_ordering_settings_repeater'] ) ) {
-			$string_array = rtrim(implode(',', $section_name), ',');
-		}
-		
+		$section_name = array("about-us","our-blogs","category-products","newsletter","why-choose-us","our-products","our-features","testimonials","instagram","request-quote","gallery","content-area");
+		$string_array = rtrim(implode(',', $section_name), ',');
 	?>
 	    <div class="sortable_repeater_control">
 			<?php if( !empty( $this->label ) ) { ?>

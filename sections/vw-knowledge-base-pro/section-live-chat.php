@@ -169,7 +169,7 @@
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[live_chat_small_text_color]', array(
-      'label' => 'Browse Topics Small Text Color',
+      'label' => 'Content Text Color',
       'section' => 'customize_live_chat_section',
       'settings' => 'themes_customization[live_chat_small_text_color]',
     )));  
@@ -184,7 +184,7 @@
     $wp_customize->add_control(
         'themes_customization[live_chat_small_text_fontfamily]', array(
         'section'  => 'customize_live_chat_section',
-        'label'    => __( 'Browse Topics Small Text Fonts','themes'),
+        'label'    => __( 'Content Text Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
@@ -197,7 +197,7 @@
       )
     );
     $wp_customize->add_control('themes_customization[live_chat_small_text_font_size]',array(
-        'label' => __('Browse Topics Small Text Font Size in px','themes'),
+        'label' => __('Content Text Font Size in px','themes'),
         'section' => 'customize_live_chat_section',
         'setting' => 'themes_customization[live_chat_small_text_font_size]',
         'type'    => 'text'
@@ -211,7 +211,7 @@
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[live_chat_main_text_color]', array(
-      'label' => 'Browse Topics Main Text Color',
+      'label' => 'Main Heading Text Color',
       'section' => 'customize_live_chat_section',
       'settings' => 'themes_customization[live_chat_main_text_color]',
     )));  
@@ -226,7 +226,7 @@
     $wp_customize->add_control(
         'themes_customization[live_chat_main_text_fontfamily]', array(
         'section'  => 'customize_live_chat_section',
-        'label'    => __( 'Browse Topics Main Text Fonts','themes'),
+        'label'    => __( 'Main Heading Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
@@ -239,12 +239,36 @@
       )
     );
     $wp_customize->add_control('themes_customization[live_chat_main_text_font_size]',array(
-        'label' => __('Browse Topics Main Text Font Size in px','themes'),
+        'label' => __('Main Heading Font Size in px','themes'),
         'section' => 'customize_live_chat_section',
         'setting' => 'themes_customization[live_chat_main_text_font_size]',
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[live_chat_back_bg_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[live_chat_back_bg_color]', array(
+      'label' => 'Box Background Color',
+      'section' => 'customize_live_chat_section',
+      'settings' => 'themes_customization[live_chat_back_bg_color]',
+    ))); 
+    $wp_customize->add_setting( 'themes_customization[live_chat_back_bg_color_afterhover]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[live_chat_back_bg_color_afterhover]', array(
+      'label' => 'Box Background Color AfterHover',
+      'section' => 'customize_live_chat_section',
+      'settings' => 'themes_customization[live_chat_back_bg_color_afterhover]',
+    )));
     $wp_customize->add_setting( 'themes_customization[live_chat_dicsount_text_color]', array(
       'default' => '',
       'type'              => 'option',
@@ -341,4 +365,16 @@
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[live_chat_button_border_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[live_chat_button_border_color]', array(
+      'label' => ' Border Color',
+      'section' => 'customize_live_chat_section',
+      'settings' => 'themes_customization[live_chat_button_border_color]',
+    )));  
 ?>

@@ -97,6 +97,184 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[introduction_section_main_title]',
     ) );
+    $wp_customize->add_setting( 'themes_customization[introduction_section_main_title_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[introduction_section_main_title_color]', array(
+      'label' => __('Section Main Title Color', 'themes'),
+      'section' => 'customize_introduction_section',
+      'settings' => 'themes_customization[introduction_section_main_title_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[introduction_section_main_title_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[introduction_section_main_title_font_family]', array(
+        'section'  => 'customize_introduction_section',
+        'label'    => __('Section Title Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[introduction_section_main_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[introduction_section_main_title_font_size]',array(
+          'label' => __('Section Title Font size in px','themes'),
+          'section' => 'customize_introduction_section',
+          'setting' => 'themes_customization[introduction_section_main_title_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[introduction_box_bgcolor]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+    $wp_customize->add_control('themes_customization[introduction_section_main_title_font_size]',array(
+      'label' => __('Section Title Font size in px','themes'),
+      'section' => 'customize_introduction_section',
+      'setting' => 'themes_customization[introduction_section_main_title_font_size]',
+      'type'    => 'text'
+    )
+);
+     $wp_customize->add_setting( 'themes_customization[introduction_box_bgcolor_afterhover]', array(
+  'default'        => '',
+  'type'              => 'option',
+  'capability'        => 'manage_options',
+  'transport'         => 'postMessage',
+  'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[introduction_box_bgcolor_afterhover]', array(
+      'label'      => __( 'Box Background Color After Hover:', 'themes' ),
+      'section'    => 'customize_introduction_section',
+      'priority'   => NULL,
+      'settings'   => 'themes_customization[introduction_box_bgcolor_afterhover]'
+    ) ) );
+    $wp_customize->add_setting( 'themes_customization[introduction_box_title_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[introduction_box_title_color]', array(
+      'label' => __('Box Main Title Color', 'themes'),
+      'section' => 'customize_introduction_section',
+      'settings' => 'themes_customization[introduction_box_title_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[introduction_box_title_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[introduction_box_title_font_family]', array(
+        'section'  => 'customize_introduction_section',
+        'label'    => __('Box Main Title Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[introduction_box_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[introduction_box_title_font_size]',array(
+          'label' => __('Box Main Font size in px','themes'),
+          'section' => 'customize_introduction_section',
+          'setting' => 'themes_customization[introduction_box_title_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[introduction_box_title_color_afterhover]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[introduction_box_title_color_afterhover]', array(
+      'label' => __('Box Main Title Color after hover', 'themes'),
+      'section' => 'customize_introduction_section',
+      'settings' => 'themes_customization[introduction_box_title_color_afterhover]',
+    )));
+    $wp_customize->add_setting( 'themes_customization[introduction_box_content_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[introduction_box_content_color]', array(
+      'label' => __('Box Content Color', 'themes'),
+      'section' => 'customize_introduction_section',
+      'settings' => 'themes_customization[introduction_box_content_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[introduction_box_content_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[introduction_box_content_fontfamily]', array(
+        'section'  => 'customize_introduction_section',
+        'label'    => __('Box Content Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[introduction_box_content_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[introduction_box_content_font_size]',array(
+          'label' => __('Box Content Font size in px','themes'),
+          'section' => 'customize_introduction_section',
+          'setting' => 'themes_customization[introduction_box_content_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[introduction_box_content_color_afterhover]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[introduction_box_content_color_afterhover]', array(
+      'label' => __('Box Content Color after hover', 'themes'),
+      'section' => 'customize_introduction_section',
+      'settings' => 'themes_customization[introduction_box_content_color_afterhover]',
+    )));
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[introduction_section_para]', array(
         'default'           => '',
@@ -216,4 +394,5 @@
           'type'    => 'url'
       ));
     }
+
 ?>

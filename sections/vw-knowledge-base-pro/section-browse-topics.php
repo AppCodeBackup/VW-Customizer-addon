@@ -401,4 +401,82 @@
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[browse_topics_last_button_bg_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[browse_topics_last_button_bg_color]', array(
+      'label' => 'Last Button Background Color',
+      'section' => 'customize_browse_topics_section',
+      'settings' => 'themes_customization[browse_topics_last_button_bg_color]',
+    ))); 
+    $wp_customize->add_setting( 'themes_customization[browse_topics_last_button_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[browse_topics_last_button_text_color]', array(
+      'label' => ' Last Button Text Color',
+      'section' => 'customize_browse_topics_section',
+      'settings' => 'themes_customization[browse_topics_last_button_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[browse_topics_last_button_text_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[browse_topics_last_button_text_font_family]', array(
+        'section'  => 'customize_browse_topics_section',
+        'label'    => __( 'Last Button Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[browse_topics_last_button_text_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[browse_topics_last_button_text_font_size]',array(
+        'label' => __('Last Button Font Size in px','themes'),
+        'section' => 'customize_browse_topics_section',
+        'setting' => 'themes_customization[browse_topics_last_button_text_font_size]',
+        'type'    => 'text'
+      )
+    ); 
+    $wp_customize->add_setting( 'themes_customization[browse_topics_last_button_bg_color_afterhover]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[browse_topics_last_button_bg_color_afterhover]', array(
+      'label' => 'Last Button Background Color after Hover',
+      'section' => 'customize_browse_topics_section',
+      'settings' => 'themes_customization[browse_topics_last_button_bg_color_afterhover]',
+    ))); 
+    $wp_customize->add_setting( 'themes_customization[browse_topics_last_button_text_color_afterhover]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[browse_topics_last_button_text_color_afterhover]', array(
+      'label' => ' Last Button Text Color after Hover',
+      'section' => 'customize_browse_topics_section',
+      'settings' => 'themes_customization[browse_topics_last_button_text_color_afterhover]',
+    )));  
 ?>

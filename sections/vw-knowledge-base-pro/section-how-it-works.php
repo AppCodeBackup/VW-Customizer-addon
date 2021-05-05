@@ -53,6 +53,22 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[how_it_work_small_heading]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+
+      $wp_customize->add_control( 'themes_customization[how_it_work_small_heading]', array(
+        'label'            => __( 'Section Small Title', 'themes' ),
+        'section'          => 'customize_how_it_work_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[how_it_work_small_heading]',
+      ) );
+    }
     $wp_customize->add_setting( 'themes_customization[how_it_work_main_heading]', array(
       'default'           => '',
       'type'              => 'option',
@@ -67,6 +83,35 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[how_it_work_main_heading]',
     ) );
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[how_it_work_title_number]',array(
+          'default'   => '',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[how_it_work_title_number]',array(
+          'label' => __('Number of Title to show','themes'),
+          'section'   => 'customize_how_it_work_section',
+          'type'      => 'number',
+          'priority'   => Null,
+      ));
+
+      $aboutchoose =  isset( $this->themes_key['how_it_work_title_number'] )? $this->themes_key['how_it_work_title_number'] : 2;
+      for($i=1; $i<=$aboutchoose; $i++) {
+        $wp_customize->add_setting( 'themes_customization[how_it_work_box_title'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[how_it_work_box_title'.$i.']', array(
+          'label'            => __( 'Main Text', 'themes' ).$i,
+          'section'          => 'customize_how_it_work_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[how_it_work_box_title'.$i.']',
+        ) );
+      }
+    }
     $wp_customize->add_setting('themes_customization[how_it_work_number]',array(
         'default'   => '',
         'sanitize_callback' => 'sanitize_textarea_field',
@@ -119,7 +164,6 @@
         'transport'         => 'postMessage',
         'sanitize_callback' => 'wp_kses_post'
       ) );
-
       $wp_customize->add_control( 'themes_customization[how_it_work_text'.$i.']', array(
         'label'            => __( 'Main Text', 'themes' ),
         'section'          => 'customize_how_it_work_section',
@@ -127,6 +171,50 @@
         'settings'         => 'themes_customization[how_it_work_text'.$i.']',
       ) );
     }
+    
+    $wp_customize->add_setting( 'themes_customization[how_it_work_main_heading_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[how_it_work_main_heading_text_color]', array(
+      'label' => 'Main Heading Text Color',
+      'section' => 'customize_how_it_work_section',
+      'settings' => 'themes_customization[how_it_work_main_heading_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[how_it_work_main_heading_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[how_it_work_main_heading_font_family]', array(
+        'section'  => 'customize_how_it_work_section',
+        'label'    => __( 'Main Heading Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[how_it_work_main_heading_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[how_it_work_main_heading_font_size]',array(
+        'label' => __('Main Heading Font Size in px','themes'),
+        'section' => 'customize_how_it_work_section',
+        'setting' => 'themes_customization[how_it_work_main_heading_font_size]',
+        'type'    => 'text'
+      )
+    ); 
+   
     
     $wp_customize->add_setting( 'themes_customization[how_it_work_small_text_color]', array(
       'default' => '',
@@ -136,7 +224,7 @@
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[how_it_work_small_text_color]', array(
-      'label' => 'Browse Topics Small Text Color',
+      'label' => 'Paragraph Text Color',
       'section' => 'customize_how_it_work_section',
       'settings' => 'themes_customization[how_it_work_small_text_color]',
     )));  
@@ -151,7 +239,7 @@
     $wp_customize->add_control(
         'themes_customization[how_it_work_small_text_fontfamily]', array(
         'section'  => 'customize_how_it_work_section',
-        'label'    => __( 'Browse Topics Small Text Fonts','themes'),
+        'label'    => __( 'Paragraph Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
@@ -164,7 +252,7 @@
       )
     );
     $wp_customize->add_control('themes_customization[how_it_work_small_text_font_size]',array(
-        'label' => __('Browse Topics Small Text Font Size in px','themes'),
+        'label' => __('Paragraph Font Size in px','themes'),
         'section' => 'customize_how_it_work_section',
         'setting' => 'themes_customization[how_it_work_small_text_font_size]',
         'type'    => 'text'
@@ -178,7 +266,7 @@
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[how_it_work_main_text_color]', array(
-      'label' => 'Browse Topics Main Text Color',
+      'label' => 'Sub Heading Text Color',
       'section' => 'customize_how_it_work_section',
       'settings' => 'themes_customization[how_it_work_main_text_color]',
     )));  
@@ -193,7 +281,7 @@
     $wp_customize->add_control(
         'themes_customization[how_it_work_main_text_fontfamily]', array(
         'section'  => 'customize_how_it_work_section',
-        'label'    => __( 'Browse Topics Main Text Fonts','themes'),
+        'label'    => __( 'Sub Heading Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
@@ -206,7 +294,7 @@
       )
     );
     $wp_customize->add_control('themes_customization[how_it_work_main_text_font_size]',array(
-        'label' => __('Browse Topics Main Text Font Size in px','themes'),
+        'label' => __('Sub Heading Font Size in px','themes'),
         'section' => 'customize_how_it_work_section',
         'setting' => 'themes_customization[how_it_work_main_text_font_size]',
         'type'    => 'text'

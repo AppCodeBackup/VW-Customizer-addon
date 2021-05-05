@@ -147,20 +147,20 @@
       ));
     }
     
-    $wp_customize->add_setting( 'themes_customization[active_articals_small_text_color]', array(
+    $wp_customize->add_setting( 'themes_customization[active_articals_features_text_color]', array(
       'default' => '',
       'type'              => 'option',
       'capability'        => 'manage_options',
       'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_hex_color'
     ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_small_text_color]', array(
-      'label' => 'Browse Topics Small Text Color',
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_features_text_color]', array(
+      'label' => 'Active Features Title Text Color',
       'section' => 'customize_active_articals_section',
-      'settings' => 'themes_customization[active_articals_small_text_color]',
+      'settings' => 'themes_customization[active_articals_features_text_color]',
     )));  
 
-    $wp_customize->add_setting('themes_customization[active_articals_small_text_fontfamily]',array(
+    $wp_customize->add_setting('themes_customization[active_articals_features_font_family]',array(
       'default' => '',
       'type'              => 'option',
       'capability'        => 'manage_options',
@@ -168,13 +168,13 @@
       'sanitize_callback' => 'themes_sanitize_select_font'
      ));
     $wp_customize->add_control(
-        'themes_customization[active_articals_small_text_fontfamily]', array(
+        'themes_customization[active_articals_features_font_family]', array(
         'section'  => 'customize_active_articals_section',
-        'label'    => __( 'Browse Topics Small Text Fonts','themes'),
+        'label'    => __( 'Active Features Text Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
-    $wp_customize->add_setting('themes_customization[active_articals_small_text_font_size]',array(
+    $wp_customize->add_setting('themes_customization[active_articals_features_font_size]',array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -182,27 +182,41 @@
         'sanitize_callback' => 'sanitize_text_field'
       )
     );
-    $wp_customize->add_control('themes_customization[active_articals_small_text_font_size]',array(
-        'label' => __('Browse Topics Small Text Font Size in px','themes'),
+    $wp_customize->add_control('themes_customization[active_articals_features_font_size]',array(
+        'label' => __('Active Features Text Font Size in px','themes'),
         'section' => 'customize_active_articals_section',
-        'setting' => 'themes_customization[active_articals_small_text_font_size]',
+        'setting' => 'themes_customization[active_articals_features_font_size]',
         'type'    => 'text'
       )
     ); 
-    $wp_customize->add_setting( 'themes_customization[active_articals_main_text_color]', array(
+    $wp_customize->add_setting( 'themes_customization[active_articals_features_font_color_afterhover]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_features_font_color_afterhover]', array(
+      'label'      => __( 'Active Features Text Hover Color:', 'themes' ),
+      'section'    => 'customize_active_articals_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[active_articals_features_font_color_afterhover]'
+    ) ) );
+    $wp_customize->add_setting( 'themes_customization[active_articals_main_heading_text_color]', array(
       'default' => '',
       'type'              => 'option',
       'capability'        => 'manage_options',
       'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_hex_color'
     ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_main_text_color]', array(
-      'label' => 'Browse Topics Main Text Color',
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_main_heading_text_color]', array(
+      'label' => 'Main Heading Text Color',
       'section' => 'customize_active_articals_section',
-      'settings' => 'themes_customization[active_articals_main_text_color]',
+      'settings' => 'themes_customization[active_articals_main_heading_text_color]',
     )));  
 
-    $wp_customize->add_setting('themes_customization[active_articals_main_text_fontfamily]',array(
+    $wp_customize->add_setting('themes_customization[active_articals_main_heading_font_family]',array(
       'default' => '',
       'type'              => 'option',
       'capability'        => 'manage_options',
@@ -210,13 +224,13 @@
       'sanitize_callback' => 'themes_sanitize_select_font'
      ));
     $wp_customize->add_control(
-        'themes_customization[active_articals_main_text_fontfamily]', array(
+        'themes_customization[active_articals_main_heading_font_family]', array(
         'section'  => 'customize_active_articals_section',
-        'label'    => __( 'Browse Topics Main Text Fonts','themes'),
+        'label'    => __( 'Main Heading Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
-    $wp_customize->add_setting('themes_customization[active_articals_main_text_font_size]',array(
+    $wp_customize->add_setting('themes_customization[active_articals_main_heading_font_size]',array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -224,13 +238,55 @@
         'sanitize_callback' => 'sanitize_text_field'
       )
     );
-    $wp_customize->add_control('themes_customization[active_articals_main_text_font_size]',array(
-        'label' => __('Browse Topics Main Text Font Size in px','themes'),
+    $wp_customize->add_control('themes_customization[active_articals_main_heading_font_size]',array(
+        'label' => __('Main Heading Font Size in px','themes'),
         'section' => 'customize_active_articals_section',
-        'setting' => 'themes_customization[active_articals_main_text_font_size]',
+        'setting' => 'themes_customization[active_articals_main_heading_font_size]',
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[active_articals_main_heading_font_color_afterhover]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_main_heading_font_color_afterhover]', array(
+      'label'      => __( 'Main Heading Hover Color:', 'themes' ),
+      'section'    => 'customize_active_articals_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[active_articals_main_heading_font_color_afterhover]'
+    ) ) );
+    $wp_customize->add_setting( 'themes_customization[active_articals_features_bgcolor]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_features_bgcolor]', array(
+      'label'      => __( 'Background Color for Features Section:', 'themes' ),
+      'section'    => 'customize_active_articals_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[active_articals_features_bgcolor]'
+    ) ) );
+    $wp_customize->add_setting( 'themes_customization[active_articals_features_bgcolor_afterhover]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_features_bgcolor_afterhover]', array(
+      'label'      => __( 'Background Color for Features Section after hover:', 'themes' ),
+      'section'    => 'customize_active_articals_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[active_articals_features_bgcolor_afterhover]'
+    ) ) );
     $wp_customize->add_setting( 'themes_customization[active_articals_dicsount_text_color]', array(
       'default' => '',
       'type'              => 'option',
@@ -281,7 +337,7 @@
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_button_bg_color]', array(
-      'label' => 'Browse Topics Button Background Color',
+      'label' => 'Button Background Color',
       'section' => 'customize_active_articals_section',
       'settings' => 'themes_customization[active_articals_button_bg_color]',
     ))); 
@@ -308,7 +364,7 @@
     $wp_customize->add_control(
         'themes_customization[active_articals_button_text_fontfamily]', array(
         'section'  => 'customize_active_articals_section',
-        'label'    => __( 'Button Text Fonts','themes'),
+        'label'    => __( 'Button Text Font','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
@@ -321,10 +377,36 @@
       )
     );
     $wp_customize->add_control('themes_customization[active_articals_button_text_font_size]',array(
-        'label' => __('Browse Topics Button Text Font Size in px','themes'),
+        'label' => __('Button Text Font Size in px','themes'),
         'section' => 'customize_active_articals_section',
         'setting' => 'themes_customization[active_articals_button_text_font_size]',
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[active_articals_button_font_color_afterhover]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_button_font_color_afterhover]', array(
+      'label'      => __( 'Button Hover Color:', 'themes' ),
+      'section'    => 'customize_active_articals_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[active_articals_button_font_color_afterhover]'
+    ) ) );
+    $wp_customize->add_setting( 'themes_customization[active_articals_button_bgcolor_afterhover]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[active_articals_button_bgcolor_afterhover]', array(
+      'label' => 'Button Background Color after Hover',
+      'section' => 'customize_active_articals_section',
+      'settings' => 'themes_customization[active_articals_button_bgcolor_afterhover]',
+    )));
 ?>

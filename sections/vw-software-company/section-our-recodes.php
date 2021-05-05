@@ -103,6 +103,34 @@
            'select'       => __( 'Select Image', 'themes' ),
       ) ) ) );
     }
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[our_record_main_heading]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+      $wp_customize->add_control( 'themes_customization[our_record_main_heading]', array(
+        'label'            => __( 'Record Title', 'themes' ),
+        'section'          => 'customize_records_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[our_record_main_heading]',
+      ) );
+      $wp_customize->add_setting( 'themes_customization[our_record_text]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+      $wp_customize->add_control( 'themes_customization[our_record_text]', array(
+        'label'            => __( 'Record Text', 'themes' ),
+        'section'          => 'customize_records_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[our_record_text]',
+      ) );
+    }
     $wp_customize->add_setting('themes_customization[records_box_number]',array(
         'default'   => '',
         'sanitize_callback' => 'sanitize_textarea_field',
@@ -153,7 +181,7 @@
         'priority'         => Null,
         'settings'         => 'themes_customization[our_records_no_suffix'.$i.']',
       ) );
-      if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+      if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[our_records_image'.$i.']', array(
           'default'       =>  '' ,
           'type'              => 'option',
@@ -417,4 +445,88 @@
         'section' => 'customize_records_section',
         'settings' => 'themes_our_record_image_border_color2',
     )));
+    $wp_customize->add_setting( 'themes_customization[our_records_num_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_records_num_text_color]', array(
+      'label' => 'Number Color',
+      'section' => 'customize_records_section',
+      'settings' => 'themes_customization[our_records_num_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[our_records_num_text_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[our_records_num_text_fontfamily]', array(
+        'section'  => 'customize_records_section',
+        'label'    => __( 'Number Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[our_records_num_text_fontsize]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[our_records_num_text_fontsize]',array(
+        'label' => __('Number Font Size in px','themes'),
+        'section' => 'customize_records_section',
+        'setting' => 'themes_customization[our_records_num_text_fontsize]',
+        'type'    => 'text'
+      )
+    ); 
+    $wp_customize->add_setting( 'themes_customization[our_records_text1_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_records_text1_color]', array(
+      'label' => 'Text Color',
+      'section' => 'customize_records_section',
+      'settings' => 'themes_customization[our_records_text1_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[our_records_text1_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[our_records_text1_fontfamily]', array(
+        'section'  => 'customize_records_section',
+        'label'    => __( 'Text Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[our_records_text1_fontsize]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[our_records_text1_fontsize]',array(
+        'label' => __('Text Font Size in px','themes'),
+        'section' => 'customize_records_section',
+        'setting' => 'themes_customization[our_records_text1_fontsize]',
+        'type'    => 'text'
+      )
+    ); 
 ?>

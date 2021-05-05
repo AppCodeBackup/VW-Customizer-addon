@@ -524,7 +524,8 @@ $get_in_touch_button_text_font_size = themes_get_option_key( 'get_in_touch_butto
   $header_contact_text_font_family = themes_get_option_key( 'header_contact_text_font_family', $themes_array );
   $header_contact_text_font_size = themes_get_option_key( 'header_contact_text_font_size', $themes_array );
 
-  $themes_headermenu_color = themes_get_option_key( 'themes_headermenu_color', $themes_array );
+  $themes_themes_headermenu_color = themes_get_option_key( 'themes_headermenu_color', $themes_array );
+  $themes_themes_headermenu_color_afterhover = themes_get_option_key( 'themes_headermenu_color_afterhover', $themes_array );
   $themes_headermenu_font_family = themes_get_option_key( 'themes_headermenu_font_family', $themes_array );
   $themes_headermenu_font_size = themes_get_option_key( 'themes_headermenu_font_size', $themes_array );
   $themes_header_menuhover_color = themes_get_option_key( 'themes_header_menuhover_color', $themes_array );
@@ -552,6 +553,7 @@ $themes_header_button_text_font_size = themes_get_option_key( 'themes_header_but
 $themes_header_button_text_font_family = themes_get_option_key( 'themes_header_button_text_font_family', $themes_array );
 
 $themes_header_button_bg_color = themes_get_option_key( 'themes_header_button_bg_color', $themes_array );
+$themes_header_button_bg_color_afterhover = themes_get_option_key( 'header_button_bg_color_afterhover', $themes_array );
 
 //Footer Widgets
 $themes_footer_widget_heading_color = themes_get_option_key( 'themes_footer_widget_heading_color', $themes_array );
@@ -642,6 +644,292 @@ $themes_404_page_button_font_family = themes_get_option_key( 'themes_404_page_bu
 $themes_404_page_button_font_size = themes_get_option_key( 'themes_404_page_button_font_size', $themes_array );
 $themes_404_page_button_bgcolor = themes_get_option_key( 'themes_404_page_button_bgcolor', $themes_array );
 
+// Search Banner
+$themes_search_banner_main_heading = themes_get_option_key( 'search_banner_main_heading', $themes_array );
+$themes_search_banner_text_color = themes_get_option_key( 'search_banner_text_color', $themes_array );
+$themes_setting_search_banner_text_font_family = themes_get_option_key( 'setting_search_banner_text_font_family', $themes_array );
+$themes_setting_search_banner_text_size = themes_get_option_key( 'setting_search_banner_text_size', $themes_array );
+$themes_setting_search_banner_bgcolor = themes_get_option_key( 'setting_search_banner_bgcolor', $themes_array );
+$themes_setting_search_banner_border_color = themes_get_option_key( 'setting_search_banner_border_color', $themes_array );
+$themes_setting_search_banner_input_text_font_family = themes_get_option_key( 'setting_search_banner_input_text_font_family', $themes_array );
+$themes_setting_search_banner_input_text_color = themes_get_option_key( 'setting_search_banner_input_text_color', $themes_array );
+
+// Our Features
+$themes_setting_our_features_main_head_text_color = themes_get_option_key( 'setting_our_features_main_head_text_color', $themes_array );
+$themes_our_features_bg_color = themes_get_option_key( 'our_features_bg_color', $themes_array );
+$themes_features_small_text_color = themes_get_option_key( 'features_small_text_color', $themes_array );
+$themes_features_small_text_fontfamily = themes_get_option_key( 'features_small_text_fontfamily', $themes_array );
+$themes_features_small_text_font_size = themes_get_option_key( 'features_small_text_font_size', $themes_array );
+$themes_features_main_text_color = themes_get_option_key( 'features_main_text_color', $themes_array );
+$themes_features_main_text_fontfamily = themes_get_option_key( 'features_main_text_fontfamily', $themes_array );
+$themes_features_main_text_font_size = themes_get_option_key( 'features_main_text_font_size', $themes_array );
+
+// About Us
+$themes_about_main_title_color = themes_get_option_key( 'about_main_title_color', $themes_array );
+$themes_about_main_title_fontfamily = themes_get_option_key( 'about_main_title_fontfamily', $themes_array );
+$themes_about_main_title_font_size = themes_get_option_key( 'about_main_title_font_size', $themes_array );
+$themes_about_list_title_color = themes_get_option_key( 'about_list_title_color', $themes_array );
+$themes_about_list_title_fontfamily = themes_get_option_key( 'about_list_title_fontfamily', $themes_array );
+$themes_about_list_title_font_size = themes_get_option_key( 'about_list_title_font_size', $themes_array );
+$themes_about_button_text_color = themes_get_option_key( 'about_button_text_color', $themes_array );
+$themes_about_button_text_fontfamily = themes_get_option_key( 'about_button_text_fontfamily', $themes_array );
+$themes_about_button_text_font_size = themes_get_option_key( 'about_button_text_font_size', $themes_array );
+$themes_about_button_bg_color = themes_get_option_key( 'about_button_bg_color', $themes_array );
+
+// Browse Topics
+$themes_browse_topics_bg_color = themes_get_option_key( 'browse_topics_bg_color', $themes_array );
+$themes_browse_topics_main_text_color = themes_get_option_key( 'browse_topics_main_text_color', $themes_array );
+$themes_browse_topics_main_text_fontfamily = themes_get_option_key( 'browse_topics_main_text_fontfamily', $themes_array );
+$themes_browse_topics_main_text_font_size = themes_get_option_key( 'browse_topics_main_text_font_size', $themes_array );
+$themes_browse_topics_button_bg_color = themes_get_option_key( 'browse_topics_button_bg_color', $themes_array );
+$themes_browse_topics_button_text_color = themes_get_option_key( 'browse_topics_button_text_color', $themes_array );
+$themes_browse_topics_button_text_fontfamily = themes_get_option_key( 'browse_topics_button_text_fontfamily', $themes_array );
+$themes_browse_topics_button_text_font_size = themes_get_option_key( 'browse_topics_button_text_font_size', $themes_array );
+$themes_browse_topics_button_bg_color = themes_get_option_key( 'browse_topics_button_bg_color', $themes_array );
+
+// Our Services
+$themes_services_blog_main_text_color = themes_get_option_key( 'services_blog_main_text_color', $themes_array );
+$themes_services_blog_main_text_fontfamily = themes_get_option_key( 'services_blog_main_text_fontfamily', $themes_array );
+$themes_services_blog_main_text_font_size = themes_get_option_key( 'services_blog_main_text_font_size', $themes_array );
+$themes_services_blog_dicsount_text_color = themes_get_option_key( 'services_blog_dicsount_text_color', $themes_array );
+$themes_services_blog_dicsount_text_fontfamily = themes_get_option_key( 'services_blog_dicsount_text_fontfamily', $themes_array );
+$themes_services_blog_dicsount_text_font_size = themes_get_option_key( 'services_blog_dicsount_text_font_size', $themes_array );
+$themes_services_blog_button_bg_color = themes_get_option_key( 'services_blog_button_bg_color', $themes_array );
+$themes_services_blog_button_text_color = themes_get_option_key( 'services_blog_button_text_color', $themes_array );
+$themes_services_blog_button_text_fontfamily = themes_get_option_key( 'services_blog_button_text_fontfamily', $themes_array );
+$themes_services_blog_button_text_font_size = themes_get_option_key( 'services_blog_button_text_font_size', $themes_array );
+
+// Getting Started
+$themes_getstarted_blog_bg_color = themes_get_option_key( 'getstarted_blog_bg_color', $themes_array );
+$themes_getstarted_blog_small_text_color = themes_get_option_key( 'getstarted_blog_small_text_color', $themes_array );
+$themes_getstarted_blog_small_text_fontfamily = themes_get_option_key( 'getstarted_blog_small_text_fontfamily', $themes_array );
+$themes_getstarted_blog_small_text_font_size = themes_get_option_key( 'getstarted_blog_small_text_font_size', $themes_array );
+$themes_getstarted_blog_main_text_color = themes_get_option_key( 'getstarted_blog_main_text_color', $themes_array );
+$themes_getstarted_blog_main_text_fontfamily = themes_get_option_key( 'getstarted_blog_main_text_fontfamily', $themes_array );
+$themes_getstarted_blog_main_text_font_size = themes_get_option_key( 'getstarted_blog_main_text_font_size', $themes_array );
+$themes_getstarted_blog_dicsount_text_color = themes_get_option_key( 'getstarted_blog_dicsount_text_color', $themes_array );
+$themes_getstarted_blog_dicsount_text_fontfamily = themes_get_option_key( 'getstarted_blog_dicsount_text_fontfamily', $themes_array );
+$themes_getstarted_blog_dicsount_text_font_size = themes_get_option_key( 'getstarted_blog_dicsount_text_font_size', $themes_array );
+$themes_getstarted_blog_button_bg_color = themes_get_option_key( 'getstarted_blog_button_bg_color', $themes_array );
+$themes_getstarted_blog_button_text_color = themes_get_option_key( 'getstarted_blog_button_text_color', $themes_array );
+$themes_getstarted_blog_button_text_fontfamily = themes_get_option_key( 'getstarted_blog_button_text_fontfamily', $themes_array );
+$themes_getstarted_blog_button_text_font_size = themes_get_option_key( 'getstarted_blog_button_text_font_size', $themes_array );
+
+// How It Works
+$themes_how_it_work_bg_color = themes_get_option_key( 'how_it_work_bg_color', $themes_array );
+$themes_how_it_work_small_text_color = themes_get_option_key( 'how_it_work_small_text_color', $themes_array );
+$themes_how_it_work_small_text_fontfamily = themes_get_option_key( 'how_it_work_small_text_fontfamily', $themes_array );
+$themes_how_it_work_small_text_font_size = themes_get_option_key( 'how_it_work_small_text_font_size', $themes_array );
+$themes_how_it_work_main_text_color = themes_get_option_key( 'how_it_work_main_text_color', $themes_array );
+$themes_how_it_work_main_text_fontfamily = themes_get_option_key( 'how_it_work_main_text_fontfamily', $themes_array );
+$themes_how_it_work_main_text_font_size = themes_get_option_key( 'how_it_work_main_text_font_size', $themes_array );
+$themes_how_it_work_main_heading_text_color = themes_get_option_key( 'how_it_work_main_heading_text_color', $themes_array );
+$themes_how_it_work_main_heading_font_family = themes_get_option_key( 'how_it_work_main_heading_font_family', $themes_array );
+$themes_how_it_work_main_heading_font_size = themes_get_option_key( 'how_it_work_main_heading_font_size', $themes_array );
+
+// Our Partners
+$themes_our_partners_main_heading_text_color = themes_get_option_key( 'our_partners_main_heading_text_color', $themes_array );
+$themes_our_partners_main_heading_font_family = themes_get_option_key( 'our_our_partners_main_heading_font_family', $themes_array );
+$themes_our_partners_main_heading_font_size = themes_get_option_key( 'our_partners_main_heading_font_size', $themes_array );
+
+// Our Services
+$themes_themes_servicesmall_title_color = themes_get_option_key( 'themes_servicesmall_title_color', $themes_array );
+$themes_themes_servicesmall_title_font_family = themes_get_option_key( 'themes_servicesmall_title_font_family', $themes_array );
+$themes_themes_servicesmall_title_font_size = themes_get_option_key( 'themes_servicesmall_title_font_size', $themes_array );
+$themes_our_services_main_heading_text_color = themes_get_option_key( 'our_services_main_heading_text_color', $themes_array );
+$themes_our_services_main_heading_font_family = themes_get_option_key( 'our_services_main_heading_font_family', $themes_array );
+$themes_our_services_main_heading_font_size = themes_get_option_key( 'our_services_main_heading_font_size', $themes_array );
+$themes_servicesmall_para_color = themes_get_option_key( 'servicesmall_para_color', $themes_array );
+$themes_servicesmall_para_font_family = themes_get_option_key( 'servicesmall_para_font_family', $themes_array );
+$themes_servicesmall_para_font_size = themes_get_option_key( 'servicesmall_para_font_size', $themes_array );
+
+// Active Articles
+$themes_active_articals_features_text_color = themes_get_option_key( 'active_articals_features_text_color', $themes_array );
+$themes_active_articals_features_font_family = themes_get_option_key( 'active_articals_features_font_family', $themes_array );
+$themes_active_articals_features_font_size = themes_get_option_key( 'active_articals_features_font_size', $themes_array );
+$themes_active_articals_main_heading_text_color = themes_get_option_key( 'active_articals_main_heading_text_color', $themes_array );
+$themes_active_articals_main_heading_font_family = themes_get_option_key( 'active_articals_main_heading_font_family', $themes_array );
+$themes_active_articals_main_heading_font_size = themes_get_option_key( 'active_articals_main_heading_font_size', $themes_array );
+$themes_active_articals_features_bgcolor = themes_get_option_key( 'active_articals_features_bgcolor', $themes_array );
+$themes_active_articals_button_text_color = themes_get_option_key( 'active_articals_button_text_color', $themes_array );
+$themes_active_articals_button_text_fontfamily = themes_get_option_key( 'active_articals_button_text_fontfamily', $themes_array );
+$themes_active_articals_button_text_font_size = themes_get_option_key( 'active_articals_button_text_font_size', $themes_array );
+$themes_active_articals_button_bg_color = themes_get_option_key( 'active_articals_button_bg_color', $themes_array );
+$themes_active_articals_features_bgcolor_afterhover = themes_get_option_key( 'active_articals_features_bgcolor_afterhover', $themes_array );
+$themes_active_articals_main_heading_font_color_afterhover = themes_get_option_key( 'active_articals_main_heading_font_color_afterhover', $themes_array );
+$themes_active_articals_features_font_color_afterhover = themes_get_option_key( 'active_articals_features_font_color_afterhover', $themes_array );
+$themes_active_articals_button_font_color_afterhover = themes_get_option_key( 'active_articals_button_font_color_afterhover', $themes_array );
+$themes_active_articals_button_bgcolor_afterhover = themes_get_option_key( 'active_articals_button_bgcolor_afterhover', $themes_array );
+
+// Our team
+
+$themes_our_team_title_color = themes_get_option_key( 'our_team_title_color', $themes_array );
+$themes_our_team_title_font_family = themes_get_option_key( 'our_team_title_font_family', $themes_array );
+$themes_our_team_title_font_size = themes_get_option_key( 'our_team_title_font_size', $themes_array );
+$themes_our_team_bg_color = themes_get_option_key( 'our_team_bg_color', $themes_array );
+$themes_our_team_box_title_color = themes_get_option_key( 'our_team_box_title_color', $themes_array );
+$themes_our_team_box_title_font_family = themes_get_option_key( 'our_team_box_title_font_family', $themes_array );
+$themes_our_team_box_title_font_size = themes_get_option_key( 'our_team_box_title_font_size', $themes_array );
+$themes_our_team_box_content_color = themes_get_option_key( 'our_team_box_content_color', $themes_array );
+$themes_our_team_box_content_font_family = themes_get_option_key( 'our_team_box_content_font_family', $themes_array );
+$themes_our_team_box_content_font_size = themes_get_option_key( 'our_team_box_content_font_size', $themes_array );
+$themes_our_team_bg_color_afterhover = themes_get_option_key( 'our_team_bg_color_afterhover', $themes_array );
+
+// Introduction
+
+$themes_introduction_section_main_title_color = themes_get_option_key( 'introduction_section_main_title_color', $themes_array );
+$themes_introduction_section_main_title_font_family = themes_get_option_key( 'introduction_section_main_title_font_family', $themes_array );
+$themes_introduction_section_main_title_font_size = themes_get_option_key( 'introduction_section_main_title_font_size', $themes_array );
+$themes_introduction_box_bgcolor = themes_get_option_key( 'introduction_box_bgcolor', $themes_array );
+$themes_introduction_box_bgcolor_afterhover = themes_get_option_key( 'introduction_box_bgcolor_afterhover', $themes_array );
+$themes_introduction_box_title_color = themes_get_option_key( 'introduction_box_title_color', $themes_array );
+$themes_introduction_box_title_font_family = themes_get_option_key( 'introduction_box_title_font_family', $themes_array );
+$themes_introduction_box_title_font_size = themes_get_option_key( 'introduction_box_title_font_size', $themes_array );
+$themes_introduction_box_title_color_afterhover = themes_get_option_key( 'introduction_box_title_color_afterhover', $themes_array );
+$themes_introduction_box_content_color = themes_get_option_key( 'introduction_box_content_color', $themes_array );
+$themes_introduction_box_content_fontfamily = themes_get_option_key( 'introduction_box_content_fontfamily', $themes_array );
+$themes_introduction_box_content_font_size = themes_get_option_key( 'introduction_box_content_font_size', $themes_array );
+$themes_introduction_box_content_color_afterhover = themes_get_option_key( 'introduction_box_content_color_afterhover', $themes_array );
+
+// Pricing Plans
+
+$themes_pricing_plan_main_title_color = themes_get_option_key( 'pricing_plan_main_title_color', $themes_array );
+$themes_pricing_plan_main_title_fontfamily = themes_get_option_key( 'pricing_plan_main_title_fontfamily', $themes_array );
+$themes_pricing_plan_main_title_fontsize = themes_get_option_key( 'pricing_plan_main_title_fontsize', $themes_array );
+$themes_pricing_plan_box_bgcolor = themes_get_option_key( 'pricing_plan_box_bgcolor', $themes_array );
+$themes_pricing_plan_box_bgcolor_afterhover = themes_get_option_key( 'pricing_plan_box_bgcolor_afterhover', $themes_array );
+$themes_themes_pricing_plan_title_color = themes_get_option_key( 'themes_pricing_plan_title_color', $themes_array );
+$themes_themes_pricing_plan_title_font_family = themes_get_option_key( 'themes_pricing_plan_title_font_family', $themes_array );
+$themes_themes_pricing_plan_title_font_size = themes_get_option_key( 'themes_pricing_plan_title_font_size', $themes_array );
+$themes_themes_pricing_plan_title_bgcolor = themes_get_option_key( 'themes_pricing_plan_title_bgcolor', $themes_array );
+$themes_themes_pricing_plan_title_bgcolor_afterhover = themes_get_option_key( 'themes_pricing_plan_title_bgcolor_afterhover', $themes_array );
+$themes_pricing_plan_small_title_color = themes_get_option_key( 'pricing_plan_small_title_color', $themes_array );
+$themes_pricing_plan_small_title_font_family = themes_get_option_key( 'pricing_plan_small_title_font_family', $themes_array );
+$themes_pricing_plan_small_title_font_size = themes_get_option_key( 'pricing_plan_small_title_font_size', $themes_array );
+$themes_pricing_plan_small_title_color_afterhover = themes_get_option_key( 'pricing_plan_small_title_color_afterhover', $themes_array );
+$themes_pricing_plan_para_color = themes_get_option_key( 'pricing_plan_para_color', $themes_array );
+$themes_pricing_plan_para_font_family = themes_get_option_key( 'pricing_plan_para_font_family', $themes_array );
+$themes_pricing_plan_para_font_size = themes_get_option_key( 'pricing_plan_para_font_size', $themes_array );
+$themes_pricing_plan_para_color_afterhover = themes_get_option_key( 'pricing_plan_para_color_afterhover', $themes_array );
+$themes_plan_but_text_color = themes_get_option_key( 'plan_but_text_color', $themes_array );
+$themes_plan_but_text_font_size = themes_get_option_key( 'plan_but_text_font_size', $themes_array );
+$themes_plan_but_bg_color = themes_get_option_key( 'plan_but_bg_color', $themes_array );
+$plan_but_bg_color_aftercolor = themes_get_option_key( 'plan_but_bg_color_aftercolor', $themes_array );
+
+// Latest News
+
+$themes_latest_news_main_heading_text_color = themes_get_option_key( 'latest_news_main_heading_text_color', $themes_array );
+$themes_latest_news_main_heading_text_fontfamily = themes_get_option_key( 'latest_news_main_heading_text_fontfamily', $themes_array );
+$themes_latest_news_main_heading_text_fontsize = themes_get_option_key( 'latest_news_main_heading_text_fontsize', $themes_array );
+$themes_themes_latest_newsmall_title_color = themes_get_option_key( 'themes_latest_newsmall_title_color', $themes_array );
+$themes_themes_latest_newsmall_title_font_family = themes_get_option_key( 'themes_latest_newsmall_title_font_family', $themes_array );
+$themes_themes_latest_newsmall_title_font_size = themes_get_option_key( 'themes_latest_newsmall_title_font_size', $themes_array );
+$themes_date_title_color = themes_get_option_key( 'date_title_color', $themes_array );
+$themes_date_title_font_family = themes_get_option_key( 'date_title_font_family', $themes_array );
+$themes_date_title_font_size = themes_get_option_key( 'date_title_font_size', $themes_array );
+$themes_date_title_bgcolor = themes_get_option_key( 'date_title_bgcolor', $themes_array );
+$themes_themes_latest_button_color = themes_get_option_key( 'themes_latest_button_color', $themes_array );
+$themes_themes_latest_button_font_family = themes_get_option_key( 'themes_latest_button_font_family', $themes_array );
+$themes_themes_latest_button_font_size = themes_get_option_key( 'themes_latest_button_font_size', $themes_array );
+
+// Get in Touch
+
+$themes_get_in_touch_main_text_color = themes_get_option_key( 'get_in_touch_main_text_color', $themes_array );
+$themes_get_in_touch_main_text_fontfamily = themes_get_option_key( 'get_in_touch_main_text_fontfamily', $themes_array );
+$themes_get_in_touch_main_text_font_size = themes_get_option_key( 'get_in_touch_main_text_font_size', $themes_array );
+$themes_get_in_touch_text_color = themes_get_option_key( 'get_in_touch_main_text_color', $themes_array );
+$themes_get_in_touch_text_fontfamily = themes_get_option_key( 'get_in_touch_main_text_fontfamily', $themes_array );
+$themes_get_in_touch_text_font_size = themes_get_option_key( 'get_in_touch_main_text_font_size', $themes_array );
+$themes_get_in_touch_button_bg_color = themes_get_option_key( 'get_in_touch_button_bg_color', $themes_array );
+$themes_get_in_touch_button_text_color = themes_get_option_key( 'get_in_touch_button_text_color', $themes_array );
+$themes_get_in_touch_button_text_fontfamily = themes_get_option_key( 'get_in_touch_button_text_fontfamily', $themes_array );
+$themes_get_in_touch_button_text_font_size = themes_get_option_key( 'get_in_touch_button_text_font_size', $themes_array );
+
+// Contact and Partners
+
+$themes_contact_partners_main_text_color = themes_get_option_key( 'contact_partners_main_text_color', $themes_array );
+$themes_contact_partners_main_text_fontfamily = themes_get_option_key( 'contact_partners_main_text_fontfamily', $themes_array );
+$themes_contact_partners_main_text_font_size = themes_get_option_key( 'contact_partners_main_text_font_size', $themes_array );
+$themes_contact_partners_sub_text_color = themes_get_option_key( 'contact_partners_sub_text_color', $themes_array );
+$themes_contact_partners_sub_text_fontfamily = themes_get_option_key( 'contact_partners_sub_text_fontfamily', $themes_array );
+$themes_contact_partners_sub_text_font_size = themes_get_option_key( 'contact_partners_sub_text_font_size', $themes_array );
+$themes_contact_partners_text_color = themes_get_option_key( 'contact_partners_text_color', $themes_array );
+$themes_contact_partners_text_fontfamily = themes_get_option_key( 'contact_partners_text_fontfamily', $themes_array );
+$themes_contact_partners_text_font_size = themes_get_option_key( 'contact_partners_text_font_size', $themes_array );
+
+// Our Records
+
+$themes_our_records_num_text_color = themes_get_option_key( 'our_records_num_text_color', $themes_array );
+$themes_our_records_num_text_fontfamily = themes_get_option_key( 'our_records_num_text_fontfamily', $themes_array );
+$themes_our_records_num_text_fontsize = themes_get_option_key( 'our_records_num_text_fontsize', $themes_array );
+$themes_our_records_text1_color = themes_get_option_key( 'our_records_text1_color', $themes_array );
+$themes_our_records_text1_fontfamily = themes_get_option_key( 'our_records_text1_fontfamily', $themes_array );
+$themes_our_records_text1_fontsize = themes_get_option_key( 'our_records_num_text_fontsize', $themes_array );
+
+// Our Newsletter
+
+$themes_newsletter_main_text_color = themes_get_option_key( 'newsletter_main_text_color', $themes_array );
+$themes_newsletter_main_text_fontfamily = themes_get_option_key( 'newsletter_main_text_fontfamily', $themes_array );
+$themes_newsletter_main_text_fontsize = themes_get_option_key( 'newsletter_main_text_fontsize', $themes_array );
+$themes_newsletter_content_text_color = themes_get_option_key( 'newsletter_content_text_color', $themes_array );
+$themes_newsletter_content_text_fontfamily = themes_get_option_key( 'newsletter_content_text_fontfamily', $themes_array );
+$themes_newsletter_content_text_fontsize = themes_get_option_key( 'newsletter_content_text_fontsize', $themes_array );
+$themes_newsletter_author_text_color = themes_get_option_key( 'newsletter_author_text_color', $themes_array );
+$themes_newsletter_author_text_fontfamily = themes_get_option_key( 'newsletter_author_text_fontfamily', $themes_array );
+$themes_newsletter_author_text_fontsize = themes_get_option_key( 'newsletter_author_text_fontsize', $themes_array );
+$themes_newsletter_buttonswipe_bgcolor = themes_get_option_key( 'newsletter_buttonswipe_bgcolor', $themes_array );
+$themes_newsletter_buttonswipe_text_color = themes_get_option_key( 'newsletter_buttonswipe_text_color', $themes_array );
+
+$themes_newsletter_buttonswipe_bgcolor_afterhover = themes_get_option_key( 'newsletter_buttonswipe_bgcolor_afterhover', $themes_array );
+$themes_newsletter_buttonswipe_text_color_afterhover = themes_get_option_key( 'newsletter_buttonswipe_text_color_afterhover', $themes_array );
+
+
+// Our FAQs
+
+$themes_our_faq_section_title_text_color = themes_get_option_key( 'our_faq_section_title_text_color', $themes_array );
+$themes_our_faq_section_title_text_fontfamily = themes_get_option_key( 'our_faq_section_title_text_fontfamily', $themes_array );
+$themes_our_faq_section_title_text_fontsize = themes_get_option_key( 'our_faq_section_title_text_fontsize', $themes_array );
+$themes_our_faq_content_text_color = themes_get_option_key( 'our_faq_content_text_color', $themes_array );
+$themes_our_faq_content_text_fontfamily = themes_get_option_key( 'our_faq_content_text_fontfamily', $themes_array );
+$themes_our_faq_content_text_fontsize = themes_get_option_key( 'our_faq_content_text_fontsize', $themes_array );
+$themes_our_faq_body_text_color = themes_get_option_key( 'our_faq_body_text_color', $themes_array );
+$themes_our_faq_body_text_fontfamily = themes_get_option_key( 'our_faq_body_text_fontfamily', $themes_array );
+$themes_our_faq_body_text_fontsize = themes_get_option_key( 'our_faq_body_text_fontsize', $themes_array );
+$themes_our_faq_body_bgcolor = themes_get_option_key( 'our_faq_body_bgcolor', $themes_array );
+
+$themes_our_faq_button_bgcolor = themes_get_option_key( 'our_faq_button_bgcolor', $themes_array );
+$themes_our_faq_button_color = themes_get_option_key( 'our_faq_button_color', $themes_array );
+
+// Live Chat
+
+$themes_live_chat_small_text_color = themes_get_option_key( 'live_chat_small_text_color', $themes_array );
+$themes_live_chat_small_text_fontfamily = themes_get_option_key( 'live_chat_small_text_fontfamily', $themes_array );
+$themes_live_chat_small_text_font_size = themes_get_option_key( 'live_chat_small_text_font_size', $themes_array );
+$themes_live_chat_main_text_color = themes_get_option_key( 'live_chat_main_text_color', $themes_array );
+$themes_live_chat_main_text_fontfamily = themes_get_option_key( 'live_chat_main_text_fontfamily', $themes_array );
+$themes_live_chat_main_text_font_size = themes_get_option_key( 'live_chat_main_text_font_size', $themes_array );
+$themes_live_chat_back_bg_color = themes_get_option_key( 'live_chat_back_bg_color', $themes_array );
+$themes_live_chat_back_bg_color_afterhover = themes_get_option_key( 'live_chat_back_bg_color_afterhover', $themes_array );
+$themes_live_chat_button_text_color = themes_get_option_key( 'live_chat_button_text_color', $themes_array );
+$themes_live_chat_button_text_fontfamily = themes_get_option_key( 'live_chat_button_text_fontfamily', $themes_array );
+$themes_live_chat_button_text_font_size = themes_get_option_key( 'live_chat_button_text_font_size', $themes_array );
+$themes_live_chat_button_bg_color = themes_get_option_key( 'live_chat_button_bg_color', $themes_array );
+$themes_live_chat_button_border_color = themes_get_option_key( 'live_chat_button_border_color', $themes_array );
+
+// Header
+
+$themes_header_button_border_color = themes_get_option_key( 'header_button_border_color', $themes_array );
+
+//  Browse Topics
+
+$themes_browse_topics_last_button_text_color = themes_get_option_key( 'browse_topics_last_button_text_color', $themes_array );
+$themes_browse_topics_last_button_text_font_family = themes_get_option_key( 'browse_topics_last_button_text_font_family', $themes_array );
+$themes_browse_topics_last_button_text_font_size = themes_get_option_key( 'browse_topics_last_button_text_font_size', $themes_array );
+$themes_browse_topics_last_button_bg_color = themes_get_option_key( 'browse_topics_last_button_bg_color', $themes_array );
+$themes_browse_topics_last_button_bg_color_afterhover = themes_get_option_key( 'browse_topics_last_button_bg_color_afterhover', $themes_array );
+$themes_browse_topics_last_button_text_color_afterhover = themes_get_option_key( 'browse_topics_last_button_text_color_afterhover', $themes_array );
+
+
 
 /**
  * themes_box_shadow [if user pass 0 then we're not going to set the value of box-shedow because it effects the pro templates.]
@@ -668,6 +956,790 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 <style type="text/css">
 *{
 	box-sizing: border-box;
+}
+/* #browse-topics {
+    padding: 5% 2%;
+    background-image: linear-gradient(20deg, #4f94df 0%,  100%); 
+    position: relative;
+    margin: 5% 0;
+} */
+.side-navigation li a:hover{
+	<?php if ( ! empty(  $themes_themes_headermenu_color_afterhover ) ) : ?>
+	color: <?php echo $themes_themes_headermenu_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+.side-navigation li a{
+	<?php if ( ! empty(   $themes_themes_headermenu_color ) ) : ?>
+	color: <?php echo   $themes_themes_headermenu_color ; ?>;
+	<?php endif; ?>
+}
+#footer{
+	<?php if ( ! empty( $themes_footer_widget_bgcolor )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_footer_widget_bgcolor ; ?> 0%, <?php echo $themes_footer_widget_bgcolor ; ?> 100%);
+	<?php endif; ?>
+}
+#testimonial .owl-nav i:hover{
+	<?php if ( ! empty( $themes_newsletter_buttonswipe_bgcolor_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_newsletter_buttonswipe_bgcolor_afterhover ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_buttonswipe_text_color_afterhover ) ) : ?>
+	color: <?php echo $themes_newsletter_buttonswipe_text_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#testimonial .owl-nav i{
+	<?php if ( ! empty( $themes_newsletter_buttonswipe_bgcolor  ) ) : ?>
+	background-color: <?php echo $themes_newsletter_buttonswipe_bgcolor ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_buttonswipe_text_color ) ) : ?>
+	color: <?php echo $themes_newsletter_buttonswipe_text_color ; ?>;
+	<?php endif; ?>
+}
+#how-it-work{
+	<?php if ( ! empty( $themes_how_it_work_bg_color )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_how_it_work_bg_color ; ?> 0%, <?php echo $themes_how_it_work_bg_color ; ?> 100%);
+	<?php endif; ?>
+}
+#getstarted-blog{
+	<?php if ( ! empty( $themes_getstarted_blog_bg_color )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_getstarted_blog_bg_color ; ?> 0%, <?php echo $themes_getstarted_blog_bg_color ; ?> 100%);
+	<?php endif; ?>
+}
+#browse-topics .blank-div{
+	<?php if ( ! empty( $themes_browse_topics_bg_color )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_browse_topics_bg_color ; ?> 0%, <?php echo $themes_browse_topics_bg_color ; ?> 100%);
+	<?php endif; ?>
+}
+#browse-topics{
+	<?php if ( ! empty( $themes_browse_topics_bg_color )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_browse_topics_bg_color ; ?> 0%, <?php echo $themes_browse_topics_bg_color ; ?> 100%);
+	<?php endif; ?>
+}
+#browse-topics .all-topics-links a:hover{
+	<?php if ( ! empty( $themes_browse_topics_last_button_bg_color_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_browse_topics_last_button_bg_color_afterhover ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_last_button_text_color_afterhover ) ) : ?>
+	color: <?php echo $themes_browse_topics_last_button_text_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#browse-topics .all-topics-links a{
+	<?php if ( ! empty( $themes_browse_topics_last_button_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_browse_topics_last_button_bg_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_last_button_text_color ) ) : ?>
+	color: <?php echo $themes_browse_topics_last_button_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_last_button_text_font_family ) ) : ?>
+	font-family: <?php echo $themes_browse_topics_last_button_text_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_last_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_browse_topics_last_button_text_font_size ; ?>;
+	<?php endif; ?>
+}
+.site-header .header-logo p{
+	<?php if ( ! empty( $themes_header_section_logo_sub_title_color ) ) : ?>
+	color: <?php echo $themes_header_section_logo_sub_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_section_logo_sub_title_font_family ) ) : ?>
+	font-family: <?php echo $themes_header_section_logo_sub_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_section_logo_sub_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_header_section_logo_sub_title_font_siz ; ?>;
+	<?php endif; ?>
+}
+#live-chat-blog .live-chat-content a{
+	<?php if ( ! empty( $themes_live_chat_button_bg_color ) ) : ?>
+	background-color: <?php echo $themes_live_chat_button_bg_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_button_text_color ) ) : ?>
+	color: <?php echo $themes_live_chat_button_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_button_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_live_chat_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_live_chat_button_text_font_size ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_button_border_color ) ) : ?>
+	border-color: <?php echo $themes_live_chat_button_border_color ; ?>;
+	<?php endif; ?>
+}
+#live-chat-blog .live-chat-content:hover{
+	<?php if ( ! empty( $themes_live_chat_back_bg_color_afterhover ) ) : ?>
+	background-color: <?php echo $themes_live_chat_back_bg_color_afterhover ; ?>;
+	<?php endif; ?>
+} 
+#live-chat-blog .live-chat-content{
+	<?php if ( ! empty( $themes_live_chat_back_bg_color ) ) : ?>
+	background-color: <?php echo $themes_live_chat_back_bg_color ; ?>;
+	<?php endif; ?>
+} 
+#live-chat-blog .live-chat-content span{
+	<?php if ( ! empty( $themes_live_chat_main_text_color ) ) : ?>
+	color: <?php echo $themes_live_chat_main_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_main_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_live_chat_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_live_chat_main_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#live-chat-blog .live-chat-content p{
+	<?php if ( ! empty( $themes_live_chat_small_text_color ) ) : ?>
+	color: <?php echo $themes_live_chat_small_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_small_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_live_chat_small_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_live_chat_small_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_live_chat_small_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#our-faq .card .card-header i{
+	<?php if ( ! empty( $themes_our_faq_button_bgcolor ) ) : ?>
+	background-color: <?php echo $themes_our_faq_button_bgcolor ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_button_color ) ) : ?>
+	color: <?php echo $themes_our_faq_button_color ; ?>;
+	<?php endif; ?>
+}
+#our-faq .card .card-header{
+	<?php if ( ! empty( $themes_our_faq_body_bgcolor ) ) : ?>
+	background-color: <?php echo $themes_our_faq_body_bgcolor ; ?>;
+	<?php endif; ?>
+}
+#our-faq .card .card-body{
+	<?php if ( ! empty( $themes_our_faq_body_text_color ) ) : ?>
+	color: <?php echo $themes_our_faq_body_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_body_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_our_faq_body_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_body_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_our_faq_body_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#our-faq .card .card-header a{
+	<?php if ( ! empty( $themes_our_faq_content_text_color ) ) : ?>
+	color: <?php echo $themes_our_faq_content_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_content_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_our_faq_content_text_fontfamily   ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_content_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_our_faq_content_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#our-faq h2 {
+	<?php if ( ! empty( $themes_our_faq_section_title_text_color ) ) : ?>
+	color: <?php echo $themes_our_faq_section_title_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_section_title_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_our_faq_section_title_text_fontfamily   ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_faq_section_title_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_our_faq_section_title_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#testimonial .testi-title a{
+	<?php if ( ! empty( $themes_newsletter_author_text_color ) ) : ?>
+	color: <?php echo $themes_newsletter_author_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_author_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_newsletter_author_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_author_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_newsletter_author_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#testimonial .testimonial-content p {
+	<?php if ( ! empty( $themes_newsletter_content_text_color ) ) : ?>
+	color: <?php echo $themes_newsletter_content_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_content_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_newsletter_content_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_content_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_newsletter_content_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#newsletter .newsletter-content h2{
+	<?php if ( ! empty( $themes_newsletter_main_text_color ) ) : ?>
+	color: <?php echo $themes_newsletter_main_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_main_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_newsletter_main_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_newsletter_main_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_newsletter_main_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#our-records .record-title {
+	<?php if ( ! empty( $themes_our_records_text1_color ) ) : ?>
+	color: <?php echo $themes_our_records_text1_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_records_text1_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_our_records_text1_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_records_text1_fontsize ) ) : ?>
+	font-size: <?php echo $themes_our_records_text1_fontsize ; ?>;
+	<?php endif; ?>
+}
+#our-records .our-records-content span{
+	<?php if ( ! empty( $themes_our_records_num_text_color ) ) : ?>
+	color: <?php echo $themes_our_records_num_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_records_num_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_our_records_num_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_partners_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#contact-partners .our-partners p{
+	<?php if ( ! empty( $themes_contact_partners_text_color ) ) : ?>
+	color: <?php echo $themes_contact_partners_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_contact_partners_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_partners_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#contact-partners .home-contact-us .contact-sub-title{
+	<?php if ( ! empty( $themes_contact_partners_sub_text_color ) ) : ?>
+	color: <?php echo $themes_contact_partners_sub_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_sub_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_contact_partners_sub_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_sub_text_font_size ) ) : ?>
+	font-size: <?php echo$themes_contact_partners_sub_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#contact-partners .home-contact-us h2{
+	<?php if ( ! empty( $themes_contact_partners_main_text_color   ) ) : ?>
+	color: <?php echo $themes_contact_partners_main_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_main_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_contact_partners_main_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_partners_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_partners_main_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#get-in-touch a.read-more {
+	<?php if ( ! empty( $themes_get_in_touch_button_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_get_in_touch_button_bg_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_get_in_touch_button_text_color   ) ) : ?>
+	color: <?php echo $themes_get_in_touch_button_text_color  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_get_in_touch_button_text_fontfamily   ) ) : ?>
+	font-family: <?php echo $themes_get_in_touch_button_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_get_in_touch_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_get_in_touch_button_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#get-in-touch p{
+	<?php if ( ! empty( $themes_get_in_touch_text_color  ) ) : ?>
+	color: <?php echo $themes_get_in_touch_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_get_in_touch_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_get_in_touch_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_latest_button_font_size ) ) : ?>
+	font-size: <?php echo $themes_themes_latest_button_font_size ; ?>;
+	<?php endif; ?>
+}
+#get-in-touch h3 {
+	<?php if ( ! empty( $themes_get_in_touch_main_text_color  ) ) : ?>
+	color: <?php echo $themes_get_in_touch_main_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_get_in_touch_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_get_in_touch_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_get_in_touch_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_get_in_touch_main_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#latest-news .link-title{
+	<?php if ( ! empty( $themes_themes_latest_button_colorr  ) ) : ?>
+	color: <?php echo $themes_themes_latest_button_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_latest_button_font_family  ) ) : ?>
+	font-family: <?php echo $themes_themes_latest_button_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_latest_button_font_size ) ) : ?>
+	font-size: <?php echo $themes_themes_latest_button_font_size ; ?>;
+	<?php endif; ?>
+}
+#latest-news .news-image span{
+	<?php if ( ! empty( $themes_date_title_color  ) ) : ?>
+	color: <?php echo $themes_date_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_date_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_date_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_date_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_date_title_font_size ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_date_title_bgcolor  ) ) : ?>
+	background-color: <?php echo $themes_date_title_bgcolor ; ?>;
+	<?php endif; ?>
+}
+#latest-news .news-title {
+	<?php if ( ! empty( $themes_themes_latest_newsmall_title_color  ) ) : ?>
+	color: <?php echo $themes_themes_latest_newsmall_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_latest_newsmall_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_themes_latest_newsmall_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_latest_newsmall_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_themes_latest_newsmall_title_font_size ; ?>;
+	<?php endif; ?>
+}
+#latest-news h2{
+	<?php if ( ! empty( $themes_latest_news_main_heading_text_color  ) ) : ?>
+	color: <?php echo $themes_latest_news_main_heading_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_latest_news_main_heading_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_latest_news_main_heading_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_latest_news_main_heading_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_latest_news_main_heading_text_fontsize ; ?>;
+	<?php endif; ?>
+}	
+#pricing-plans .pricing-plans-content:hover a{
+	<?php if ( ! empty( $plan_but_bg_color_aftercolor  ) ) : ?>
+	background-color: <?php echo $plan_but_bg_color_aftercolor ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content a{
+	<?php if ( ! empty( $themes_plan_but_text_color  ) ) : ?>
+	color: <?php echo $themes_plan_but_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_plan_but_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_plan_but_text_font_size ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_plan_but_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_plan_but_bg_color ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content:hover ul li{
+	<?php if ( ! empty( $themes_pricing_plan_para_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_pricing_plan_para_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content ul li{
+	<?php if ( ! empty( $themes_pricing_plan_para_color  ) ) : ?>
+	color: <?php echo $themes_pricing_plan_para_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_pricing_plan_para_font_family  ) ) : ?>
+	font-family: <?php echo $themes_pricing_plan_para_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_pricing_plan_para_font_size ) ) : ?>
+	font-size: <?php echo $themes_pricing_plan_para_font_size ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content:hover h4{
+	<?php if ( ! empty( $themes_pricing_plan_small_title_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_pricing_plan_small_title_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content h4{
+	<?php if ( ! empty( $themes_pricing_plan_small_title_color  ) ) : ?>
+	color: <?php echo $themes_pricing_plan_small_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_pricing_plan_small_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_pricing_plan_small_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_pricing_plan_small_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_pricing_plan_small_title_font_size ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content:hover span{
+	<?php if ( ! empty( $themes_themes_pricing_plan_title_bgcolor_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_themes_pricing_plan_title_bgcolor_afterhover ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content span{
+	<?php if ( ! empty( $themes_themes_pricing_plan_title_color  ) ) : ?>
+	color: <?php echo $themes_themes_pricing_plan_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_pricing_plan_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_themes_pricing_plan_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_pricing_plan_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_themes_pricing_plan_title_font_size ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_pricing_plan_title_bgcolor  ) ) : ?>
+	background-color: <?php echo $themes_themes_pricing_plan_title_bgcolor ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content:hover{
+	<?php if ( ! empty( $themes_pricing_plan_box_bgcolor_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_pricing_plan_box_bgcolor_afterhover ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans .pricing-plans-content{
+	<?php if ( ! empty( $themes_pricing_plan_box_bgcolor  ) ) : ?>
+	background-color: <?php echo $themes_pricing_plan_box_bgcolor ; ?>;
+	<?php endif; ?>
+}
+#pricing-plans h2 {
+	<?php if ( ! empty( $themes_pricing_plan_main_title_color  ) ) : ?>
+	color: <?php echo $themes_pricing_plan_main_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_pricing_plan_main_title_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_pricing_plan_main_title_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_pricing_plan_main_title_fontsize ) ) : ?>
+	font-size: <?php echo $themes_pricing_plan_main_title_fontsize ; ?>;
+	<?php endif; ?>
+}
+#introduction .text-box:hover p{
+	<?php if ( ! empty( $themes_introduction_box_content_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_introduction_box_content_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#introduction .text-box p{
+	<?php if ( ! empty( $themes_introduction_box_content_color  ) ) : ?>
+	color: <?php echo $themes_introduction_box_content_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_introduction_box_content_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_introduction_box_content_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_introduction_box_content_font_size ) ) : ?>
+	font-size: <?php echo $themes_introduction_box_content_font_size ; ?>;
+	<?php endif; ?>
+}
+#introduction .text-box:hover h3{
+	<?php if ( ! empty( $themes_introduction_box_title_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_introduction_box_title_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#introduction .text-box h3{
+	<?php if ( ! empty( $themes_introduction_box_title_color  ) ) : ?>
+	color: <?php echo $themes_introduction_box_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_introduction_box_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_introduction_box_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_introduction_box_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_introduction_box_title_font_size ; ?>;
+	<?php endif; ?>
+}
+#introduction .text-box:hover{
+	<?php if ( ! empty( $themes_introduction_box_bgcolor_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_introduction_box_bgcolor_afterhover ; ?>;
+	<?php endif; ?>
+}
+#introduction .text-box{
+	<?php if ( ! empty( $themes_introduction_box_bgcolor  ) ) : ?>
+	background-color: <?php echo $themes_introduction_box_bgcolor ; ?>;
+	<?php endif; ?>
+}
+#introduction .intro-right-box h3.head_white{
+	<?php if ( ! empty( $themes_introduction_section_main_title_color  ) ) : ?>
+	color: <?php echo $themes_introduction_section_main_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_introduction_section_main_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_introduction_section_main_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_introduction_section_main_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_introduction_section_main_title_font_size ; ?>;
+	<?php endif; ?>
+}
+.team-title span{
+	<?php if ( ! empty( $themes_our_team_box_content_color  ) ) : ?>
+	color: <?php echo $themes_our_team_box_content_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_team_box_content_font_family  ) ) : ?>
+	font-family: <?php echo $themes_our_team_box_content_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_team_box_content_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_team_box_content_font_size ; ?>;
+	<?php endif; ?>
+}
+#our-team .team-title h5 a{
+	<?php if ( ! empty( $themes_our_team_box_title_color  ) ) : ?>
+	color: <?php echo $themes_our_team_box_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_team_box_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_our_team_box_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_team_box_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_team_box_title_font_size ; ?>;
+	<?php endif; ?>
+}
+#our-team {
+	<?php if ( ! empty( $themes_our_team_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_our_team_bg_color ; ?>;
+	<?php endif; ?>
+}
+#our-team .our-team-head h3{
+	<?php if ( ! empty( $themes_our_team_title_color  ) ) : ?>
+	color: <?php echo $themes_our_team_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_team_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_our_team_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_team_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_team_title_font_size ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content:hover a{
+	<?php if ( ! empty( $themes_active_articals_button_font_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_active_articals_button_font_color_afterhover ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_button_bgcolor_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_active_articals_button_bgcolor_afterhover ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content:hover li{
+	<?php if ( ! empty( $themes_active_articals_features_font_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_active_articals_features_font_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content:hover h3{
+	<?php if ( ! empty( $themes_active_articals_main_heading_font_color_afterhover  ) ) : ?>
+	color: <?php echo $themes_active_articals_main_heading_font_color_afterhover ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content a {
+	<?php if ( ! empty( $themes_active_articals_button_text_color  ) ) : ?>
+	color: <?php echo $themes_active_articals_button_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_button_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_active_articals_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_active_articals_button_text_font_size ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_button_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_active_articals_button_bg_color ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content{
+	<?php if ( ! empty( $themes_active_articals_features_bgcolor  ) ) : ?>
+	background-color: <?php echo $themes_active_articals_features_bgcolor ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content:hover{
+	<?php if ( ! empty( $themes_active_articals_features_bgcolor_afterhover  ) ) : ?>
+	background-color: <?php echo $themes_active_articals_features_bgcolor_afterhover ; ?>;
+	<?php endif; ?>
+}
+#Active-articals h3{
+	<?php if ( ! empty( $themes_active_articals_main_heading_text_color  ) ) : ?>
+	color: <?php echo $themes_active_articals_main_heading_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_main_heading_font_family  ) ) : ?>
+	font-family: <?php echo $themes_active_articals_main_heading_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_main_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_active_articals_main_heading_font_size ; ?>;
+	<?php endif; ?>
+}
+#Active-articals .articals-content li{
+	<?php if ( ! empty( $themes_active_articals_features_text_color  ) ) : ?>
+	color: <?php echo $themes_active_articals_features_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_features_font_family  ) ) : ?>
+	font-family: <?php echo $themes_active_articals_features_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_active_articals_features_font_size ) ) : ?>
+	font-size: <?php echo $themes_active_articals_features_font_size ; ?>;
+	<?php endif; ?>
+}
+#our-services .our-services-content .services-text{
+	<?php if ( ! empty( $themes_servicesmall_para_color  ) ) : ?>
+	color: <?php echo $themes_servicesmall_para_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_servicesmall_para_font_family  ) ) : ?>
+	font-family: <?php echo $themes_servicesmall_para_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_servicesmall_para_font_size ) ) : ?>
+	font-size: <?php echo $themes_servicesmall_para_font_size ; ?>;
+	<?php endif; ?>
+}
+#our-services .our-services-content a{
+	<?php if ( ! empty( $themes_themes_servicesmall_title_color  ) ) : ?>
+	color: <?php echo $themes_themes_servicesmall_title_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_themes_servicesmall_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_themes_servicesmall_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_services_main_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_services_main_heading_font_size ; ?>;
+	<?php endif; ?>
+}
+#our-services .our-services-head h2{
+	<?php if ( ! empty( $themes_our_services_main_heading_text_color  ) ) : ?>
+	color: <?php echo $themes_our_services_main_heading_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_services_main_heading_font_family  ) ) : ?>
+	font-family: <?php echo $themes_our_services_main_heading_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_services_main_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_services_main_heading_font_size ; ?>;
+	<?php endif; ?>
+}
+#our_partners h2 {
+	<?php if ( ! empty( $themes_our_partners_main_heading_text_color  ) ) : ?>
+	color: <?php echo $themes_our_partners_main_heading_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_partners_main_heading_font_family  ) ) : ?>
+	font-family: <?php echo $themes_our_partners_main_heading_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_partners_main_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_partners_main_heading_font_size; ?>;
+	<?php endif; ?>
+}
+#how-it-work h2{
+	<?php if ( ! empty( $themes_how_it_work_main_heading_text_color  ) ) : ?>
+	color: <?php echo $themes_how_it_work_main_heading_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_how_it_work_main_heading_font_family  ) ) : ?>
+	font-family: <?php echo $themes_how_it_work_main_heading_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_how_it_work_main_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_how_it_work_main_heading_font_size; ?>;
+	<?php endif; ?>
+}
+#how-it-work span{
+	<?php if ( ! empty( $themes_how_it_work_main_text_color  ) ) : ?>
+	color: <?php echo $themes_how_it_work_main_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_how_it_work_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_how_it_work_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_how_it_work_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_how_it_work_main_text_font_size; ?>;
+	<?php endif; ?>
+}
+#how-it-work p{
+	<?php if ( ! empty( $themes_how_it_work_small_text_color  ) ) : ?>
+	color: <?php echo $themes_how_it_work_small_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_how_it_work_small_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_how_it_work_small_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_how_it_work_small_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_how_it_work_small_text_font_size; ?>;
+	<?php endif; ?>
+}
+#getstarted-blog a {
+	<?php if ( ! empty( $themes_getstarted_blog_button_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_getstarted_blog_button_bg_color ; ?>;
+	<?php endif; ?>
+    <?php if ( ! empty( $themes_getstarted_blog_button_text_color  ) ) : ?>
+	color: <?php echo $themes_getstarted_blog_button_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_button_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_getstarted_blog_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_getstarted_blog_button_text_font_size; ?>;
+	<?php endif; ?>
+}
+#getstarted-blog p{
+	<?php if ( ! empty( $themes_getstarted_blog_dicsount_text_color ) ) : ?>
+	color: <?php echo $themes_getstarted_blog_dicsount_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_dicsount_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_getstarted_blog_dicsount_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_dicsount_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_getstarted_blog_dicsount_text_font_size; ?>;
+	<?php endif; ?>
+}
+#getstarted-blog span{
+	<?php if ( ! empty( $themes_getstarted_blog_main_text_color ) ) : ?>
+	color: <?php echo $themes_getstarted_blog_main_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_getstarted_blog_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_getstarted_blog_main_text_font_size; ?>;
+	<?php endif; ?>
+}
+#getstarted-blog li {
+	<?php if ( ! empty( $themes_getstarted_blog_small_text_color ) ) : ?>
+	color: <?php echo $themes_getstarted_blog_small_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_small_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_getstarted_blog_small_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_getstarted_blog_small_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_getstarted_blog_small_text_font_size; ?>;
+	<?php endif; ?>
+}
+#services-blog .sblog-head span{
+	<?php if ( ! empty( $themes_services_blog_main_text_color ) ) : ?>
+	color: <?php echo $themes_services_blog_main_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_services_blog_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_services_blog_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_services_blog_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_services_blog_main_text_font_size; ?>;
+	<?php endif; ?>
+}
+#services-blog p{
+	<?php if ( ! empty( $themes_services_blog_dicsount_text_color ) ) : ?>
+	color: <?php echo $themes_services_blog_dicsount_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_services_blog_dicsount_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_services_blog_dicsount_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_services_blog_dicsount_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_services_blog_dicsount_text_font_size; ?>;
+	<?php endif; ?>
+}
+#services-blog a{
+	<?php if ( ! empty( $themes_services_blog_button_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_services_blog_button_bg_color ; ?>;
+	<?php endif; ?>
+    <?php if ( ! empty( $themes_services_blog_button_text_color  ) ) : ?>
+	color: <?php echo $themes_services_blog_button_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_services_blog_button_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_services_blog_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_services_blog_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_services_blog_button_text_font_size; ?>;
+	<?php endif; ?>
+}
+#browse-topics .browse-topics-content span{
+	<?php if ( ! empty( $themes_browse_topics_main_text_color ) ) : ?>
+	color: <?php echo $themes_browse_topics_main_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_browse_topics_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_browse_topics_main_text_font_size; ?>;
+	<?php endif; ?>
+}
+#browse-topics .browse-topics-content a {
+	<?php if ( ! empty( $themes_browse_topics_button_bg_color  ) ) : ?>
+	background-color: <?php echo $themes_browse_topics_button_bg_color ; ?>;
+	<?php endif; ?>
+    <?php if ( ! empty( $themes_browse_topics_button_text_color ) ) : ?>
+	color: <?php echo $themes_browse_topics_button_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_button_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_browse_topics_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_browse_topics_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_browse_topics_button_text_font_size; ?>;
+	<?php endif; ?>
 }
 #topbar{
 	<?php if ( ! empty( $themes_topbar_display ) && true == $themes_topbar_display ) : ?>
@@ -721,6 +1793,31 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_header_section_logo_sub_title_font_size; ?>;
 	<?php endif; ?>
 }
+#search-banner .search-banner-content h1 {
+	<?php if ( ! empty( $themes_search_banner_text_color ) ) : ?>
+	color: <?php echo $themes_search_banner_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_setting_search_banner_text_font_family ) ) : ?>
+	font-family: <?php echo $themes_setting_search_banner_text_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_setting_search_banner_text_size ) ) : ?>
+	font-size: <?php echo $themes_setting_search_banner_text_size; ?>;
+	<?php endif; ?>
+}
+#search-banner .search-banner-content input[type="search"]{
+	<?php if ( ! empty( $themes_setting_search_banner_bgcolor ) ) : ?>
+	background-color: <?php echo $themes_setting_search_banner_bgcolor; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_setting_search_banner_border_color ) ) : ?>
+	border-color: <?php echo $themes_setting_search_banner_border_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_setting_search_banner_input_text_font_family ) ) : ?>
+	font-family: <?php echo $themes_setting_search_banner_input_text_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_setting_search_banner_input_text_color ) ) : ?>
+	color: <?php echo $themes_setting_search_banner_input_text_color; ?>;
+	<?php endif; ?>
+}
 .top-content .contentbx h5{
 	<?php if ( ! empty( $header_contact_title_color ) ) : ?>
 	color: <?php echo $header_contact_title_color; ?>;
@@ -730,6 +1827,69 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $header_contact_title_font_size ) ) : ?>
 	font-size: <?php echo $header_contact_title_font_size; ?>;
+	<?php endif; ?>
+}
+#our-features{
+	<?php if ( ! empty( $themes_our_features_bg_color ) ) : ?>
+	background-color: <?php echo $themes_our_features_bg_color; ?>;
+	<?php endif; ?>
+}
+#our-features .our-features-content p {
+	<?php if ( ! empty( $themes_features_small_text_color ) ) : ?>
+	color: <?php echo $themes_features_small_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_features_small_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_features_small_text_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_features_small_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_features_small_text_font_size; ?>;
+	<?php endif; ?>
+}
+#our-features .our-features-content span{
+	<?php if ( ! empty( $themes_features_main_text_color ) ) : ?>
+	color: <?php echo $themes_features_main_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_features_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_features_main_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_features_main_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_features_main_text_font_size; ?>;
+	<?php endif; ?>
+}
+#why-choose-us .why-choose-us-content h2{
+	<?php if ( ! empty( $themes_about_main_title_color ) ) : ?>
+	color: <?php echo $themes_about_main_title_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_main_title_fontfamily  ) ) : ?>
+	font-family: <?php echo $themes_about_main_title_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_main_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_about_main_title_font_size; ?>;
+	<?php endif; ?>
+}
+#why-choose-us .why-choose-us-content ul li{
+	<?php if ( ! empty( $themes_about_list_title_color ) ) : ?>
+	color: <?php echo $themes_about_list_title_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_list_title_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_about_list_title_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_list_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_about_list_title_font_size; ?>;
+	<?php endif; ?>
+}
+#why-choose-us .why-choose-us-content a{
+	<?php if ( ! empty( $themes_about_button_text_color ) ) : ?>
+	color: <?php echo $themes_about_button_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_button_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_about_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_about_button_text_font_size; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_about_button_bg_color ) ) : ?>
+	background-color: <?php echo $themes_about_button_bg_color; ?>;
 	<?php endif; ?>
 }
 .top-content .contentbx p{
@@ -814,7 +1974,12 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_header_section_search_font_size; ?>;
 	<?php endif; ?>
 }
-.menubar .topbtn{
+.menubar .login-link a:hover{
+	<?php if ( ! empty( $themes_header_button_bg_color_afterhover ) ) : ?>
+	background-color: <?php echo $themes_header_button_bg_color_afterhover; ?>;
+	<?php endif; ?>
+}
+.menubar .login-link a{
 	<?php if ( ! empty( $themes_header_button_text_color ) ) : ?>
 	color: <?php echo $themes_header_button_text_color; ?>;
 	<?php endif; ?>
@@ -826,6 +1991,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_header_button_bg_color ) ) : ?>
 	background-color: <?php echo $themes_header_button_bg_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_button_border_color ) ) : ?>
+	border-color: <?php echo $themes_header_button_border_color; ?>;
 	<?php endif; ?>
 }
 #slider{

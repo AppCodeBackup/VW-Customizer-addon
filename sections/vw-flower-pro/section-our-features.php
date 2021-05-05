@@ -53,6 +53,36 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[our_feature_small_heading]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+
+      $wp_customize->add_control( 'themes_customization[our_feature_small_heading]', array(
+        'label'            => __( 'Section Small Title', 'themes' ),
+        'section'          => 'customize_features_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[our_feature_small_heading]',
+      ) );
+      $wp_customize->add_setting( 'themes_customization[our_feature_main_heading]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+
+      $wp_customize->add_control( 'themes_customization[our_feature_main_heading]', array(
+        'label'            => __( 'Section Main Title', 'themes' ),
+        'section'          => 'customize_features_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[our_feature_main_heading]',
+      ) );
+    }
     $wp_customize->add_setting('themes_customization[our_features_number]',array(
         'default'   => '',
         'sanitize_callback' => 'sanitize_textarea_field',
@@ -99,7 +129,7 @@
 	      'button_labels' => array(
 	         'select'       => __( 'Select Image', 'themes' ),
 	    ) ) ) );
-      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[features_small_title'.$i.']', array(
 	        'default'           => '',
 	        'type'              => 'option',
@@ -129,20 +159,22 @@
         'priority'         => Null,
         'settings'         => 'themes_customization[features_title'.$i.']',
       ) );
-      $wp_customize->add_setting( 'themes_customization[features_discount_text'.$i.']', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[features_discount_text'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
 
-      $wp_customize->add_control( 'themes_customization[features_discount_text'.$i.']', array(
-        'label'            => __( 'Discount Title', 'themes' ),
-        'section'          => 'customize_features_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[features_discount_text'.$i.']',
-      ) );
+        $wp_customize->add_control( 'themes_customization[features_discount_text'.$i.']', array(
+          'label'            => __( 'Discount Title', 'themes' ),
+          'section'          => 'customize_features_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[features_discount_text'.$i.']',
+        ) );
+      }
       if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[features_discount_value'.$i.']', array(
 	        'default'           => '',
@@ -183,28 +215,30 @@
 	        'setting' => 'themes_customization[features_feat_url'.$i.']',
 	        'type'    => 'url'
 	    ));
-	    $wp_customize->add_setting(
-	        'themes_customization[features_feat_icon'.$i.']',
-	        array(
-	          'default'     => '',
-	          'type'              => 'option',
-	          'capability'        => 'manage_options',
-	          'transport'         => 'postMessage',
-	          'sanitize_callback' => 'sanitize_text_field'
-	        )
-	    );
-	    $wp_customize->add_control(
-	        new themes_Fontawesome_Icon_Chooser(
-	          $wp_customize,
-	          'themes_customization[features_feat_icon'.$i.']',
-	          array(
-	            'settings'    => 'themes_customization[features_feat_icon'.$i.']',
-	            'section'   => 'customize_features_section',
-	            'type'      => 'icon',
-	            'label'     => esc_html__( 'Features Icon', 'themes' ),
-	          )
-	        )
-	    );
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+  	    $wp_customize->add_setting(
+  	        'themes_customization[features_feat_icon'.$i.']',
+  	        array(
+  	          'default'     => '',
+  	          'type'              => 'option',
+  	          'capability'        => 'manage_options',
+  	          'transport'         => 'postMessage',
+  	          'sanitize_callback' => 'sanitize_text_field'
+  	        )
+  	    );
+  	    $wp_customize->add_control(
+  	        new themes_Fontawesome_Icon_Chooser(
+  	          $wp_customize,
+  	          'themes_customization[features_feat_icon'.$i.']',
+  	          array(
+  	            'settings'    => 'themes_customization[features_feat_icon'.$i.']',
+  	            'section'   => 'customize_features_section',
+  	            'type'      => 'icon',
+  	            'label'     => esc_html__( 'Features Icon', 'themes' ),
+  	          )
+  	        )
+  	    );
+      }
     }
     $wp_customize->add_setting( 'themes_customization[features_small_text_color]', array(
       'default' => '',

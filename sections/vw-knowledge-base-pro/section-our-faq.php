@@ -67,6 +67,173 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[our_faq_main_heading]',
     ) );
+    $wp_customize->add_setting( 'themes_customization[our_faq_section_title_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_section_title_text_color]', array(
+      'label' => 'Sectional Title Color',
+      'section' => 'customize_our_faq_section',
+      'settings' => 'themes_customization[our_faq_section_title_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[our_faq_section_title_text_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[our_faq_section_title_text_fontfamily]', array(
+        'section'  => 'customize_our_faq_section',
+        'label'    => __( 'Section Title Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[our_faq_section_title_text_fontsize]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[our_faq_section_title_text_fontsize]',array(
+        'label' => __('Section Titlte Font Size in px','themes'),
+        'section' => 'customize_our_faq_section',
+        'setting' => 'themes_customization[our_faq_section_title_text_fontsize]',
+        'type'    => 'text'
+      )
+    ); 
+    $wp_customize->add_setting( 'themes_customization[our_faq_content_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_content_text_color]', array(
+      'label' => 'Content Text Color',
+      'section' => 'customize_our_faq_section',
+      'settings' => 'themes_customization[our_faq_content_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[our_faq_content_text_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[our_faq_content_text_fontfamily]', array(
+        'section'  => 'customize_our_faq_section',
+        'label'    => __( 'Content Text Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[our_faq_content_text_fontsize]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[our_faq_content_text_fontsize]',array(
+        'label' => __('Content Text Font Size in px','themes'),
+        'section' => 'customize_our_faq_section',
+        'setting' => 'themes_customization[our_faq_content_text_fontsize]',
+        'type'    => 'text'
+      )
+    ); 
+    $wp_customize->add_setting( 'themes_customization[our_faq_body_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_body_text_color]', array(
+      'label' => 'Body Text Color',
+      'section' => 'customize_our_faq_section',
+      'settings' => 'themes_customization[our_faq_body_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[our_faq_body_text_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[our_faq_body_text_fontfamily]', array(
+        'section'  => 'customize_our_faq_section',
+        'label'    => __( 'Body Text Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[our_faq_body_text_fontsize]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[our_faq_body_text_fontsize]',array(
+        'label' => __('Body Text Font Size in px','themes'),
+        'section' => 'customize_our_faq_section',
+        'setting' => 'themes_customization[our_faq_body_text_fontsize]',
+        'type'    => 'text'
+      )
+    ); 
+    $wp_customize->add_setting( 'themes_customization[our_faq_body_bgcolor]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_body_bgcolor]', array(
+      'label'      => __( 'Bar Background Color:', 'themes' ),
+      'section'    => 'customize_our_faq_section',
+      'priority'   => null,
+      'settings'   => 'themes_customization[our_faq_body_bgcolor]'
+    ) ) );
+    $wp_customize->add_setting( 'themes_customization[our_faq_button_bgcolor]', array(
+      'default'        => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    ) );
+        $wp_customize->add_setting( 'themes_customization[our_faq_button_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_button_color]', array(
+      'label' => 'Button Color',
+      'section' => 'customize_our_faq_section',
+      'settings' => 'themes_customization[our_faq_button_color]',
+    )));  
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_button_bgcolor]', array(
+      'label'      => __( 'Button Background Color:', 'themes' ),
+      'section'    => 'customize_our_faq_section',
+      'priority'   => null,
+      'settings'   => 'themes_customization[our_faq_button_bgcolor]'
+    ) ) );
+
     $wp_customize->add_setting('themes_customization[our_faq_number]',array(
         'default'   => '',
         'sanitize_callback' => 'sanitize_textarea_field',
