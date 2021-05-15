@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_contact_us_section', array(
       'title'        => __( 'Home Conatct', 'themes' ),
       'description'  => __( 'Customize Home Conatct Section', 'themes' ),
-      'priority'     => 9,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[contact_us_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[contact_us_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_contact_us_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[contact_us_bgcolor]', array(
@@ -34,7 +34,7 @@
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[contact_us_bgcolor]', array(
       'label'      => __( 'Background Color:', 'themes' ),
       'section'    => 'customize_contact_us_section',
-      'priority'   => 5,
+      'priority'   => Null,
       'settings'   => 'themes_customization[contact_us_bgcolor]'
     ) ) );
     $wp_customize->add_setting( 'themes_customization[contact_us_bgimage]', array(

@@ -564,6 +564,7 @@ if(!function_exists('themes_font_awesome_icon_array')){
 "fas fa-phone",
 "fas fa-phone-square",
 "fas fa-phone-volume",
+"fas fa-phone-alt",
 "fab fa-pied-piper",
 "fab fa-pied-piper-alt",
 "fab fa-pied-piper-pp",

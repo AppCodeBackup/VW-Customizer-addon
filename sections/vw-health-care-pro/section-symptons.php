@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_symptoms_us_section', array(
       'title'        => __( 'Coronavirus Symptoms', 'themes' ),
       'description'  => __( 'Customize Coronavirus Symptoms Section', 'themes' ),
-      'priority'     => 3,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_symptoms_us_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_symptoms_us_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_symptoms_us_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[symptoms_us_bgcolor]', array(
@@ -113,6 +113,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[covid_symptoms_box_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[covid_symptoms_box_number]',array(

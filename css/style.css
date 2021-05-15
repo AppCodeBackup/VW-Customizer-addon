@@ -8,44 +8,44 @@
 .themes_page_themes-settings #normal-sortables{
   padding-top: 20px;
 }
-#wpbrigade_infs_general_videobox h3{
+#vwthemes_infs_general_videobox h3{
   padding: 0px 10px 10px;
   border-bottom: 1px solid #eee;
 }
-.wpbrigade_videobox .column{
+.vwthemes_videobox .column{
   width: 50%;
   float: left;
   padding-right: 2.5%;
   border-right: 1px solid #ebebeb;
   padding-bottom: 2em;
 }
-.wpbrigade_videobox .column h2{
+.vwthemes_videobox .column h2{
   font-size: 16px;
   margin-bottom: 20px;
 }
-.wpbrigade_videobox .column.right{
+.vwthemes_videobox .column.right{
   margin-right: 0;
   padding-right: 0;
   padding-left: 2.5%;
   border: 0;
   max-width: 49%;
 }
-.wpbrigade_videobox::after{
+.vwthemes_videobox::after{
   content: '';
   display: table;
   clear: both;
 }
-.wpbrigade-video-link{
+.vwthemes-video-link{
   width: 100%;
   max-width: 200px;
   float: left;
   margin: 0 1.5em 1.5em 0;
 }
-.wpbrigade-video-link img{
+.vwthemes-video-link img{
   max-width: 100%;
   height: auto;
 }
-.wpbrigade-video-popup-overlay{
+.vwthemes-video-popup-overlay{
   position: fixed;
   height: 100%;
   width: 100%;
@@ -54,7 +54,7 @@
   background: rgba(0,0,0, .9);
   display: none;
 }
-.wpbrigade-video-popup{
+.vwthemes-video-popup{
   width: 600px;
   position: absolute;
   top: 50%;
@@ -67,26 +67,26 @@
   transform: translate(-50%, -50%);
   padding: 50px 20px 20px;
 }
-.wpbrigade-video-popup iframe{
+.vwthemes-video-popup iframe{
   width: 100%;
   height: 380px;
 }
-.wpbrigade-close-popup{
+.vwthemes-close-popup{
   position: absolute;
   top: 10px;
   right: 20px;
   cursor: pointer;
 }
-.wpbrigade-video-description-wrapper{
+.vwthemes-video-description-wrapper{
   overflow: hidden;
 }
-.wpbrigade-video-description-wrapper p{
+.vwthemes-video-description-wrapper p{
   margin: 0;
 }
-.wpbrigade-video-description-wrapper p ~ p{
+.vwthemes-video-description-wrapper p ~ p{
   margin-top: 10px;
 }
-.wpbrigade-heading {
+.vwthemes-heading {
   font-size: 16px;
   margin-bottom: 20px;
   font-weight: 400;
@@ -412,13 +412,13 @@ input[type=checkbox].themes-check-hidden:checked + .themes-checkbox:active:after
   }
 }
 @media screen and (max-width: 767px) {
-  .wpbrigade-video-popup{
+  .vwthemes-video-popup{
     max-width: 455px;
     width: 100%;
     height: auto;
     padding: 37px 20px 9px;
   }
-  .wpbrigade-video-popup iframe{
+  .vwthemes-video-popup iframe{
     height: 200px;
   }
 }

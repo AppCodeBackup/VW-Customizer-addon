@@ -70,11 +70,11 @@ class Themes_Setting_Presets extends WP_Customize_Control {
             <h3><?php echo $val['name'] ?></h3>
           </label>
           <?php if ( isset( $val['pro'] ) ) : ?>
-            <a href="https://wpbrigade.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&utm_medium=themes&utm_campaign=pro-upgrade" target="_blank" class="no-available">
+            <a href="https://vwthemes.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&utm_medium=themes&utm_campaign=pro-upgrade" target="_blank" class="no-available">
               <span><?php _e( 'Unlock Premium Feature', 'themes' ); ?></span>
             </a>
           <?php elseif ( isset( $val['link'] ) ) : ?>
-            <a href="mailto:support@wpbrigade.com?subject=I want Custom Design for my login page." class="no-available">
+            <a href="mailto:support@vwthemes.com?subject=I want Custom Design for my login page." class="no-available">
               <span><?php _e( 'Contact us for Custom Design', 'themes' ); ?></span>
             </a>
           <?php endif; ?>

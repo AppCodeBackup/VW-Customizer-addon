@@ -3,7 +3,7 @@
 * Uninstall ThemeSetting.
 *
 * @package themes
-* @author WPBrigade
+* @author vwthemes
 * @since 1.1.9
 */
 

@@ -61,11 +61,6 @@ class Themes_Setting_Settings {
 
 
     function themesicon() {
-      //$ttf   = plugins_url( '../themesfonts/themes.ttf?gb7unf', __FILE__ );
-      //$woff  = plugins_url( '../themesfonts/themes.woff?gb7unf', __FILE__ );
-      //$svg   = plugins_url( '../themesfonts/themes.svg?gb7unf', __FILE__ );
-      //$eotie = plugins_url( '../themesfonts/themes.eot?gb7unf#iefix', __FILE__ );
-      //$eot   = plugins_url( '../themesfonts/themes.eot?gb7unf', __FILE__ );
       echo "<style>
 
       .icon-themes-dashicon:before {
@@ -89,43 +84,11 @@ class Themes_Setting_Settings {
       }
       </style>";
     }
-    add_menu_page( __( 'ThemeSetting', 'themes' ), __( 'ThemeSetting', 'themes' ), 'manage_options', "themes-settings", array( $this, 'plugin_page' ), false, 50 );
-
-    //add_submenu_page( 'themes-settings', __( 'Settings', 'themes' ), __( 'Settings', 'themes' ), 'manage_options', "themes-settings", array( $this, 'plugin_page' ) );
+    add_menu_page( __( 'Theme Setting', 'themes' ), __( 'Theme Setting', 'themes' ), 'manage_options', "themes-settings", array( $this, 'plugin_page' ), false, 50 );
 
     add_submenu_page( 'themes-settings', __( 'Customizer', 'themes' ), __( 'Customizer', 'themes' ), 'manage_options', "themes", '__return_null' );
 
-    add_submenu_page( 'themes-settings', __( 'Help', 'themes' ), __( 'Help', 'themes' ), 'manage_options', "themes-help", array( $this, 'themes_help_page' ) );
-
-    //add_submenu_page( 'themes-settings', __( 'Import/Export ThemeSetting Settings', 'themes' ), __( 'Import / Export', 'themes' ), 'manage_options', "themes-import-export", array( $this, 'themes_import_export_page' ) );
-
-    //add_submenu_page( 'themes-settings', __( 'Add-Ons', 'themes' ), __( 'Add-Ons', 'themes' ), 'manage_options', "themes-addons", array( $this, 'themes_addons_page' ) );
-
   }
-
-  // function get_settings_sections() {
-  //
-  //   $themes_general_tab = array(
-  //     array(
-  //       'id'    => 'themes_setting',
-  //       'title' => __( 'Settings', 'themes' ),
-  //       'desc'  => sprintf( __( 'Everything else is customizable through %1$sWordPress Customizer%2$s.', 'themes' ), '<a href="' . admin_url( 'admin.php?page=themes' ) . '">', '</a>' ),
-  //     ),
-  //   );
-  //
-  //   /**
-  //    * Add Promotion tabs in settings page.
-  //    * @since 1.1.22
-  //    * @version 1.1.24
-  //    */
-  //   if ( ! has_action( 'themes_pro_add_template' ) ) {
-  //     include CUSTOM_DIR_PATH . 'classes/class-themes-promotion.php';
-  //   }
-  //
-  //   $sections = apply_filters( 'themes_settings_tab', $themes_general_tab );
-  //
-  //   return $sections;
-  // }
 
   /**
    * Returns all the settings fields
@@ -142,7 +105,7 @@ class Themes_Setting_Settings {
       array(
         'name'              => 'session_expiration',
         'label'             => __( 'Session Expire', 'themes' ),
-        'desc'              => __( 'Set the session expiration time in minutes. e.g: 10', 'themes' ), //<br /> When you set the time, here you need to set the expiration cookies. for this, you just need to logout at least one time. After login again, it should be working fine.<br />For removing the session expiration just pass empty value in “Expiration” field and save it. Now clear the expiration cookies by logout at least one time.
+        'desc'              => __( 'Set the session expiration time in minutes. e.g: 10', 'themes' ), 
         'placeholder'       => __( '10', 'themes' ),
         'min'               => 0,
         // 'max'            => 100,
@@ -151,19 +114,7 @@ class Themes_Setting_Settings {
         'default'           => 'Title',
         'sanitize_callback' => 'abs'
       ),
-      // array(
-      //   'name'  => 'enable_privacy_policy',
-      //   'label' => __( 'Enable Privacy Policy', 'themes' ),
-      //   'desc'  => __( 'Enable Privacy Policy checkbox on registration page.', 'themes' ),
-      //   'type'  => 'checkbox'
-      // ),
-      // array(
-      //   'name'  => 'privacy_policy',
-      //   'label' => __( 'Privacy & Policy', 'themes' ),
-      //   'desc'  => __( 'Right down the privacy and policy description.', 'themes' ),
-      //   'type'  => 'wysiwyg',
-      //   'default' => __( sprintf( __( '%1$sPrivacy Policy%2$s.', 'themes' ), '<a href="' . admin_url( 'admin.php?page=themes-settings' ) . '">', '</a>' ) )
-      // ),
+      
       array(
         'name'  => 'auto_remember_me',
         'label' => __( 'Auto Remember Me', 'themes' ),
@@ -188,12 +139,6 @@ class Themes_Setting_Settings {
             'email'    => 'Only Email Address'
         )
       ),
-      // array(
-      //   'name'  => 'login_with_email',
-      //   'label' => __( 'Login with Email', 'themes' ),
-      //   'desc'  => __( 'Force user to login with Email Only Instead Username.', 'themes' ),
-      //   'type'  => 'checkbox'
-      // ),
       array(
         'name'  => 'reset_settings',
         'label' => __( 'Reset Default Settings', 'themes' ),
@@ -202,15 +147,6 @@ class Themes_Setting_Settings {
       ),
     );
 
-    // Hide Advertisement in version 1.1.3
-    // if ( ! has_action( 'themes_pro_add_template' ) ) {
-    //   array_unshift( $_free_fields , array(
-    //     'name'  => 'enable_repatcha_promo',
-    //     'label' => __( 'Enable reCAPTCHA', 'themes' ),
-    //     'desc'  => __( 'Enable ThemeSetting reCaptcha', 'themes' ),
-    //     'type'  => 'checkbox'
-    //   ) );
-    // }
 
     // Add WooCommerce lostpassword_url field in version 1.1.7
     if ( class_exists( 'WooCommerce' ) ) {
@@ -218,7 +154,7 @@ class Themes_Setting_Settings {
     }
 
     // Add themes_uninstall field in version 1.1.9
-    $_free_fields     = $this->themes_uninstallation_tool( $_free_fields );
+    //$_free_fields     = $this->themes_uninstallation_tool( $_free_fields );
 
     $_settings_fields = apply_filters( 'themes_pro_settings', $_free_fields );
 
@@ -233,7 +169,10 @@ class Themes_Setting_Settings {
 
       echo '<div class="wrap themes-admin-setting">';
       echo '<h2 style="margin: 20px 0 20px 0;">';
-      esc_html_e( 'ThemeSetting - Rebranding your boring WordPress Login pages', 'themes' );
+      esc_html_e( 'VW Themes Customizer Addon', 'themes' );
+      echo '<h2>';
+      esc_html_e( 'Thanks for installing VW Themes Customizer Addon, you rock!', 'themes' ); 
+      echo '</h2>';
       echo '</h2>';
 
       $this->settings_api->show_navigation();
@@ -241,57 +180,6 @@ class Themes_Setting_Settings {
 
       echo '</div>';
   }
-
-  // /**
-  //  * [themes_help_page callback function for sub-page Help]
-  //  * @since 1.0.19
-  //  */
-  // function themes_help_page(){
-  //
-  //   include CUSTOM_DIR_PATH . 'classes/class-themes-log.php';
-  //
-  //   $html = '<div class="themes-help-page">';
-  //   $html .= '<h2>Help & Troubleshooting</h2>';
-  //   $html .= sprintf( __( 'Free plugin support is available on the %1$s plugin support forums%2$s.', 'themes' ), '<a href="https://wordpress.org/support/plugin/themes" target="_blank">', '</a>' );
-  //   $html .="<br /><br />";
-  //
-  //   if( ! class_exists('Themes_Setting_Pro')){
-  //     $html .= sprintf( __( 'For premium features, add-ons and priority email support, %1$s upgrade to pro%2$s.', 'themes' ), '<a href="https://wpbrigade.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&utm_medium=help-page&utm_campaign=pro-upgrade" target="_blank">', '</a>' );
-  //   }else{
-  //     $html .= 'For premium features, add-ons and priority email support, Please submit a question <a href="https://themes.pro/contact/" target="_blank">here</a>!';
-  //   }
-  //
-  //   $html .="<br /><br />";
-  //   $html .= 'Found a bug or have a feature request? Please submit an issue <a href="https://themes.pro/contact/" target="_blank">here</a>!';
-  //   $html .= '<pre><textarea rows="25" cols="75" readonly="readonly">';
-  //   $html .= Themes_Setting_Log_Info::get_sysinfo();
-  //   $html .= '</textarea></pre>';
-  //   $html .= '<input type="button" class="button themes-log-file" value="' . __( 'Download Log File', 'themes' ) . '"/>';
-  //   $html .= '<span class="log-file-sniper"><img src="'. admin_url( 'images/wpspin_light.gif' ) .'" /></span>';
-  //   $html .= '<span class="log-file-text">ThemeSetting Log File Downloaded Successfully!</span>';
-  //   $html .= '</div>';
-  //   echo $html;
-  // }
-
-  /**
-   * [themes_import_export_page callback function for sub-page Import / Export]
-   * @since 1.0.19
-   */
-  // function themes_import_export_page(){
-  //
-  //   include CUSTOM_DIR_PATH . 'include/themes-import-export.php';
-  // }
-
-  /**
-   * [themes_addons_page callback function for sub-page Add-ons]
-   * @since 1.0.19
-   */
-  // function themes_addons_page() {
-  //
-  //   include CUSTOM_DIR_PATH . 'classes/class-themes-addons.php';
-  //   $obj_themes_addons	= new Themes_Setting_Addons();
-  //   $obj_themes_addons->_addon_html();
-  // }
 
   /**
    * Get all the pages

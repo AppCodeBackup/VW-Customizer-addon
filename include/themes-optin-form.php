@@ -238,7 +238,6 @@ a.themes-ga-button.button.button-primary{
   margin-right: 40px;
   position: relative;
   bottom: 0px;
-  width: 55px;
   vertical-align: middle;
 }
     .themes-badge {
@@ -298,13 +297,13 @@ echo '<form method="post" action="' . admin_url( 'admin.php?page=' . $default_lo
 echo "<input type='hidden' name='email' value='$email'>";
 
 echo '<div id="themes-splash">';
-echo '<h1> <img id="themes-logo-text" src="' . plugins_url( 'img/themes.png', dirname( __FILE__ ) )  . '"> ' . __( 'Welcome to ThemeSetting', 'themes' ) . '</h1>';
+echo '<h1> <img id="themes-logo-text" src="' . plugins_url( '/img/final-logo.png', dirname( __FILE__ ) )  . '"> ' . __( 'Welcome to Theme Setting', 'themes' ) . '</h1>';
 
     echo '<div id="themes-splash-main" class="themes-splash-box">';
     echo '<div class="step-wrapper">';
     if ( get_option( '_themes_optin' ) == 'no' || ! get_option( '_themes_optin' ) ) {
     echo "<div class='first-step step'>";
-      echo sprintf ( __( '%1$s Hey %2$s,  %4$s If you opt-in some data about your installation of ThemeSetting will be sent to WPBrigade.com (This doesn\'t include stats)%4$s and You will receive new feature updates, security notifications etc %5$sNo Spam, I promise.%6$s %4$s%4$s Help us %7$sImprove ThemeSetting%8$s %4$s %4$s ', 'themes' ), '<p id="themes-splash-main-text">', '<strong>' . $name . '</strong>', '<strong>' . $website . '</strong>', '<br>', '<i>', '</i>', '<strong>', '</strong>' ) . '</p>';
+      echo sprintf ( __( '%1$s Hey %2$s,  %4$s If you opt-in some data about your installation of ThemeSetting will be sent to vwthemes.com (This doesn\'t include stats)%4$s and You will receive new feature updates, security notifications etc %5$sNo Spam, I promise.%6$s %4$s%4$s Help us %7$sImprove ThemeSetting%8$s %4$s %4$s ', 'themes' ), '<p id="themes-splash-main-text">', '<strong>' . $name . '</strong>', '<strong>' . $website . '</strong>', '<br>', '<i>', '</i>', '<strong>', '</strong>' ) . '</p>';
       echo "<button type='submit' id='themes-ga-submit-btn' class='themes-ga-button button button-primary' name='themes-submit-optin' >" . __( 'Allow and Continue  ', 'themes') . "</button><br>";
       echo "<button type='submit' id='themes-ga-optout-btn' name='themes-submit-optout' >" . __( 'Skip This Step', 'themes') . "</button>";
       echo '<div id="themes-splash-permissions" class="themes-splash-box">';

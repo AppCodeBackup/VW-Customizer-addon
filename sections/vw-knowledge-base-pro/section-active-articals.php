@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_active_articals_section', array(
       'title'        => __( 'Active Articals', 'themes' ),
       'description'  => __( 'Customize Active Articals Section', 'themes' ),
-      'priority'     => 5,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_active_articals_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_active_articals_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_active_articals_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[active_articals_bg_color]', array(
@@ -69,6 +69,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[active_articals_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[active_articals_number]',array(
@@ -97,6 +100,9 @@
       ) );
       $wp_customize->add_setting('themes_customization[active_articals_feature_number'.$i.']',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
       ));
       $wp_customize->add_control('themes_customization[active_articals_feature_number'.$i.']',array(

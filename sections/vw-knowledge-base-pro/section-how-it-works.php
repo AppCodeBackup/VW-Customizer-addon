@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_how_it_work_section', array(
       'title'        => __( 'How It Works', 'themes' ),
       'description'  => __( 'Customize How It Works Section', 'themes' ),
-      'priority'     => 3,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_how_it_work_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_how_it_work_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_how_it_work_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[how_it_work_bg_color]', array(
@@ -86,6 +86,9 @@
     if(defined('VW_HEALTH_CARE_PRO_VERSION')){
       $wp_customize->add_setting('themes_customization[how_it_work_title_number]',array(
           'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_textarea_field',
       ));
       $wp_customize->add_control('themes_customization[how_it_work_title_number]',array(
@@ -114,6 +117,9 @@
     }
     $wp_customize->add_setting('themes_customization[how_it_work_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[how_it_work_number]',array(

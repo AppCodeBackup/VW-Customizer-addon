@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_emergency_contact_section', array(
       'title'        => __( 'Emergency Contact', 'themes' ),
       'description'  => __( 'Customize Emergency Contact Section', 'themes' ),
-      'priority'     => 14,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_emergency_contact_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_emergency_contact_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_emergency_contact_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[emergency_contact_bgcolor]', array(
@@ -34,7 +34,7 @@
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[emergency_contact_bgcolor]', array(
       'label'      => __( 'Background Color:', 'themes' ),
       'section'    => 'customize_emergency_contact_section',
-      'priority'   => 5,
+      'priority'   => Null,
       'settings'   => 'themes_customization[emergency_contact_bgcolor]'
     ) ) );
     $wp_customize->add_setting( 'themes_customization[emergency_contact_bgimage]', array(
@@ -150,6 +150,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[emergency_contact_app_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[emergency_contact_app_number]',array(

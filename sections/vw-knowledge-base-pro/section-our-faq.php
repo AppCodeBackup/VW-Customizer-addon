@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_our_faq_section', array(
       'title'        => __( 'Our Faq', 'themes' ),
       'description'  => __( 'Customize Our Faq Section', 'themes' ),
-      'priority'     => 3,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_our_faq_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_our_faq_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_our_faq_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[our_faq_bg_color]', array(
@@ -236,6 +236,9 @@
 
     $wp_customize->add_setting('themes_customization[our_faq_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[our_faq_number]',array(

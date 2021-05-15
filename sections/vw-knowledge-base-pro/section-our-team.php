@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_our_team_section', array(
       'title'        => __( 'Our team', 'themes' ),
       'description'  => __( 'Customize our team Section', 'themes' ),
-      'priority'     => 7,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[our_team_enabledisable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[our_team_enabledisable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_our_team_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[our_team_bg_color]', array(
@@ -34,7 +34,7 @@
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_team_bg_color]', array(
       'label'      => __( 'Background Color:', 'themes' ),
       'section'    => 'customize_our_team_section',
-      'priority'   => 5,
+      'priority'   => Null,
       'settings'   => 'themes_customization[our_team_bg_color]'
     ) ) );
     $wp_customize->add_setting( 'themes_customization[our_team_bg_image]', array(

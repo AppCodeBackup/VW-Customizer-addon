@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_services_blog_section', array(
       'title'        => __( 'Our Services Blog', 'themes' ),
       'description'  => __( 'Customize Services Blog Section', 'themes' ),
-      'priority'     => 3,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_services_blog_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_services_blog_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_services_blog_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[services_blog_bg_color]', array(
@@ -69,6 +69,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[services_blog_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[services_blog_number]',array(
@@ -113,19 +116,18 @@
         'settings'         => 'themes_customization[services_blog_title'.$i.']',
       ) );
       $wp_customize->add_setting( 'themes_customization[services_blog_text'.$i.']', array(
-        'default'           => '',
+        //'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'wp_kses_post'
       ) );
-
-      $wp_customize->add_control( 'themes_customization[services_blog_text'.$i.']', array(
+      $wp_customize->add_control(new themes_customization_Editor_Control($wp_customize,'themes_customization[services_blog_text'.$i.']',array(
         'label'            => __( 'Main Text', 'themes' ),
         'section'          => 'customize_services_blog_section',
         'priority'         => Null,
         'settings'         => 'themes_customization[services_blog_text'.$i.']',
-      ) );
+      ) ));
       $wp_customize->add_setting( 'themes_customization[services_blog_link_title'.$i.']', array(
         'default'           => '',
         'type'              => 'option',

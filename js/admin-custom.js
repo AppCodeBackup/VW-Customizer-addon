@@ -159,14 +159,14 @@
 		}
 
     // Code to fire when the DOM is ready.
-    $('.wpbrigade-video-link').on( 'click', function(e) {
+    $('.vwthemes-video-link').on( 'click', function(e) {
       e.preventDefault();
       var target = $(this).data('video-id');
       $( '#' + target ).fadeIn();
     } );
-    $('.wpbrigade-close-popup').on('click', function(e) {
+    $('.vwthemes-close-popup').on('click', function(e) {
       $(this).parent().parent().fadeOut();
-      $('.wpbrigade-video-wrapper iframe').attr( 'src', 'https://www.youtube.com/embed/GMAwsHomJlE' );
+      $('.vwthemes-video-wrapper iframe').attr( 'src', 'https://www.youtube.com/embed/GMAwsHomJlE' );
     });
 
     // $("#wpb-themes_setting\\[enable_repatcha_promo\\]").on('click', function() {
@@ -211,7 +211,7 @@
 
     $(window).on('load', function() {
 
-      $( '<tr class="recapthca-promo-img"><th class="recapthca-promo" colspan="2"><img src="' + themes_script.plugin_url + '/themes/img/promo/recaptcha_promo.png"><a class="recapthca-promo-link" href="https://wpbrigade.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&amp;utm_medium=recaptcha-settings&amp;utm_campaign=pro-upgrade" target="_blank"><span>Unlock Premium Feature</span></a></th></tr>' ).insertAfter($(".enable_repatcha_promo").closest('tr'));
+      $( '<tr class="recapthca-promo-img"><th class="recapthca-promo" colspan="2"><img src="' + themes_script.plugin_url + '/themes/img/promo/recaptcha_promo.png"><a class="recapthca-promo-link" href="https://vwthemes.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&amp;utm_medium=recaptcha-settings&amp;utm_campaign=pro-upgrade" target="_blank"><span>Unlock Premium Feature</span></a></th></tr>' ).insertAfter($(".enable_repatcha_promo").closest('tr'));
 
       var promotion = $(
         '#wpb-themes_setting\\[enable_repatcha_promo\\]');

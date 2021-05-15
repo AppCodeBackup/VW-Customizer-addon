@@ -219,6 +219,21 @@ jQuery(document).ready(function($) {
     });
   });
 
+
+  wp.customize( 'themes_customization[radio_contact_partners_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#contact_partners').fadeOut();
+        $('#customize-control-themes_customization-radio_contact_partners_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#contact_partners').fadeIn();
+        $('#customize-control-themes_customization-radio_contact_partners_enable').nextAll().show();
+      }
+    });
+  });
+
+
   wp.customize( 'themes_customization[setting_topbar_background_color]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == '' ) {
@@ -269,27 +284,27 @@ jQuery(document).ready(function($) {
     });
   });
 
-  wp.customize( 'themes_customization[slider_enabledisable]', function(value) {
+  wp.customize( 'themes_customization[slider_enable]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == true ) {
         themes_find('#slider').fadeOut();
-        $('#customize-control-themes_customization-slider_enabledisable').nextAll().hide();
+        $('#customize-control-themes_customization-slider_enable').nextAll().hide();
         $('#customize-control-themes_customization-customize_login_page_title').show();
       } else {
         themes_find('#slider').fadeIn();
-        $('#customize-control-themes_customization-slider_enabledisable').nextAll().show();
+        $('#customize-control-themes_customization-slider_enable').nextAll().show();
       }
     });
   });
-  wp.customize( 'themes_customization[radio_features_enable]', function(value) {
+  wp.customize( 'themes_customization[radio4_enable]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == true ) {
         themes_find('#our-feature').fadeOut();
-        $('#customize-control-themes_customization-radio_features_enable').nextAll().hide();
+        $('#customize-control-themes_customization-radio4_enable').nextAll().hide();
         $('#customize-control-themes_customization-customize_login_page_title').show();
       } else {
         themes_find('#our-feature').fadeIn();
-        $('#customize-control-themes_customization-radio_features_enable').nextAll().show();
+        $('#customize-control-themes_customization-radio_radio4_enable').nextAll().show();
       }
     });
   });
@@ -317,6 +332,18 @@ jQuery(document).ready(function($) {
       }
     });
   });
+  wp.customize( 'themes_customization[our_team_enabledisable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#our_team').fadeOut();
+        $('#customize-control-themes_customization-our_team_enabledisable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#our_team').fadeIn();
+        $('#customize-control-themes_customization-our_team_enabledisable').nextAll().show();
+      }
+    });
+  });
   wp.customize( 'themes_customization[radio4_enable]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == true ) {
@@ -324,7 +351,7 @@ jQuery(document).ready(function($) {
         $('#customize-control-themes_customization-radio4_enable').nextAll().hide();
         $('#customize-control-themes_customization-customize_login_page_title').show();
       } else {
-        themes_find('#slider').fadeIn();
+        themes_find('#featured-update').fadeIn();
         $('#customize-control-themes_customization-radio4_enable').nextAll().show();
       }
     });
@@ -334,10 +361,58 @@ jQuery(document).ready(function($) {
       if ( themes_settingsVal == true ) {
         themes_find('#our-app').fadeOut();
         $('#customize-control-themes_customization-radio_our_app_enable').nextAll().hide();
-        $('#customize-control-themes_customization-customize_login_page_title').show();
+        $('#customize-controur_themes_customization-customize_login_page_title').show();
       } else {
         themes_find('#our-app').fadeIn();
         $('#customize-control-themes_customization-radio_our_app_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_active_articals_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#Active-articals').fadeOut();
+        $('#customize-control-themes_customization-radio_active_articals_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#Active-articals').fadeIn();
+        $('#customize-control-themes_customization-radio_active_articals_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_contact_partners_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#contact-partners').fadeOut();
+        $('#customize-control-themes_customization-radio_contact_partners_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#contact-partners').fadeIn();
+        $('#customize-control-themes_customization-radio_contact_partners_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_live_chat_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#live-chat-blog').fadeOut();
+        $('#customize-control-themes_customization-radio_live_chat_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#live-chat-blog').fadeIn();
+        $('#customize-control-themes_customization-radio_live_chat_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_our_faq_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#our-faq').fadeOut();
+        $('#customize-control-themes_customization-radio_our_faq_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#our-faq').fadeIn();
+        $('#customize-control-themes_customization-radio_our_faq_enable').nextAll().show();
       }
     });
   });
@@ -362,6 +437,30 @@ jQuery(document).ready(function($) {
       } else {
         themes_find('#services').fadeIn();
         $('#customize-control-themes_customization-services_enabledisable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_browse_topics_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#browse-topics').fadeOut();
+        $('#customize-control-themes_customization-radio_browse_topics_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#browse-topics').fadeIn();
+        $('#customize-control-themes_customization-radio_browse_topics_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_services_blog_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#services-blog').fadeOut();
+        $('#customize-control-themes_customization-radio_services_blog_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#services-blog').fadeIn();
+        $('#customize-control-themes_customization-radio_services_blog_enable').nextAll().show();
       }
     });
   });
@@ -397,7 +496,7 @@ jQuery(document).ready(function($) {
         $('#customize-control-themes_customization-customize_login_page_title').show();
       } else {
         themes_find('#best-seller').fadeIn();
-        $('#customize-control-themes_customization-newsletter_enable').nextAll().show();
+        $('#customize-control-themes_customization-radio_best_seller_enable').nextAll().show();
       }
     });
   });
@@ -476,12 +575,84 @@ jQuery(document).ready(function($) {
   wp.customize( 'themes_customization[records_section_enable]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == true ) {
-        themes_find('#our_records').fadeOut();
+        themes_find('#our_records,#our-records').fadeOut();
         $('#customize-control-themes_customization-records_section_enable').nextAll().hide();
         $('#customize-control-themes_customization-customize_login_page_title').show();
       } else {
-        themes_find('#our_records').fadeIn();
+        themes_find('#our_records,#our-records').fadeIn();
         $('#customize-control-themes_customization-records_section_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_getstarted_blog_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#getstarted-blog').fadeOut();
+        $('#customize-control-themes_customization-radio_getstarted_blog_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#getstarted-blog').fadeIn();
+        $('#customize-control-themes_customization-radio_getstarted_blog_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_emergency_contact_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#emergency_contact').fadeOut();
+        $('#customize-control-themes_customization-radio_emergency_contact_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#emergency_contact').fadeIn();
+        $('#customize-control-themes_customization-radio_emergency_contact_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_search_banner_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#search-banner').fadeOut();
+        $('#customize-control-themes_customization-radio_search_banner_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#search-banner').fadeIn();
+        $('#customize-control-themes_customization-radio_search_banner_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[pricing_plan_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#pricing-plans').fadeOut();
+        $('#customize-control-themes_customization-pricing_plan_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#pricing-plans').fadeIn();
+        $('#customize-control-themes_customization-pricing_plan_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_features_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#our-feature,#our-features').fadeOut();
+        $('#customize-control-themes_customization-radio_features_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#our-feature,#our-features').fadeIn();
+        $('#customize-control-themes_customization-radio_features_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[latest_news_enabledisable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#latest-news').fadeOut();
+        $('#customize-control-themes_customization-latest_news_enabledisable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#latest-news').fadeIn();
+        $('#customize-control-themes_customization-latest_news_enabledisable').nextAll().show();
       }
     });
   });
@@ -497,6 +668,31 @@ jQuery(document).ready(function($) {
       }
     });
   });  
+   wp.customize( 'themes_customization[radio_why_choose_us_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#why-choose-us').fadeOut();
+        $('#customize-control-themes_customization-radio_why_choose_us_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#why-choose-us').fadeIn();
+        $('#customize-control-themes_customization-radio_why_choose_us_enable').nextAll().show();
+      }
+    });
+  });
+     wp.customize( 'themes_customization[radio_symptoms_us_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#symptons').fadeOut();
+        $('#customize-control-themes_customization-radio_symptoms_us_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#symptons').fadeIn();
+        $('#customize-control-themes_customization-radio_symptoms_us_enable').nextAll().show();
+      }
+    });
+  });
+
   wp.customize( 'themes_customization[themes_header_section_logo_title_color]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == '' ) {
@@ -536,6 +732,42 @@ jQuery(document).ready(function($) {
       }
     });
   });
+  wp.customize( 'themes_customization[radio_how_it_work_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#how-it-work').fadeOut();
+        $('#customize-control-themes_customization-radio_how_it_work_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#how-it-work').fadeIn();
+        $('#customize-control-themes_customization-radio_how_it_work_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[radio_timming_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('#timming').fadeOut();
+        $('#customize-control-themes_customization-radio_radio_timming_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('#timming').fadeIn();
+        $('#customize-control-themes_customization-radio_radio_timming_enable').nextAll().show();
+      }
+    });
+  });
+  wp.customize( 'themes_customization[themes_footer_section_enable]', function(value) {
+    value.bind( function(themes_settingsVal) {
+      if ( themes_settingsVal == true ) {
+        themes_find('.copyright').fadeOut();
+        $('#customize-control-themes_customization-themes_footer_section_enable').nextAll().hide();
+        $('#customize-control-themes_customization-customize_login_page_title').show();
+      } else {
+        themes_find('.copyright').fadeIn();
+        $('#customize-control-themes_customization-themes_footer_section_enable').nextAll().show();
+      }
+    });
+  });
   /**
    * function for change ThemeSetting CSS in real time with !important...
    * @param  string setting  [Name of the setting]
@@ -564,13 +796,18 @@ jQuery(document).ready(function($) {
    * @since 1.0.9
    * @version 1.0.12
    */
-  $(window).on('load', function() {
-   
+  window.addEventListener('load', function() { 
     if ( themes_script.autoFocusPanel ) { // Auto Focus on ThemeSetting Panel // 1.2.0
       wp.customize.panel("themes_panel").focus();
     }
+  }, false);
+  // $(window).on('load', function() {
+   
+  //   if ( themes_script.autoFocusPanel ) { // Auto Focus on ThemeSetting Panel // 1.2.0
+  //     wp.customize.panel("themes_panel").focus();
+  //   }
 
-  });
+  // });
 
 })(jQuery);
 

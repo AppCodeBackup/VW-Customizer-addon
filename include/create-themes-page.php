@@ -3,7 +3,7 @@
 * Create ThemeSetting Page.
 *
 * @package   ThemeSetting
-* @author    WPBrigade
+* @author    vwthemes
 * @since     1.1.3
 * @version   1.1.25
 */

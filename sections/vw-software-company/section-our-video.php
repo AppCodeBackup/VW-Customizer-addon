@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_video_section', array(
       'title'        => __( 'Video Section', 'themes' ),
       'description'  => __( 'Customize Video Section', 'themes' ),
-      'priority'     => 11,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[video_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[video_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_video_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[video_bgcolor]', array(
@@ -34,7 +34,7 @@
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_bgcolor]', array(
       'label'      => __( 'Background Color:', 'themes' ),
       'section'    => 'customize_video_section',
-      'priority'   => 5,
+      'priority'   => Null,
       'settings'   => 'themes_customization[video_bgcolor]'
     ) ) );
     $wp_customize->add_setting( 'themes_customization[video_bgimage]', array(
@@ -185,6 +185,9 @@
     ) ) ) );
     $wp_customize->add_setting('themes_customization[video_slider_numbers]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[video_slider_numbers]',array(

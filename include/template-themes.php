@@ -5,7 +5,7 @@
  * Template to display the WordPress login page in the WP-Customizer.
  *
  * @package   ThemeSetting
- * @author    WPBrigade
+ * @author    vwthemes
  * @since 1.1.3
  */
 

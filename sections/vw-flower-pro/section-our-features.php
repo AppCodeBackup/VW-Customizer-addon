@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_features_section', array(
       'title'        => __( 'Our Features', 'themes' ),
       'description'  => __( 'Customize Our Features Section', 'themes' ),
-      'priority'     => 3,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_features_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_features_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_features_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[our_features_bg_color]', array(
@@ -84,7 +84,10 @@
       ) );
     }
     $wp_customize->add_setting('themes_customization[our_features_number]',array(
-        'default'   => '',
+        'default'   => '3',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[our_features_number]',array(
@@ -154,26 +157,25 @@
       ) );
 
       $wp_customize->add_control( 'themes_customization[features_title'.$i.']', array(
-        'label'            => __( 'Main Title', 'themes' ),
+        'label'            => __( 'Features Main Title', 'themes' ).$i,
         'section'          => 'customize_features_section',
         'priority'         => Null,
         'settings'         => 'themes_customization[features_title'.$i.']',
       ) );
       if(defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[features_discount_text'.$i.']', array(
-          'default'           => '',
+        //'default'           => '',
           'type'              => 'option',
           'capability'        => 'manage_options',
           'transport'         => 'postMessage',
           'sanitize_callback' => 'wp_kses_post'
         ) );
-
-        $wp_customize->add_control( 'themes_customization[features_discount_text'.$i.']', array(
+        $wp_customize->add_control(new themes_customization_Editor_Control($wp_customize,'themes_customization[features_discount_text'.$i.']',array(
           'label'            => __( 'Discount Title', 'themes' ),
           'section'          => 'customize_features_section',
           'priority'         => Null,
           'settings'         => 'themes_customization[features_discount_text'.$i.']',
-        ) );
+        ) ));
       }
       if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[features_discount_value'.$i.']', array(
@@ -324,48 +326,50 @@
         'type'    => 'text'
       )
     ); 
-    $wp_customize->add_setting( 'themes_customization[features_dicsount_text_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[features_dicsount_text_color]', array(
-      'label' => 'Features Discount Text Color',
-      'section' => 'customize_features_section',
-      'settings' => 'themes_customization[features_dicsount_text_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[features_dicsount_text_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[features_dicsount_text_fontfamily]', array(
-        'section'  => 'customize_features_section',
-        'label'    => __( 'Features Discount Text Fonts','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[features_dicsount_text_font_size]',array(
+    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[features_dicsount_text_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control('themes_customization[features_dicsount_text_font_size]',array(
-        'label' => __('Features Discount Text Font Size in px','themes'),
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[features_dicsount_text_color]', array(
+        'label' => 'Features Discount Text Color',
         'section' => 'customize_features_section',
-        'setting' => 'themes_customization[features_dicsount_text_font_size]',
-        'type'    => 'text'
-      )
-    ); 
+        'settings' => 'themes_customization[features_dicsount_text_color]',
+      )));  
+
+      $wp_customize->add_setting('themes_customization[features_dicsount_text_fontfamily]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+       ));
+      $wp_customize->add_control(
+          'themes_customization[features_dicsount_text_fontfamily]', array(
+          'section'  => 'customize_features_section',
+          'label'    => __( 'Features Discount Text Fonts','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[features_dicsount_text_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+      );
+      $wp_customize->add_control('themes_customization[features_dicsount_text_font_size]',array(
+          'label' => __('Features Discount Text Font Size in px','themes'),
+          'section' => 'customize_features_section',
+          'setting' => 'themes_customization[features_dicsount_text_font_size]',
+          'type'    => 'text'
+        )
+      ); 
+    }
     $wp_customize->add_setting( 'themes_customization[features_button_bg_color]', array(
       'default' => '',
       'type'              => 'option',

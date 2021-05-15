@@ -16,8 +16,6 @@ jQuery( document ).ready(function($) {
 		var currentValuesArray = $(this).find('.customize-control-sortable-repeater').val().split(',');
 		if(currentValuesArray!="" || currentValuesArray != null){
 			defaultValuesArray = $(this).find('.customize-control-sortable-repeater').val().split(',');
-		}else{
-			defaultValuesArray = new Array("about-us","our-blogs","category-products","newsletter","why-choose-us","our-products","our-features","testimonials","instagram","request-quote","gallery","content-area");
 		}
 		
 		var numRepeaterItems = defaultValuesArray.length;

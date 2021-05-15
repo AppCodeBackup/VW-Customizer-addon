@@ -123,8 +123,12 @@ $themes_topbar_text_color = themes_get_option_key( 'setting_topbar_text_color', 
 $setting_topbar_text_font_family = themes_get_option_key( 'setting_topbar_text_font_family', $themes_array );
 $setting_topbar_text_size = themes_get_option_key( 'setting_topbar_text_size', $themes_array );
 $topbar_text_heading = themes_get_option_key( 'topbar_text_heading', $themes_array );
+
+$latest_news_enabledisable = themes_get_option_key( 'latest_news_enabledisable', $themes_array );
+$latest_news_bg_color = themes_get_option_key( 'latest_news_bg_color', $themes_array );
+$latest_news_bg_image = themes_get_option_key( 'latest_news_bg_image', $themes_array );
 //slider
-$slider_enabledisable = themes_get_option_key( 'slider_enabledisable', $themes_array );
+$slider_enable = themes_get_option_key( 'slider_enable', $themes_array );
 $themes_slider_small_Heading_color = themes_get_option_key( 'themes_slider_small_Heading_color', $themes_array );
 $themes_slider_small_Heading_font_family = themes_get_option_key( 'themes_slider_small_Heading_font_family', $themes_array );
 $themes_slider_small_heading_font_size = themes_get_option_key( 'themes_slider_small_heading_font_size', $themes_array );
@@ -155,7 +159,7 @@ $features_dicsount_text_color = themes_get_option_key( 'features_dicsount_text_c
 $features_dicsount_text_fontfamily = themes_get_option_key( 'features_dicsount_text_fontfamily', $themes_array );
 $features_dicsount_text_font_size = themes_get_option_key( 'features_dicsount_text_font_size', $themes_array );
 //about us
-$radio_about_enable = themes_get_option_key( 'radio_about_enable', $themes_array );
+
 
 $about_smalltitle_left_color = themes_get_option_key( 'about_smalltitle_left_color', $themes_array );
 $about_smalltitle_left_fontfamily = themes_get_option_key( 'about_smalltitle_left_fontfamily', $themes_array );
@@ -188,7 +192,20 @@ $about_extra_text_color = themes_get_option_key( 'about_extra_text_color', $them
 $about_extra_text_fontfamily = themes_get_option_key( 'about_extra_text_fontfamily', $themes_array );
 $about_extra_text_font_size = themes_get_option_key( 'about_extra_text_font_size', $themes_array );
 $about_extra_text_bg_color = themes_get_option_key( 'about_extra_text_bg_color', $themes_array );
+$about_video_icons_color = themes_get_option_key( 'about_video_icons_color', $themes_array );
+$about_video_icons_bg_color = themes_get_option_key( 'about_video_icons_bg_color', $themes_array );
 
+$radio_getstarted_blog_enable = themes_get_option_key( 'radio_getstarted_blog_enable', $themes_array );
+$getstarted_blog_bg_color = themes_get_option_key( 'getstarted_blog_bg_color', $themes_array );
+$getstarted_blog_bg_image = themes_get_option_key( 'getstarted_blog_bg_image', $themes_array );
+
+$radio_browse_topics_enable = themes_get_option_key( 'radio_browse_topics_enable', $themes_array );
+$browse_topics_bg_color = themes_get_option_key( 'browse_topics_bg_color', $themes_array );
+$browse_topics_bg_image = themes_get_option_key( 'browse_topics_bg_image', $themes_array );
+
+$radio_services_blog_enable = themes_get_option_key( 'radio_services_blog_enable', $themes_array );
+$services_blog_bg_color = themes_get_option_key( 'services_blog_bg_color', $themes_array );
+$services_blog_bg_image = themes_get_option_key( 'services_blog_bg_image', $themes_array );
 //product sec
 $radio4_enable = themes_get_option_key( 'radio4_enable', $themes_array );
 
@@ -264,8 +281,30 @@ $app_box_text_fontfamily = themes_get_option_key( 'app_box_text_fontfamily', $th
 $app_box_text_font_size = themes_get_option_key( 'app_box_text_font_size', $themes_array );
 //Our Partner
 $radio_our_partners_enable = themes_get_option_key( 'radio_our_partners_enable', $themes_array );
+$partnersbg_color = themes_get_option_key( 'partnersbg_color', $themes_array );
+$partnersbg_image = themes_get_option_key( 'partnersbg_image', $themes_array );
 $our_partners_bg_color = themes_get_option_key( 'our_partners_bg_color', $themes_array );
 $our_partners_bg_hovercolor = themes_get_option_key( 'our_partners_bg_hovercolor', $themes_array );
+
+$radio_live_chat_enable = themes_get_option_key( 'radio_live_chat_enable', $themes_array );
+$live_chat_bg_color = themes_get_option_key( 'live_chat_bg_color', $themes_array );
+$live_chat_bg_image = themes_get_option_key( 'live_chat_bg_image', $themes_array );
+
+$radio_active_articals_enable = themes_get_option_key( 'radio_active_articals_enable', $themes_array );
+$active_articals_bg_color = themes_get_option_key( 'active_articals_bg_color', $themes_array );
+$active_articals_bg_image = themes_get_option_key( 'active_articals_bg_image', $themes_array );
+
+$radio_our_faq_enable = themes_get_option_key( 'radio_our_faq_enable', $themes_array );
+$our_faq_bg_color = themes_get_option_key( 'our_faq_bg_color', $themes_array );
+$our_faq_bg_image = themes_get_option_key( 'our_faq_bg_image', $themes_array );
+
+$radio_contact_partners_enable = themes_get_option_key( 'radio_contact_partners_enable', $themes_array );
+$contact_partners_bg_color = themes_get_option_key( 'contact_partners_bg_color', $themes_array );
+$contact_partners_bg_image = themes_get_option_key( 'contact_partners_bg_image', $themes_array );
+
+$home_page_contact_bg_color = themes_get_option_key( 'home_page_contact_bg_color', $themes_array );
+$home_page_contact_bg_image = themes_get_option_key( 'home_page_contact_bg_image', $themes_array );
+
 //Our Services
 $services_enabledisable = themes_get_option_key( 'services_enabledisable', $themes_array );
 
@@ -479,6 +518,8 @@ $plan_but_text_font_family = themes_get_option_key( 'plan_but_text_font_family',
 $plan_but_text_font_size = themes_get_option_key( 'plan_but_text_font_size', $themes_array );
 
 $records_section_enable = themes_get_option_key( 'records_section_enable', $themes_array );
+$records_bgcolor = themes_get_option_key( 'records_bgcolor', $themes_array );
+$records_bgimage = themes_get_option_key( 'records_bgimage', $themes_array );
 
 $radio_Instagram_enable = themes_get_option_key( 'radio_Instagram_enable', $themes_array );
 $instagram_bg_color = themes_get_option_key( 'instagram_bg_color', $themes_array );
@@ -508,6 +549,7 @@ $get_in_touch_button_text_fontfamily = themes_get_option_key( 'get_in_touch_butt
 $get_in_touch_button_text_font_size = themes_get_option_key( 'get_in_touch_button_text_font_size', $themes_array );
 
 //middle header
+
   $themes_header_section_logo_title_color = themes_get_option_key( 'themes_header_section_logo_title_color', $themes_array );
   $themes_header_section_logo_title_font_family = themes_get_option_key( 'themes_header_section_logo_title_font_family', $themes_array );
   $themes_header_section_logo_title_font_size = themes_get_option_key( 'themes_header_section_logo_title_font_size', $themes_array );
@@ -556,6 +598,10 @@ $themes_header_button_bg_color = themes_get_option_key( 'themes_header_button_bg
 $themes_header_button_bg_color_afterhover = themes_get_option_key( 'header_button_bg_color_afterhover', $themes_array );
 
 //Footer Widgets
+$themes_footer_widgets_enable = themes_get_option_key( 'themes_footer_widgets_enable', $themes_array );
+$themes_footer_widget_bgcolor = themes_get_option_key( 'themes_footer_widget_bgcolor', $themes_array );
+$themes_footer_widget_bg_image = themes_get_option_key( 'themes_footer_widget_bg_image', $themes_array );
+
 $themes_footer_widget_heading_color = themes_get_option_key( 'themes_footer_widget_heading_color', $themes_array );
 $themes_footer_widget_heading_font_family = themes_get_option_key( 'themes_footer_widget_heading_font_family', $themes_array );
 $themes_footer_widget_heading_font_size = themes_get_option_key( 'themes_footer_widget_heading_font_size', $themes_array );
@@ -564,17 +610,15 @@ $themes_footer_widget_content_color = themes_get_option_key( 'themes_footer_widg
 $themes_footer_widget_content_font_family = themes_get_option_key( 'themes_footer_widget_content_font_family', $themes_array );
 $themes_footer_widget_content_font_size = themes_get_option_key( 'themes_footer_widget_content_font_size', $themes_array );
 
-$themes_footer_widget_bgcolor = themes_get_option_key( 'themes_footer_widget_bgcolor', $themes_array );
-$themes_footerw_social_icon_color = themes_get_option_key( 'themes_footerw_social_icon_color', $themes_array );
-$themes_footer_social_icon_bgcolor = themes_get_option_key( 'themes_footer_social_icon_bgcolor', $themes_array );
-$themes_footer_social_icon_hvr_color = themes_get_option_key( 'themes_footer_social_icon_hvr_color', $themes_array );
-$themes_footer_social_icon_hvr_bgcolor = themes_get_option_key( 'themes_footer_social_icon_hvr_bgcolor', $themes_array );
-$themes_footer_svg_color = themes_get_option_key( 'themes_footer_svg_color', $themes_array );
 //Footer Copyright
+$themes_footer_section_enable = themes_get_option_key( 'themes_footer_section_enable', $themes_array );
+$themes_footer_section_bg_color = themes_get_option_key( 'themes_footer_section_bg_color', $themes_array );
+$themes_footer_section_bg_image = themes_get_option_key( 'themes_footer_section_bg_image', $themes_array );
+
 $themes_footer_copy_content_color = themes_get_option_key( 'themes_footer_copy_content_color', $themes_array );
 $themes_footer_copy_content_font_family = themes_get_option_key( 'themes_footer_copy_content_font_family', $themes_array );
 $themes_footer_copy_content_font_size = themes_get_option_key( 'themes_footer_copy_content_font_size', $themes_array );
-$themes_footer_copy_border_color = themes_get_option_key( 'themes_footer_copy_border_color', $themes_array );
+$themes_footer_copy_text_alignment = themes_get_option_key( 'themes_footer_copy_text_alignment', $themes_array );
 //Contact
 $themes_contact_page_heading_color = themes_get_option_key( 'themes_contact_page_heading_color', $themes_array );
 $themes_contact_page_heading_font_family = themes_get_option_key( 'themes_contact_page_heading_font_family', $themes_array );
@@ -583,9 +627,6 @@ $themes_contact_page_heading_font_size = themes_get_option_key( 'themes_contact_
 $themes_contact_page_text_color = themes_get_option_key( 'themes_contact_page_text_color', $themes_array );
 $themes_contact_page_text_font_family = themes_get_option_key( 'themes_contact_page_text_font_family', $themes_array );
 $themes_contact_page_text_font_size = themes_get_option_key( 'themes_contact_page_text_font_size', $themes_array );
-$themes_contact_page_content_title_color = themes_get_option_key( 'themes_contact_page_content_title_color', $themes_array );
-$themes_contact_page_content_title_font_family = themes_get_option_key( 'themes_contact_page_content_title_font_family', $themes_array );
-$themes_contact_page_content_title_font_size = themes_get_option_key( 'themes_contact_page_content_title_font_size', $themes_array );
 
 $themes_contact_page_form_title_color = themes_get_option_key( 'themes_contact_page_form_title_color', $themes_array );
 $themes_contact_page_contacts_form_title_font_family = themes_get_option_key( 'themes_contact_page_contacts_form_title_font_family', $themes_array );
@@ -598,13 +639,7 @@ $themes_contact_page_contacts_form_text_font_size = themes_get_option_key( 'them
 $themes_contact_page_form_button_color = themes_get_option_key( 'themes_contact_page_form_button_color', $themes_array );
 $themes_contact_page_contacts_form_button_font_family = themes_get_option_key( 'themes_contact_page_contacts_form_button_font_family', $themes_array );
 $themes_contact_page_contacts_form_button_font_size = themes_get_option_key( 'themes_contact_page_contacts_form_button_font_size', $themes_array );
-
-$themes_contact_page_icon_color = themes_get_option_key( 'themes_contact_page_icon_color', $themes_array );
 $themes_contact_page_button_bgcolor1 = themes_get_option_key( 'themes_contact_page_button_bgcolor1', $themes_array );
-$themes_contact_page_button_bgcolor2 = themes_get_option_key( 'themes_contact_page_button_bgcolor2', $themes_array );
-$themes_contact_page_right_heading_color = themes_get_option_key( 'themes_contact_page_right_heading_color', $themes_array );
-$themes_contact_page_right_heading_font_family = themes_get_option_key( 'themes_contact_page_right_heading_font_family', $themes_array );
-$themes_contact_page_right_heading_font_size = themes_get_option_key( 'themes_contact_page_right_heading_font_size', $themes_array );
 
 // ----------- Spinner --------------
 
@@ -618,6 +653,8 @@ $themes_site_frame_width = themes_get_option_key( 'themes_site_frame_width', $th
 $themes_site_frame_type = themes_get_option_key( 'themes_site_frame_type', $themes_array );
 $themes_site_frame_color = themes_get_option_key( 'themes_site_frame_color', $themes_array );
 /* -------------- post images Setting ------------*/
+
+$radio4_enable = themes_get_option_key( 'radio4_enable', $themes_array );
 $themes_blog_featured_image_border_radius = themes_get_option_key( 'themes_blog_featured_image_border_radius', $themes_array );
 $themes_blog_featured_image_box_shadow = themes_get_option_key( 'themes_blog_featured_image_box_shadow', $themes_array );
 /* ------------- Button Settings -------------- */
@@ -654,9 +691,14 @@ $themes_setting_search_banner_border_color = themes_get_option_key( 'setting_sea
 $themes_setting_search_banner_input_text_font_family = themes_get_option_key( 'setting_search_banner_input_text_font_family', $themes_array );
 $themes_setting_search_banner_input_text_color = themes_get_option_key( 'setting_search_banner_input_text_color', $themes_array );
 
+$setting_search_banner_smalltext_color = themes_get_option_key( 'setting_search_banner_smalltext_color', $themes_array );
+$setting_search_banner_smalltext_font_family = themes_get_option_key( 'setting_search_banner_smalltext_font_family', $themes_array );
+$setting_search_banner_smalltext_size = themes_get_option_key( 'setting_search_banner_smalltext_size', $themes_array );
+
 // Our Features
 $themes_setting_our_features_main_head_text_color = themes_get_option_key( 'setting_our_features_main_head_text_color', $themes_array );
 $themes_our_features_bg_color = themes_get_option_key( 'our_features_bg_color', $themes_array );
+$our_features_bg_image = themes_get_option_key( 'our_features_bg_image', $themes_array ); 
 $themes_features_small_text_color = themes_get_option_key( 'features_small_text_color', $themes_array );
 $themes_features_small_text_fontfamily = themes_get_option_key( 'features_small_text_fontfamily', $themes_array );
 $themes_features_small_text_font_size = themes_get_option_key( 'features_small_text_font_size', $themes_array );
@@ -665,6 +707,7 @@ $themes_features_main_text_fontfamily = themes_get_option_key( 'features_main_te
 $themes_features_main_text_font_size = themes_get_option_key( 'features_main_text_font_size', $themes_array );
 
 // About Us
+$radio_about_enable = themes_get_option_key( 'radio_about_enable', $themes_array );
 $themes_about_main_title_color = themes_get_option_key( 'about_main_title_color', $themes_array );
 $themes_about_main_title_fontfamily = themes_get_option_key( 'about_main_title_fontfamily', $themes_array );
 $themes_about_main_title_font_size = themes_get_option_key( 'about_main_title_font_size', $themes_array );
@@ -716,6 +759,9 @@ $themes_getstarted_blog_button_text_fontfamily = themes_get_option_key( 'getstar
 $themes_getstarted_blog_button_text_font_size = themes_get_option_key( 'getstarted_blog_button_text_font_size', $themes_array );
 
 // How It Works
+$radio_how_it_work_enable = themes_get_option_key( 'radio_how_it_work_enable', $themes_array );
+$how_it_work_bg_color = themes_get_option_key( 'how_it_work_bg_color', $themes_array );
+$how_it_work_bg_image = themes_get_option_key( 'how_it_work_bg_image', $themes_array );
 $themes_how_it_work_bg_color = themes_get_option_key( 'how_it_work_bg_color', $themes_array );
 $themes_how_it_work_small_text_color = themes_get_option_key( 'how_it_work_small_text_color', $themes_array );
 $themes_how_it_work_small_text_fontfamily = themes_get_option_key( 'how_it_work_small_text_fontfamily', $themes_array );
@@ -731,7 +777,8 @@ $themes_how_it_work_main_heading_font_size = themes_get_option_key( 'how_it_work
 $themes_our_partners_main_heading_text_color = themes_get_option_key( 'our_partners_main_heading_text_color', $themes_array );
 $themes_our_partners_main_heading_font_family = themes_get_option_key( 'our_our_partners_main_heading_font_family', $themes_array );
 $themes_our_partners_main_heading_font_size = themes_get_option_key( 'our_partners_main_heading_font_size', $themes_array );
-
+// timming
+$radio_timming_enable = themes_get_option_key( 'radio_timming_enable', $themes_array );
 // Our Services
 $themes_themes_servicesmall_title_color = themes_get_option_key( 'themes_servicesmall_title_color', $themes_array );
 $themes_themes_servicesmall_title_font_family = themes_get_option_key( 'themes_servicesmall_title_font_family', $themes_array );
@@ -762,7 +809,8 @@ $themes_active_articals_button_font_color_afterhover = themes_get_option_key( 'a
 $themes_active_articals_button_bgcolor_afterhover = themes_get_option_key( 'active_articals_button_bgcolor_afterhover', $themes_array );
 
 // Our team
-
+// why choose us
+$our_team_enabledisable = themes_get_option_key( 'our_team_enabledisable', $themes_array );
 $themes_our_team_title_color = themes_get_option_key( 'our_team_title_color', $themes_array );
 $themes_our_team_title_font_family = themes_get_option_key( 'our_team_title_font_family', $themes_array );
 $themes_our_team_title_font_size = themes_get_option_key( 'our_team_title_font_size', $themes_array );
@@ -774,6 +822,19 @@ $themes_our_team_box_content_color = themes_get_option_key( 'our_team_box_conten
 $themes_our_team_box_content_font_family = themes_get_option_key( 'our_team_box_content_font_family', $themes_array );
 $themes_our_team_box_content_font_size = themes_get_option_key( 'our_team_box_content_font_size', $themes_array );
 $themes_our_team_bg_color_afterhover = themes_get_option_key( 'our_team_bg_color_afterhover', $themes_array );
+
+// why choose us
+$radio_why_choose_us_enable = themes_get_option_key( 'radio_why_choose_us_enable', $themes_array );
+$themes_why_choose_us_color = themes_get_option_key( 'why_choose_us_bg_color', $themes_array );
+$themes_why_choose_us_small_text_color = themes_get_option_key( 'why_choose_us_small_text_color', $themes_array );
+$themes_why_choose_us_small_text_fontfamily = themes_get_option_key( 'why_choose_us_small_text_fontfamily', $themes_array );
+$themes_why_choose_us_small_text_font_size = themes_get_option_key( 'why_choose_us_small_text_font_size', $themes_array );
+$themes_why_choose_us_main_text_color = themes_get_option_key( 'why_choose_us_main_text_color', $themes_array );
+$themes_why_choose_us_main_text_fontfamily = themes_get_option_key( 'why_choose_us_main_text_fontfamily', $themes_array );
+$themes_why_choose_us_main_text_font_size = themes_get_option_key( 'why_choose_us_main_text_font_size', $themes_array );
+$themes_why_choose_us_main_heading_text_color = themes_get_option_key( 'why_choose_us_main_heading_text_color', $themes_array );
+$themes_why_choose_us_main_heading_font_family = themes_get_option_key( 'why_choose_us_main_heading_font_family', $themes_array );
+$themes_why_choose_us_main_heading_font_size = themes_get_option_key( 'why_choose_us_main_heading_font_size', $themes_array );
 
 // Introduction
 
@@ -847,6 +908,7 @@ $themes_get_in_touch_button_text_font_size = themes_get_option_key( 'get_in_touc
 
 // Contact and Partners
 
+$radio_contact_partners_enable = themes_get_option_key( 'radio_contact_partners_enable', $themes_array );
 $themes_contact_partners_main_text_color = themes_get_option_key( 'contact_partners_main_text_color', $themes_array );
 $themes_contact_partners_main_text_fontfamily = themes_get_option_key( 'contact_partners_main_text_fontfamily', $themes_array );
 $themes_contact_partners_main_text_font_size = themes_get_option_key( 'contact_partners_main_text_font_size', $themes_array );
@@ -858,7 +920,7 @@ $themes_contact_partners_text_fontfamily = themes_get_option_key( 'contact_partn
 $themes_contact_partners_text_font_size = themes_get_option_key( 'contact_partners_text_font_size', $themes_array );
 
 // Our Records
-
+$records_section_enable = themes_get_option_key( 'records_section_enable', $themes_array );
 $themes_our_records_num_text_color = themes_get_option_key( 'our_records_num_text_color', $themes_array );
 $themes_our_records_num_text_fontfamily = themes_get_option_key( 'our_records_num_text_fontfamily', $themes_array );
 $themes_our_records_num_text_fontsize = themes_get_option_key( 'our_records_num_text_fontsize', $themes_array );
@@ -929,6 +991,34 @@ $themes_browse_topics_last_button_bg_color = themes_get_option_key( 'browse_topi
 $themes_browse_topics_last_button_bg_color_afterhover = themes_get_option_key( 'browse_topics_last_button_bg_color_afterhover', $themes_array );
 $themes_browse_topics_last_button_text_color_afterhover = themes_get_option_key( 'browse_topics_last_button_text_color_afterhover', $themes_array );
 
+// symptons
+$radio_symptoms_us_enable = themes_get_option_key( 'radio_symptoms_us_enable', $themes_array );
+$themes_symptoms_us_bg_color = themes_get_option_key( 'symptoms_us_bg_color', $themes_array );
+$themes_symptoms_us_small_text_color = themes_get_option_key( 'symptoms_us_small_text_color', $themes_array );
+$themes_symptoms_us_small_text_fontfamily = themes_get_option_key( 'symptoms_us_small_text_fontfamily', $themes_array );
+$themes_symptoms_us_small_text_font_size = themes_get_option_key( 'symptoms_us_small_text_font_size', $themes_array );
+$themes_symptoms_us_main_text_color = themes_get_option_key( 'symptoms_us_main_text_color', $themes_array );
+$themes_symptoms_us_main_text_fontfamily = themes_get_option_key( 'symptoms_us_main_text_fontfamily', $themes_array );
+$themes_symptoms_us_main_text_font_size = themes_get_option_key( 'symptoms_us_main_text_font_size', $themes_array );
+$themes_symptoms_us_main_heading_text_color = themes_get_option_key( 'symptoms_us_main_heading_text_color', $themes_array );
+$themes_symptoms_us_main_heading_font_family = themes_get_option_key( 'symptoms_us_main_heading_font_family', $themes_array );
+$themes_symptoms_us_main_heading_font_size = themes_get_option_key( 'symptoms_us_main_heading_font_size', $themes_array );
+
+//emergency_contact
+
+$radio_emergency_contact_enable = themes_get_option_key( 'radio_emergency_contact_enable', $themes_array );
+$themes_emergency_contact_color = themes_get_option_key( 'emergency_contact_bg_color', $themes_array );
+$themes_emergency_contact_small_text_color = themes_get_option_key( 'emergency_contact_small_text_color', $themes_array );
+$themes_emergency_contact_small_text_fontfamily = themes_get_option_key( 'emergency_contact_small_text_fontfamily', $themes_array );
+$themes_emergency_contact_small_text_font_size = themes_get_option_key( 'emergency_contact_small_text_font_size', $themes_array );
+$themes_emergency_contact_main_text_color = themes_get_option_key( 'emergency_contact_main_text_color', $themes_array );
+$themes_emergency_contact_main_text_fontfamily = themes_get_option_key( 'emergency_contact_main_text_fontfamily', $themes_array );
+$themes_emergency_contact_main_text_font_size = themes_get_option_key( 'emergency_contact_main_text_font_size', $themes_array );
+$themes_emergency_contact_main_heading_text_color = themes_get_option_key( 'emergency_contact_main_heading_text_color', $themes_array );
+$themes_emergency_contacts_main_heading_font_family = themes_get_option_key( 'emergency_contact_main_heading_font_family', $themes_array );
+$themes_emergency_contact_main_heading_font_size = themes_get_option_key( 'emergency_contact_main_heading_font_size', $themes_array );
+$radio_search_banner_enable = themes_get_option_key( 'radio_search_banner_enable', $themes_array );
+
 
 
 /**
@@ -963,6 +1053,36 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
     position: relative;
     margin: 5% 0;
 } */
+#symptons{
+	<?php if ( ! empty( $radio_symptoms_us_enable ) && true == $radio_symptoms_us_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_symptoms_us_background_color ) ) : ?>
+	background-color: <?php echo $themes_symptoms_us_background_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_topbar_background_img ) ) : ?>
+	background-image: url(<?php echo $themes_symptoms_us_background_img; ?>);
+	<?php endif; ?>
+}
+#symptons{
+	<?php if ( ! empty( $symptoms_us_bgcolor ) ) : ?>
+	background: linear-gradient(90deg, <?php echo $symptoms_us_bgcolor; ?> 55%, <?php echo $symptoms_us_bgcolor; ?> 0%, <?php echo $symptoms_us_bgcolor; ?> 45%);
+	<?php endif; ?>
+	<?php if ( ! empty( $symptoms_us_bg_image ) ) : ?>
+	background-image: url(<?php echo $symptoms_us_bg_image; ?>);
+	<?php endif; ?>
+}
+#symptons span, #symptons .side-navigation a{
+	<?php if ( ! empty( $themes_symptoms_us_text_color ) ) : ?>
+	color: <?php echo $themes_symptoms_us_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $setting_symptoms_us_text_font_family ) ) : ?>
+	font-family: <?php echo $setting_symptoms_us_text_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $setting_symptoms_us_text_size ) ) : ?>
+	font-size: <?php echo $setting_symptoms_us_text_size; ?>;
+	<?php endif; ?>
+}
 .side-navigation li a:hover{
 	<?php if ( ! empty(  $themes_themes_headermenu_color_afterhover ) ) : ?>
 	color: <?php echo $themes_themes_headermenu_color_afterhover ; ?>;
@@ -992,6 +1112,17 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_newsletter_buttonswipe_text_color ) ) : ?>
 	color: <?php echo $themes_newsletter_buttonswipe_text_color ; ?>;
+	<?php endif; ?>
+}
+#how-it-work{
+	<?php if ( ! empty( $radio_how_it_work_enable ) && true == $radio_how_it_work_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $how_it_work_bg_color ) ) : ?>
+	background-color: <?php echo $how_it_work_bg_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $how_it_work_bg_image ) ) : ?>
+	background-image: url(<?php echo $how_it_work_bg_image; ?>);
 	<?php endif; ?>
 }
 #how-it-work{
@@ -1454,6 +1585,17 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_introduction_section_main_title_font_size ; ?>;
 	<?php endif; ?>
 }
+#our-team{
+	<?php if ( ! empty( $our_team_enabledisable ) && true == $our_team_enabledisable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $our_team_bg_color ) ) : ?>
+	background-color: <?php echo $our_team_bg_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $our_team_bg_image ) ) : ?>
+	background-image: url(<?php echo $our_team_bg_image; ?>);
+	<?php endif; ?>
+}
 .team-title span{
 	<?php if ( ! empty( $themes_our_team_box_content_color  ) ) : ?>
 	color: <?php echo $themes_our_team_box_content_color ; ?>;
@@ -1771,6 +1913,17 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $setting_topbar_text_size; ?>;
 	<?php endif; ?>
 }
+#header{
+	<?php if ( ! empty( $themes_header_display ) && true == $themes_header_display ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_background_color ) ) : ?>
+	background-color: <?php echo $themes_header_background_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_background_img ) ) : ?>
+	background-image: url(<?php echo $themes_header_background_img; ?>);
+	<?php endif; ?>
+}
 #header .header-logo a{
 	<?php if ( ! empty( $themes_header_section_logo_title_color ) ) : ?>
 	color: <?php echo $themes_header_section_logo_title_color; ?>;
@@ -1804,6 +1957,17 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_setting_search_banner_text_size; ?>;
 	<?php endif; ?>
 }
+#search-banner .search-banner-content p {
+	<?php if ( ! empty( $setting_search_banner_smalltext_color ) ) : ?>
+	color: <?php echo $setting_search_banner_smalltext_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $setting_search_banner_smalltext_font_family ) ) : ?>
+	font-family: <?php echo $setting_search_banner_smalltext_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $setting_search_banner_smalltext_size ) ) : ?>
+	font-size: <?php echo $setting_search_banner_smalltext_size; ?>;
+	<?php endif; ?>
+}
 #search-banner .search-banner-content input[type="search"]{
 	<?php if ( ! empty( $themes_setting_search_banner_bgcolor ) ) : ?>
 	background-color: <?php echo $themes_setting_search_banner_bgcolor; ?>;
@@ -1829,9 +1993,69 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $header_contact_title_font_size; ?>;
 	<?php endif; ?>
 }
-#our-features{
+#pricing-plans{
+	<?php if ( ! empty( $pricing_plan_enable ) && true == $pricing_plan_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $pricing_plan_bgcolor ) ) : ?>
+	background-color: <?php echo $pricing_plan_bgcolor; ?>;
+	<?php elseif ( ! empty( $pricing_plan_bgimage ) ) : ?>
+	background-image: url(<?php echo $pricing_plan_bgimage; ?>);
+	<?php endif; ?>
+}
+#latest-news{
+	<?php if ( ! empty( $latest_news_enabledisable ) && true == $latest_news_enabledisable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $latest_news_bg_color ) ) : ?>
+	background-color: <?php echo $latest_news_bg_color; ?>;
+	<?php elseif ( ! empty( $latest_news_bg_image ) ) : ?>
+	background-image: url(<?php echo $latest_news_bg_image; ?>);
+	<?php endif; ?>
+}
+#services-blog{
+	<?php if ( ! empty( $radio_services_blog_enable ) && true == $radio_services_blog_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $services_blog_bg_color ) ) : ?>
+	background-color: <?php echo $services_blog_bg_color; ?>;
+	<?php elseif ( ! empty( $services_blog_bg_image ) ) : ?>
+	background-image: url(<?php echo $services_blog_bg_image; ?>);
+	<?php endif; ?>
+}
+#browse-topics{
+	<?php if ( ! empty( $radio_browse_topics_enable ) && true == $radio_browse_topics_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $browse_topics_bg_color ) ) : ?>
+	background-color: <?php echo $browse_topics_bg_color; ?>;
+	<?php elseif ( ! empty( $browse_topics_bg_image ) ) : ?>
+	background-image: url(<?php echo $browse_topics_bg_image; ?>);
+	<?php endif; ?>
+}
+#getstarted-blog{
+	<?php if ( ! empty( $radio_getstarted_blog_enable ) && true == $radio_getstarted_blog_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $getstarted_blog_bg_color ) ) : ?>
+	background-color: <?php echo $getstarted_blog_bg_color; ?>;
+	<?php elseif ( ! empty( $getstarted_blog_bg_image ) ) : ?>
+	background-image: url(<?php echo $getstarted_blog_bg_image; ?>);
+	<?php endif; ?>
+}
+#getstarted-blog {
+	<?php if ( ! empty( $getstarted_blog_bg_color ) ) : ?>
+	background-image: linear-gradient( 20deg, <?php echo $getstarted_blog_bg_color; ?> 14%, <?php echo $getstarted_blog_bg_color; ?> 100%);
+	<?php endif; ?>    
+}
+#our-feature,#our-features{
+	<?php if ( ! empty( $radio_features_enable ) && true == $radio_features_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
 	<?php if ( ! empty( $themes_our_features_bg_color ) ) : ?>
 	background-color: <?php echo $themes_our_features_bg_color; ?>;
+	<?php elseif ( ! empty( $our_features_bg_image ) ) : ?>
+	background-image: url(<?php echo $our_features_bg_image; ?>);
 	<?php endif; ?>
 }
 #our-features .our-features-content p {
@@ -1854,6 +2078,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_features_main_text_font_size ) ) : ?>
 	font-size: <?php echo $themes_features_main_text_font_size; ?>;
+	<?php endif; ?>
+}
+#why-choose-us{
+	<?php if ( ! empty( $radio_why_choose_us_enable ) && true == $radio_why_choose_us_enable) : ?>
+	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
 #why-choose-us .why-choose-us-content h2{
@@ -2099,6 +2328,16 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background: linear-gradient(0, <?php echo $about_extra_text_bg_color; ?> 0%, <?php echo $about_extra_text_bg_color; ?> 90%);
 	<?php endif; ?>
 }
+#why-choose-us .why-video-wrap span i{
+	<?php if ( ! empty( $about_video_icons_color ) ) : ?>
+	color: <?php echo $about_video_icons_color; ?> ;
+	<?php endif; ?>
+}
+#why-choose-us .why-video-wrap span{
+	<?php if ( ! empty( $about_video_icons_bg_color ) ) : ?>
+	background-color: <?php echo $about_video_icons_bg_color; ?> ;
+	<?php endif; ?>
+}
 #our-feature a{
 	<?php if ( ! empty( $features_button_text_color ) ) : ?>
 	color: <?php echo $features_button_text_color; ?>;
@@ -2110,8 +2349,18 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $features_button_text_font_size; ?>;
 	<?php endif; ?>
 }
+#emergency_contact{
+	<?php if ( ! empty( $radio_emergency_contact_enable ) && true == $radio_emergency_contact_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
+#search-banner{
+	<?php if ( ! empty( $radio_search_banner_enable ) && true == $radio_search_banner_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
 #about{
-	<?php if ( ! empty( $radio_about_enable ) && true == $radio_about_enable ) : ?>
+	<?php if ( ! empty( $radio_about_enable) && true == $radio_about_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
@@ -2414,6 +2663,66 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#our_partners{
+	<?php if ( ! empty( $partnersbg_color ) ) : ?>
+	background-color: <?php echo $partnersbg_color; ?>;
+	<?php elseif ( ! empty( $partnersbg_image ) ) : ?>
+	background-image: url(<?php echo $partnersbg_image; ?>);
+	<?php endif; ?>
+}
+
+#live-chat-blog{
+	<?php if ( ! empty( $radio_live_chat_enable ) && true == $radio_live_chat_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $live_chat_bg_color ) ) : ?>
+	background-color: <?php echo $live_chat_bg_color; ?>;
+	<?php elseif ( ! empty( $live_chat_bg_image ) ) : ?>
+	background-image: url(<?php echo $live_chat_bg_image; ?>);
+	<?php endif; ?>
+}
+
+#Active-articals{
+	<?php if ( ! empty( $radio_active_articals_enable ) && true == $radio_active_articals_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $active_articals_bg_color ) ) : ?>
+	background-color: <?php echo $active_articals_bg_color; ?>;
+	<?php elseif ( ! empty( $active_articals_bg_image ) ) : ?>
+	background-image: url(<?php echo $active_articals_bg_image; ?>);
+	<?php endif; ?>
+}
+
+#contact-partners{
+	<?php if ( ! empty( $radio_contact_partners_enable ) && true == $radio_contact_partners_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $contact_partners_bg_color ) ) : ?>
+	background-color: <?php echo $contact_partners_bg_color; ?>;
+	<?php elseif ( ! empty( $contact_partners_bg_image ) ) : ?>
+	background-image: url(<?php echo $contact_partners_bg_image; ?>);
+	<?php endif; ?>
+}
+
+#contact-partners .home-contact-us{
+	<?php if ( ! empty( $home_page_contact_bg_color ) ) : ?>
+	background-color: <?php echo $home_page_contact_bg_color; ?>;
+	<?php elseif ( ! empty( $home_page_contact_bg_image ) ) : ?>
+	background-image: url(<?php echo $home_page_contact_bg_image; ?>);
+	<?php endif; ?>
+}
+
+#our-faq{
+	<?php if ( ! empty( $radio_our_faq_enable ) && true == $radio_our_faq_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $our_faq_bg_color ) ) : ?>
+	background-color: <?php echo $our_faq_bg_color; ?>;
+	<?php elseif ( ! empty( $our_faq_bg_image ) ) : ?>
+	background-image: url(<?php echo $our_faq_bg_image; ?>);
+	<?php endif; ?>
+}
+
 .client_inner:hover img.main-img{
 	<?php if ( ! empty( $our_partners_bg_color ) ) : ?>
 	background-color: <?php echo $our_partners_bg_color; ?>;
@@ -3003,9 +3312,16 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $plan_but_bg_color; ?>;
 	<?php endif; ?>
 }
-#our_records{
+#our_records,#our-records{
 	<?php if ( ! empty( $records_section_enable ) && true == $records_section_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
+#our_records,#our-records{
+	<?php if ( ! empty( $records_bgcolor ) ) : ?>
+	background-color: <?php echo $records_bgcolor; ?>;
+	<?php elseif ( ! empty( $records_bgimage ) ) : ?>
+	background-image: url(<?php echo $records_bgimage; ?>);
 	<?php endif; ?>
 }
 #instagramsec{
@@ -3050,6 +3366,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#contact_partners{
+	<?php if ( ! empty( $radio_contact_partners_enable ) && true == $radio_contact_partners_enable ) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
 #get-in-touch{
 	<?php if ( ! empty( $get_in_touch_section_bgcolor ) ) : ?>
 	background: linear-gradient(135deg,<?php echo $get_in_touch_section_bgcolor; ?> 0%,<?php echo $get_in_touch_section_bgcolor; ?> 100%);
@@ -3091,6 +3412,124 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $get_in_touch_button_text_font_size ) ) : ?>
 	font-size: <?php echo $get_in_touch_button_text_font_size; ?>;
+	<?php endif; ?>
+}
+#timming{
+	<?php if ( ! empty( $radio_timming_enable ) && true == $radio_timming_enable) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
+#footer{
+	<?php if ( ! empty( $themes_footer_widgets_enable ) && true == $themes_footer_widgets_enable) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_bgcolor ) ) : ?>
+	background-color: <?php echo $themes_footer_widget_bgcolor ; ?>;
+	<?php elseif ( ! empty( $themes_footer_widget_bgcolor ) ) : ?>
+	background: linear-gradient(20deg, <?php echo $themes_footer_widget_bgcolor ; ?> 0%, <?php echo $themes_footer_widget_bgcolor ; ?> 100%);
+	<?php elseif ( ! empty( $themes_footer_widget_bg_image ) ) : ?>
+	background-image: url(<?php echo $themes_footer_widget_bg_image; ?>);
+	<?php endif; ?>
+}
+#footer h3{
+	<?php if ( ! empty( $themes_footer_widget_heading_color ) ) : ?>
+	color: <?php echo $themes_footer_widget_heading_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_heading_font_family  ) ) : ?>
+	font-family: <?php echo $themes_footer_widget_heading_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_footer_widget_heading_font_size; ?>;
+	<?php endif; ?>
+}
+#footer .textwidget p, #footer .widget p, #footer .post-content a{
+	<?php if ( ! empty( $themes_footer_widget_content_color ) ) : ?>
+	color: <?php echo $themes_footer_widget_content_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_content_font_family  ) ) : ?>
+	font-family: <?php echo $themes_footer_widget_content_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_content_font_size ) ) : ?>
+	font-size: <?php echo $themes_footer_widget_content_font_size; ?>;
+	<?php endif; ?>
+}
+.copyright{
+	<?php if ( ! empty( $themes_footer_section_enable ) && true == $themes_footer_section_enable) : ?>
+	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_section_bg_color ) ) : ?>
+	background-color: <?php echo $themes_footer_section_bg_color ; ?>;
+	<?php elseif ( ! empty( $themes_footer_section_bg_image ) ) : ?>
+	background-image: url(<?php echo $themes_footer_section_bg_image; ?>);
+	<?php endif; ?>
+}
+.copyright p{
+	<?php if ( ! empty( $themes_footer_copy_content_color ) ) : ?>
+	color: <?php echo $themes_footer_copy_content_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_copy_content_font_family  ) ) : ?>
+	font-family: <?php echo $themes_footer_copy_content_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_copy_content_font_size ) ) : ?>
+	font-size: <?php echo $themes_footer_copy_content_font_size; ?>;
+	<?php endif; ?>
+}
+.contact-page-details h2{
+	<?php if ( ! empty( $themes_contact_page_heading_color ) ) : ?>
+	color: <?php echo $themes_contact_page_heading_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_heading_font_family  ) ) : ?>
+	font-family: <?php echo $themes_contact_page_heading_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_heading_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_page_heading_font_size; ?>;
+	<?php endif; ?>
+}
+.contact-page-details p{
+	<?php if ( ! empty( $themes_contact_page_text_color ) ) : ?>
+	color: <?php echo $themes_contact_page_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_text_font_family  ) ) : ?>
+	font-family: <?php echo $themes_contact_page_text_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_page_text_font_size; ?>;
+	<?php endif; ?>
+}
+.contact-page-details h3{
+	<?php if ( ! empty( $themes_contact_page_form_title_color ) ) : ?>
+	color: <?php echo $themes_contact_page_form_title_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_contacts_form_title_font_family  ) ) : ?>
+	font-family: <?php echo $themes_contact_page_contacts_form_title_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_contacts_form_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_page_contacts_form_title_font_size; ?>;
+	<?php endif; ?>
+}
+.contact-page-details .contac_form label,.contact-page-details .contac_form input::placeholder{
+	<?php if ( ! empty( $themes_contact_page_form_text_color ) ) : ?>
+	color: <?php echo $themes_contact_page_form_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_contacts_form_text_font_family  ) ) : ?>
+	font-family: <?php echo $themes_contact_page_contacts_form_text_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_contacts_form_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_page_contacts_form_text_font_size; ?>;
+	<?php endif; ?>
+}
+.contact-page-details .contac_form input[type="submit"]{
+	<?php if ( ! empty( $themes_contact_page_form_button_color ) ) : ?>
+	color: <?php echo $themes_contact_page_form_button_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_contacts_form_button_font_family  ) ) : ?>
+	font-family: <?php echo $themes_contact_page_contacts_form_button_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_contacts_form_button_font_size ) ) : ?>
+	font-size: <?php echo $themes_contact_page_contacts_form_button_font_size; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_contact_page_button_bgcolor1 ) ) : ?>
+	background-color: <?php echo $themes_contact_page_button_bgcolor1; ?>;
 	<?php endif; ?>
 }
 <?php if ( ! empty( $themes_custom_css ) ) : ?>

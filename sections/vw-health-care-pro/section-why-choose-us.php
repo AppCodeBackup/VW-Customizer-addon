@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_why_choose_us_section', array(
       'title'        => __( 'Why Choose Us', 'themes' ),
       'description'  => __( 'Customize Why Choose Us Section', 'themes' ),
-      'priority'     => 3,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_why_choose_us_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_why_choose_us_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_why_choose_us_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[why_choose_us_bgcolor]', array(
@@ -83,6 +83,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[why_choose_us_box_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[why_choose_us_box_number]',array(

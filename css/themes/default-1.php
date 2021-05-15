@@ -62,11 +62,11 @@ function first_presets() {
      *              in WordPress which allows you to completely  *
      *              change the layout of login, register and     *
      *              forgot password forms.                       *
-     * Author:      WPBrigade                                    *
+     * Author:      vwthemes                                    *
      * visit:       https://wordpress.org/plugins/themes/    *
      *************************************************************/
     body.login {
-      background-image: url(<?php echo esc_url( apply_filters( 'themes_default_bg', plugins_url( 'img/bg.jpg', CUSTOM_PLUGIN_BASENAME ) ) ); ?>);
+      background-image: url(<?php echo esc_url( apply_filters( 'themes_default_bg', plugins_url( 'img/bg.jpg' ) ) ); ?>);
       /*background-color: #ddd5c3;*/
       background-repeat: no-repeat;
       background-position: center;

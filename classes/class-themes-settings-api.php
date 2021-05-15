@@ -349,37 +349,6 @@ if ( !class_exists( 'Themes_Setting_Settings_API' ) ):
     function callback_html( $args ) {
       echo $this->get_field_description( $args );
     }
-
-    /**
-    * Displays a rich text textarea for a settings field
-    *
-    * @param array   $args settings field args
-    */
-    function callback_wysiwyg( $args ) {
-
-      $value = $this->get_option( $args['id'], $args['section'], $args['std'] );
-      $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : '500px';
-
-      echo '<div style="max-width: ' . $size . ';">';
-
-      $editor_settings = array(
-        'teeny'         => true,
-        'textarea_name' => $args['section'] . '[' . $args['id'] . ']',
-        'textarea_rows' => 10,
-        'media_buttons' => false,
-      );
-
-      if ( isset( $args['options'] ) && is_array( $args['options'] ) ) {
-        $editor_settings = array_merge( $editor_settings, $args['options'] );
-      }
-
-      wp_editor( $value, $args['section'] . '-' . $args['id'], $editor_settings );
-
-      echo '</div>';
-
-      echo $this->get_field_description( $args );
-    }
-
     /**
     * Displays a file upload field for a settings field
     *
@@ -569,7 +538,7 @@ if ( !class_exists( 'Themes_Setting_Settings_API' ) ):
           $html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title'] );
         }
         if ( 'themes_premium' == $tab['id'] ) {
-          $html .= sprintf( '<a href="%1$s" class="themes-premium" target="_blank"><span class="dashicons dashicons-star-filled"></span>%2$s</a>', "https://wpbrigade.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&amp;utm_medium=tab&amp;utm_campaign=pro-upgrade", $tab['title'] );
+          $html .= sprintf( '<a href="%1$s" class="themes-premium" target="_blank"><span class="dashicons dashicons-star-filled"></span>%2$s</a>', "https://vwthemes.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&amp;utm_medium=tab&amp;utm_campaign=pro-upgrade", $tab['title'] );
         }
       }
 
@@ -652,48 +621,6 @@ if ( !class_exists( 'Themes_Setting_Settings_API' ) ):
               ?>
           </div>
         <?php endforeach; ?>
-
-      </div>
-
-      <div class="themes-advertise">
-        <div class="themes-video">
-          <h3><span class="dashicons dashicons-dashboard"></span>&nbsp;&nbsp;<?php _e( 'Getting Started Video', 'themes' ); ?></h3>
-          <hr style=" border-top: 1px solid #000; border-bottom: none">
-          <div class="inside">
-            <iframe width="294" height="200" src="https://www.youtube.com/embed/GMAwsHomJlE?showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-          </div>
-        </div> <!-- themes-video -->
-        <?php if ( ! has_action( 'themes_pro_add_template' ) ) : ?>
-        <div class="advertise-box">
-          <h3><span class="dashicons dashicons-heart"></span>&nbsp;&nbsp;<?php _e( 'Why Go Pro?', 'themes' ); ?></h3>
-          <div class="inside-advertise">
-            <ul>
-              <li><span class="dashicons dashicons-admin-post"></span><strong><?php _e( 'Secure login with Google reCaptcha', 'themes' ); ?></strong></li>
-              <li><span class="dashicons dashicons-admin-post"></span><strong><?php _e( '20+ Custom Login Themes', 'themes' ); ?></strong></li>
-              <li><span class="dashicons dashicons-admin-post"></span><strong><?php _e( 'Full customization with Custom CSS & JS', 'themes' ); ?>
-              </strong></li>
-              <li><hr style=" border-top: 1px solid #734726; border-bottom: none"></li>
-            </ul>
-            <p>
-              <a class="button-primary" style="background-color:#FFD700; border-color:#FFD700; color:#000; box-shadow:none; text-shadow: none; width:100%; text-align:center; border-radius: 0;" href="https://wpbrigade.com/wordpress/plugins/themes-pro/?utm_source=themes-lite&amp;utm_medium=sidebar&amp;utm_campaign=pro-upgrade" target="_blank"><?php _e( "See What's In The Pro Version", 'themes' ); ?></a>
-            </p>
-            <div class="inside">
-              <iframe width="294" height="200" src="https://www.youtube.com/embed/9snT9rWxO4g?showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-            </div>
-          </div>
-        </div> <!-- advertise-box -->
-        <?php endif; ?>
-        <div class="themes-support">
-          <h3><span class="dashicons dashicons-editor-help"></span>&nbsp;&nbsp;<?php _e( 'Plugin Support', 'themes' ); ?></h3>
-          <hr style=" border-top: 1px solid #000; border-bottom: none">
-          <div class="inside">
-            <p><?php _e( 'Got a Question, Idea, Problem or Praise?', 'themes' ); ?></p>
-            <ul>
-              <li>» <a href="https://wordpress.org/support/plugin/themes" target="_blank"><?php _e( 'Support Request', 'themes' ); ?></a></li>
-              <!-- <li>» <a href="#" target="_blank">Common Caching Issues Resolutions</a></li> -->
-            </ul>
-          </div>
-        </div> <!-- themes-support -->
 
       </div>
     <?php

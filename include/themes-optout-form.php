@@ -110,7 +110,7 @@ $themes_optout_nonce = wp_create_nonce('themes-optout-nonce');
           <p></p>
         </div>
         <p><?php echo sprintf( __( 'Usage tracking is done in the name of making %1$s ThemeSetting %2$s better. Making a better user experience, prioritizing new features, and more good things. We\'d really appreciate if you\'ll reconsider letting us continue with the tracking.', 'themes' ), '<strong>', '</strong>') ?></p>
-        <p><?php echo sprintf( __( 'By clicking "Opt Out", we will no longer be sending any data to %1$s ThemeSetting%2$s.', 'themes' ), '<a href="https://wpbrigade.com" target="_blank">', '</a>' ); ?></p>
+        <p><?php echo sprintf( __( 'By clicking "Opt Out", we will no longer be sending any data to %1$s ThemeSetting%2$s.', 'themes' ), '<a href="https://vwthemes.com" target="_blank">', '</a>' ); ?></p>
       </div>
     </div>
     <div class="themes-modal-footer">

@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_gallery_section', array(
       'title'        => __( 'Gallery', 'themes' ),
       'description'  => __( 'Customize Gallery Section', 'themes' ),
-      'priority'     => 9,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[gallery_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[gallery_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_gallery_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[our_gallery_bg_color]', array(
@@ -34,7 +34,7 @@
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_gallery_bg_color]', array(
       'label'      => __( 'Background Color:', 'themes' ),
       'section'    => 'customize_gallery_section',
-      'priority'   => 5,
+      'priority'   => Null,
       'settings'   => 'themes_customization[our_gallery_bg_color]'
     ) ) );
     $wp_customize->add_setting( 'themes_customization[our_gallery_bg_image]', array(

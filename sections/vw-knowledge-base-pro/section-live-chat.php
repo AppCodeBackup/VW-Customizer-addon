@@ -5,7 +5,7 @@
     $wp_customize->add_section( 'customize_live_chat_section', array(
       'title'        => __( 'Live chat', 'themes' ),
       'description'  => __( 'Customize Live chat Section', 'themes' ),
-      'priority'     => 5,
+      'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
     $wp_customize->add_setting( 'themes_customization[radio_live_chat_enable]', array(
@@ -20,7 +20,7 @@
      'settings'    => 'themes_customization[radio_live_chat_enable]',
       'label'       => __( 'Disable Section:', 'themes'),
       'section'     => 'customize_live_chat_section',
-     'priority'   => 2,
+     'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
     $wp_customize->add_setting( 'themes_customization[live_chat_bg_color]', array(
@@ -56,6 +56,9 @@
     
     $wp_customize->add_setting('themes_customization[live_chat_number]',array(
         'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[live_chat_number]',array(
