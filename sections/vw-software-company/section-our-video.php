@@ -273,4 +273,293 @@
         'settings'         => 'themes_customization[video_slider_text'.$i.']',
       ) );
     }
+    $wp_customize->add_setting( 'themes_customization[video_sec_small_left_title_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_small_left_title_color]', array(
+          'label' => __('Section Small Left Title Color', 'themes'),
+          'section' => 'customize_video_section',
+          'settings' => 'themes_customization[video_sec_small_left_title_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[video_sec_small_left_title_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[video_sec_small_left_title_font_family]', array(
+        'section'  => 'customize_video_section',
+        'label'    => __( 'Section Small Left Title Font Family','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[video_sec_small_left_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[video_sec_small_left_title_font_size]',array(
+          'label' => __('Section Small Left Title size in px','themes'),
+          'section' => 'customize_video_section',
+          'setting' => 'themes_customization[video_sec_small_left_title_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[video_sec_small_right_title_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_small_right_title_color]', array(
+          'label' => __('Section Small Right Title Color', 'themes'),
+          'section' => 'customize_video_section',
+          'settings' => 'themes_customization[video_sec_small_right_title_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[video_sec_small_right_title_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[video_sec_small_right_title_font_family]', array(
+        'section'  => 'customize_video_section',
+        'label'    => __( 'Section Small Right Title Font Family','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[video_sec_small_right_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[video_sec_small_right_title_font_size]',array(
+          'label' => __('Section Small Right Title size in px','themes'),
+          'section' => 'customize_video_section',
+          'setting' => 'themes_customization[video_sec_small_right_title_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[video_sec_small_right_title_bgcolor]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_small_right_title_bgcolor]', array(
+          'label' => __('Small Right Title Background Color', 'themes'),
+          'section' => 'customize_video_section',
+          'settings' => 'themes_customization[video_sec_small_right_title_bgcolor]',
+    )));
+    $wp_customize->add_setting( 'themes_customization[video_sec_main_title_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_main_title_color]', array(
+          'label' => __('Section Title Color', 'themes'),
+          'section' => 'customize_video_section',
+          'settings' => 'themes_customization[video_sec_main_title_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[video_sec_main_title_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[video_sec_main_title_font_family]', array(
+        'section'  => 'customize_video_section',
+        'label'    => __( 'Section Title Font Family','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[video_sec_main_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[video_sec_main_title_font_size]',array(
+          'label' => __('Section Title size in px','themes'),
+          'section' => 'customize_video_section',
+          'setting' => 'themes_customization[video_sec_main_title_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[video_sec_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_text_color]', array(
+          'label' => __('Section Text Color', 'themes'),
+          'section' => 'customize_video_section',
+          'settings' => 'themes_customization[video_sec_text_color]',
+    )));
+
+    $wp_customize->add_setting('themes_customization[video_sec_text_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+    ));
+    $wp_customize->add_control(
+        'themes_customization[video_sec_text_font_family]', array(
+        'section'  => 'customize_video_section',
+        'label'    => __( 'Section Text Font Family','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[video_sec_text_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+    );
+    $wp_customize->add_control('themes_customization[video_sec_text_font_size]',array(
+          'label' => __('Section Text size in px','themes'),
+          'section' => 'customize_video_section',
+          'setting' => 'themes_customization[video_sec_text_font_size]',
+          'type'    => 'text'
+        )
+    );
+    $wp_customize->add_setting( 'themes_customization[video_sec_button_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_button_text_color]', array(
+      'label' => 'Button Text Color',
+      'section' => 'customize_video_section',
+      'settings' => 'themes_customization[video_sec_button_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[video_sec_button_text_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[video_sec_button_text_fontfamily]', array(
+        'section'  => 'customize_video_section',
+        'label'    => __( 'Button Text Fonts','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[video_sec_button_text_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+      );
+      $wp_customize->add_control('themes_customization[video_sec_button_text_font_size]',array(
+        'label' => __('Button Text Font Size in px','themes'),
+        'section' => 'customize_video_section',
+        'setting' => 'themes_customization[video_sec_button_text_font_size]',
+        'type'    => 'text'
+      )
+    );
+    $wp_customize->add_setting( 'themes_customization[video_sec_button_bg_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_button_bg_color]', array(
+      'label' => 'Button Background Color',
+      'section' => 'customize_video_section',
+      'settings' => 'themes_customization[video_sec_button_bg_color]',
+    )));
+    $wp_customize->add_setting( 'themes_customization[video_icons_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_icons_color]', array(
+      'label' => 'Video Icons Color',
+      'section' => 'customize_video_section',
+      'settings' => 'themes_customization[video_icons_color]',
+    ))); 
+
+    $wp_customize->add_setting( 'themes_customization[video_sec_Main_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[video_sec_Main_text_color]', array(
+      'label' => 'Main Text Color',
+      'section' => 'customize_video_section',
+      'settings' => 'themes_customization[video_sec_Main_text_color]',
+    )));  
+
+    $wp_customize->add_setting('themes_customization[video_sec_Main_text_fontfamily]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[video_sec_Main_text_fontfamily]', array(
+        'section'  => 'customize_video_section',
+        'label'    => __( 'Main Text Fonts','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[video_sec_Main_text_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+      );
+      $wp_customize->add_control('themes_customization[video_sec_Main_text_font_size]',array(
+        'label' => __('Main Text Font Size in px','themes'),
+        'section' => 'customize_video_section',
+        'setting' => 'themes_customization[video_sec_Main_text_font_size]',
+        'type'    => 'text'
+      )
+    );
 ?>

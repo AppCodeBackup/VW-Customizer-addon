@@ -97,6 +97,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[our_video_url]',array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[our_video_url]',array(
@@ -109,6 +112,9 @@
       'themes_customization[our_video_play_icon]',
       array(
         'default'     => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
       )
     );

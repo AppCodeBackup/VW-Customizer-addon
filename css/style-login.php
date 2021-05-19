@@ -123,6 +123,14 @@ $themes_topbar_text_color = themes_get_option_key( 'setting_topbar_text_color', 
 $setting_topbar_text_font_family = themes_get_option_key( 'setting_topbar_text_font_family', $themes_array );
 $setting_topbar_text_size = themes_get_option_key( 'setting_topbar_text_size', $themes_array );
 $topbar_text_heading = themes_get_option_key( 'topbar_text_heading', $themes_array );
+$setting_topbar_icons_color = themes_get_option_key( 'setting_topbar_icons_color', $themes_array );
+$setting_topbar_icons_hover_color = themes_get_option_key( 'setting_topbar_icons_hover_color', $themes_array );
+$setting_topbar_sicons_bgcolor = themes_get_option_key( 'setting_topbar_sicons_bgcolor', $themes_array );
+$setting_topbar_sicons_hoverbgcolor1 = themes_get_option_key( 'setting_topbar_sicons_hoverbgcolor1', $themes_array );
+$setting_topbar_sicons_hoverbgcolor2 = themes_get_option_key( 'setting_topbar_sicons_hoverbgcolor2', $themes_array );
+
+$themes_commen_gradient_color_1 = themes_get_option_key( 'themes_commen_gradient_color_1', $themes_array );
+$themes_commen_gradient_color_2 = themes_get_option_key( 'themes_commen_gradient_color_2', $themes_array );
 
 $latest_news_enabledisable = themes_get_option_key( 'latest_news_enabledisable', $themes_array );
 $latest_news_bg_color = themes_get_option_key( 'latest_news_bg_color', $themes_array );
@@ -147,6 +155,8 @@ $themes_slide_buttoncolor = themes_get_option_key( 'themes_slide_buttoncolor', $
 $themes_button_fontfamily = themes_get_option_key( 'themes_button_fontfamily', $themes_array );
 $themes_slide_button_font_size = themes_get_option_key( 'themes_slide_button_font_size', $themes_array );
 $themes_slide_button_gradient_bgcolor1 = themes_get_option_key( 'themes_slide_button_gradient_bgcolor1', $themes_array );
+
+$themes_slide_button_gradient_bgcolor2 = themes_get_option_key( 'themes_slide_button_gradient_bgcolor2', $themes_array );
 //Our Features
 $radio_features_enable = themes_get_option_key( 'radio_features_enable', $themes_array );
 $features_small_text_color = themes_get_option_key( 'features_small_text_color', $themes_array );
@@ -252,6 +262,8 @@ $product_button_text_font_size = themes_get_option_key( 'product_button_text_fon
 $product_button_bg_color = themes_get_option_key( 'product_button_bg_color', $themes_array );
 //our app
 $radio_our_app_enable = themes_get_option_key( 'radio_our_app_enable', $themes_array );
+$our_app_section_bgcolor = themes_get_option_key( 'our_app_section_bgcolor', $themes_array );
+$our_app_section_bgimage = themes_get_option_key( 'our_app_section_bgimage', $themes_array );
 
 $app_small_left_title_color = themes_get_option_key( 'app_small_left_title_color', $themes_array );
 $app_small_left_title_fontfamily = themes_get_option_key( 'app_small_left_title_fontfamily', $themes_array );
@@ -307,6 +319,8 @@ $home_page_contact_bg_image = themes_get_option_key( 'home_page_contact_bg_image
 
 //Our Services
 $services_enabledisable = themes_get_option_key( 'services_enabledisable', $themes_array );
+$services_bgcolor = themes_get_option_key( 'services_bgcolor', $themes_array );
+$services_bgimage = themes_get_option_key( 'services_bgimage', $themes_array );
 
 $themes_servicesmall_title_color = themes_get_option_key( 'themes_servicesmall_title_color', $themes_array );
 $themes_servicesmall_title_font_family = themes_get_option_key( 'themes_servicesmall_title_font_family', $themes_array );
@@ -332,14 +346,38 @@ $themes_service_box_title_font_size = themes_get_option_key( 'themes_service_box
 $themes_service_box_content_color = themes_get_option_key( 'themes_service_box_content_color', $themes_array );
 $themes_service_box_content_font_family = themes_get_option_key( 'themes_service_box_content_font_family', $themes_array );
 $themes_service_box_content_font_size = themes_get_option_key( 'themes_service_box_content_font_size', $themes_array );
+
+$all_services_button_color = themes_get_option_key( 'all_services_button_color', $themes_array );
+$all_services_button_fontfamily = themes_get_option_key( 'all_services_button_fontfamily', $themes_array );
+$all_services_button_font_size = themes_get_option_key( 'all_services_button_font_size', $themes_array );
+$all_services_button_bgcolor1 = themes_get_option_key( 'all_services_button_bgcolor1', $themes_array );
+$all_services_button_bgcolor2 = themes_get_option_key( 'all_services_button_bgcolor2', $themes_array );
+$all_services_button_bgcolor = themes_get_option_key( 'all_services_button_bgcolor', $themes_array );
 //Degines interface
 $radio_interface_deg_enable = themes_get_option_key( 'radio_interface_deg_enable', $themes_array );
+$interface_deg_section_bgcolor = themes_get_option_key( 'interface_deg_section_bgcolor', $themes_array );
+$interface_deg_section_bgimage = themes_get_option_key( 'interface_deg_section_bgimage', $themes_array );
 
 $interface_main_title_color = themes_get_option_key( 'interface_main_title_color', $themes_array );
 $interface_main_title_fontfamily = themes_get_option_key( 'interface_main_title_fontfamily', $themes_array );
 $interface_main_title_font_size = themes_get_option_key( 'interface_main_title_font_size', $themes_array );
 
+$interface_text_color = themes_get_option_key( 'interface_text_color', $themes_array );
+$interface_text_fontfamily = themes_get_option_key( 'interface_text_fontfamily', $themes_array );
+$interface_text_font_size = themes_get_option_key( 'interface_text_font_size', $themes_array );
+
+$interface_list_title_color = themes_get_option_key( 'interface_list_title_color', $themes_array );
+$interface_list_title_fontfamily = themes_get_option_key( 'interface_list_title_fontfamily', $themes_array );
+$interface_list_title_font_size = themes_get_option_key( 'interface_list_title_font_size', $themes_array );
+
+$interface_button_text_color = themes_get_option_key( 'interface_button_text_color', $themes_array );
+$interface_button_text_fontfamily = themes_get_option_key( 'interface_button_text_fontfamily', $themes_array );
+$interface_button_text_font_size = themes_get_option_key( 'interface_button_text_font_size', $themes_array );
+$interface_button_bg_color = themes_get_option_key( 'interface_button_bg_color', $themes_array );
+
 $radio_introduction_enable = themes_get_option_key( 'radio_introduction_enable', $themes_array );
+$introduction_section_bgcolor = themes_get_option_key( 'introduction_section_bgcolor', $themes_array );
+$introduction_section_bgimage = themes_get_option_key( 'introduction_section_bgimage', $themes_array );
 
 //Home Contact
 $contact_us_enable = themes_get_option_key( 'contact_us_enable', $themes_array );
@@ -390,6 +428,9 @@ $seller_button_fontfamily = themes_get_option_key( 'seller_button_fontfamily', $
 $seller_button_font_size = themes_get_option_key( 'seller_button_font_size', $themes_array );
 $seller_button_bgcolor = themes_get_option_key( 'seller_button_bgcolor', $themes_array );
 
+$seller_button_bgcolor1 = themes_get_option_key( 'seller_button_bgcolor1', $themes_array );
+$seller_button_bgcolor2 = themes_get_option_key( 'seller_button_bgcolor2', $themes_array );
+
 //Category Products
 $radio_category_products_enable = themes_get_option_key( 'radio_category_products_enable', $themes_array );
 $category_products_bgcolor = themes_get_option_key( 'category_products_bgcolor', $themes_array );
@@ -429,6 +470,12 @@ $product_button_color = themes_get_option_key( 'product_button_color', $themes_a
 $product_button_fontfamily = themes_get_option_key( 'product_button_fontfamily', $themes_array );
 $product_button_font_size = themes_get_option_key( 'product_button_font_size', $themes_array );
 $product_button_bgcolor = themes_get_option_key( 'product_button_bgcolor', $themes_array );
+
+$product_button_bgcolor1 = themes_get_option_key( 'product_button_bgcolor1', $themes_array );
+$product_button_bgcolor2 = themes_get_option_key( 'product_button_bgcolor2', $themes_array );
+
+$tab_tittle_active_color1 = themes_get_option_key( 'tab_tittle_active_color1', $themes_array );
+$tab_tittle_active_color2 = themes_get_option_key( 'tab_tittle_active_color2', $themes_array );
 
 //Newsletter
 $newsletter_enable = themes_get_option_key( 'newsletter_enable', $themes_array );
@@ -477,7 +524,53 @@ $themes_testimonial_button_text_font_size = themes_get_option_key( 'themes_testi
 $themes_testimonial_but_bg_color = themes_get_option_key( 'themes_testimonial_but_bg_color', $themes_array );
 
 $video_enable = themes_get_option_key( 'video_enable', $themes_array );
+$video_bgcolor = themes_get_option_key( 'video_bgcolor', $themes_array );
+$video_bgimage = themes_get_option_key( 'video_bgimage', $themes_array );
 
+$video_sec_main_title_color = themes_get_option_key( 'video_sec_main_title_color', $themes_array );
+$video_sec_main_title_font_family = themes_get_option_key( 'video_sec_main_title_font_family', $themes_array );
+$video_sec_main_title_font_size = themes_get_option_key( 'video_sec_main_title_font_size', $themes_array );
+
+$video_sec_small_left_title_color = themes_get_option_key( 'video_sec_small_left_title_color', $themes_array );
+$video_sec_small_left_title_font_family = themes_get_option_key( 'video_sec_small_left_title_font_family', $themes_array );
+$video_sec_small_left_title_font_size = themes_get_option_key( 'video_sec_small_left_title_font_size', $themes_array );
+
+$video_sec_small_right_title_color = themes_get_option_key( 'video_sec_small_right_title_color', $themes_array );
+$video_sec_small_right_title_font_family = themes_get_option_key( 'video_sec_small_right_title_font_family', $themes_array );
+$video_sec_small_right_title_font_size = themes_get_option_key( 'video_sec_small_right_title_font_size', $themes_array );
+$video_sec_small_right_title_bgcolor = themes_get_option_key( 'video_sec_small_right_title_bgcolor', $themes_array );
+
+$video_sec_text_color = themes_get_option_key( 'video_sec_text_color', $themes_array );
+$video_sec_text_font_family = themes_get_option_key( 'video_sec_text_font_family', $themes_array );
+$video_sec_text_font_size = themes_get_option_key( 'video_sec_text_font_size', $themes_array );
+
+$video_sec_button_text_color = themes_get_option_key( 'video_sec_button_text_color', $themes_array );
+$video_sec_button_text_fontfamily = themes_get_option_key( 'video_sec_button_text_fontfamily', $themes_array );
+$video_sec_button_text_font_size = themes_get_option_key( 'video_sec_button_text_font_size', $themes_array );
+$video_sec_button_bg_color = themes_get_option_key( 'video_sec_button_bg_color', $themes_array );
+$video_icons_color = themes_get_option_key( 'video_icons_color', $themes_array );
+
+$video_sec_Main_text_color = themes_get_option_key( 'video_sec_Main_text_color', $themes_array );
+$video_sec_Main_text_fontfamily = themes_get_option_key( 'video_sec_Main_text_fontfamily', $themes_array );
+$video_sec_Main_text_font_size = themes_get_option_key( 'video_sec_Main_text_font_size', $themes_array );
+
+//Recodes
+$themes_our_record_number_color = themes_get_option_key( 'themes_our_record_number_color', $themes_array );
+$themes_our_record_number_font_family = themes_get_option_key( 'themes_our_record_number_font_family', $themes_array );
+$themes_our_record_number_font_size = themes_get_option_key( 'themes_our_record_number_font_size', $themes_array );
+
+$themes_our_record_title_color = themes_get_option_key( 'themes_our_record_title_color', $themes_array );
+$themes_our_record_title_font_family = themes_get_option_key( 'themes_our_record_title_font_family', $themes_array );
+$themes_our_record_title_font_size = themes_get_option_key( 'themes_our_record_title_font_size', $themes_array );
+
+$themes_our_record_icon_bgcolor = themes_get_option_key( 'themes_our_record_icon_bgcolor', $themes_array );
+
+$themes_our_record_icon_hover_bgcolor1 = themes_get_option_key( 'themes_our_record_icon_hover_bgcolor1', $themes_array );
+$themes_our_record_icon_hover_bgcolor2 = themes_get_option_key( 'themes_our_record_icon_hover_bgcolor2', $themes_array );
+
+$record_sub_title_color = themes_get_option_key( 'record_sub_title_color', $themes_array );
+$record_sub_title_font_family = themes_get_option_key( 'record_sub_title_font_family', $themes_array );
+$record_sub_title_font_size = themes_get_option_key( 'record_sub_title_font_size', $themes_array );
 //pricing planse
 $pricing_plan_enable = themes_get_option_key( 'pricing_plan_enable', $themes_array );
 
@@ -516,6 +609,9 @@ $pricing_plan_list_font_size = themes_get_option_key( 'pricing_plan_list_font_si
 $plan_but_text_color = themes_get_option_key( 'plan_but_text_color', $themes_array );
 $plan_but_text_font_family = themes_get_option_key( 'plan_but_text_font_family', $themes_array );
 $plan_but_text_font_size = themes_get_option_key( 'plan_but_text_font_size', $themes_array );
+
+$plan_but_bgcolor1 = themes_get_option_key( 'plan_but_bgcolor1', $themes_array );
+$plan_but_bgcolor2 = themes_get_option_key( 'plan_but_bgcolor2', $themes_array );
 
 $records_section_enable = themes_get_option_key( 'records_section_enable', $themes_array );
 $records_bgcolor = themes_get_option_key( 'records_bgcolor', $themes_array );
@@ -609,6 +705,12 @@ $themes_footer_widget_heading_font_size = themes_get_option_key( 'themes_footer_
 $themes_footer_widget_content_color = themes_get_option_key( 'themes_footer_widget_content_color', $themes_array );
 $themes_footer_widget_content_font_family = themes_get_option_key( 'themes_footer_widget_content_font_family', $themes_array );
 $themes_footer_widget_content_font_size = themes_get_option_key( 'themes_footer_widget_content_font_size', $themes_array );
+
+$themes_spinner_bg_color1 = themes_get_option_key( 'themes_spinner_bg_color1', $themes_array );
+$themes_spinner_bg_color2 = themes_get_option_key( 'themes_spinner_bg_color2', $themes_array );
+
+$themes_footer_widget_heading_color1 = themes_get_option_key( 'themes_footer_widget_heading_color1', $themes_array );
+$themes_footer_widget_heading_color2 = themes_get_option_key( 'themes_footer_widget_heading_color2', $themes_array );
 
 //Footer Copyright
 $themes_footer_section_enable = themes_get_option_key( 'themes_footer_section_enable', $themes_array );
@@ -708,6 +810,12 @@ $themes_features_main_text_font_size = themes_get_option_key( 'features_main_tex
 
 // About Us
 $radio_about_enable = themes_get_option_key( 'radio_about_enable', $themes_array );
+$about_bgcolor = themes_get_option_key( 'about_bgcolor', $themes_array );
+$about_bgimage = themes_get_option_key( 'about_bgimage', $themes_array );
+
+$fetured_product_bg_color = themes_get_option_key( 'fetured_product_bg_color', $themes_array );
+$fetured_product_bg_image = themes_get_option_key( 'fetured_product_bg_image', $themes_array );
+
 $themes_about_main_title_color = themes_get_option_key( 'about_main_title_color', $themes_array );
 $themes_about_main_title_fontfamily = themes_get_option_key( 'about_main_title_fontfamily', $themes_array );
 $themes_about_main_title_font_size = themes_get_option_key( 'about_main_title_font_size', $themes_array );
@@ -852,6 +960,11 @@ $themes_introduction_box_content_fontfamily = themes_get_option_key( 'introducti
 $themes_introduction_box_content_font_size = themes_get_option_key( 'introduction_box_content_font_size', $themes_array );
 $themes_introduction_box_content_color_afterhover = themes_get_option_key( 'introduction_box_content_color_afterhover', $themes_array );
 
+$introduction_box_button_text_color = themes_get_option_key( 'introduction_box_button_text_color', $themes_array );
+$introduction_box_button_text_fontfamily = themes_get_option_key( 'introduction_box_button_text_fontfamily', $themes_array );
+$introduction_box_button_text_font_size = themes_get_option_key( 'introduction_box_button_text_font_size', $themes_array );
+$introduction_box_button_bg_color = themes_get_option_key( 'introduction_box_button_bg_color', $themes_array );
+
 // Pricing Plans
 
 $themes_pricing_plan_main_title_color = themes_get_option_key( 'pricing_plan_main_title_color', $themes_array );
@@ -930,9 +1043,6 @@ $themes_our_records_text1_fontsize = themes_get_option_key( 'our_records_num_tex
 
 // Our Newsletter
 
-$themes_newsletter_main_text_color = themes_get_option_key( 'newsletter_main_text_color', $themes_array );
-$themes_newsletter_main_text_fontfamily = themes_get_option_key( 'newsletter_main_text_fontfamily', $themes_array );
-$themes_newsletter_main_text_fontsize = themes_get_option_key( 'newsletter_main_text_fontsize', $themes_array );
 $themes_newsletter_content_text_color = themes_get_option_key( 'newsletter_content_text_color', $themes_array );
 $themes_newsletter_content_text_fontfamily = themes_get_option_key( 'newsletter_content_text_fontfamily', $themes_array );
 $themes_newsletter_content_text_fontsize = themes_get_option_key( 'newsletter_content_text_fontsize', $themes_array );
@@ -1284,7 +1394,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_newsletter_author_text_fontsize ; ?>;
 	<?php endif; ?>
 }
-#testimonial .testimonial-content p {
+#newsletter .news-p p {
 	<?php if ( ! empty( $themes_newsletter_content_text_color ) ) : ?>
 	color: <?php echo $themes_newsletter_content_text_color ; ?>;
 	<?php endif; ?>
@@ -1293,17 +1403,6 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_newsletter_content_text_fontsize ) ) : ?>
 	font-size: <?php echo $themes_newsletter_content_text_fontsize ; ?>;
-	<?php endif; ?>
-}
-#newsletter .newsletter-content h2{
-	<?php if ( ! empty( $themes_newsletter_main_text_color ) ) : ?>
-	color: <?php echo $themes_newsletter_main_text_color ; ?>;
-	<?php endif; ?>
-	<?php if ( ! empty( $themes_newsletter_main_text_fontfamily ) ) : ?>
-	font-family: <?php echo $themes_newsletter_main_text_fontfamily  ; ?>;
-	<?php endif; ?>
-	<?php if ( ! empty( $themes_newsletter_main_text_fontsize ) ) : ?>
-	font-size: <?php echo $themes_newsletter_main_text_fontsize ; ?>;
 	<?php endif; ?>
 }
 #our-records .record-title {
@@ -1460,6 +1559,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $themes_plan_but_bg_color ; ?>;
 	<?php endif; ?>
 }
+.pricing-plan-content a.read-more{
+	<?php if ( ! empty( $plan_but_bgcolor1  ) || ! empty( $plan_but_bgcolor2  )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $plan_but_bgcolor1 ; ?> 0%, <?php echo $plan_but_bgcolor2 ; ?> 100%);
+	<?php endif; ?>
+}
 #pricing-plans .pricing-plans-content:hover ul li{
 	<?php if ( ! empty( $themes_pricing_plan_para_color_afterhover  ) ) : ?>
 	color: <?php echo $themes_pricing_plan_para_color_afterhover ; ?>;
@@ -1532,14 +1636,14 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_pricing_plan_main_title_fontsize ; ?>;
 	<?php endif; ?>
 }
-#introduction .text-box:hover p{
+#introduction .intro-box:hover .text-box p{
 	<?php if ( ! empty( $themes_introduction_box_content_color_afterhover  ) ) : ?>
-	color: <?php echo $themes_introduction_box_content_color_afterhover ; ?>;
+	color: <?php echo $themes_introduction_box_content_color_afterhover ; ?> !important;
 	<?php endif; ?>
 }
-#introduction .text-box p{
+#introduction .text-box p,#introduction p{
 	<?php if ( ! empty( $themes_introduction_box_content_color  ) ) : ?>
-	color: <?php echo $themes_introduction_box_content_color ; ?>;
+	color: <?php echo $themes_introduction_box_content_color ; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_introduction_box_content_fontfamily  ) ) : ?>
 	font-family: <?php echo $themes_introduction_box_content_fontfamily ; ?>;
@@ -1548,9 +1652,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_introduction_box_content_font_size ; ?>;
 	<?php endif; ?>
 }
-#introduction .text-box:hover h3{
+#introduction .intro-box:hover .text-box h3{
 	<?php if ( ! empty( $themes_introduction_box_title_color_afterhover  ) ) : ?>
-	color: <?php echo $themes_introduction_box_title_color_afterhover ; ?>;
+	color: <?php echo $themes_introduction_box_title_color_afterhover ; ?> !important;
 	<?php endif; ?>
 }
 #introduction .text-box h3{
@@ -1564,7 +1668,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_introduction_box_title_font_size ; ?>;
 	<?php endif; ?>
 }
-#introduction .text-box:hover{
+#introduction .intro-box:hover{
 	<?php if ( ! empty( $themes_introduction_box_bgcolor_afterhover  ) ) : ?>
 	background-color: <?php echo $themes_introduction_box_bgcolor_afterhover ; ?>;
 	<?php endif; ?>
@@ -1574,15 +1678,34 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $themes_introduction_box_bgcolor ; ?>;
 	<?php endif; ?>
 }
-#introduction .intro-right-box h3.head_white{
+#introduction .intro-right-box h3.head_white,#introduction span.head_white{
 	<?php if ( ! empty( $themes_introduction_section_main_title_color  ) ) : ?>
-	color: <?php echo $themes_introduction_section_main_title_color ; ?>;
+	color: <?php echo $themes_introduction_section_main_title_color ; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_introduction_section_main_title_font_family  ) ) : ?>
 	font-family: <?php echo $themes_introduction_section_main_title_font_family ; ?>;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_introduction_section_main_title_font_size ) ) : ?>
 	font-size: <?php echo $themes_introduction_section_main_title_font_size ; ?>;
+	<?php endif; ?>
+}
+#introduction .left-read,#introduction .right-read{
+	<?php if ( ! empty( $introduction_box_button_text_color  ) ) : ?>
+	color: <?php echo $introduction_box_button_text_color ; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $introduction_box_button_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $introduction_box_button_text_fontfamily ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $introduction_box_button_text_font_size ) ) : ?>
+	font-size: <?php echo $introduction_box_button_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#introduction .left-read,#introduction .right-read{
+	<?php if ( ! empty( $introduction_box_button_bg_color  ) ) : ?>
+	background-color: <?php echo $introduction_box_button_bg_color ; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $introduction_box_button_bg_color  ) ) : ?>
+	border-color: <?php echo $introduction_box_button_bg_color ; ?> !important;
 	<?php endif; ?>
 }
 #our-team{
@@ -1904,13 +2027,38 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #topbar span, #topbar .side-navigation a{
 	<?php if ( ! empty( $themes_topbar_text_color ) ) : ?>
-	color: <?php echo $themes_topbar_text_color; ?>;
+	color: <?php echo $themes_topbar_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $setting_topbar_text_font_family ) ) : ?>
 	font-family: <?php echo $setting_topbar_text_font_family; ?>;
 	<?php endif; ?>
 	<?php if ( ! empty( $setting_topbar_text_size ) ) : ?>
 	font-size: <?php echo $setting_topbar_text_size; ?>;
+	<?php endif; ?>
+}
+.vwsmp_front a{
+	<?php if ( ! empty( $setting_topbar_icons_color ) ) : ?>
+	color: <?php echo $setting_topbar_icons_color; ?> !important;
+	<?php endif; ?>
+}
+#topbar .vwsmp_front a:hover,#content_header .vwsmp_front a:hover{
+	<?php if ( ! empty( $setting_topbar_icons_hover_color ) ) : ?>
+	color: <?php echo $setting_topbar_icons_hover_color; ?> !important;
+	<?php endif; ?>
+}
+#topbar .vwsmp_front a,#content_header .vwsmp_front a{
+	<?php if ( ! empty( $setting_topbar_sicons_bgcolor ) ) : ?>
+	background-color: <?php echo $setting_topbar_sicons_bgcolor; ?> !important;
+	<?php endif; ?>
+}
+#topbar .vwsmp_front a:hover,#content_header .vwsmp_front a:hover{
+	<?php if ( ! empty( $setting_topbar_sicons_hoverbgcolor1 ) || ! empty( $setting_topbar_sicons_hoverbgcolor2 )) : ?>
+	background-image: linear-gradient(57deg, <?php echo $setting_topbar_sicons_hoverbgcolor1; ?> 0%, <?php echo $setting_topbar_sicons_hoverbgcolor2; ?> 100%);
+	<?php endif; ?>
+}
+.about-content h2 span.left-text,.about-content .left-read,#featured-update h2 span.left-text,.adjust1 a.button,#our-app span.head_white,#services span.head_center,.deg-right-box i,#interface-deg .left-read,#introduction span.head_white,#introduction .left-read,#newsletter .news-heading span,#newsletter input[type="submit"],#testimonials h2 span,#video span.left-text,#video .left-read,.pricing-plan-head span.left-text,#featured-update li a:active,.client_inner:hover img.alt-img{
+	<?php if ( ! empty( $themes_commen_gradient_color_1 ) || ! empty( $themes_commen_gradient_color_2 )) : ?>
+	background-image: linear-gradient(57deg, <?php echo $themes_commen_gradient_color_1; ?> 0%, <?php echo $themes_commen_gradient_color_2; ?> 100%);
 	<?php endif; ?>
 }
 #header{
@@ -2203,12 +2351,12 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_header_section_search_font_size; ?>;
 	<?php endif; ?>
 }
-.menubar .login-link a:hover{
+.menubar .login-link a:hover,.menubar .topbtn{
 	<?php if ( ! empty( $themes_header_button_bg_color_afterhover ) ) : ?>
 	background-color: <?php echo $themes_header_button_bg_color_afterhover; ?>;
 	<?php endif; ?>
 }
-.menubar .login-link a{
+.menubar .login-link a,.menubar .topbtn{
 	<?php if ( ! empty( $themes_header_button_text_color ) ) : ?>
 	color: <?php echo $themes_header_button_text_color; ?>;
 	<?php endif; ?>
@@ -2241,9 +2389,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_slider_small_heading_font_size; ?>;
 	<?php endif; ?>
 }
-#slider h1,#productslide .products-box .product-content a{
+#slider .slider-box h1,#productslide .products-box .product-content a,#slider .prop_desc p{
 	<?php if ( ! empty( $themes_main_heading_color ) ) : ?>
-	color: <?php echo $themes_main_heading_color; ?>;
+	color: <?php echo $themes_main_heading_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_main_heading_font_family ) ) : ?>
 	font-family: <?php echo $themes_main_heading_font_family; ?>;
@@ -2281,8 +2429,10 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $themes_slide_button_gradient_bgcolor1 )) : ?>
 	background-color: <?php echo $themes_slide_button_gradient_bgcolor1; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $themes_slide_button_gradient_bgcolor1 )) : ?>
-	background-image: linear-gradient(90deg, <?php echo $themes_slide_button_gradient_bgcolor1; ?> 0%, <?php echo $themes_slide_button_gradient_bgcolor1; ?> 100%);
+}
+#slider .search-submit,#slider .slider-button,#productslide .products-box .product-content .icon_link a,#productslide .products-box .featured-cart a,#topbar .topbtn a{
+	<?php if ( ! empty( $themes_slide_button_gradient_bgcolor1 )|| ! empty( $themes_slide_button_gradient_bgcolor2 )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_slide_button_gradient_bgcolor1; ?> 0%, <?php echo $themes_slide_button_gradient_bgcolor2; ?> 100%);
 	<?php endif; ?>
 }
 #our-feature{
@@ -2292,7 +2442,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #our-feature p{
 	<?php if ( ! empty( $features_small_text_color ) ) : ?>
-	color: <?php echo $features_small_text_color; ?>;
+	color: <?php echo $features_small_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $features_small_text_fontfamily ) ) : ?>
 	font-family: <?php echo $features_small_text_fontfamily; ?>;
@@ -2301,9 +2451,16 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $features_small_text_font_size; ?>;
 	<?php endif; ?>
 }
+#our-feature p{
+	<?php if ( ! empty( $features_small_text_color ) ) : ?>
+	background: linear-gradient(91deg,<?php echo $features_small_text_color; ?> 75%,<?php echo $features_small_text_color; ?> 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+	<?php endif; ?>
+}
 #our-feature h3{
 	<?php if ( ! empty( $features_main_text_color ) ) : ?>
-	color: <?php echo $features_main_text_color; ?>;
+	color: <?php echo $features_main_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $features_main_text_fontfamily ) ) : ?>
 	font-family: <?php echo $features_main_text_fontfamily; ?>;
@@ -2314,7 +2471,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #our-feature span{
 	<?php if ( ! empty( $features_dicsount_text_color ) ) : ?>
-	color: <?php echo $features_dicsount_text_color; ?>;
+	color: <?php echo $features_dicsount_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $features_dicsount_text_fontfamily ) ) : ?>
 	font-family: <?php echo $features_dicsount_text_fontfamily; ?>;
@@ -2328,7 +2485,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background: linear-gradient(0, <?php echo $about_extra_text_bg_color; ?> 0%, <?php echo $about_extra_text_bg_color; ?> 90%);
 	<?php endif; ?>
 }
-#why-choose-us .why-video-wrap span i{
+#why-choose-us .why-video-wrap span i,.video-img i{
 	<?php if ( ! empty( $about_video_icons_color ) ) : ?>
 	color: <?php echo $about_video_icons_color; ?> ;
 	<?php endif; ?>
@@ -2336,6 +2493,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 #why-choose-us .why-video-wrap span{
 	<?php if ( ! empty( $about_video_icons_bg_color ) ) : ?>
 	background-color: <?php echo $about_video_icons_bg_color; ?> ;
+	<?php endif; ?>
+}
+.video-img i{
+	<?php if ( ! empty( $about_video_icons_bg_color ) ) : ?>
+	border-color: <?php echo $about_video_icons_bg_color; ?> ;
 	<?php endif; ?>
 }
 #our-feature a{
@@ -2364,6 +2526,20 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#about{
+	<?php if ( ! empty( $about_bgcolor ) ) : ?>
+	background-color: <?php echo $about_bgcolor; ?>;
+	<?php elseif ( ! empty( $about_bgimage ) ) : ?>
+	background-image: url(<?php echo $about_bgimage; ?>);
+	<?php endif; ?>
+}
+#featured-update{
+	<?php if ( ! empty( $fetured_product_bg_color ) ) : ?>
+	background-color: <?php echo $fetured_product_bg_color; ?>;
+	<?php elseif ( ! empty( $fetured_product_bg_image ) ) : ?>
+	background-image: url(<?php echo $fetured_product_bg_image; ?>);
+	<?php endif; ?>
+}
 .about-content h2 span.left-text,#about p{
 	<?php if ( ! empty( $about_smalltitle_left_color ) ) : ?>
 	color: <?php echo $about_smalltitle_left_color; ?>;
@@ -2374,13 +2550,10 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $about_smalltitle_left_font_size ) ) : ?>
 	font-size: <?php echo $about_smalltitle_left_font_size; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $about_smalltitle_left_bgcolor )) : ?>
-	background-image: linear-gradient(57deg, <?php echo $about_smalltitle_left_bgcolor; ?> 0%, <?php echo $about_smalltitle_left_bgcolor; ?> 100%);
-	<?php endif; ?>
 }
-.about-content h2 span.right-text,#about p{
+.about-content h2 span.right-text{
 	<?php if ( ! empty( $about_smalltitle_right_color ) ) : ?>
-	color: <?php echo $about_smalltitle_right_color; ?>;
+	color: <?php echo $about_smalltitle_right_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $about_smalltitle_right_fontfamily ) ) : ?>
 	font-family: <?php echo $about_smalltitle_right_fontfamily; ?>;
@@ -2388,13 +2561,10 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $about_smalltitle_right_font_size ) ) : ?>
 	font-size: <?php echo $about_smalltitle_right_font_size; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $about_smalltitle_right_bgcolor )) : ?>
-	background-image: linear-gradient(57deg, <?php echo $about_smalltitle_right_bgcolor; ?> 0%, <?php echo $about_smalltitle_right_bgcolor; ?> 100%);
-	<?php endif; ?>
 }
 .about-content h3,#about h3{
 	<?php if ( ! empty( $about_main_title_color ) ) : ?>
-	color: <?php echo $about_main_title_color; ?>;
+	color: <?php echo $about_main_title_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $about_main_title_fontfamily ) ) : ?>
 	font-family: <?php echo $about_main_title_fontfamily; ?>;
@@ -2405,7 +2575,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .about-content li p,#about ol p{
 	<?php if ( ! empty( $about_list_title_color ) ) : ?>
-	color: <?php echo $about_list_title_color; ?>;
+	color: <?php echo $about_list_title_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $about_list_title_fontfamily ) ) : ?>
 	font-family: <?php echo $about_list_title_fontfamily; ?>;
@@ -2416,7 +2586,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .about-content p{
 	<?php if ( ! empty( $about_text_color ) ) : ?>
-	color: <?php echo $about_text_color; ?>;
+	color: <?php echo $about_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $about_text_fontfamily ) ) : ?>
 	font-family: <?php echo $about_text_fontfamily; ?>;
@@ -2425,7 +2595,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $about_text_font_size; ?>;
 	<?php endif; ?>
 }
-.about-content .left-read,.about-content .right-read,.about-content .left-read, .about-content .right-read{
+.about-content .right-read,.about-content .left-read, .about-content .right-read{
 	<?php if ( ! empty( $about_button_text_color ) ) : ?>
 	color: <?php echo $about_button_text_color; ?>;
 	<?php endif; ?>
@@ -2435,13 +2605,15 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $about_button_text_font_size ) ) : ?>
 	font-size: <?php echo $about_button_text_font_size; ?>;
 	<?php endif; ?>
+}
+.about-content .right-read, .about-content .right-read{
 	<?php if ( ! empty( $about_button_bg_color ) ) : ?>
 	background-image: linear-gradient(180deg, <?php echo $about_button_bg_color; ?> 0%, <?php echo $about_button_bg_color; ?> 100%);
 	<?php endif; ?>
 }
 .about-video p,.left-bg p,.right-img-bg p{
 	<?php if ( ! empty( $about_extra_text_color ) ) : ?>
-	color: <?php echo $about_extra_text_color; ?>;
+	color: <?php echo $about_extra_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $about_extra_text_fontfamily ) ) : ?>
 	font-family: <?php echo $about_extra_text_fontfamily; ?>;
@@ -2450,7 +2622,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $about_extra_text_font_size; ?>;
 	<?php endif; ?>
 }
-.right-img-bg p{
+.right-img-bg,.img-outer:after,.img-outer:before{
 	<?php if ( ! empty( $about_extra_text_bg_color ) ) : ?>
 	background-color: <?php echo $about_extra_text_bg_color; ?>;
 	<?php endif; ?>
@@ -2470,9 +2642,6 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $pro_small_left_title_font_size ) ) : ?>
 	font-size: <?php echo $pro_small_left_title_font_size; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $pro_small_left_titlebg_color ) ) : ?>
-	background-image: linear-gradient(57deg, <?php echo $pro_small_left_titlebg_color; ?> 0%, <?php echo $pro_small_left_titlebg_color; ?> 100%);
-	<?php endif; ?>
 }
 #featured-update h2 span.right-text{
 	<?php if ( ! empty( $pro_small_right_title_color ) ) : ?>
@@ -2490,7 +2659,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #featured-update .about-inner h3{
 	<?php if ( ! empty( $pro_main_title_color ) ) : ?>
-	color: <?php echo $pro_main_title_color; ?>;
+	color: <?php echo $pro_main_title_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $pro_main_title_fontfamily ) ) : ?>
 	font-family: <?php echo $pro_main_title_fontfamily; ?>;
@@ -2581,6 +2750,13 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#our-app{
+	<?php if ( ! empty( $our_app_section_bgcolor ) ) : ?>
+	background-color: <?php echo $our_app_section_bgcolor; ?>;
+	<?php elseif ( ! empty( $our_app_section_bgimage ) ) : ?>
+	background-image: url(<?php echo $our_app_section_bgimage; ?>);
+	<?php endif; ?>
+}
 #our-app span.head_white{
 	<?php if ( ! empty( $app_small_left_title_color ) ) : ?>
 	color: <?php echo $app_small_left_title_color; ?>;
@@ -2597,7 +2773,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #our-app h3{
 	<?php if ( ! empty( $app_main_title_color ) ) : ?>
-	color: <?php echo $app_main_title_color; ?>;
+	color: <?php echo $app_main_title_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $app_main_title_fontfamily ) ) : ?>
 	font-family: <?php echo $app_main_title_fontfamily; ?>;
@@ -2608,7 +2784,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #our-app p{
 	<?php if ( ! empty( $app_main_text_color ) ) : ?>
-	color: <?php echo $app_main_text_color; ?>;
+	color: <?php echo $app_main_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $app_main_text_fontfamily ) ) : ?>
 	font-family: <?php echo $app_main_text_fontfamily; ?>;
@@ -2739,6 +2915,13 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#services{
+	<?php if ( ! empty( $services_bgcolor ) ) : ?>
+	background-color: <?php echo $services_bgcolor; ?>;
+	<?php elseif ( ! empty( $services_bgimage ) ) : ?>
+	background-image: url(<?php echo $services_bgimage; ?>);
+	<?php endif; ?>
+}
 #services span.head_center,#services p.small-text{
 	<?php if ( ! empty( $themes_servicesmall_title_color ) ) : ?>
 	color: <?php echo $themes_servicesmall_title_color; ?>;
@@ -2755,7 +2938,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #services h3{
 	<?php if ( ! empty( $themes_service_title_color ) ) : ?>
-	color: <?php echo $themes_service_title_color; ?>;
+	color: <?php echo $themes_service_title_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_service_title_font_family ) ) : ?>
 	font-family: <?php echo $themes_service_title_font_family; ?>;
@@ -2766,7 +2949,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #services p{
 	<?php if ( ! empty( $themes_service_subtext_color ) ) : ?>
-	color: <?php echo $themes_service_subtext_color; ?>;
+	color: <?php echo $themes_service_subtext_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_service_text_font_family ) ) : ?>
 	font-family: <?php echo $themes_service_text_font_family; ?>;
@@ -2807,14 +2990,100 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_service_box_content_font_size; ?>;
 	<?php endif; ?>
 }
+#services .themeBbutton a{
+	<?php if ( ! empty( $all_services_button_color ) ) : ?>
+	color: <?php echo $all_services_button_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $all_services_button_fontfamily ) ) : ?>
+	font-family: <?php echo $all_services_button_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $all_services_button_font_size ) ) : ?>
+	font-size: <?php echo $all_services_button_font_size; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $all_services_button_bgcolor ) ) : ?>
+	background-image: linear-gradient( 80deg, <?php echo $all_services_button_bgcolor; ?> 25%, <?php echo $all_services_button_bgcolor; ?> 100%);
+	<?php endif; ?>
+}
+#services .themeBbutton a{
+	<?php if ( ! empty( $all_services_button_bgcolor1 ) || ! empty( $all_services_button_bgcolor2 )) : ?>
+	background-image: linear-gradient( 80deg, <?php echo $all_services_button_bgcolor1; ?> 25%, <?php echo $all_services_button_bgcolor2; ?> 100%);
+	<?php endif; ?>
+}
+
 #interface-deg{
 	<?php if ( ! empty( $radio_interface_deg_enable ) && true == $radio_interface_deg_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#interface-deg{
+	<?php if ( ! empty( $interface_deg_section_bgcolor ) ) : ?>
+	background-color: <?php echo $interface_deg_section_bgcolor; ?>;
+	<?php elseif ( ! empty( $interface_deg_section_bgimage ) ) : ?>
+	background-image: url(<?php echo $interface_deg_section_bgimage; ?>);
+	<?php endif; ?>
+}
+.deg-right-box h3,.deg-bottom .head_white{
+	<?php if ( ! empty( $interface_main_title_color ) ) : ?>
+	color: <?php echo $interface_main_title_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_main_title_fontfamily ) ) : ?>
+	font-family: <?php echo $interface_main_title_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_main_title_font_size ) ) : ?>
+	font-size: <?php echo $interface_main_title_font_size; ?>;
+	<?php endif; ?>
+}
+.deg-right-box p,.deg-bottom p{
+	<?php if ( ! empty( $interface_text_color ) ) : ?>
+	color: <?php echo $interface_text_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_text_fontfamily ) ) : ?>
+	font-family: <?php echo $interface_text_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_text_font_size ) ) : ?>
+	font-size: <?php echo $interface_text_font_size; ?>;
+	<?php endif; ?>
+}
+.deg-right-box li{
+	<?php if ( ! empty( $interface_list_title_color ) ) : ?>
+	color: <?php echo $interface_list_title_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_list_title_fontfamily ) ) : ?>
+	font-family: <?php echo $interface_list_title_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_list_title_font_size ) ) : ?>
+	font-size: <?php echo $interface_list_title_font_size; ?>;
+	<?php endif; ?>
+}
+#interface-deg .right-read,#interface-deg .left-read{
+	<?php if ( ! empty( $interface_button_text_color ) ) : ?>
+	color: <?php echo $interface_button_text_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_button_text_fontfamily ) ) : ?>
+	font-family: <?php echo $interface_button_text_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_button_text_font_size ) ) : ?>
+	font-size: <?php echo $interface_button_text_font_size; ?>;
+	<?php endif; ?>
+}
+#interface-deg .right-read,#interface-deg .left-read,.deg-bottom{
+	<?php if ( ! empty( $interface_button_bg_color ) ) : ?>
+	background-color: <?php echo $interface_button_bg_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $interface_button_bg_color ) ) : ?>
+	border-color: <?php echo $interface_button_bg_color; ?>;
+	<?php endif; ?>
+}
 #introduction{
 	<?php if ( ! empty( $radio_introduction_enable ) && true == $radio_introduction_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
+#introduction{
+	<?php if ( ! empty( $introduction_section_bgcolor ) ) : ?>
+	background-color: <?php echo $introduction_section_bgcolor; ?>;
+	<?php elseif ( ! empty( $introduction_section_bgimage ) ) : ?>
+	background-image: url(<?php echo $introduction_section_bgimage; ?>);
 	<?php endif; ?>
 }
 /*------------Home contact---------------*/
@@ -2881,7 +3150,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #best-seller h3{
 	<?php if ( ! empty( $best_seller_main_text_color ) ) : ?>
-	color: <?php echo $best_seller_main_text_color; ?>;
+	color: <?php echo $best_seller_main_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $best_seller_main_text_fontfamily ) ) : ?>
 	font-family: <?php echo $best_seller_main_text_fontfamily; ?>;
@@ -2904,9 +3173,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background: linear-gradient( 80deg, <?php echo $seller_sale_bg_color; ?> 25%, <?php echo $seller_sale_bg_color; ?> 100%);
 	<?php endif; ?>
 }
-#best-seller h2 span,#best-seller h2 span:after, #best-seller h2 span:before{
+#best-seller h2 span{
 	<?php if ( ! empty( $best_seller_small_text_color ) ) : ?>
-	color: <?php echo $best_seller_small_text_color; ?>;
+	color: <?php echo $best_seller_small_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $best_seller_small_text_fontfamily ) ) : ?>
 	font-family: <?php echo $best_seller_small_text_fontfamily; ?>;
@@ -2914,6 +3183,8 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $best_seller_small_text_font_size ) ) : ?>
 	font-size: <?php echo $best_seller_small_text_font_size; ?>;
 	<?php endif; ?>
+}
+#best-seller h2 span:after, #best-seller h2 span:before{
 	<?php if ( ! empty( $best_seller_small_text_color ) ) : ?>
 	background-color: <?php echo $best_seller_small_text_color; ?>;
 	<?php endif; ?>
@@ -2940,7 +3211,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $seller_price_font_size; ?>;
 	<?php endif; ?>
 }
-#best-seller .product-over a.add_to_cart_button,#best-seller a.view-all{
+#best-seller .product-over a.add_to_cart_button{
 	<?php if ( ! empty( $seller_button_color ) ) : ?>
 	color: <?php echo $seller_button_color; ?>;
 	<?php endif; ?>
@@ -2952,6 +3223,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $seller_button_bgcolor ) ) : ?>
 	background-image: linear-gradient( 80deg, <?php echo $seller_button_bgcolor; ?> 25%, <?php echo $seller_button_bgcolor; ?> 100%);
+	<?php endif; ?>
+}
+#best-seller a.view-all{
+	<?php if ( ! empty( $seller_button_bgcolor1 ) || ! empty( $seller_button_bgcolor2 )) : ?>
+	background-image: linear-gradient( 80deg, <?php echo $seller_button_bgcolor1; ?> 25%, <?php echo $seller_button_bgcolor2; ?> 100%);
 	<?php endif; ?>
 }
 /*------------category products---------------*/
@@ -3007,7 +3283,14 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #category-products ul a.nav-link.active{
 	<?php if ( ! empty( $tab_tittle_active_color ) ) : ?>
-	background: linear-gradient( 91deg,<?php echo $tab_tittle_active_color; ?> 47%,<?php echo $tab_tittle_active_color; ?> 100%);
+	color: <?php echo $tab_tittle_active_color; ?>;
+	<?php endif; ?>
+}
+#category-products ul a.nav-link.active{
+	<?php if ( ! empty( $tab_tittle_active_color1 ) ||  ! empty( $tab_tittle_active_color2 )) : ?>
+	background: linear-gradient( 91deg,<?php echo $tab_tittle_active_color1; ?> 47%,<?php echo $tab_tittle_active_color2; ?> 100%);
+	-webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 	<?php endif; ?>
 }
 #category-products span.product-sale-tag .onsale{
@@ -3048,7 +3331,26 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $product_price_font_size; ?>;
 	<?php endif; ?>
 }
-.recode-prod-content a.add_to_cart_button, #best-seller .product-over a.add_to_cart_button, #category-products .product-over a.add_to_cart_button,#category-products a.view-all{
+#category-products a.view-all{
+	<?php if ( ! empty( $product_button_color ) ) : ?>
+	color: <?php echo $product_button_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $product_button_fontfamily ) ) : ?>
+	font-family: <?php echo $product_button_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $product_button_font_size ) ) : ?>
+	font-size: <?php echo $product_button_font_size; ?>;
+	<?php endif; ?>
+}
+#category-products a.view-all{
+	<?php if ( ! empty( $product_button_bgcolor1 ) || ! empty( $product_button_bgcolor2 )) : ?>
+	background-image: linear-gradient( 80deg, <?php echo $product_button_bgcolor1; ?> 25%, <?php echo $product_button_bgcolor2; ?> 100%);;
+	<?php endif; ?>
+}
+.recode-prod-content a.add_to_cart_button, #best-seller .product-over a.add_to_cart_button, #category-products .product-over a.add_to_cart_button, #category-products a.view-all {
+    
+}
+.recode-prod-content a.add_to_cart_button, #best-seller .product-over a.add_to_cart_button, #category-products .product-over a.add_to_cart_button{
 	<?php if ( ! empty( $product_price_color ) ) : ?>
 	color: <?php echo $product_price_color; ?>;
 	<?php endif; ?>
@@ -3059,7 +3361,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $product_price_font_size; ?>;
 	<?php endif; ?>
 }
-.recode-prod-content a.add_to_cart_button, #best-seller .product-over a.add_to_cart_button, #category-products .product-over a.add_to_cart_button,#category-products a.view-all{
+.recode-prod-content a.add_to_cart_button, #best-seller .product-over a.add_to_cart_button, #category-products .product-over a.add_to_cart_button{
 	<?php if ( ! empty( $product_button_bgcolor ) ) : ?>
 	background-image: linear-gradient( 80deg, <?php echo $product_button_bgcolor; ?> 25%, <?php echo $product_button_bgcolor; ?> 100%);
 	<?php endif; ?>
@@ -3079,7 +3381,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #newsletter h3{
 	<?php if ( ! empty( $themes_newsletter_title_color_first ) ) : ?>
-	color: <?php echo $themes_newsletter_title_color_first; ?>;
+	color: <?php echo $themes_newsletter_title_color_first; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_newsletter_title_font_family ) ) : ?>
 	font-family: <?php echo $themes_newsletter_title_font_family; ?>;
@@ -3088,7 +3390,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_newsletter_title_font_size; ?>;
 	<?php endif; ?>
 }
-#newsletter span{
+#newsletter input[type="email"]{
 	<?php if ( ! empty( $themes_newsletter_text_color ) ) : ?>
 	color: <?php echo $themes_newsletter_text_color; ?>;
 	<?php endif; ?>
@@ -3099,7 +3401,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_newsletter_text_font_size; ?>;
 	<?php endif; ?>
 }
-#newsletter span{
+#newsletter input[type="submit"]{
 	<?php if ( ! empty( $themes_newsletter_form_button_color ) ) : ?>
 	color: <?php echo $themes_newsletter_form_button_color; ?>;
 	<?php endif; ?>
@@ -3140,9 +3442,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_testimonial_title_font_size; ?>;
 	<?php endif; ?>
 }
-.testimonial-text-out h3{
+#testimonials h3{
 	<?php if ( ! empty( $themes_testimonial_subtext_color ) ) : ?>
-	color: <?php echo $themes_testimonial_subtext_color; ?>;
+	color: <?php echo $themes_testimonial_subtext_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_testimonial_subtext_font_family ) ) : ?>
 	font-family: <?php echo $themes_testimonial_subtext_font_family; ?>;
@@ -3153,7 +3455,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .testimonial-text-out h4.testimonial_name a{
 	<?php if ( ! empty( $themes_testimonial_name_color ) ) : ?>
-	color: <?php echo $themes_testimonial_name_color; ?>;
+	color: <?php echo $themes_testimonial_name_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_testimonial_name_font_family ) ) : ?>
 	font-family: <?php echo $themes_testimonial_name_font_family; ?>;
@@ -3164,7 +3466,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .testimonial-text-out h4.testimonial_name cite{
 	<?php if ( ! empty( $themes_testimonial_des_color ) ) : ?>
-	color: <?php echo $themes_testimonial_des_color; ?>;
+	color: <?php echo $themes_testimonial_des_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_testimonial_des_font_family ) ) : ?>
 	font-family: <?php echo $themes_testimonial_des_font_family; ?>;
@@ -3173,9 +3475,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_testimonial_des_font_size; ?>;
 	<?php endif; ?>
 }
-.testimonial_box .qoute_text{
+.testimonial_box .qoute_text,#testimonials p{
 	<?php if ( ! empty( $themes_testimonial_qoute_color ) ) : ?>
-	color: <?php echo $themes_testimonial_qoute_color; ?>;
+	color: <?php echo $themes_testimonial_qoute_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_testimonial_qoute_font_family ) ) : ?>
 	font-family: <?php echo $themes_testimonial_qoute_font_family; ?>;
@@ -3201,6 +3503,145 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 #video{
 	<?php if ( ! empty( $video_enable ) && true == $video_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
+	<?php endif; ?>
+}
+#video{
+	<?php if ( ! empty( $video_bgcolor ) ) : ?>
+	background-color: <?php echo $video_bgcolor; ?>;
+	<?php elseif ( ! empty( $video_bgimage ) ) : ?>
+	background-image: url(<?php echo $video_bgimage; ?>);
+	<?php endif; ?>
+}
+#video span.left-text{
+	<?php if ( ! empty( $video_sec_small_left_title_color ) ) : ?>
+	color: <?php echo $video_sec_small_left_title_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_small_left_title_font_family ) ) : ?>
+	font-family: <?php echo $video_sec_small_left_title_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_small_left_title_font_size ) ) : ?>
+	font-size: <?php echo $video_sec_small_left_title_font_size; ?>;
+	<?php endif; ?>
+}
+#video span.right-text{
+	<?php if ( ! empty( $video_sec_small_right_title_color ) ) : ?>
+	color: <?php echo $video_sec_small_right_title_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_small_right_title_font_family ) ) : ?>
+	font-family: <?php echo $video_sec_small_right_title_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_small_right_title_font_size ) ) : ?>
+	font-size: <?php echo $video_sec_small_right_title_font_size; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_small_right_title_bgcolor ) ) : ?>
+	background-color: <?php echo $video_sec_small_right_title_bgcolor; ?>;
+	<?php endif; ?>
+}
+#video h3{
+	<?php if ( ! empty( $video_sec_main_title_color ) ) : ?>
+	color: <?php echo $video_sec_main_title_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_main_title_font_family ) ) : ?>
+	font-family: <?php echo $video_sec_main_title_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_main_title_font_size ) ) : ?>
+	font-size: <?php echo $video_sec_main_title_font_size; ?>;
+	<?php endif; ?>
+}
+#video p{
+	<?php if ( ! empty( $video_sec_text_color ) ) : ?>
+	color: <?php echo $video_sec_text_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_text_font_family ) ) : ?>
+	font-family: <?php echo $video_sec_text_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_text_font_size ) ) : ?>
+	font-size: <?php echo $video_sec_text_font_size; ?>;
+	<?php endif; ?>
+}
+#video .left-read,#video .right-read{
+	<?php if ( ! empty( $video_sec_button_text_color ) ) : ?>
+	color: <?php echo $video_sec_button_text_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_button_text_fontfamily ) ) : ?>
+	font-family: <?php echo $video_sec_button_text_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_button_text_font_size ) ) : ?>
+	font-size: <?php echo $video_sec_button_text_font_size; ?>;
+	<?php endif; ?>
+}
+#video .left-read,#video .right-read,#video .slider-video-box a{
+	<?php if ( ! empty( $video_sec_button_bg_color ) ) : ?>
+	background-color: <?php echo $video_sec_button_bg_color; ?>;
+	<?php endif; ?>
+}
+#video .left-read,#video .right-read{
+	<?php if ( ! empty( $video_sec_button_bg_color ) ) : ?>
+	border-color: <?php echo $video_sec_button_bg_color; ?>;
+	<?php endif; ?>
+}
+#video .slider-video-box i{
+	<?php if ( ! empty( $video_icons_color ) ) : ?>
+	color: <?php echo $video_icons_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_icons_color ) ) : ?>
+	border-color: <?php echo $video_icons_color; ?>;
+	<?php endif; ?>
+}
+#video .video_content h2, #video .video_content p{
+	<?php if ( ! empty( $video_sec_Main_text_color ) ) : ?>
+	color: <?php echo $video_sec_Main_text_color; ?> !important;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_Main_text_fontfamily ) ) : ?>
+	font-family: <?php echo $video_sec_Main_text_fontfamily; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $video_sec_Main_text_font_size ) ) : ?>
+	font-size: <?php echo $video_sec_Main_text_font_size; ?>;
+	<?php endif; ?>
+}
+.record_box1 .recrd_inner,.record_box2 .recrd_inner,.record_box3 .recrd_inner,.record_box4 .recrd_inner{
+	<?php if ( ! empty( $themes_our_record_number_color ) ) : ?>
+		background: linear-gradient(180deg,<?php echo $themes_our_record_number_color; ?> 0%,<?php echo $themes_our_record_number_color; ?> 100%);
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_record_number_font_family ) ) : ?>
+	font-family: <?php echo $themes_our_record_number_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_record_number_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_record_number_font_size; ?>;
+	<?php endif; ?>
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text
+}
+#our_records .record-text{
+	<?php if ( ! empty( $themes_our_record_title_color ) ) : ?>
+		color: <?php echo $themes_our_record_title_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_record_title_font_family ) ) : ?>
+	font-family: <?php echo $themes_our_record_title_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_record_title_font_size ) ) : ?>
+	font-size: <?php echo $themes_our_record_title_font_size; ?>;
+	<?php endif; ?>
+}
+.record_box1, .record_box2, .record_box3, .record_box4{
+	<?php if ( ! empty( $themes_our_record_icon_bgcolor ) ) : ?>
+	background-color: <?php echo $themes_our_record_icon_bgcolor; ?>;
+	<?php endif; ?>
+}
+.record_box1:hover, .record_box2:hover, .record_box3:hover, .record_box4:hover{
+	<?php if ( ! empty( $themes_our_record_icon_hover_bgcolor1 )|| ! empty( $themes_our_record_icon_hover_bgcolor2 ) ) : ?>
+	background-image: linear-gradient(90deg, <?php echo $themes_our_record_icon_hover_bgcolor1; ?> 0%, <?php echo $themes_our_record_icon_hover_bgcolor2; ?> 100%);
+	<?php endif; ?>
+}
+.rtitle-box .sufix-head,.rtitle-box .sufix-title{
+	<?php if ( ! empty( $record_sub_title_color ) ) : ?>
+		color: <?php echo $record_sub_title_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $record_sub_title_font_family ) ) : ?>
+	font-family: <?php echo $record_sub_title_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $record_sub_title_font_size ) ) : ?>
+	font-size: <?php echo $record_sub_title_font_size; ?>;
 	<?php endif; ?>
 }
 /*-----Pricing planse-------*/
@@ -3300,7 +3741,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .bottom-box a{
 	<?php if ( ! empty( $plan_but_text_color ) ) : ?>
-	color: <?php echo $plan_but_text_color; ?>;
+	color: <?php echo $plan_but_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $plan_but_text_font_family ) ) : ?>
 	font-family: <?php echo $plan_but_text_font_family; ?>;
@@ -3442,7 +3883,15 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_footer_widget_heading_font_size; ?>;
 	<?php endif; ?>
 }
-#footer .textwidget p, #footer .widget p, #footer .post-content a{
+#footer h3{
+	<?php if ( ! empty( $themes_footer_widget_heading_color1 ) || ! empty( $themes_footer_widget_heading_color2 )) : ?>
+	background: linear-gradient(to top, <?php echo $themes_footer_widget_heading_color1; ?> 20%,<?php echo $themes_footer_widget_heading_color2; ?> 60%);
+	<?php endif; ?>
+	color: #fff;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+#footer .textwidget p, #footer .widget p, #footer .post-content a,#footer a,#footer .textwidget p, #footer .widget p, #footer .post-content a, #footer .about_me p, #footer .about_me .dempar,#footer ul li a,#footer .footer-cols .phone-text a{
 	<?php if ( ! empty( $themes_footer_widget_content_color ) ) : ?>
 	color: <?php echo $themes_footer_widget_content_color; ?>;
 	<?php endif; ?>
@@ -3451,6 +3900,16 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_footer_widget_content_font_size ) ) : ?>
 	font-size: <?php echo $themes_footer_widget_content_font_size; ?>;
+	<?php endif; ?>
+}
+#preloader{
+	<?php if ( ! empty( $themes_spinner_bg_color1 ) || ! empty( $themes_spinner_bg_color2 )) : ?>
+	background: linear-gradient(90deg, <?php echo $themes_spinner_bg_color1; ?> 0%, <?php echo $themes_spinner_bg_color2; ?> 100%) !important;
+	<?php endif; ?>
+}
+#footer .about_me i{
+	<?php if ( ! empty( $themes_footer_widget_content_color ) ) : ?>
+	color: <?php echo $themes_footer_widget_content_color; ?>;
 	<?php endif; ?>
 }
 .copyright{
@@ -3476,7 +3935,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .contact-page-details h2{
 	<?php if ( ! empty( $themes_contact_page_heading_color ) ) : ?>
-	color: <?php echo $themes_contact_page_heading_color; ?>;
+	color: <?php echo $themes_contact_page_heading_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_contact_page_heading_font_family  ) ) : ?>
 	font-family: <?php echo $themes_contact_page_heading_font_family ; ?>;
@@ -3485,9 +3944,9 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_contact_page_heading_font_size; ?>;
 	<?php endif; ?>
 }
-.contact-page-details p{
+.contact-page-details p,.contact-box .vw-minima-contact-box i{
 	<?php if ( ! empty( $themes_contact_page_text_color ) ) : ?>
-	color: <?php echo $themes_contact_page_text_color; ?>;
+	color: <?php echo $themes_contact_page_text_color; ?>!important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_contact_page_text_font_family  ) ) : ?>
 	font-family: <?php echo $themes_contact_page_text_font_family ; ?>;
@@ -3498,7 +3957,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .contact-page-details h3{
 	<?php if ( ! empty( $themes_contact_page_form_title_color ) ) : ?>
-	color: <?php echo $themes_contact_page_form_title_color; ?>;
+	color: <?php echo $themes_contact_page_form_title_color; ?>!important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_contact_page_contacts_form_title_font_family  ) ) : ?>
 	font-family: <?php echo $themes_contact_page_contacts_form_title_font_family ; ?>;

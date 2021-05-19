@@ -248,6 +248,9 @@
     }
     $wp_customize->add_setting( 'themes_customization[themes_our_record_number_color]', array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_number_color]', array(
@@ -257,6 +260,9 @@
     )));
     $wp_customize->add_setting('themes_customization[themes_our_record_number_font_family]',array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'capability' => 'edit_theme_options',
       'sanitize_callback' => 'themes_sanitize_select_font'
     ));
@@ -269,6 +275,9 @@
     ));
     $wp_customize->add_setting( 'themes_customization[themes_our_record_number_font_size]', array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_number_font_size]', array(
@@ -279,6 +288,9 @@
     )));
     $wp_customize->add_setting( 'themes_customization[themes_our_record_title_color]', array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_title_color]', array(
@@ -288,6 +300,9 @@
     )));
     $wp_customize->add_setting('themes_customization[themes_our_record_title_font_family]',array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'capability' => 'edit_theme_options',
       'sanitize_callback' => 'themes_sanitize_select_font'
     ));
@@ -300,6 +315,9 @@
     ));
     $wp_customize->add_setting( 'themes_customization[themes_our_record_title_font_size]', array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_title_font_size]', array(
@@ -308,231 +326,44 @@
         'settings' => 'themes_customization[themes_our_record_title_font_size]',
         'type'  => 'text',
     )));
-    $wp_customize->add_setting( 'themes_customization[themes_our_record_icon_bgcolor]', array(
+    $wp_customize->add_setting( 'themes_customization[record_sub_title_color]', array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_icon_bgcolor]', array(
-        'label' => __('Icon Background Color', 'themes'),
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[record_sub_title_color]', array(
+        'label' => __('Record Title Color', 'themes'),
         'section' => 'customize_records_section',
-        'settings' => 'themes_customization[themes_our_record_icon_bgcolor]',
+        'settings' => 'themes_customization[record_sub_title_color]',
     )));
-    $wp_customize->add_setting( 'themes_customization[themes_our_record_icon_hover_bgcolor1]', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_icon_hover_bgcolor1]', array(
-        'label' => __('Icon Hover Background Gradient Color 1', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_customization[themes_our_record_icon_hover_bgcolor1]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_our_record_icon_hover_bgcolor2]', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_icon_hover_bgcolor2]', array(
-        'label' => __('Icon Hover Background Gradient Color 1', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_customization[themes_our_record_icon_hover_bgcolor2]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_our_record_box_bgcolor1]', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_box_bgcolor1]', array(
-        'label' => __('Box Background Gradient Color 1', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_customization[themes_our_record_box_bgcolor1]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_our_record_box_bgcolor2]', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_our_record_box_bgcolor2]', array(
-        'label' => __('Box Background Gradient Color 2', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_box_bgcolor2]',
-    )));
-    $wp_customize->add_setting( 'themes_our_record_heading_color', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_heading_color', array(
-        'label' => __('Record Heading Color', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_heading_color',
-    )));
-    $wp_customize->add_setting('themes_our_record_heading_font_family',array(
+    $wp_customize->add_setting('themes_customization[record_sub_title_font_family]',array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'capability' => 'edit_theme_options',
       'sanitize_callback' => 'themes_sanitize_select_font'
     ));
     $wp_customize->add_control(
-        'themes_our_record_heading_font_family', array(
+        'themes_customization[record_sub_title_font_family]', array(
         'section'  => 'customize_records_section',
-        'label'    => __( 'Record Heading Font Family','themes'),
+        'label'    => __( 'Record Title Font Family','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
-    $wp_customize->add_setting( 'themes_our_record_heading_font_size', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_heading_font_size', array(
-        'label' => __('Record Heading Font Size in px', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_heading_font_size',
-        'type'  => 'text',
-    )));
-    $wp_customize->add_setting( 'themes_our_record_button_text_color', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_button_text_color', array(
-        'label' => __('Record Button Text Color', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_button_text_color',
-    )));
-    $wp_customize->add_setting('themes_our_record_button_text_font_family',array(
-      'default' => '',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_our_record_button_text_font_family', array(
-        'section'  => 'customize_records_section',
-        'label'    => __( 'Record Button Text Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_our_record_button_text_font_size', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_button_text_font_size', array(
-        'label' => __('Record Button Text Font Size in px', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_button_text_font_size',
-        'type'  => 'text',
-    )));
-    $wp_customize->add_setting( 'themes_our_record_button_bgcolor1', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_button_bgcolor1', array(
-        'label' => __('Record Button Background Gradient Color 1', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_button_bgcolor1',
-    )));
-    $wp_customize->add_setting( 'themes_our_record_button_bgcolor2', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_button_bgcolor2', array(
-        'label' => __('Record Button Background Gradient Color 2', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_button_bgcolor2',
-    )));
-    $wp_customize->add_setting( 'themes_our_record_image_border_color1', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_image_border_color1', array(
-        'label' => __('Record Image Border Gradient Color 1', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_image_border_color1',
-    )));
-    $wp_customize->add_setting( 'themes_our_record_image_border_color2', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_our_record_image_border_color2', array(
-        'label' => __('Record Image Border Gradient Color 2', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_our_record_image_border_color2',
-    )));
-    $wp_customize->add_setting( 'themes_customization[our_records_num_text_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_records_num_text_color]', array(
-      'label' => 'Number Color',
-      'section' => 'customize_records_section',
-      'settings' => 'themes_customization[our_records_num_text_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[our_records_num_text_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[our_records_num_text_fontfamily]', array(
-        'section'  => 'customize_records_section',
-        'label'    => __( 'Number Font','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[our_records_num_text_fontsize]',array(
+    $wp_customize->add_setting( 'themes_customization[record_sub_title_font_size]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control('themes_customization[our_records_num_text_fontsize]',array(
-        'label' => __('Number Font Size in px','themes'),
-        'section' => 'customize_records_section',
-        'setting' => 'themes_customization[our_records_num_text_fontsize]',
-        'type'    => 'text'
-      )
-    ); 
-    $wp_customize->add_setting( 'themes_customization[our_records_text1_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
     ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_records_text1_color]', array(
-      'label' => 'Text Color',
-      'section' => 'customize_records_section',
-      'settings' => 'themes_customization[our_records_text1_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[our_records_text1_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[our_records_text1_fontfamily]', array(
-        'section'  => 'customize_records_section',
-        'label'    => __( 'Text Font','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[our_records_text1_fontsize]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control('themes_customization[our_records_text1_fontsize]',array(
-        'label' => __('Text Font Size in px','themes'),
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[record_sub_title_font_size]', array(
+        'label' => __('Record Title Font Size in px', 'themes'),
         'section' => 'customize_records_section',
-        'setting' => 'themes_customization[our_records_text1_fontsize]',
-        'type'    => 'text'
-      )
-    ); 
+        'settings' => 'themes_customization[record_sub_title_font_size]',
+        'type'  => 'text',
+    )));
 ?>

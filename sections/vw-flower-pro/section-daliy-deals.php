@@ -194,6 +194,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[category_products_button_url]',array(
         'default' => '',
+        'type'              => 'option',
+              'capability'        => 'manage_options',
+              'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[category_products_button_url]',array(
@@ -342,20 +345,45 @@
         'type'    => 'text'
       )
     ); 
-
-    $wp_customize->add_setting( 'themes_customization[tab_tittle_active_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[tab_tittle_active_color]', array(
-      'label' => 'Tab Active Title Color',
-      'section' => 'customize_category_products_section',
-      'settings' => 'themes_customization[tab_tittle_active_color]',
-    )));  
-
+    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[tab_tittle_active_color1]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[tab_tittle_active_color1]', array(
+          'label' => __('Tab Active Title Color 1', 'themes'),
+          'section' => 'customize_category_products_section',
+          'settings' => 'themes_customization[tab_tittle_active_color1]',
+      )));
+      $wp_customize->add_setting('themes_customization[tab_tittle_active_color2]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[tab_tittle_active_color2]', array(
+          'label' => __('Tab Active Title Color 2', 'themes'),
+          'section' => 'customize_category_products_section',
+          'settings' => 'themes_customization[tab_tittle_active_color2]',
+      )));
+    }else{
+      $wp_customize->add_setting( 'themes_customization[tab_tittle_active_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[tab_tittle_active_color]', array(
+        'label' => 'Tab Active Title Color',
+        'section' => 'customize_category_products_section',
+        'settings' => 'themes_customization[tab_tittle_active_color]',
+      )));  
+    }
     $wp_customize->add_setting( 'themes_customization[product_sale_title_color]', array(
       'default' => '',
       'type'              => 'option',
@@ -540,6 +568,32 @@
         'type'    => 'text'
       )
     ); 
+    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[product_button_bgcolor1]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_button_bgcolor1]', array(
+          'label' => __('Products Button Background Color 1', 'themes'),
+          'section' => 'customize_category_products_section',
+          'settings' => 'themes_customization[product_button_bgcolor1]',
+      )));
+      $wp_customize->add_setting('themes_customization[product_button_bgcolor2]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_button_bgcolor2]', array(
+          'label' => __('Products Button Background Color 2', 'themes'),
+          'section' => 'customize_category_products_section',
+          'settings' => 'themes_customization[product_button_bgcolor2]',
+      )));
+    }
     $wp_customize->add_setting( 'themes_customization[product_button_bgcolor]', array(
       'default' => '',
       'type'              => 'option',
@@ -552,4 +606,5 @@
       'section' => 'customize_category_products_section',
       'settings' => 'themes_customization[product_button_bgcolor]',
     )));
+    
 ?>

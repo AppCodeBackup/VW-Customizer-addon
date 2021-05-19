@@ -104,6 +104,9 @@
 
     $wp_customize->add_setting('themes_customization[themes_gallery_title_font_family]',array(
        'default' => '',
+       'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
        'capability' => 'edit_theme_options',
        'sanitize_callback' => 'themes_sanitize_select_font'
     ));
@@ -117,6 +120,9 @@
 
     $wp_customize->add_setting('themes_customization[themes_gallery_title_font_size]',array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_text_field'
     )
     );
@@ -129,6 +135,9 @@
     );
     $wp_customize->add_setting( 'themes_customization[themes_gallery_text_color]', array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_gallery_text_color]', array(
@@ -139,6 +148,9 @@
 
     $wp_customize->add_setting('themes_customization[themes_gallery_text_font_family]',array(
        'default' => '',
+       'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
        'capability' => 'edit_theme_options',
        'sanitize_callback' => 'themes_sanitize_select_font'
     ));
@@ -152,6 +164,9 @@
 
     $wp_customize->add_setting('themes_customization[themes_gallery_text_font_size]',array(
       'default' => '',
+      'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_text_field'
     )
     );

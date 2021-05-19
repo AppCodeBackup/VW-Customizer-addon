@@ -156,6 +156,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[best_seller_prod_button_url]',array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[best_seller_prod_button_url]',array(
@@ -435,6 +438,32 @@
         'type'    => 'text'
       )
     ); 
+    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[seller_button_bgcolor1]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_button_bgcolor1]', array(
+          'label' => __('Products Button Background Color 1', 'themes'),
+          'section' => 'customize_best_seller_section',
+          'settings' => 'themes_customization[seller_button_bgcolor1]',
+      )));
+      $wp_customize->add_setting('themes_customization[seller_button_bgcolor2]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_button_bgcolor2]', array(
+          'label' => __('Products Button Background Color 2', 'themes'),
+          'section' => 'customize_best_seller_section',
+          'settings' => 'themes_customization[seller_button_bgcolor2]',
+      )));
+    }
     $wp_customize->add_setting( 'themes_customization[seller_button_bgcolor]', array(
       'default' => '',
       'type'              => 'option',

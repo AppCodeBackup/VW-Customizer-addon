@@ -180,6 +180,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[interface_left_btn_url]',array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[interface_left_btn_url]',array(
@@ -203,6 +206,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[interface_right_btn_url]',array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[interface_right_btn_url]',array(

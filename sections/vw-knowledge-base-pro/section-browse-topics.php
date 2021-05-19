@@ -131,6 +131,9 @@
       ) );
 	    $wp_customize->add_setting('themes_customization[browse_topics_link_url'.$i.']',array(
 	        'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
 	        'sanitize_callback' => 'esc_url_raw'
 	    ));
 	    $wp_customize->add_control('themes_customization[browse_topics_link_url'.$i.']',array(
@@ -194,6 +197,9 @@
     ) );
     $wp_customize->add_setting('themes_customization[browse_topics_button_url]',array(
         'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[browse_topics_button_url]',array(

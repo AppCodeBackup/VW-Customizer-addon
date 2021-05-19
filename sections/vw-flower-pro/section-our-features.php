@@ -209,6 +209,9 @@
 	    ) );
 	    $wp_customize->add_setting('themes_customization[features_feat_url'.$i.']',array(
 	        'default' => '',
+          'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
 	        'sanitize_callback' => 'esc_url_raw'
 	    ));
 	    $wp_customize->add_control('themes_customization[features_feat_url'.$i.']',array(

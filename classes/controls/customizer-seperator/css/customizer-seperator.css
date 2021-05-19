@@ -1,0 +1,24 @@
+
+/* Custom CSS For Notice */
+.simple-seperator-custom-control span.description.customize-control-description {
+    color: #ffffff !important;
+    text-align: center;
+}
+.simple-seperator-custom-control span.description.customize-control-description {
+    background-color: #0073aa;
+    color: #ffffff;
+    display: table;
+    padding: 3px 17px;
+}
+
+.simple-seperator-custom-control span.customize-control-title {
+    color: #ffffff !important;
+    text-align: center;
+}
+.simple-seperator-custom-control span.customize-control-title {
+    background-color: #0073aa;
+    color: #ffffff;
+    display: table;
+    padding: 3px 17px;
+    margin-bottom: 10px
+}

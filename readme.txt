@@ -2,9 +2,9 @@
 Contributors: VowelWeb
 Tags: customizer
 Requires at least: 5.0
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 Requires PHP: 7.2
-Stable tag: 0.0.3
+Stable tag: 0.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,10 @@ Yes.
 
 == Changelog ==
 
-= 0.0.3 - 2021-05-15 =
+= 0.0.4 - 2021-05-18 =
+* Settings Updated.
+
+= 0.0.3 - 2021-05-13 =
 * Settings Updated.
 
 = 0.0.2 - 2021-05-05 =
