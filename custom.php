@@ -393,7 +393,7 @@ class Themes_Setting_Entities {
           )
         )
     ) );
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')){
       $wp_customize->add_section( 'customize_presets', array(
         'title'				   => __( 'Top Bar', 'themes' ),
         'description'	   => __( 'Topbar Settings', 'themes' ),
@@ -653,7 +653,7 @@ class Themes_Setting_Entities {
     }
     //	=============================
     //	= Section for Login Logo		=
-    //	=============================
+    //	=============================    
     $wp_customize->add_section( 'customize_header_section', array(
       'title'        => __( 'Header', 'themes' ),
       'description'  => __( 'Customize Header Section', 'themes' ),
@@ -679,7 +679,7 @@ class Themes_Setting_Entities {
      'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
      ) ) );
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
 
       $wp_customize->add_setting( 'themes_customization[content_header_address_img]', array(
         // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,

@@ -1195,12 +1195,12 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .side-navigation li a:hover{
 	<?php if ( ! empty(  $themes_themes_headermenu_color_afterhover ) ) : ?>
-	color: <?php echo $themes_themes_headermenu_color_afterhover ; ?>;
+	color: <?php echo $themes_themes_headermenu_color_afterhover ; ?> !important;
 	<?php endif; ?>
 }
 .side-navigation li a{
 	<?php if ( ! empty(   $themes_themes_headermenu_color ) ) : ?>
-	color: <?php echo   $themes_themes_headermenu_color ; ?>;
+	color: <?php echo   $themes_themes_headermenu_color ; ?>!important;
 	<?php endif; ?>
 }
 #footer{
@@ -2293,7 +2293,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .main-header .side-navigation ul li a:hover{
 	<?php if ( ! empty( $themes_header_menuhover_color ) ) : ?>
-	color: <?php echo $themes_header_menuhover_color; ?>;
+	color: <?php echo $themes_header_menuhover_color; ?> !important;
 	<?php endif; ?>
 	filter: drop-shadow(4.5px 7.794px 13.5px <?php echo $themes_header_menuhover_bgcolor; ?>);
     background-image: linear-gradient(57deg, <?php echo $themes_header_menuhover_bgcolor; ?> 0%, <?php echo $themes_header_menuhover_bgcolor_t; ?> 100%);
@@ -2305,17 +2305,17 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 .main-header .side-navigation ul ul a{
 	<?php if ( ! empty( $themes_dropdownbg_itemcolor ) ) : ?>
-	color: <?php echo $themes_dropdownbg_itemcolor; ?>;
+	color: <?php echo $themes_dropdownbg_itemcolor; ?> !important;
 	<?php endif; ?>
 }
 .side-navigation li.current_page_item a{
 	<?php if ( ! empty( $themes_header_menu_active_color ) ) : ?>
-	color: <?php echo $themes_header_menu_active_color; ?>;
+	color: <?php echo $themes_header_menu_active_color; ?>!important;
 	<?php endif; ?>
 }
 #sidebar1{
 	<?php if ( ! empty( $themes_dropdownbg_responsivecolor ) ) : ?>
-	background: <?php echo $themes_dropdownbg_responsivecolor; ?>;
+	background: <?php echo $themes_dropdownbg_responsivecolor; ?>!important;
 	<?php endif; ?>
 }
 #cartbx{
@@ -2356,12 +2356,26 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $themes_header_button_bg_color_afterhover; ?>;
 	<?php endif; ?>
 }
-.menubar .login-link a,.menubar .topbtn{
+.menubar .login-link a,.menubar .topbtn,.header-button a{
 	<?php if ( ! empty( $themes_header_button_text_color ) ) : ?>
 	color: <?php echo $themes_header_button_text_color; ?>;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_header_button_text_font_family ) ) : ?>
 	font-family: <?php echo $themes_header_button_text_font_family; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_button_text_font_size ) ) : ?>
+	font-size: <?php echo $themes_header_button_text_font_size; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_button_bg_color ) ) : ?>
+	background-color: <?php echo $themes_header_button_bg_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_header_button_border_color ) ) : ?>
+	border-color: <?php echo $themes_header_button_border_color; ?>;
+	<?php endif; ?>
+}
+.header-button a i{
+	<?php if ( ! empty( $themes_header_button_text_color ) ) : ?>
+	color: <?php echo $themes_header_button_text_color; ?>;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_header_button_text_font_size ) ) : ?>
 	font-size: <?php echo $themes_header_button_text_font_size; ?>;

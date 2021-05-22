@@ -4,7 +4,7 @@ Tags: customizer
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 7.2
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ Yes, ThemeSetting has full translation and localization support via the themes t
 Yes.
 
 == Changelog ==
+
+= 0.0.5 - 2021-05-22 =
+* New Settings added.
 
 = 0.0.4 - 2021-05-18 =
 * Settings Updated.
