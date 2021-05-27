@@ -79,6 +79,42 @@
     'priority'         => Null,
     'settings'         => 'themes_customization[latest_news_main_heading]',
   ) );
+  $wp_customize->add_setting( 'themes_customization[latest_news_link_title]', array(
+    'default'           => '',
+    'type'              => 'option',
+    'capability'        => 'manage_options',
+    'transport'         => 'postMessage',
+    'sanitize_callback' => 'wp_kses_post'
+  ) );
+
+  $wp_customize->add_control( 'themes_customization[latest_news_link_title]', array(
+    'label'            => __( 'Button Title', 'themes' ),
+    'section'          => 'customize_latest_news_section',
+    'priority'         => Null,
+    'settings'         => 'themes_customization[latest_news_link_title]',
+  ) );
+  $wp_customize->add_setting(
+    'themes_customization[latest_news_btn_icon1]',
+    array(
+      'default'     => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_text_field'
+    )
+  );
+  $wp_customize->add_control(
+    new themes_Fontawesome_Icon_Chooser(
+      $wp_customize,
+      'themes_customization[latest_news_btn_icon1]',
+      array(
+        'settings'    => 'themes_customization[latest_news_btn_icon1]',
+        'section'   => 'customize_latest_news_section',
+        'type'      => 'icon',
+        'label'     => esc_html__( 'Button Icon', 'themes' ),
+      )
+    )
+  );
   $wp_customize->add_setting( 'themes_customization[latest_news_main_heading_text_color]', array(
     'default' => '',
     'type'              => 'option',

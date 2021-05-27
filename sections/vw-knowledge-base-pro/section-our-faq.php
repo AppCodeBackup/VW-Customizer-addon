@@ -53,6 +53,38 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    if(defined('VW_FACTORY_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[our_faq_head_image]', array(
+        // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_image'
+      ) );
+
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[our_faq_head_image]', array(
+        'label'      => __( 'Heading Image ','themes'),
+        'section'    => 'customize_our_faq_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[our_faq_head_image]',
+        'button_labels' => array(
+           'select'       => __( 'Select Image', 'themes' ),
+      ) ) ) );
+      $wp_customize->add_setting( 'themes_customization[our_faq_small_heading]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+
+      $wp_customize->add_control( 'themes_customization[our_faq_small_heading]', array(
+        'label'            => __( 'Section Small Title', 'themes' ),
+        'section'          => 'customize_our_faq_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[our_faq_small_heading]',
+      ) );
+    }
     $wp_customize->add_setting( 'themes_customization[our_faq_main_heading]', array(
       'default'           => '',
       'type'              => 'option',

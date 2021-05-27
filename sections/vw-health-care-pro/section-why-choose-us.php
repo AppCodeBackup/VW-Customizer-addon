@@ -53,6 +53,22 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization[why_choose_us_right_image]', array(
+      // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_image'
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[why_choose_us_right_image]', array(
+      'label'      => __( 'Right Image ','themes'),
+      'section'    => 'customize_why_choose_us_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[why_choose_us_right_image]',
+      'button_labels' => array(
+         'select'       => __( 'Select Image', 'themes' ),
+    ) ) ) );
     $wp_customize->add_setting( 'themes_customization[why_choose_us_left_title]', array(
       'default'           => '',
       'type'              => 'option',

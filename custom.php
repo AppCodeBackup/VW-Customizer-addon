@@ -654,125 +654,35 @@ class Themes_Setting_Entities {
     //	=============================
     //	= Section for Login Logo		=
     //	=============================    
-    $wp_customize->add_section( 'customize_header_section', array(
-      'title'        => __( 'Header', 'themes' ),
-      'description'  => __( 'Customize Header Section', 'themes' ),
-      'priority'     => Null,
-      'panel'        => 'themes_panel',
-    ) );
-    $wp_customize->selective_refresh->add_partial( 'themes_customization[content_header_enable]', array(
-      'selector' => '#search-banner .search-banner-content h1',
-      'render_callback' => 'themes_customize_partial_themes_customization[content_header_enable]',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[content_header_enable]', array(
-      'default'           => false,
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_checkbox'
-    ) );
-
-    $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[content_header_enable]', array(
-     'settings'    => 'themes_customization[content_header_enable]',
-      'label'       => __( 'Disable Section:', 'themes'),
-      'section'     => 'customize_Header_section',
-     'priority'   => Null,
-      'type'        => 'ios', // light, ios, flat
-     ) ) );
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
-
-      $wp_customize->add_setting( 'themes_customization[content_header_address_img]', array(
-        // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+    if(defined('VW_FACTORY_PRO_VERSION')){}else{
+      $wp_customize->add_section( 'customize_header_section', array(
+        'title'        => __( 'Header', 'themes' ),
+        'description'  => __( 'Customize Header Section', 'themes' ),
+        'priority'     => Null,
+        'panel'        => 'themes_panel',
+      ) );
+      $wp_customize->selective_refresh->add_partial( 'themes_customization[content_header_enable]', array(
+        'selector' => '#search-banner .search-banner-content h1',
+        'render_callback' => 'themes_customize_partial_themes_customization[content_header_enable]',
+      ) );
+      $wp_customize->add_setting( 'themes_customization[content_header_enable]', array(
+        'default'           => false,
         'type'              => 'option',
-        'capability'        => 'manage_options',
+        'capability'         => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_image'
+        'sanitize_callback' => 'themes_sanitize_checkbox'
       ) );
 
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[content_header_address_img]', array(
-        'label'      => __( 'Header Address Image:', 'themes' ),
-        'section'    => 'customize_header_section',
-        'priority'   => Null,
-        'settings'   => 'themes_customization[content_header_address_img]',
-        'button_labels' => array(
-           'select'       => __( 'Select Image', 'themes' ),
-      ) ) ) );
-
-      $wp_customize->add_setting( 'themes_customization[content_header_address_title]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
-
-      $wp_customize->add_control( 'themes_customization[content_header_address_title]', array(
-        'label'            => __( 'Header Address Title', 'themes' ),
-        'section'          => 'customize_header_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[content_header_address_title]',
-      ) );
-      $wp_customize->add_setting( 'themes_customization[content_header_address_text]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
-
-      $wp_customize->add_control( 'themes_customization[content_header_address_text]', array(
-        'label'            => __( 'Header Address Text', 'themes' ),
-        'section'          => 'customize_header_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[content_header_address_text]',
-      ) );
-
-      $wp_customize->add_setting( 'themes_customization[content_header_contact_img]', array(
-        // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_image'
-      ) );
-
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[content_header_contact_img]', array(
-        'label'      => __( 'Header Contact Image:', 'themes' ),
-        'section'    => 'customize_header_section',
-        'priority'   => Null,
-        'settings'   => 'themes_customization[content_header_contact_img]',
-        'button_labels' => array(
-           'select'       => __( 'Select Image', 'themes' ),
-      ) ) ) );
-      $wp_customize->add_setting( 'themes_customization[content_header_contact_title]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
-
-      $wp_customize->add_control( 'themes_customization[content_header_contact_title]', array(
-        'label'            => __( 'Header Contact Title', 'themes' ),
-        'section'          => 'customize_header_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[content_header_contact_title]',
-      ) );
-      $wp_customize->add_setting( 'themes_customization[content_header_contact_text]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
-
-      $wp_customize->add_control( 'themes_customization[content_header_contact_text]', array(
-        'label'            => __( 'Header Contact Text', 'themes' ),
-        'section'          => 'customize_header_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[content_header_contact_text]',
-      ) );
+      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[content_header_enable]', array(
+       'settings'    => 'themes_customization[content_header_enable]',
+        'label'       => __( 'Disable Section:', 'themes'),
+        'section'     => 'customize_Header_section',
+       'priority'   => Null,
+        'type'        => 'ios', // light, ios, flat
+       ) ) );
       if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
-        $wp_customize->add_setting( 'themes_customization[content_header_email_img]', array(
+
+        $wp_customize->add_setting( 'themes_customization[content_header_address_img]', array(
           // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
           'type'              => 'option',
           'capability'        => 'manage_options',
@@ -780,16 +690,16 @@ class Themes_Setting_Entities {
           'sanitize_callback' => 'themes_sanitize_image'
         ) );
 
-        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[content_header_email_img]', array(
-          'label'      => __( 'Header Email Image:', 'themes' ),
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[content_header_address_img]', array(
+          'label'      => __( 'Header Address Image:', 'themes' ),
           'section'    => 'customize_header_section',
           'priority'   => Null,
-          'settings'   => 'themes_customization[content_header_email_img]',
+          'settings'   => 'themes_customization[content_header_address_img]',
           'button_labels' => array(
              'select'       => __( 'Select Image', 'themes' ),
         ) ) ) );
 
-        $wp_customize->add_setting( 'themes_customization[content_header_email_title]', array(
+        $wp_customize->add_setting( 'themes_customization[content_header_address_title]', array(
           'default'           => '',
           'type'              => 'option',
           'capability'        => 'manage_options',
@@ -797,13 +707,13 @@ class Themes_Setting_Entities {
           'sanitize_callback' => 'wp_kses_post'
         ) );
 
-        $wp_customize->add_control( 'themes_customization[content_header_email_title]', array(
-          'label'            => __( 'Header Email Title', 'themes' ),
+        $wp_customize->add_control( 'themes_customization[content_header_address_title]', array(
+          'label'            => __( 'Header Address Title', 'themes' ),
           'section'          => 'customize_header_section',
           'priority'         => Null,
-          'settings'         => 'themes_customization[content_header_email_title]',
+          'settings'         => 'themes_customization[content_header_address_title]',
         ) );
-        $wp_customize->add_setting( 'themes_customization[content_header_email_text]', array(
+        $wp_customize->add_setting( 'themes_customization[content_header_address_text]', array(
           'default'           => '',
           'type'              => 'option',
           'capability'        => 'manage_options',
@@ -811,192 +721,204 @@ class Themes_Setting_Entities {
           'sanitize_callback' => 'wp_kses_post'
         ) );
 
-        $wp_customize->add_control( 'themes_customization[content_header_email_text]', array(
-          'label'            => __( 'Header Email Text', 'themes' ),
+        $wp_customize->add_control( 'themes_customization[content_header_address_text]', array(
+          'label'            => __( 'Header Address Text', 'themes' ),
           'section'          => 'customize_header_section',
           'priority'         => Null,
-          'settings'         => 'themes_customization[content_header_email_text]',
-        ) );  
-      }    
-    }
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting( 'themes_customization[topbar_social_icons_shortcode]', array(
+          'settings'         => 'themes_customization[content_header_address_text]',
+        ) );
+
+        $wp_customize->add_setting( 'themes_customization[content_header_contact_img]', array(
+          // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_image'
+        ) );
+
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[content_header_contact_img]', array(
+          'label'      => __( 'Header Contact Image:', 'themes' ),
+          'section'    => 'customize_header_section',
+          'priority'   => Null,
+          'settings'   => 'themes_customization[content_header_contact_img]',
+          'button_labels' => array(
+             'select'       => __( 'Select Image', 'themes' ),
+        ) ) ) );
+        $wp_customize->add_setting( 'themes_customization[content_header_contact_title]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+
+        $wp_customize->add_control( 'themes_customization[content_header_contact_title]', array(
+          'label'            => __( 'Header Contact Title', 'themes' ),
+          'section'          => 'customize_header_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[content_header_contact_title]',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[content_header_contact_text]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+
+        $wp_customize->add_control( 'themes_customization[content_header_contact_text]', array(
+          'label'            => __( 'Header Contact Text', 'themes' ),
+          'section'          => 'customize_header_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[content_header_contact_text]',
+        ) );
+        if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+          $wp_customize->add_setting( 'themes_customization[content_header_email_img]', array(
+            // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_image'
+          ) );
+
+          $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[content_header_email_img]', array(
+            'label'      => __( 'Header Email Image:', 'themes' ),
+            'section'    => 'customize_header_section',
+            'priority'   => Null,
+            'settings'   => 'themes_customization[content_header_email_img]',
+            'button_labels' => array(
+               'select'       => __( 'Select Image', 'themes' ),
+          ) ) ) );
+
+          $wp_customize->add_setting( 'themes_customization[content_header_email_title]', array(
+            'default'           => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'wp_kses_post'
+          ) );
+
+          $wp_customize->add_control( 'themes_customization[content_header_email_title]', array(
+            'label'            => __( 'Header Email Title', 'themes' ),
+            'section'          => 'customize_header_section',
+            'priority'         => Null,
+            'settings'         => 'themes_customization[content_header_email_title]',
+          ) );
+          $wp_customize->add_setting( 'themes_customization[content_header_email_text]', array(
+            'default'           => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'wp_kses_post'
+          ) );
+
+          $wp_customize->add_control( 'themes_customization[content_header_email_text]', array(
+            'label'            => __( 'Header Email Text', 'themes' ),
+            'section'          => 'customize_header_section',
+            'priority'         => Null,
+            'settings'         => 'themes_customization[content_header_email_text]',
+          ) );  
+        }    
+      }
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[topbar_social_icons_shortcode]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[topbar_social_icons_shortcode]', array(
+          'label'            => __( 'Socail Icons', 'themes' ),
+          'section'          => 'customize_header_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[topbar_social_icons_shortcode]',
+        ) );
+      }
+      $wp_customize->add_setting( 'themes_customization[header_button_text]', array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'wp_kses_post'
       ) );
-      $wp_customize->add_control( 'themes_customization[topbar_social_icons_shortcode]', array(
-        'label'            => __( 'Socail Icons', 'themes' ),
+      $wp_customize->add_control( 'themes_customization[header_button_text]', array(
+        'label'            => __( 'Header Button Text', 'themes' ),
         'section'          => 'customize_header_section',
         'priority'         => Null,
-        'settings'         => 'themes_customization[topbar_social_icons_shortcode]',
+        'settings'         => 'themes_customization[header_button_text]',
       ) );
-    }
-    $wp_customize->add_setting( 'themes_customization[header_button_text]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
-    $wp_customize->add_control( 'themes_customization[header_button_text]', array(
-      'label'            => __( 'Header Button Text', 'themes' ),
-      'section'          => 'customize_header_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[header_button_text]',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[header_button_url]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
+      $wp_customize->add_setting( 'themes_customization[header_button_url]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
 
-    $wp_customize->add_control( 'themes_customization[header_button_url]', array(
-      'label'            => __( 'Header Button Url', 'themes' ),
-      'section'          => 'customize_header_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[header_button_url]',
-    ) );
-    $wp_customize->selective_refresh->add_partial( 'themes_header_section_youtube_link', array(
-      'selector' => '.menubar .container',
-      'render_callback' => 'themes_customize_partial_themes_header_section_youtube_link',
-    ));
-    $wp_customize->add_setting( 'themes_header_section_sticky',
-    array(
-      'default' => 1,
-      'transport' => 'refresh',
-      'sanitize_callback' => 'themes_switch_sanitization'
-    ));
- 
-    $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_header_section_sticky',
-     array(
-        'label' => esc_html__( 'Sticky Header On/Off', 'themes' ),
-        'section' => 'customize_header_section'
-    )));
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting( 'themes_header_cart_enable',
+      $wp_customize->add_control( 'themes_customization[header_button_url]', array(
+        'label'            => __( 'Header Button Url', 'themes' ),
+        'section'          => 'customize_header_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[header_button_url]',
+      ) );
+      $wp_customize->selective_refresh->add_partial( 'themes_header_section_youtube_link', array(
+        'selector' => '.menubar .container',
+        'render_callback' => 'themes_customize_partial_themes_header_section_youtube_link',
+      ));
+      $wp_customize->add_setting( 'themes_header_section_sticky',
       array(
         'default' => 1,
         'transport' => 'refresh',
         'sanitize_callback' => 'themes_switch_sanitization'
       ));
-      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_header_cart_enable',
+   
+      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_header_section_sticky',
        array(
-          'label' => esc_html__( 'Show or Hide Cart', 'themes' ),
+          'label' => esc_html__( 'Sticky Header On/Off', 'themes' ),
           'section' => 'customize_header_section'
       )));
-    }
-    $wp_customize->add_setting( 'themes_customization[themes_header_section_skip_link]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_header_cart_enable',
+        array(
+          'default' => 1,
+          'transport' => 'refresh',
+          'sanitize_callback' => 'themes_switch_sanitization'
+        ));
+        $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_header_cart_enable',
+         array(
+            'label' => esc_html__( 'Show or Hide Cart', 'themes' ),
+            'section' => 'customize_header_section'
+        )));
+      }
+      $wp_customize->add_setting( 'themes_customization[themes_header_section_skip_link]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
 
-    $wp_customize->add_control( 'themes_customization[themes_header_section_skip_link]', array(
-      'label'            => __( 'Skip Links Title', 'themes' ),
-      'section'          => 'customize_header_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[themes_header_section_skip_link]',
-    ) );
+      $wp_customize->add_control( 'themes_customization[themes_header_section_skip_link]', array(
+        'label'            => __( 'Skip Links Title', 'themes' ),
+        'section'          => 'customize_header_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[themes_header_section_skip_link]',
+      ) );
 
-    $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_title_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_section_logo_title_color]', array(
-          'label' => __('Logo Title Color', 'themes'),
-          'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_header_section_logo_title_color]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_title_font_family]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-
-    ) );
-    $wp_customize->add_control( 'themes_customization[themes_header_section_logo_title_font_family]', array(
-      'settings'        => 'themes_customization[themes_header_section_logo_title_font_family]',
-      'label'           => __( 'Logo Title Font Family:', 'themes' ),
-      'section'         => 'customize_header_section',
-      'type'            => 'select',
-      'choices'         => $font_array,
-    ) );
-    $wp_customize->add_setting('themes_customization[themes_header_section_logo_title_font_size]',array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-      ));
-    $wp_customize->add_control('themes_customization[themes_header_section_logo_title_font_size]',array(
-      'label' => __('Logo Title Font Size in px','themes'),
-      'section' => 'customize_header_section',
-      'setting' => 'themes_customization[themes_header_section_logo_title_font_size]',
-      )); 
-    $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_sub_title_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_section_logo_sub_title_color]', array(
-          'label' => __('Logo Sub Title Color', 'themes'),
-          'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_header_section_logo_sub_title_color]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_sub_title_font_family]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-
-    ) );
-    $wp_customize->add_control( 'themes_customization[themes_header_section_logo_sub_title_font_family]', array(
-      'settings'        => 'themes_customization[themes_header_section_logo_sub_title_font_family]',
-      'label'           => __( 'Logo Sub Title Font Family:', 'themes' ),
-      'section'         => 'customize_header_section',
-      'type'            => 'select',
-      'choices'         => $font_array,
-    ) );
-    $wp_customize->add_setting('themes_customization[themes_header_section_logo_sub_title_font_size]',array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-      ));
-    $wp_customize->add_control('themes_customization[themes_header_section_logo_sub_title_font_size]',array(
-      'label' => __('Logo Sub Title Font Size in px','themes'),
-      'section' => 'customize_header_section',
-      'setting' => 'themes_customization[themes_header_section_logo_sub_title_font_size]',
-    ));
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
-      $wp_customize->add_setting( 'themes_customization[header_contact_title_color]', array(
+      $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_title_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[header_contact_title_color]', array(
-            'label' => __('Contact Title Color', 'themes'),
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_section_logo_title_color]', array(
+            'label' => __('Logo Title Color', 'themes'),
             'section' => 'customize_header_section',
-            'settings' => 'themes_customization[header_contact_title_color]',
+            'settings' => 'themes_customization[themes_header_section_logo_title_color]',
       )));
-      $wp_customize->add_setting( 'themes_customization[header_contact_title_font_family]', array(
+      $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_title_font_family]', array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -1004,39 +926,38 @@ class Themes_Setting_Entities {
         'sanitize_callback' => 'themes_sanitize_select_font'
 
       ) );
-      $wp_customize->add_control( 'themes_customization[header_contact_title_font_family]', array(
-        'settings'        => 'themes_customization[header_contact_title_font_family]',
-        'label'           => __( 'Contact Title Font Family:', 'themes' ),
+      $wp_customize->add_control( 'themes_customization[themes_header_section_logo_title_font_family]', array(
+        'settings'        => 'themes_customization[themes_header_section_logo_title_font_family]',
+        'label'           => __( 'Logo Title Font Family:', 'themes' ),
         'section'         => 'customize_header_section',
         'type'            => 'select',
         'choices'         => $font_array,
       ) );
-      $wp_customize->add_setting('themes_customization[header_contact_title_font_size]',array(
+      $wp_customize->add_setting('themes_customization[themes_header_section_logo_title_font_size]',array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'wp_kses_post'
         ));
-      $wp_customize->add_control('themes_customization[header_contact_title_font_size]',array(
-        'label' => __('Contact Title Font Size in px','themes'),
+      $wp_customize->add_control('themes_customization[themes_header_section_logo_title_font_size]',array(
+        'label' => __('Logo Title Font Size in px','themes'),
         'section' => 'customize_header_section',
-        'setting' => 'themes_customization[header_contact_title_font_size]',
-        ));
-
-      $wp_customize->add_setting( 'themes_customization[header_contact_text_color]', array(
+        'setting' => 'themes_customization[themes_header_section_logo_title_font_size]',
+        )); 
+      $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_sub_title_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[header_contact_text_color]', array(
-            'label' => __('Contact Text Color', 'themes'),
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_section_logo_sub_title_color]', array(
+            'label' => __('Logo Sub Title Color', 'themes'),
             'section' => 'customize_header_section',
-            'settings' => 'themes_customization[header_contact_text_color]',
+            'settings' => 'themes_customization[themes_header_section_logo_sub_title_color]',
       )));
-      $wp_customize->add_setting( 'themes_customization[header_contact_text_font_family]', array(
+      $wp_customize->add_setting( 'themes_customization[themes_header_section_logo_sub_title_font_family]', array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -1044,177 +965,131 @@ class Themes_Setting_Entities {
         'sanitize_callback' => 'themes_sanitize_select_font'
 
       ) );
-      $wp_customize->add_control( 'themes_customization[header_contact_text_font_family]', array(
-        'settings'        => 'themes_customization[header_contact_text_font_family]',
-        'label'           => __( 'Contact Text Font Family:', 'themes' ),
+      $wp_customize->add_control( 'themes_customization[themes_header_section_logo_sub_title_font_family]', array(
+        'settings'        => 'themes_customization[themes_header_section_logo_sub_title_font_family]',
+        'label'           => __( 'Logo Sub Title Font Family:', 'themes' ),
         'section'         => 'customize_header_section',
         'type'            => 'select',
         'choices'         => $font_array,
       ) );
-      $wp_customize->add_setting('themes_customization[header_contact_text_font_size]',array(
+      $wp_customize->add_setting('themes_customization[themes_header_section_logo_sub_title_font_size]',array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'wp_kses_post'
         ));
-      $wp_customize->add_control('themes_customization[header_contact_text_font_size]',array(
-        'label' => __('Contact Text Font Size in px','themes'),
+      $wp_customize->add_control('themes_customization[themes_header_section_logo_sub_title_font_size]',array(
+        'label' => __('Logo Sub Title Font Size in px','themes'),
         'section' => 'customize_header_section',
-        'setting' => 'themes_customization[header_contact_text_font_size]',
+        'setting' => 'themes_customization[themes_header_section_logo_sub_title_font_size]',
+      ));
+      if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[header_contact_title_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
         ));
-    }
-    $wp_customize->add_setting( 'themes_customization[themes_headermenu_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_headermenu_color]', array(
-          'label' => __('Menu Item Color', 'themes'),
-          'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_headermenu_color]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_headermenu_color_afterhover]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_headermenu_color_afterhover]', array(
-          'label' => __('Menu Item Color after Hover', 'themes'),
-          'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_headermenu_color_afterhover]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_headermenu_font_family]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[header_contact_title_color]', array(
+              'label' => __('Contact Title Color', 'themes'),
+              'section' => 'customize_header_section',
+              'settings' => 'themes_customization[header_contact_title_color]',
+        )));
+        $wp_customize->add_setting( 'themes_customization[header_contact_title_font_family]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
 
-    ) );
-    $wp_customize->add_control( 'themes_customization[themes_headermenu_font_family]', array(
-      'settings'        => 'themes_customization[themes_headermenu_font_family]',
-      'label'           => __( 'Menu Item Font Family:', 'themes' ),
-      'section'         => 'customize_header_section',
-      'type'            => 'select',
-      'choices'         => $font_array,
-    ) );
-    $wp_customize->add_setting('themes_customization[themes_headermenu_font_size]',array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-      ));
-    $wp_customize->add_control('themes_customization[themes_headermenu_font_size]',array(
-      'label' => __('Menu Item Font Size in px','themes'),
-      'section' => 'customize_header_section',
-      'setting' => 'themes_customization[themes_headermenu_font_size]',
-      ));
-    $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_color]', array(
-          'label' => __('Menu Item Hover Color', 'themes'),
+        ) );
+        $wp_customize->add_control( 'themes_customization[header_contact_title_font_family]', array(
+          'settings'        => 'themes_customization[header_contact_title_font_family]',
+          'label'           => __( 'Contact Title Font Family:', 'themes' ),
+          'section'         => 'customize_header_section',
+          'type'            => 'select',
+          'choices'         => $font_array,
+        ) );
+        $wp_customize->add_setting('themes_customization[header_contact_title_font_size]',array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+          ));
+        $wp_customize->add_control('themes_customization[header_contact_title_font_size]',array(
+          'label' => __('Contact Title Font Size in px','themes'),
           'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_header_menuhover_color]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor]', array(
-          'label' => __('Menu Item Hover Background Color One', 'themes'),
+          'setting' => 'themes_customization[header_contact_title_font_size]',
+          ));
+
+        $wp_customize->add_setting( 'themes_customization[header_contact_text_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[header_contact_text_color]', array(
+              'label' => __('Contact Text Color', 'themes'),
+              'section' => 'customize_header_section',
+              'settings' => 'themes_customization[header_contact_text_color]',
+        )));
+        $wp_customize->add_setting( 'themes_customization[header_contact_text_font_family]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
+
+        ) );
+        $wp_customize->add_control( 'themes_customization[header_contact_text_font_family]', array(
+          'settings'        => 'themes_customization[header_contact_text_font_family]',
+          'label'           => __( 'Contact Text Font Family:', 'themes' ),
+          'section'         => 'customize_header_section',
+          'type'            => 'select',
+          'choices'         => $font_array,
+        ) );
+        $wp_customize->add_setting('themes_customization[header_contact_text_font_size]',array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+          ));
+        $wp_customize->add_control('themes_customization[header_contact_text_font_size]',array(
+          'label' => __('Contact Text Font Size in px','themes'),
           'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_header_menuhover_bgcolor]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
-          'label' => __('Menu Item Hover Background Color Two', 'themes'),
-          'section' => 'customize_header_section',
-          'settings' => 'themes_customization[themes_header_menuhover_bgcolor_t]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_dropdownbg_color]', array(
-      'label' => __('Menu DropDown Background Color', 'themes'),
-      'section' => 'customize_header_section',
-      'settings' => 'themes_customization[themes_dropdownbg_color]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_itemcolor]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_dropdownbg_itemcolor]', array(
-      'label' => __('Menu DropDown Item Color', 'themes'),
-      'section' => 'customize_header_section',
-      'settings' => 'themes_customization[themes_dropdownbg_itemcolor]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_header_menu_active_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menu_active_color]', array(
-      'label' => __('Active Menu Item Color', 'themes'),
-      'section' => 'customize_header_section',
-      'settings' => 'themes_customization[themes_header_menu_active_color]',
-    )));
-    //In Responsive
-    $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_responsivecolor]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_dropdownbg_responsivecolor]', array(
-      'label' => __('Responsive Menu Background Color', 'themes'),
-      'description' => __('This Background Color Will Apply Only To Toggle Menu', 'themes'),
-      'section' => 'customize_header_section',
-      'settings' => 'themes_customization[themes_dropdownbg_responsivecolor]',
-    )));
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting( 'themes_customization[themes_header_cart_color]', array(
+          'setting' => 'themes_customization[header_contact_text_font_size]',
+          ));
+      }
+      $wp_customize->add_setting( 'themes_customization[themes_headermenu_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_cart_color]', array(
-            'label' => __('Cart Text Color', 'themes'),
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_headermenu_color]', array(
+            'label' => __('Menu Item Color', 'themes'),
             'section' => 'customize_header_section',
-            'settings' => 'themes_customization[themes_header_cart_color]',
+            'settings' => 'themes_customization[themes_headermenu_color]',
       )));
-      $wp_customize->add_setting( 'themes_customization[themes_header_cart_font_family]', array(
+      $wp_customize->add_setting( 'themes_customization[themes_headermenu_color_afterhover]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_headermenu_color_afterhover]', array(
+            'label' => __('Menu Item Color after Hover', 'themes'),
+            'section' => 'customize_header_section',
+            'settings' => 'themes_customization[themes_headermenu_color_afterhover]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_headermenu_font_family]', array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -1222,148 +1097,275 @@ class Themes_Setting_Entities {
         'sanitize_callback' => 'themes_sanitize_select_font'
 
       ) );
-      $wp_customize->add_control( 'themes_customization[themes_header_cart_font_family]', array(
-        'settings'        => 'themes_customization[themes_header_cart_font_family]',
-        'label'           => __( 'Cart Text Font Family:', 'themes' ),
+      $wp_customize->add_control( 'themes_customization[themes_headermenu_font_family]', array(
+        'settings'        => 'themes_customization[themes_headermenu_font_family]',
+        'label'           => __( 'Menu Item Font Family:', 'themes' ),
         'section'         => 'customize_header_section',
         'type'            => 'select',
         'choices'         => $font_array,
       ) );
-      $wp_customize->add_setting('themes_customization[themes_header_cart_font_size]',array(
+      $wp_customize->add_setting('themes_customization[themes_headermenu_font_size]',array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'wp_kses_post'
         ));
-      $wp_customize->add_control('themes_customization[themes_header_cart_font_size]',array(
-        'label' => __('Cart Text Font Size in px','themes'),
+      $wp_customize->add_control('themes_customization[themes_headermenu_font_size]',array(
+        'label' => __('Menu Item Font Size in px','themes'),
         'section' => 'customize_header_section',
-        'setting' => 'themes_customization[themes_header_cart_font_size]',
+        'setting' => 'themes_customization[themes_headermenu_font_size]',
         ));
-      $wp_customize->add_setting( 'themes_customization[themes_header_cart_bgcolor]', array(
+      $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_color]', array(
+            'label' => __('Menu Item Hover Color', 'themes'),
+            'section' => 'customize_header_section',
+            'settings' => 'themes_customization[themes_header_menuhover_color]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor]', array(
+            'label' => __('Menu Item Hover Background Color One', 'themes'),
+            'section' => 'customize_header_section',
+            'settings' => 'themes_customization[themes_header_menuhover_bgcolor]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
+            'label' => __('Menu Item Hover Background Color Two', 'themes'),
+            'section' => 'customize_header_section',
+            'settings' => 'themes_customization[themes_header_menuhover_bgcolor_t]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_dropdownbg_color]', array(
+        'label' => __('Menu DropDown Background Color', 'themes'),
+        'section' => 'customize_header_section',
+        'settings' => 'themes_customization[themes_dropdownbg_color]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_itemcolor]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_dropdownbg_itemcolor]', array(
+        'label' => __('Menu DropDown Item Color', 'themes'),
+        'section' => 'customize_header_section',
+        'settings' => 'themes_customization[themes_dropdownbg_itemcolor]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_header_menu_active_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menu_active_color]', array(
+        'label' => __('Active Menu Item Color', 'themes'),
+        'section' => 'customize_header_section',
+        'settings' => 'themes_customization[themes_header_menu_active_color]',
+      )));
+      //In Responsive
+      $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_responsivecolor]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_dropdownbg_responsivecolor]', array(
+        'label' => __('Responsive Menu Background Color', 'themes'),
+        'description' => __('This Background Color Will Apply Only To Toggle Menu', 'themes'),
+        'section' => 'customize_header_section',
+        'settings' => 'themes_customization[themes_dropdownbg_responsivecolor]',
+      )));
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[themes_header_cart_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_cart_color]', array(
+              'label' => __('Cart Text Color', 'themes'),
+              'section' => 'customize_header_section',
+              'settings' => 'themes_customization[themes_header_cart_color]',
+        )));
+        $wp_customize->add_setting( 'themes_customization[themes_header_cart_font_family]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
+
+        ) );
+        $wp_customize->add_control( 'themes_customization[themes_header_cart_font_family]', array(
+          'settings'        => 'themes_customization[themes_header_cart_font_family]',
+          'label'           => __( 'Cart Text Font Family:', 'themes' ),
+          'section'         => 'customize_header_section',
+          'type'            => 'select',
+          'choices'         => $font_array,
+        ) );
+        $wp_customize->add_setting('themes_customization[themes_header_cart_font_size]',array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+          ));
+        $wp_customize->add_control('themes_customization[themes_header_cart_font_size]',array(
+          'label' => __('Cart Text Font Size in px','themes'),
+          'section' => 'customize_header_section',
+          'setting' => 'themes_customization[themes_header_cart_font_size]',
+          ));
+        $wp_customize->add_setting( 'themes_customization[themes_header_cart_bgcolor]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_cart_bgcolor]', array(
+          'label' => __('Cart Box Background Color', 'themes'),
+          'section' => 'customize_header_section',
+          'settings' => 'themes_customization[themes_header_cart_bgcolor]',
+        )));
+      }
+      $wp_customize->add_setting('themes_customization[themes_header_padding_leftRight]',array(
+        'default'   => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[themes_header_padding_leftRight]',array(
+        'label' => __('Menu Left & Right Padding','themes'),
+        'description' => __('Add Padding Top Either in Percentage or Pixels ( Example 10px or 10%)','themes'),
+        'section' => 'customize_header_section',
+        'setting'   => 'themes_customization[themes_header_padding_leftRight]',
+        'type'  => 'text'
+      ));
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[themes_header_section_search_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_section_search_color]', array(
+              'label' => __('Seacrch Color', 'themes'),
+              'section' => 'customize_header_section',
+              'settings' => 'themes_customization[themes_header_section_search_color]',
+        )));
+        $wp_customize->add_setting( 'themes_customization[themes_header_section_search_font_family]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
+
+        ) );
+        $wp_customize->add_control( 'themes_customization[themes_header_section_search_font_family]', array(
+          'settings'        => 'themes_customization[themes_header_section_search_font_family]',
+          'label'           => __( 'Seacrch Font Family:', 'themes' ),
+          'section'         => 'customize_header_section',
+          'type'            => 'select',
+          'choices'         => $font_array,
+        ) );
+        $wp_customize->add_setting('themes_customization[themes_header_section_search_font_size]',array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+          ));
+        $wp_customize->add_control('themes_customization[themes_header_section_search_font_size]',array(
+          'label' => __('Search Font Size in px','themes'),
+          'section' => 'customize_header_section',
+          'setting' => 'themes_customization[themes_header_section_search_font_size]',
+          ));
+        }
+        $wp_customize->add_setting('themes_customization[themes_header_button_text_font_family]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+            'themes_customization[themes_header_button_text_font_family]', array(
+            'section'  => 'customize_header_section',
+            'label'    => __( 'Header Button Font Family','themes'),
+            'type'     => 'select',
+            'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[themes_header_button_text_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+        ));
+      $wp_customize->add_control('themes_customization[themes_header_button_text_font_size]',array(
+        'label' => __('Header Button Font Size in px','themes'),
+        'section' => 'customize_header_section',
+        'setting' => 'themes_customization[themes_header_button_text_font_size]',
+        'type'    => 'text'
+        )); 
+      $wp_customize->add_setting( 'themes_customization[themes_header_button_text_color]', array(
           'default' => '',
           'type'              => 'option',
           'capability'        => 'manage_options',
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_hex_color'
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_cart_bgcolor]', array(
-        'label' => __('Cart Box Background Color', 'themes'),
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_button_text_color]', array(
+        'label' => __('Header Button Color', 'themes'),
         'section' => 'customize_header_section',
-        'settings' => 'themes_customization[themes_header_cart_bgcolor]',
+        'settings' => 'themes_customization[themes_header_button_text_color]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_header_button_bg_color', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_button_bg_color]', array(
+        'label' => __('Header Button Background Color', 'themes'),
+        'section' => 'customize_header_section',
+        'settings' => 'themes_customization[themes_header_button_bg_color]',
       )));
     }
-    $wp_customize->add_setting('themes_customization[themes_header_padding_leftRight]',array(
-      'default'   => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[themes_header_padding_leftRight]',array(
-      'label' => __('Menu Left & Right Padding','themes'),
-      'description' => __('Add Padding Top Either in Percentage or Pixels ( Example 10px or 10%)','themes'),
-      'section' => 'customize_header_section',
-      'setting'   => 'themes_customization[themes_header_padding_leftRight]',
-      'type'  => 'text'
-    ));
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting( 'themes_customization[themes_header_section_search_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_section_search_color]', array(
-            'label' => __('Seacrch Color', 'themes'),
-            'section' => 'customize_header_section',
-            'settings' => 'themes_customization[themes_header_section_search_color]',
-      )));
-      $wp_customize->add_setting( 'themes_customization[themes_header_section_search_font_family]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-
-      ) );
-      $wp_customize->add_control( 'themes_customization[themes_header_section_search_font_family]', array(
-        'settings'        => 'themes_customization[themes_header_section_search_font_family]',
-        'label'           => __( 'Seacrch Font Family:', 'themes' ),
-        'section'         => 'customize_header_section',
-        'type'            => 'select',
-        'choices'         => $font_array,
-      ) );
-      $wp_customize->add_setting('themes_customization[themes_header_section_search_font_size]',array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-        ));
-      $wp_customize->add_control('themes_customization[themes_header_section_search_font_size]',array(
-        'label' => __('Search Font Size in px','themes'),
-        'section' => 'customize_header_section',
-        'setting' => 'themes_customization[themes_header_section_search_font_size]',
-        ));
-      }
-      $wp_customize->add_setting('themes_customization[themes_header_button_text_font_family]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-          'themes_customization[themes_header_button_text_font_family]', array(
-          'section'  => 'customize_header_section',
-          'label'    => __( 'Header Button Font Family','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[themes_header_button_text_font_size]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-      ));
-    $wp_customize->add_control('themes_customization[themes_header_button_text_font_size]',array(
-      'label' => __('Header Button Font Size in px','themes'),
-      'section' => 'customize_header_section',
-      'setting' => 'themes_customization[themes_header_button_text_font_size]',
-      'type'    => 'text'
-      )); 
-    $wp_customize->add_setting( 'themes_customization[themes_header_button_text_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_button_text_color]', array(
-      'label' => __('Header Button Color', 'themes'),
-      'section' => 'customize_header_section',
-      'settings' => 'themes_customization[themes_header_button_text_color]',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_header_button_bg_color', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_button_bg_color]', array(
-      'label' => __('Header Button Background Color', 'themes'),
-      'section' => 'customize_header_section',
-      'settings' => 'themes_customization[themes_header_button_bg_color]',
-    )));
     //  =============================
     //  = Section for Slider    =
     //  =============================
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_section( 'customize_slider_section', array(
         'title'        => __( 'Slider', 'themes' ),
         'description'  => __( 'Customize Slider Section', 'themes' ),
@@ -2198,6 +2200,8 @@ class Themes_Setting_Entities {
         'priority'         => Null,
         'settings'         => 'themes_customization[about_left_title]',
       ) );
+    }
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[about_right_title]', array(
         // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
         'type'              => 'option',
@@ -3674,7 +3678,7 @@ class Themes_Setting_Entities {
         'type'    => 'text'
       )
     ); 
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION') || defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[services_small_title]', array(
         'default'           => '',
         'type'              => 'option',
@@ -4171,7 +4175,7 @@ class Themes_Setting_Entities {
     if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-our-team.php';
     }
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+    if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-flower-pro/section-best-seller.php';
     } 
     if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
@@ -4941,7 +4945,7 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Our =
     //  =============================
-    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')|| defined('VW_FACTORY_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-our-faq.php';
     }  
     //  =============================
@@ -6352,793 +6356,795 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Latest News  =
     //  =============================
-    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')|| defined('VW_FACTORY_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-latest-news.php';
     }
     /*------------------- Footer Sections ----------------------*/
-    $wp_customize->add_section('themes_footer_widget_section',array(
-        'title' => __('Footer Widgets','themes'),
-        'description'   => __('Edit footer Widgets sections','themes'),
-        'panel' => 'themes_panel',
-    ));
-    $wp_customize->selective_refresh->add_partial( 'themes_footer_widgets_enable', array(
-      'selector' => '#footer .container',
-      'render_callback' => 'themes_customize_partial_themes_footer_widgets_enable',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[themes_footer_widgets_enable]', array(
-      'default'           => false,
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_checkbox'
-    ) );
-
-    $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[themes_footer_widgets_enable]', array(
-     'settings'    => 'themes_customization[themes_footer_widgets_enable]',
-      'label'       => __( 'Disable Section:', 'themes'),
-      'section'     => 'themes_footer_widget_section',
-     'priority'   => Null,
-      'type'        => 'ios', // light, ios, flat
-    ) ) );
-    $wp_customize->add_setting( 'themes_customization[themes_footer_widget_bgcolor]', array(
-      'default'        => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
-    ) );
-
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_bgcolor]', array(
-      'label'      => __( 'Background Color:', 'themes' ),
-      'section'    => 'themes_footer_widget_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[themes_footer_widget_bgcolor]'
-    ) ) );
-    $wp_customize->add_setting( 'themes_customization[themes_footer_widget_bg_image]', array(
-      'default'       =>  '' ,
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_image'
-    ) );
-
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[themes_footer_widget_bg_image]', array(
-      'label'      => __( 'Background Image ','themes'),
-      'section'    => 'themes_footer_widget_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[themes_footer_widget_bg_image]',
-      'button_labels' => array(
-         'select'       => __( 'Select Image', 'themes' ),
-    ) ) ) );
-    
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_color1]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
+    if(defined('VW_FACTORY_PRO_VERSION')){}else{
+      $wp_customize->add_section('themes_footer_widget_section',array(
+          'title' => __('Footer Widgets','themes'),
+          'description'   => __('Edit footer Widgets sections','themes'),
+          'panel' => 'themes_panel',
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_color1]', array(
-          'label' => __('Footer Heading Color 1', 'themes'),
-          'section' => 'themes_footer_widget_section',
-          'settings' => 'themes_customization[themes_footer_widget_heading_color1]',
-      )));
-      $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_color2]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_color2]', array(
-          'label' => __('Footer Heading Color 2', 'themes'),
-          'section' => 'themes_footer_widget_section',
-          'settings' => 'themes_customization[themes_footer_widget_heading_color2]',
-      )));
-    }else{
-      $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_color]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_color]', array(
-          'label' => __('Footer Heading Color', 'themes'),
-          'section' => 'themes_footer_widget_section',
-          'settings' => 'themes_customization[themes_footer_widget_heading_color]',
-      )));
-    }
-    $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_footer_widget_heading_font_family]', array(
-        'section'  => 'themes_footer_widget_section',
-        'label'    => __( 'Footer Heading Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_footer_widget_heading_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_font_size]', array(
-        'label' => __('Footer Heading Font Size in px', 'themes'),
-        'section' => 'themes_footer_widget_section',
-        'settings' => 'themes_customization[themes_footer_widget_heading_font_size]',
-        'type'  => 'text',
-    )));
-    $wp_customize->add_setting('themes_customization[themes_footer_widget_content_color]', array(
+      $wp_customize->selective_refresh->add_partial( 'themes_footer_widgets_enable', array(
+        'selector' => '#footer .container',
+        'render_callback' => 'themes_customize_partial_themes_footer_widgets_enable',
+      ) );
+      $wp_customize->add_setting( 'themes_customization[themes_footer_widgets_enable]', array(
+        'default'           => false,
+        'type'              => 'option',
+        'capability'         => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_checkbox'
+      ) );
+
+      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[themes_footer_widgets_enable]', array(
+       'settings'    => 'themes_customization[themes_footer_widgets_enable]',
+        'label'       => __( 'Disable Section:', 'themes'),
+        'section'     => 'themes_footer_widget_section',
+       'priority'   => Null,
+        'type'        => 'ios', // light, ios, flat
+      ) ) );
+      $wp_customize->add_setting( 'themes_customization[themes_footer_widget_bgcolor]', array(
+        'default'        => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+      ) );
+
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_bgcolor]', array(
+        'label'      => __( 'Background Color:', 'themes' ),
+        'section'    => 'themes_footer_widget_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[themes_footer_widget_bgcolor]'
+      ) ) );
+      $wp_customize->add_setting( 'themes_customization[themes_footer_widget_bg_image]', array(
+        'default'       =>  '' ,
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_image'
+      ) );
+
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[themes_footer_widget_bg_image]', array(
+        'label'      => __( 'Background Image ','themes'),
+        'section'    => 'themes_footer_widget_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[themes_footer_widget_bg_image]',
+        'button_labels' => array(
+           'select'       => __( 'Select Image', 'themes' ),
+      ) ) ) );
+      
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_color1]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_color1]', array(
+            'label' => __('Footer Heading Color 1', 'themes'),
+            'section' => 'themes_footer_widget_section',
+            'settings' => 'themes_customization[themes_footer_widget_heading_color1]',
+        )));
+        $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_color2]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_color2]', array(
+            'label' => __('Footer Heading Color 2', 'themes'),
+            'section' => 'themes_footer_widget_section',
+            'settings' => 'themes_customization[themes_footer_widget_heading_color2]',
+        )));
+      }else{
+        $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_color]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_color]', array(
+            'label' => __('Footer Heading Color', 'themes'),
+            'section' => 'themes_footer_widget_section',
+            'settings' => 'themes_customization[themes_footer_widget_heading_color]',
+        )));
+      }
+      $wp_customize->add_setting('themes_customization[themes_footer_widget_heading_font_family]',array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_content_color]', array(
-        'label' => __('Footer Content Color', 'themes'),
-        'section' => 'themes_footer_widget_section',
-        'settings' => 'themes_customization[themes_footer_widget_content_color]',
-    )));
-    
-    $wp_customize->add_setting('themes_customization[themes_footer_widget_content_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_footer_widget_content_font_family]', array(
-        'section'  => 'themes_footer_widget_section',
-        'label'    => __( 'Footer Content Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_footer_widget_content_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_content_font_size]', array(
-      'label' => __('Footer Content Font Size in px', 'themes'),
-      'section' => 'themes_footer_widget_section',
-      'settings' => 'themes_customization[themes_footer_widget_content_font_size]',
-      'type'  => 'text',
-    )));
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting('themes_customization[themes_spinner_bg_color1]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
+        'sanitize_callback' => 'themes_sanitize_select_font'
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_spinner_bg_color1]', array(
-          'label' => __('Spinner Background Color 1', 'themes'),
-          'section' => 'themes_footer_widget_section',
-          'settings' => 'themes_customization[themes_spinner_bg_color1]',
-      )));
-      $wp_customize->add_setting('themes_customization[themes_spinner_bg_color2]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
+      $wp_customize->add_control(
+          'themes_customization[themes_footer_widget_heading_font_family]', array(
+          'section'  => 'themes_footer_widget_section',
+          'label'    => __( 'Footer Heading Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_spinner_bg_color2]', array(
-          'label' => __('Spinner Background Color 2', 'themes'),
-          'section' => 'themes_footer_widget_section',
-          'settings' => 'themes_customization[themes_spinner_bg_color2]',
-      )));
-    }
-    /*----------------- Footer Copyright --------------*/
-
-    $wp_customize->add_section('themes_footer_section',array(
-        'title' => __('Footer Text','themes'),
-        'description'   => __('Add some text for footer like copyright etc.','themes'),
-        'priority'  => null,
-        'panel' => 'themes_panel',
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_footer_section_enable]', array(
-      'default'           => false,
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_checkbox'
-    ) );
-
-    $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[themes_footer_section_enable]', array(
-     'settings'    => 'themes_customization[themes_footer_section_enable]',
-      'label'       => __( 'Disable Section:', 'themes'),
-      'section'     => 'themes_footer_section',
-     'priority'   => Null,
-      'type'        => 'ios', // light, ios, flat
-    ) ) );
-    $wp_customize->add_setting( 'themes_customization[themes_footer_section_bg_color]', array(
-      'default'        => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
-    ) );
-
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_section_bg_color]', array(
-      'label'      => __( 'Background Color:', 'themes' ),
-      'section'    => 'themes_footer_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[themes_footer_section_bg_color]'
-    ) ) );
-    $wp_customize->add_setting( 'themes_customization[themes_footer_section_bg_image]', array(
-      'default'       =>  '' ,
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_image'
-    ) );
-
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[themes_footer_section_bg_image]', array(
-      'label'      => __( 'Background Image ','themes'),
-      'section'    => 'themes_footer_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[themes_footer_section_bg_image]',
-      'button_labels' => array(
-         'select'       => __( 'Select Image', 'themes' ),
-    ) ) ) );
-    $wp_customize->add_setting('themes_customization[footer_copy_year]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_textarea_field',
-    ));
-    $wp_customize->add_control('themes_customization[footer_copy_year]',array(
-        'label' => __('Copyright Text','themes'),
-        'section'   => 'themes_footer_section',
-        'settings'   => 'themes_customization[footer_copy_year]',
-        'type'      => 'textarea'
-    ));
-    $wp_customize->selective_refresh->add_partial( 'themes_footer_copy', array(
-      'selector' => '.copy-text',
-      'render_callback' => 'themes_customize_partial_themes_footer_copy',
-    ) );
-
-    $wp_customize->add_setting( 'themes_customization[themes_footer_copy_content_color]', array(
+      $wp_customize->add_setting( 'themes_customization[themes_footer_widget_heading_font_size]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_copy_content_color]', array(
-        'label' => __('Content Color', 'themes'),
-        'section' => 'themes_footer_section',
-        'settings' => 'themes_customization[themes_footer_copy_content_color]',
-    )));
-
-    $wp_customize->add_setting('themes_customization[themes_footer_copy_content_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_footer_copy_content_font_family]', array(
-        'section'  => 'themes_footer_section',
-        'label'    => __( 'Content Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_footer_copy_content_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_copy_content_font_size]', array(
+        'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_heading_font_size]', array(
+          'label' => __('Footer Heading Font Size in px', 'themes'),
+          'section' => 'themes_footer_widget_section',
+          'settings' => 'themes_customization[themes_footer_widget_heading_font_size]',
+          'type'  => 'text',
+      )));
+      $wp_customize->add_setting('themes_customization[themes_footer_widget_content_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_content_color]', array(
+          'label' => __('Footer Content Color', 'themes'),
+          'section' => 'themes_footer_widget_section',
+          'settings' => 'themes_customization[themes_footer_widget_content_color]',
+      )));
+      
+      $wp_customize->add_setting('themes_customization[themes_footer_widget_content_font_family]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[themes_footer_widget_content_font_family]', array(
+          'section'  => 'themes_footer_widget_section',
+          'label'    => __( 'Footer Content Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting( 'themes_customization[themes_footer_widget_content_font_size]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_widget_content_font_size]', array(
         'label' => __('Footer Content Font Size in px', 'themes'),
-        'section' => 'themes_footer_section',
-        'settings' => 'themes_customization[themes_footer_copy_content_font_size]',
+        'section' => 'themes_footer_widget_section',
+        'settings' => 'themes_customization[themes_footer_widget_content_font_size]',
         'type'  => 'text',
-    )));
-    
-    $wp_customize->add_setting( 'themes_hide_show_credit_link',
-     array(
-        'default' => 1,
-        'transport' => 'refresh',
-        'sanitize_callback' => 'themes_switch_sanitization'
-     ));
-   
-    $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_hide_show_credit_link',
+      )));
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting('themes_customization[themes_spinner_bg_color1]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_spinner_bg_color1]', array(
+            'label' => __('Spinner Background Color 1', 'themes'),
+            'section' => 'themes_footer_widget_section',
+            'settings' => 'themes_customization[themes_spinner_bg_color1]',
+        )));
+        $wp_customize->add_setting('themes_customization[themes_spinner_bg_color2]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_spinner_bg_color2]', array(
+            'label' => __('Spinner Background Color 2', 'themes'),
+            'section' => 'themes_footer_widget_section',
+            'settings' => 'themes_customization[themes_spinner_bg_color2]',
+        )));
+      }
+      /*----------------- Footer Copyright --------------*/
+
+      $wp_customize->add_section('themes_footer_section',array(
+          'title' => __('Footer Text','themes'),
+          'description'   => __('Add some text for footer like copyright etc.','themes'),
+          'priority'  => null,
+          'panel' => 'themes_panel',
+      ));
+      $wp_customize->add_setting( 'themes_customization[themes_footer_section_enable]', array(
+        'default'           => false,
+        'type'              => 'option',
+        'capability'         => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_checkbox'
+      ) );
+
+      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[themes_footer_section_enable]', array(
+       'settings'    => 'themes_customization[themes_footer_section_enable]',
+        'label'       => __( 'Disable Section:', 'themes'),
+        'section'     => 'themes_footer_section',
+       'priority'   => Null,
+        'type'        => 'ios', // light, ios, flat
+      ) ) );
+      $wp_customize->add_setting( 'themes_customization[themes_footer_section_bg_color]', array(
+        'default'        => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+      ) );
+
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_section_bg_color]', array(
+        'label'      => __( 'Background Color:', 'themes' ),
+        'section'    => 'themes_footer_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[themes_footer_section_bg_color]'
+      ) ) );
+      $wp_customize->add_setting( 'themes_customization[themes_footer_section_bg_image]', array(
+        'default'       =>  '' ,
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_image'
+      ) );
+
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[themes_footer_section_bg_image]', array(
+        'label'      => __( 'Background Image ','themes'),
+        'section'    => 'themes_footer_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[themes_footer_section_bg_image]',
+        'button_labels' => array(
+           'select'       => __( 'Select Image', 'themes' ),
+      ) ) ) );
+      $wp_customize->add_setting('themes_customization[footer_copy_year]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[footer_copy_year]',array(
+          'label' => __('Copyright Text','themes'),
+          'section'   => 'themes_footer_section',
+          'settings'   => 'themes_customization[footer_copy_year]',
+          'type'      => 'textarea'
+      ));
+      $wp_customize->selective_refresh->add_partial( 'themes_footer_copy', array(
+        'selector' => '.copy-text',
+        'render_callback' => 'themes_customize_partial_themes_footer_copy',
+      ) );
+
+      $wp_customize->add_setting( 'themes_customization[themes_footer_copy_content_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_copy_content_color]', array(
+          'label' => __('Content Color', 'themes'),
+          'section' => 'themes_footer_section',
+          'settings' => 'themes_customization[themes_footer_copy_content_color]',
+      )));
+
+      $wp_customize->add_setting('themes_customization[themes_footer_copy_content_font_family]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[themes_footer_copy_content_font_family]', array(
+          'section'  => 'themes_footer_section',
+          'label'    => __( 'Content Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting( 'themes_customization[themes_footer_copy_content_font_size]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_footer_copy_content_font_size]', array(
+          'label' => __('Footer Content Font Size in px', 'themes'),
+          'section' => 'themes_footer_section',
+          'settings' => 'themes_customization[themes_footer_copy_content_font_size]',
+          'type'  => 'text',
+      )));
+      
+      $wp_customize->add_setting( 'themes_hide_show_credit_link',
        array(
-          'label' => esc_html__( 'Show or Hide Credit Link', 'themes' ),
-          'section' => 'themes_footer_section'
-    )));
-    /*---------------Contact Page section-------------*/
+          'default' => 1,
+          'transport' => 'refresh',
+          'sanitize_callback' => 'themes_switch_sanitization'
+       ));
+     
+      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_hide_show_credit_link',
+         array(
+            'label' => esc_html__( 'Show or Hide Credit Link', 'themes' ),
+            'section' => 'themes_footer_section'
+      )));
+      /*---------------Contact Page section-------------*/
 
-    $wp_customize->add_section('themes_contact_page_section',array(
-        'title' => __('Contact','themes'),
-        'description'   => __('Add contact page settings here).','themes'),
-        'priority'  => null,
-        'panel' => 'themes_panel',
-    ));
-    $wp_customize->add_setting('themes_customization[contactpage_form_title]',array(
-        'default'   => '',
+      $wp_customize->add_section('themes_contact_page_section',array(
+          'title' => __('Contact','themes'),
+          'description'   => __('Add contact page settings here).','themes'),
+          'priority'  => null,
+          'panel' => 'themes_panel',
+      ));
+      $wp_customize->add_setting('themes_customization[contactpage_form_title]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contactpage_form_title]',array(
+          'label' => __('Contact Main Title','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contactpage_form_title]',
+          'type'  => 'text'
+      ));
+      $wp_customize->add_setting('themes_customization[contactpage_form_text]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contactpage_form_text]',array(
+          'label' => __('Contact Form Text','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contactpage_form_text]',
+          'type'  => 'textarea'
+      ));
+      $wp_customize->add_setting('themes_customization[contact_page_right_form_title]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_right_form_title]',array(
+          'label' => __('Contact Form Text','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_right_form_title]',
+          'type'  => 'textarea'
+      ));
+      $wp_customize->selective_refresh->add_partial( 'contactpage_form_title', array(
+          'selector' => '.contact-box .container',
+          'render_callback' => 'themes_customize_partial_contactpage_form_title',
+      ));
+      $wp_customize->add_control( 'themes_customization[contactpage_form_text]', array(
+        'label'            => __( 'Section Text', 'themes' ),
+        'section'          => 'themes_contact_page_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[contactpage_form_text]',
+      ) );
+      $wp_customize->add_setting( 'themes_customization[contactpage_form_text]', array(
+        'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contactpage_form_title]',array(
-        'label' => __('Contact Main Title','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contactpage_form_title]',
-        'type'  => 'text'
-    ));
-    $wp_customize->add_setting('themes_customization[contactpage_form_text]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contactpage_form_text]',array(
-        'label' => __('Contact Form Text','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contactpage_form_text]',
-        'type'  => 'textarea'
-    ));
-    $wp_customize->add_setting('themes_customization[contact_page_right_form_title]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_right_form_title]',array(
-        'label' => __('Contact Form Text','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_right_form_title]',
-        'type'  => 'textarea'
-    ));
-    $wp_customize->selective_refresh->add_partial( 'contactpage_form_title', array(
-        'selector' => '.contact-box .container',
-        'render_callback' => 'themes_customize_partial_contactpage_form_title',
-    ));
-    $wp_customize->add_control( 'themes_customization[contactpage_form_text]', array(
-      'label'            => __( 'Section Text', 'themes' ),
-      'section'          => 'themes_contact_page_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[contactpage_form_text]',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[contactpage_form_text]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
 
-    $wp_customize->add_setting('themes_customization[contact_page_address_longitude]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_address_longitude]',array(
-        'label' => __('Longitude','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_address_longitude]',
-        'type'=>'text'
-    ));
-    $wp_customize->add_setting('themes_customization[contact_page_address_latitude]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_address_latitude]',array(
-        'label' => __('Latitude','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_address_latitude]',
-        'type'=>'text'
-    ));
-    $wp_customize->add_setting(
-      'themes_customization[contact_page_sec_email_icon]',
-      array(
-        'default'     => 'far fa-envelope-open',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control(
-      new themes_Fontawesome_Icon_Chooser(
-        $wp_customize,
+      $wp_customize->add_setting('themes_customization[contact_page_address_longitude]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_address_longitude]',array(
+          'label' => __('Longitude','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_address_longitude]',
+          'type'=>'text'
+      ));
+      $wp_customize->add_setting('themes_customization[contact_page_address_latitude]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_address_latitude]',array(
+          'label' => __('Latitude','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_address_latitude]',
+          'type'=>'text'
+      ));
+      $wp_customize->add_setting(
         'themes_customization[contact_page_sec_email_icon]',
         array(
-          'settings'    => 'themes_customization[contact_page_sec_email_icon]',
-          'section'   => 'themes_contact_page_section',
-          'type'      => 'icon',
-          'label'     => esc_html__( 'Choose Email Icon', 'themes' ),
+          'default'     => 'far fa-envelope-open',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
         )
-      )
-    );
-    $wp_customize->add_setting('themes_customization[contact_page_sec_email]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_sec_email]',array(
-        'label' => __('Email Title','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_sec_email]',
-        'type'  => 'text'
-    ));
-    $wp_customize->add_setting(
-      'themes_customization[contact_page_sec_address_icon]',
-      array(
-        'default'     => 'fas fa-map-marker-alt',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control(
-      new themes_Fontawesome_Icon_Chooser(
-        $wp_customize,
+      );
+      $wp_customize->add_control(
+        new themes_Fontawesome_Icon_Chooser(
+          $wp_customize,
+          'themes_customization[contact_page_sec_email_icon]',
+          array(
+            'settings'    => 'themes_customization[contact_page_sec_email_icon]',
+            'section'   => 'themes_contact_page_section',
+            'type'      => 'icon',
+            'label'     => esc_html__( 'Choose Email Icon', 'themes' ),
+          )
+        )
+      );
+      $wp_customize->add_setting('themes_customization[contact_page_sec_email]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_sec_email]',array(
+          'label' => __('Email Title','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_sec_email]',
+          'type'  => 'text'
+      ));
+      $wp_customize->add_setting(
         'themes_customization[contact_page_sec_address_icon]',
         array(
-          'settings'    => 'themes_customization[contact_page_sec_address_icon]',
-          'section'   => 'themes_contact_page_section',
-          'type'      => 'icon',
-          'label'     => esc_html__( 'Choose Address Icon', 'themes' ),
+          'default'     => 'fas fa-map-marker-alt',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
         )
-      )
-    );
-    $wp_customize->add_setting('themes_customization[contact_page_sec_address]',array(
-        'default'   => '',
+      );
+      $wp_customize->add_control(
+        new themes_Fontawesome_Icon_Chooser(
+          $wp_customize,
+          'themes_customization[contact_page_sec_address_icon]',
+          array(
+            'settings'    => 'themes_customization[contact_page_sec_address_icon]',
+            'section'   => 'themes_contact_page_section',
+            'type'      => 'icon',
+            'label'     => esc_html__( 'Choose Address Icon', 'themes' ),
+          )
+        )
+      );
+      $wp_customize->add_setting('themes_customization[contact_page_sec_address]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_sec_address]',array(
+          'label' => __('Address Title','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_sec_address]',
+          'type'  => 'text'
+      ));
+      $wp_customize->add_setting('themes_customization[contact_page_sec_phone_icon]',
+        array(
+          'default'     => 'fas fa-phone',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control(new themes_Fontawesome_Icon_Chooser($wp_customize,'themes_customization[contact_page_sec_phone_icon]',
+          array(
+            'settings'    => 'themes_contact_page_section_phone_icon',
+            'section'   => 'themes_customization[contact_page_sec_phone_icon]',
+            'type'      => 'icon',
+            'label'     => esc_html__( 'Choose Phone Icon', 'themes' ),
+      )));
+      $wp_customize->add_setting('themes_customization[contact_page_sec_phone]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_sec_phone]',array(
+          'label' => __('Phone Title','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_sec_phone]',
+          'type'  => 'text'
+      ));
+      $wp_customize->add_setting('themes_customization[contact_page_right_form_title]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      $wp_customize->add_control('themes_customization[contact_page_right_form_title]',array(
+          'label' => __('Contact Form Title','themes'),
+          'section' => 'themes_contact_page_section',
+          'setting'   => 'themes_customization[contact_page_right_form_title]',
+          'type'  => 'text'
+      ));
+
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_heading_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      // add color picker control
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_heading_color]', array(
+          'label' => __('Section Heading Color', 'themes'),
+          'section' => 'themes_contact_page_section',
+          'settings' => 'themes_customization[themes_contact_page_heading_color]',
+      )));
+
+      $wp_customize->add_setting('themes_customization[themes_contact_page_heading_font_family]',array(
+        'default' => '',
         'type'              => 'option',
         'capability'         => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_sec_address]',array(
-        'label' => __('Address Title','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_sec_address]',
-        'type'  => 'text'
-    ));
-    $wp_customize->add_setting('themes_customization[contact_page_sec_phone_icon]',
-      array(
-        'default'     => 'fas fa-phone',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[themes_contact_page_heading_font_family]', array(
+          'section'  => 'themes_contact_page_section',
+          'label'    => __( 'Section Heading Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_heading_font_size]', array(
+        'default' => '',
         'type'              => 'option',
         'capability'         => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
     ));
-    $wp_customize->add_control(new themes_Fontawesome_Icon_Chooser($wp_customize,'themes_customization[contact_page_sec_phone_icon]',
-        array(
-          'settings'    => 'themes_contact_page_section_phone_icon',
-          'section'   => 'themes_customization[contact_page_sec_phone_icon]',
-          'type'      => 'icon',
-          'label'     => esc_html__( 'Choose Phone Icon', 'themes' ),
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_heading_font_size]', array(
+        'label' => __('Heading Font Size in px', 'themes'),
+        'section' => 'themes_contact_page_section',
+        'settings' => 'themes_customization[themes_contact_page_heading_font_size]',
+        'type'  => 'text',
     )));
-    $wp_customize->add_setting('themes_customization[contact_page_sec_phone]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_sec_phone]',array(
-        'label' => __('Phone Title','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_sec_phone]',
-        'type'  => 'text'
-    ));
-    $wp_customize->add_setting('themes_customization[contact_page_right_form_title]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('themes_customization[contact_page_right_form_title]',array(
-        'label' => __('Contact Form Title','themes'),
-        'section' => 'themes_contact_page_section',
-        'setting'   => 'themes_customization[contact_page_right_form_title]',
-        'type'  => 'text'
-    ));
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_text_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      // add color picker control
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_text_color]', array(
+          'label' => __('Contact Text Color', 'themes'),
+          'section' => 'themes_contact_page_section',
+          'settings' => 'themes_customization[themes_contact_page_text_color]',
+      )));
 
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_heading_color]', array(
+      $wp_customize->add_setting('themes_customization[themes_contact_page_text_font_family]',array(
         'default' => '',
         'type'              => 'option',
         'capability'         => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[themes_contact_page_text_font_family]', array(
+          'section'  => 'themes_contact_page_section',
+          'label'    => __( 'Contact Text Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+     $wp_customize->add_setting( 'themes_customization[themes_contact_page_text_font_size]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'         => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
     ));
-    // add color picker control
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_heading_color]', array(
-        'label' => __('Section Heading Color', 'themes'),
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_text_font_size]', array(
+        'label' => __('Contact Text Font Size in px', 'themes'),
         'section' => 'themes_contact_page_section',
-        'settings' => 'themes_customization[themes_contact_page_heading_color]',
+        'settings' => 'themes_customization[themes_contact_page_text_font_size]',
+        'type'  => 'text',
     )));
+      // add color picker control
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_form_title_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));   
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_form_title_color]', array(
+          'label' => __('Contact Form Title Color', 'themes'),
+          'section' => 'themes_contact_page_section',
+          'settings' => 'themes_customization[themes_contact_page_form_title_color]',
+      )));
 
-    $wp_customize->add_setting('themes_customization[themes_contact_page_heading_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_contact_page_heading_font_family]', array(
-        'section'  => 'themes_contact_page_section',
-        'label'    => __( 'Section Heading Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_heading_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-  ));
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_heading_font_size]', array(
-      'label' => __('Heading Font Size in px', 'themes'),
-      'section' => 'themes_contact_page_section',
-      'settings' => 'themes_customization[themes_contact_page_heading_font_size]',
-      'type'  => 'text',
-  )));
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_text_color]', array(
+      $wp_customize->add_setting('themes_customization[themes_contact_page_contacts_form_title_font_family]',array(
         'default' => '',
         'type'              => 'option',
         'capability'         => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    // add color picker control
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_text_color]', array(
-        'label' => __('Contact Text Color', 'themes'),
-        'section' => 'themes_contact_page_section',
-        'settings' => 'themes_customization[themes_contact_page_text_color]',
-    )));
-
-    $wp_customize->add_setting('themes_customization[themes_contact_page_text_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_contact_page_text_font_family]', array(
-        'section'  => 'themes_contact_page_section',
-        'label'    => __( 'Contact Text Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-   $wp_customize->add_setting( 'themes_customization[themes_contact_page_text_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-  ));
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_text_font_size]', array(
-      'label' => __('Contact Text Font Size in px', 'themes'),
-      'section' => 'themes_contact_page_section',
-      'settings' => 'themes_customization[themes_contact_page_text_font_size]',
-      'type'  => 'text',
-  )));
-    // add color picker control
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_form_title_color]', array(
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[themes_contact_page_contacts_form_title_font_family]', array(
+          'section'  => 'themes_contact_page_section',
+          'label'    => __( 'Contact Form Title Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+     $wp_customize->add_setting( 'themes_customization[themes_contact_page_contacts_form_title_font_size]', array(
         'default' => '',
         'type'              => 'option',
         'capability'         => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));   
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_form_title_color]', array(
-        'label' => __('Contact Form Title Color', 'themes'),
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_contacts_form_title_font_size]', array(
+        'label' => __('Contact Form Title Font Size in px', 'themes'),
         'section' => 'themes_contact_page_section',
-        'settings' => 'themes_customization[themes_contact_page_form_title_color]',
-    )));
-
-    $wp_customize->add_setting('themes_customization[themes_contact_page_contacts_form_title_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_contact_page_contacts_form_title_font_family]', array(
-        'section'  => 'themes_contact_page_section',
-        'label'    => __( 'Contact Form Title Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-   $wp_customize->add_setting( 'themes_customization[themes_contact_page_contacts_form_title_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-  ));
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_contacts_form_title_font_size]', array(
-      'label' => __('Contact Form Title Font Size in px', 'themes'),
-      'section' => 'themes_contact_page_section',
-      'settings' => 'themes_customization[themes_contact_page_contacts_form_title_font_size]',
-      'type'  => 'text',
-    )));
- 
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_form_text_color]', array(
+        'settings' => 'themes_customization[themes_contact_page_contacts_form_title_font_size]',
+        'type'  => 'text',
+      )));
+   
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_form_text_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));   
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_form_text_color]', array(
+          'label' => __('Contact Form Text Color', 'themes'),
+          'section' => 'themes_contact_page_section',
+          'settings' => 'themes_customization[themes_contact_page_form_text_color]',
+      )));
+      $wp_customize->add_setting('themes_customization[themes_contact_page_contacts_form_text_font_family]',array(
         'default' => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));   
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_form_text_color]', array(
-        'label' => __('Contact Form Text Color', 'themes'),
-        'section' => 'themes_contact_page_section',
-        'settings' => 'themes_customization[themes_contact_page_form_text_color]',
-    )));
-    $wp_customize->add_setting('themes_customization[themes_contact_page_contacts_form_text_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_contact_page_contacts_form_text_font_family]', array(
-        'section'  => 'themes_contact_page_section',
-        'label'    => __( 'Contact Form Text Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_contacts_form_text_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_contacts_form_text_font_size]', array(
-      'label' => __('Contact Form Text Font Size in px', 'themes'),
-      'section' => 'themes_contact_page_section',
-      'settings' => 'themes_customization[themes_contact_page_contacts_form_text_font_size]',
-      'type'  => 'text',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_form_button_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));   
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_form_button_color]', array(
-        'label' => __('Contact Form Button Text Color', 'themes'),
-        'section' => 'themes_contact_page_section',
-        'settings' => 'themes_customization[themes_contact_page_form_button_color]',
-    )));
-    $wp_customize->add_setting('themes_customization[themes_contact_page_contacts_form_button_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_contact_page_contacts_form_button_font_family]', array(
-        'section'  => 'themes_contact_page_section',
-        'label'    => __( 'Contact Form Button Text Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_contacts_form_button_font_size]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_contacts_form_button_font_size]', array(
-        'label' => __('Contact Form Button Text Font Size in px', 'themes'),
-      'section' => 'themes_contact_page_section',
-      'settings' => 'themes_customization[themes_contact_page_contacts_form_button_font_size]',
-      'type'  => 'text',
-    )));
-    $wp_customize->add_setting( 'themes_customization[themes_contact_page_button_bgcolor1]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    // add color picker control
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_button_bgcolor1]', array(
-        'label' => __('Form Button Background Color', 'themes'),
-        'section' => 'themes_contact_page_section',
-        'settings' => 'themes_customization[themes_contact_page_button_bgcolor1]',
-    )));
-
-    //Shortcode Section
-    $wp_customize->add_section('themes_shortcode_section',array(
-        'title' => __('Shortcode Settings','themes'),
-        'description'   => __('Use below shortcode here.','themes'),
-        'priority'  => null,
-        'panel' => 'themes_panel',
-    ));
-    $wp_customize->add_setting('themes_customization[themes_shortcode]',array(
-        'default'   => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_control('themes_customization[themes_shortcode]',array(
-          'label' => __('Shortcodes','themes'),
-          'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-flower-shop-pro-slider]</strong></li></ul>','themes' ),
-          'section' => 'themes_shortcode_section',
-          'setting'   => 'themes_customization[themes_shortcode]',
-          'type'  => ''
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'themes_sanitize_select_font'
       ));
-    }
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
-      $wp_customize->add_control('themes_customization[themes_shortcode]',array(
-          'label' => __('Shortcodes','themes'),
-          'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-software-company-pro-testimonials]</strong></li><li><strong>[vw-software-company-pro-services]</strong></li></ul>','themes' ),
-          'section' => 'themes_shortcode_section',
-          'setting'   => 'themes_customization[themes_shortcode]',
-          'type'  => ''
+      $wp_customize->add_control(
+          'themes_customization[themes_contact_page_contacts_form_text_font_family]', array(
+          'section'  => 'themes_contact_page_section',
+          'label'    => __( 'Contact Form Text Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
       ));
-    }
-    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
-      $wp_customize->add_control('themes_customization[themes_shortcode]',array(
-          'label' => __('Shortcodes','themes'),
-          'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-knowledge-base-pro-services]</strong></li><li><strong>[vw-knowledge-base-pro-testimonials]</strong></li><li><strong>[vw-knowledge-base-pro-team]</strong></li></ul>','themes' ),
-          'section' => 'themes_shortcode_section',
-          'setting'   => 'themes_customization[themes_shortcode]',
-          'type'  => ''
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_contacts_form_text_font_size]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'         => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
       ));
-    }
-    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
-      $wp_customize->add_control('themes_customization[themes_shortcode]',array(
-          'label' => __('Shortcodes','themes'),
-          'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-health-care-pro-services]</strong></li><li><strong>[vw-health-care-pro-testimonials]</strong></li><li><strong>[vw-health-care-pro-teams]</strong></li></ul>','themes' ),
-          'section' => 'themes_shortcode_section',
-          'setting'   => 'themes_customization[themes_shortcode]',
-          'type'  => ''
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_contacts_form_text_font_size]', array(
+        'label' => __('Contact Form Text Font Size in px', 'themes'),
+        'section' => 'themes_contact_page_section',
+        'settings' => 'themes_customization[themes_contact_page_contacts_form_text_font_size]',
+        'type'  => 'text',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_form_button_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));   
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_form_button_color]', array(
+          'label' => __('Contact Form Button Text Color', 'themes'),
+          'section' => 'themes_contact_page_section',
+          'settings' => 'themes_customization[themes_contact_page_form_button_color]',
+      )));
+      $wp_customize->add_setting('themes_customization[themes_contact_page_contacts_form_button_font_family]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'themes_sanitize_select_font'
       ));
+      $wp_customize->add_control(
+          'themes_customization[themes_contact_page_contacts_form_button_font_family]', array(
+          'section'  => 'themes_contact_page_section',
+          'label'    => __( 'Contact Form Button Text Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_contacts_form_button_font_size]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'         => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_contacts_form_button_font_size]', array(
+          'label' => __('Contact Form Button Text Font Size in px', 'themes'),
+        'section' => 'themes_contact_page_section',
+        'settings' => 'themes_customization[themes_contact_page_contacts_form_button_font_size]',
+        'type'  => 'text',
+      )));
+      $wp_customize->add_setting( 'themes_customization[themes_contact_page_button_bgcolor1]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      // add color picker control
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_contact_page_button_bgcolor1]', array(
+          'label' => __('Form Button Background Color', 'themes'),
+          'section' => 'themes_contact_page_section',
+          'settings' => 'themes_customization[themes_contact_page_button_bgcolor1]',
+      )));
+
+      //Shortcode Section
+      $wp_customize->add_section('themes_shortcode_section',array(
+          'title' => __('Shortcode Settings','themes'),
+          'description'   => __('Use below shortcode here.','themes'),
+          'priority'  => null,
+          'panel' => 'themes_panel',
+      ));
+      $wp_customize->add_setting('themes_customization[themes_shortcode]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field',
+      ));
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_control('themes_customization[themes_shortcode]',array(
+            'label' => __('Shortcodes','themes'),
+            'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-flower-shop-pro-slider]</strong></li></ul>','themes' ),
+            'section' => 'themes_shortcode_section',
+            'setting'   => 'themes_customization[themes_shortcode]',
+            'type'  => ''
+        ));
+      }
+      if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+        $wp_customize->add_control('themes_customization[themes_shortcode]',array(
+            'label' => __('Shortcodes','themes'),
+            'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-software-company-pro-testimonials]</strong></li><li><strong>[vw-software-company-pro-services]</strong></li></ul>','themes' ),
+            'section' => 'themes_shortcode_section',
+            'setting'   => 'themes_customization[themes_shortcode]',
+            'type'  => ''
+        ));
+      }
+      if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+        $wp_customize->add_control('themes_customization[themes_shortcode]',array(
+            'label' => __('Shortcodes','themes'),
+            'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-knowledge-base-pro-services]</strong></li><li><strong>[vw-knowledge-base-pro-testimonials]</strong></li><li><strong>[vw-knowledge-base-pro-team]</strong></li></ul>','themes' ),
+            'section' => 'themes_shortcode_section',
+            'setting'   => 'themes_customization[themes_shortcode]',
+            'type'  => ''
+        ));
+      }
+      if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+        $wp_customize->add_control('themes_customization[themes_shortcode]',array(
+            'label' => __('Shortcodes','themes'),
+            'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-health-care-pro-services]</strong></li><li><strong>[vw-health-care-pro-testimonials]</strong></li><li><strong>[vw-health-care-pro-teams]</strong></li></ul>','themes' ),
+            'section' => 'themes_shortcode_section',
+            'setting'   => 'themes_customization[themes_shortcode]',
+            'type'  => ''
+        ));
+      }
     }
   }
 
