@@ -1708,7 +1708,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	border-color: <?php echo $introduction_box_button_bg_color ; ?> !important;
 	<?php endif; ?>
 }
-#our-team{
+#our-team,#our-teams{
 	<?php if ( ! empty( $our_team_enabledisable ) && true == $our_team_enabledisable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
@@ -2151,7 +2151,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-image: url(<?php echo $pricing_plan_bgimage; ?>);
 	<?php endif; ?>
 }
-#latest-news{
+#latest-news,#our-blogs{
 	<?php if ( ! empty( $latest_news_enabledisable ) && true == $latest_news_enabledisable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
@@ -2535,12 +2535,12 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
-#about{
+#about,#about-us{
 	<?php if ( ! empty( $radio_about_enable) && true == $radio_about_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
-#about{
+#about,#about-us{
 	<?php if ( ! empty( $about_bgcolor ) ) : ?>
 	background-color: <?php echo $about_bgcolor; ?>;
 	<?php elseif ( ! empty( $about_bgimage ) ) : ?>
@@ -2924,12 +2924,12 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
     background-image: linear-gradient(57deg, <?php echo $our_partners_bg_hovercolor; ?> 0%, <?php echo $our_partners_bg_hovercolor; ?> 100%);
 	<?php endif; ?>
 }
-#services{
+#services,#our-services{
 	<?php if ( ! empty( $services_enabledisable ) && true == $services_enabledisable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
-#services{
+#services,#our-services{
 	<?php if ( ! empty( $services_bgcolor ) ) : ?>
 	background-color: <?php echo $services_bgcolor; ?>;
 	<?php elseif ( ! empty( $services_bgimage ) ) : ?>

@@ -4172,7 +4172,7 @@ class Themes_Setting_Entities {
     if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-how-it-works.php';
     }
-    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-our-team.php';
     }
     if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
@@ -4193,293 +4193,295 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Newsletter    =
     //  =============================
-    $wp_customize->add_section( 'customize_newsletter_section', array(
-      'title'        => __( 'Newsletter', 'themes' ),
-      'description'  => __( 'Customize Newsletter Section', 'themes' ),
-      'priority'     => Null,
-      'panel'        => 'themes_panel',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[newsletter_enable]', array(
-      'default'           => false,
-      'type'              => 'option',
-      'capability'         => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_checkbox'
-    ) );
+    if(defined('VW_FACTORY_PRO_VERSION')){}else{
+        $wp_customize->add_section( 'customize_newsletter_section', array(
+          'title'        => __( 'Newsletter', 'themes' ),
+          'description'  => __( 'Customize Newsletter Section', 'themes' ),
+          'priority'     => Null,
+          'panel'        => 'themes_panel',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[newsletter_enable]', array(
+          'default'           => false,
+          'type'              => 'option',
+          'capability'         => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_checkbox'
+        ) );
 
-    $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[newsletter_enable]', array(
-     'settings'    => 'themes_customization[newsletter_enable]',
-      'label'       => __( 'Disable Section:', 'themes'),
-      'section'     => 'customize_newsletter_section',
-     'priority'   => Null,
-      'type'        => 'ios', // light, ios, flat
-    ) ) );
-    $wp_customize->add_setting( 'themes_customization[newsletter_bgcolor]', array(
-      'default'        => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
-    ) );
+        $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[newsletter_enable]', array(
+         'settings'    => 'themes_customization[newsletter_enable]',
+          'label'       => __( 'Disable Section:', 'themes'),
+          'section'     => 'customize_newsletter_section',
+         'priority'   => Null,
+          'type'        => 'ios', // light, ios, flat
+        ) ) );
+        $wp_customize->add_setting( 'themes_customization[newsletter_bgcolor]', array(
+          'default'        => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+        ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[newsletter_bgcolor]', array(
-      'label'      => __( 'Background Color:', 'themes' ),
-      'section'    => 'customize_newsletter_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[newsletter_bgcolor]'
-    ) ) );
-    $wp_customize->add_setting( 'themes_customization[newsletter_bgimage]', array(
-      'default'       =>  '' ,
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_image'
-    ) );
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[newsletter_bgcolor]', array(
+          'label'      => __( 'Background Color:', 'themes' ),
+          'section'    => 'customize_newsletter_section',
+          'priority'   => Null,
+          'settings'   => 'themes_customization[newsletter_bgcolor]'
+        ) ) );
+        $wp_customize->add_setting( 'themes_customization[newsletter_bgimage]', array(
+          'default'       =>  '' ,
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_image'
+        ) );
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[newsletter_bgimage]', array(
-      'label'      => __( 'Background Image ','themes'),
-      'section'    => 'customize_newsletter_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[newsletter_bgimage]',
-      'button_labels' => array(
-         'select'       => __( 'Select Image', 'themes' ),
-    ) ) ) );
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
-      $wp_customize->add_setting( 'themes_customization[newsletter_small_title]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
-      $wp_customize->add_control( 'themes_customization[newsletter_small_title]', array(
-        'label'            => __( 'Section Small Title', 'themes' ),
-        'section'          => 'customize_newsletter_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[newsletter_small_title]',
-      ) );
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[newsletter_bgimage]', array(
+          'label'      => __( 'Background Image ','themes'),
+          'section'    => 'customize_newsletter_section',
+          'priority'   => Null,
+          'settings'   => 'themes_customization[newsletter_bgimage]',
+          'button_labels' => array(
+             'select'       => __( 'Select Image', 'themes' ),
+        ) ) ) );
+        if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+          $wp_customize->add_setting( 'themes_customization[newsletter_small_title]', array(
+            'default'           => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'wp_kses_post'
+          ) );
+          $wp_customize->add_control( 'themes_customization[newsletter_small_title]', array(
+            'label'            => __( 'Section Small Title', 'themes' ),
+            'section'          => 'customize_newsletter_section',
+            'priority'         => Null,
+            'settings'         => 'themes_customization[newsletter_small_title]',
+          ) );
+        }
+        $wp_customize->add_setting( 'themes_customization[newsletter_title]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[newsletter_title]', array(
+          'label'            => __( 'Section Main Title', 'themes' ),
+          'section'          => 'customize_newsletter_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[newsletter_title]',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[newsletter_title]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[newsletter_title]', array(
+          'label'            => __( 'Section Main Title', 'themes' ),
+          'section'          => 'customize_newsletter_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[newsletter_title]',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[newsletter_shortcode]', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[newsletter_shortcode]', array(
+          'label'            => __( 'Add Contact Form Shortcode Here', 'themes' ),
+          'section'          => 'customize_newsletter_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[newsletter_shortcode]',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[themes_newsletter_title_color_first]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_title_color_first]', array(
+          'label' => __('Section Title Color', 'themes'),
+          'section' => 'customize_newsletter_section',
+          'settings' => 'themes_customization[themes_newsletter_title_color_first]',
+        )));
+
+        $wp_customize->add_setting('themes_customization[themes_newsletter_title_font_family]',array(
+           'default' => '',
+           'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+           'sanitize_callback' => 'themes_sanitize_select_font'
+        ));
+        $wp_customize->add_control(
+            'themes_customization[themes_newsletter_title_font_family]', array(
+            'section'  => 'customize_newsletter_section',
+            'label'    => __('Section Title Font Family','themes'),
+            'type'     => 'select',
+            'choices'  => $font_array,
+        ));
+
+        $wp_customize->add_setting('themes_customization[themes_newsletter_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+        );
+        $wp_customize->add_control('themes_customization[themes_newsletter_title_font_size]',array(
+          'label' => __('Section Title font size in px','themes'),
+          'section' => 'customize_newsletter_section',
+          'setting' => 'themes_customization[themes_newsletter_title_font_size]',
+          'type'    => 'text'
+          )
+        );
+        $wp_customize->add_setting( 'themes_customization[themes_newsletter_text_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_text_color]', array(
+          'label' => __('Text Color', 'themes'),
+          'section' => 'customize_newsletter_section',
+          'settings' => 'themes_customization[themes_newsletter_text_color]',
+        )));
+
+        $wp_customize->add_setting('themes_customization[themes_newsletter_text_font_family]',array(
+           'default' => '',
+           'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+           'sanitize_callback' => 'themes_sanitize_select_font'
+        ));
+        $wp_customize->add_control(
+            'themes_customization[themes_newsletter_text_font_family]', array(
+            'section'  => 'customize_newsletter_section',
+            'label'    => __('Text Font Family','themes'),
+            'type'     => 'select',
+            'choices'  => $font_array,
+        ));
+
+        $wp_customize->add_setting('themes_customization[themes_newsletter_text_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+        );
+        $wp_customize->add_control('themes_customization[themes_newsletter_text_font_size]',array(
+          'label' => __('Text font size in px','themes'),
+          'section' => 'customize_newsletter_section',
+          'setting' => 'themes_customization[themes_newsletter_text_font_size]',
+          'type'    => 'text'
+          )
+        );
+        $wp_customize->add_setting( 'themes_customization[newsletter_content_text_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[newsletter_content_text_color]', array(
+          'label' => 'Content Text Color',
+          'section' => 'customize_newsletter_section',
+          'settings' => 'themes_customization[newsletter_content_text_color]',
+        )));  
+
+        $wp_customize->add_setting('themes_customization[newsletter_content_text_fontfamily]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
+         ));
+        $wp_customize->add_control(
+            'themes_customization[newsletter_content_text_fontfamily]', array(
+            'section'  => 'customize_newsletter_section',
+            'label'    => __( 'Content Font','themes'),
+            'type'     => 'select',
+            'choices'  => $font_array,
+        ));
+        $wp_customize->add_setting('themes_customization[newsletter_content_text_fontsize]',array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field'
+          )
+        );
+        $wp_customize->add_control('themes_customization[newsletter_content_text_fontsize]',array(
+            'label' => __('Content Font Size in px','themes'),
+            'section' => 'customize_newsletter_section',
+            'setting' => 'themes_customization[newsletter_content_text_fontsize]',
+            'type'    => 'text'
+          )
+        ); 
+
+        $wp_customize->add_setting( 'themes_customization[themes_newsletter_form_button_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_form_button_color]', array(
+          'label' => __('Button Text Color', 'themes'),
+          'section' => 'customize_newsletter_section',
+          'settings' => 'themes_customization[themes_newsletter_form_button_color]',
+        )));
+        $wp_customize->add_setting('themes_customization[themes_newsletter_form_button_font_family]',array(
+           'default' => '',
+           'capability' => 'edit_theme_options',
+           'sanitize_callback' => 'themes_sanitize_select_font'
+        ));
+        $wp_customize->add_control(
+            'themes_customization[themes_newsletter_form_button_font_family]', array(
+            'section'  => 'customize_newsletter_section',
+            'label'    => __('Button Text Font Family','themes'),
+            'type'     => 'select',
+            'choices'  => $font_array,
+        ));
+
+        $wp_customize->add_setting('themes_customization[themes_newsletter_form_button_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+        );
+        $wp_customize->add_control('themes_customization[themes_newsletter_form_button_font_size]',array(
+          'label' => __('Button Text font size in px','themes'),
+          'section' => 'customize_newsletter_section',
+          'setting' => 'themes_customization[themes_newsletter_form_button_font_size]',
+          'type'    => 'text'
+          )
+        );
+        $wp_customize->add_setting( 'themes_customization[themes_newsletter_form_button_bgcolor_first]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_form_button_bgcolor_first]', array(
+          'label' => __('Button Background Color', 'themes'),
+          'description' => __('For Gradient color effect select Both Gradient color first and second.','themes'),
+          'section' => 'customize_newsletter_section',
+          'settings' => 'themes_customization[themes_newsletter_form_button_bgcolor_first]',
+        )));
     }
-    $wp_customize->add_setting( 'themes_customization[newsletter_title]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
-    $wp_customize->add_control( 'themes_customization[newsletter_title]', array(
-      'label'            => __( 'Section Main Title', 'themes' ),
-      'section'          => 'customize_newsletter_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[newsletter_title]',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[newsletter_title]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
-    $wp_customize->add_control( 'themes_customization[newsletter_title]', array(
-      'label'            => __( 'Section Main Title', 'themes' ),
-      'section'          => 'customize_newsletter_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[newsletter_title]',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[newsletter_shortcode]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
-    $wp_customize->add_control( 'themes_customization[newsletter_shortcode]', array(
-      'label'            => __( 'Add Contact Form Shortcode Here', 'themes' ),
-      'section'          => 'customize_newsletter_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[newsletter_shortcode]',
-    ) );
-    $wp_customize->add_setting( 'themes_customization[themes_newsletter_title_color_first]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_title_color_first]', array(
-      'label' => __('Section Title Color', 'themes'),
-      'section' => 'customize_newsletter_section',
-      'settings' => 'themes_customization[themes_newsletter_title_color_first]',
-    )));
-
-    $wp_customize->add_setting('themes_customization[themes_newsletter_title_font_family]',array(
-       'default' => '',
-       'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-       'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_newsletter_title_font_family]', array(
-        'section'  => 'customize_newsletter_section',
-        'label'    => __('Section Title Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-
-    $wp_customize->add_setting('themes_customization[themes_newsletter_title_font_size]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    )
-    );
-    $wp_customize->add_control('themes_customization[themes_newsletter_title_font_size]',array(
-      'label' => __('Section Title font size in px','themes'),
-      'section' => 'customize_newsletter_section',
-      'setting' => 'themes_customization[themes_newsletter_title_font_size]',
-      'type'    => 'text'
-      )
-    );
-    $wp_customize->add_setting( 'themes_customization[themes_newsletter_text_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_text_color]', array(
-      'label' => __('Text Color', 'themes'),
-      'section' => 'customize_newsletter_section',
-      'settings' => 'themes_customization[themes_newsletter_text_color]',
-    )));
-
-    $wp_customize->add_setting('themes_customization[themes_newsletter_text_font_family]',array(
-       'default' => '',
-       'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-       'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_newsletter_text_font_family]', array(
-        'section'  => 'customize_newsletter_section',
-        'label'    => __('Text Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-
-    $wp_customize->add_setting('themes_customization[themes_newsletter_text_font_size]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    )
-    );
-    $wp_customize->add_control('themes_customization[themes_newsletter_text_font_size]',array(
-      'label' => __('Text font size in px','themes'),
-      'section' => 'customize_newsletter_section',
-      'setting' => 'themes_customization[themes_newsletter_text_font_size]',
-      'type'    => 'text'
-      )
-    );
-    $wp_customize->add_setting( 'themes_customization[newsletter_content_text_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[newsletter_content_text_color]', array(
-      'label' => 'Content Text Color',
-      'section' => 'customize_newsletter_section',
-      'settings' => 'themes_customization[newsletter_content_text_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[newsletter_content_text_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[newsletter_content_text_fontfamily]', array(
-        'section'  => 'customize_newsletter_section',
-        'label'    => __( 'Content Font','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[newsletter_content_text_fontsize]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control('themes_customization[newsletter_content_text_fontsize]',array(
-        'label' => __('Content Font Size in px','themes'),
-        'section' => 'customize_newsletter_section',
-        'setting' => 'themes_customization[newsletter_content_text_fontsize]',
-        'type'    => 'text'
-      )
-    ); 
-
-    $wp_customize->add_setting( 'themes_customization[themes_newsletter_form_button_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_form_button_color]', array(
-      'label' => __('Button Text Color', 'themes'),
-      'section' => 'customize_newsletter_section',
-      'settings' => 'themes_customization[themes_newsletter_form_button_color]',
-    )));
-    $wp_customize->add_setting('themes_customization[themes_newsletter_form_button_font_family]',array(
-       'default' => '',
-       'capability' => 'edit_theme_options',
-       'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[themes_newsletter_form_button_font_family]', array(
-        'section'  => 'customize_newsletter_section',
-        'label'    => __('Button Text Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-
-    $wp_customize->add_setting('themes_customization[themes_newsletter_form_button_font_size]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_text_field'
-    )
-    );
-    $wp_customize->add_control('themes_customization[themes_newsletter_form_button_font_size]',array(
-      'label' => __('Button Text font size in px','themes'),
-      'section' => 'customize_newsletter_section',
-      'setting' => 'themes_customization[themes_newsletter_form_button_font_size]',
-      'type'    => 'text'
-      )
-    );
-    $wp_customize->add_setting( 'themes_customization[themes_newsletter_form_button_bgcolor_first]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_newsletter_form_button_bgcolor_first]', array(
-      'label' => __('Button Background Color', 'themes'),
-      'description' => __('For Gradient color effect select Both Gradient color first and second.','themes'),
-      'section' => 'customize_newsletter_section',
-      'settings' => 'themes_customization[themes_newsletter_form_button_bgcolor_first]',
-    )));
     if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-flower-pro/section-daliy-deals.php';
     }    
@@ -4969,6 +4971,7 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Pricing Plans =
     //  =============================
+    if(defined('VW_FACTORY_PRO_VERSION')){}else{
     $wp_customize->add_section( 'customize_pricing_plan_section', array(
       'title'        => __( 'Pricing Plans', 'themes' ),
       'description'  => __( 'Customize Records Section', 'themes' ),
@@ -5597,7 +5600,7 @@ class Themes_Setting_Entities {
         ) );
         $wp_customize->add_control( 'themes_customization[pricing_plan_btn_text'.$i.']', array(
           'label'            => __( 'Plan Button Title', 'themes' ).$i,
-          'section'          => 'customize_introduction_section',
+          'section'          => 'customize_pricing_plan_section',
           'priority'         => Null,
           'settings'         => 'themes_customization[pricing_plan_btn_text'.$i.']',
         ) );
@@ -5610,7 +5613,7 @@ class Themes_Setting_Entities {
         ));
         $wp_customize->add_control('themes_customization[pricing_plan_btn_url'.$i.']',array(
             'label' => __('Plan Button Url','themes').$i,
-            'section' => 'customize_introduction_section',
+            'section' => 'customize_pricing_plan_section',
             'setting' => 'themes_customization[pricing_plan_btn_url'.$i.']',
             'type'    => 'url'
         ));
@@ -6048,6 +6051,7 @@ class Themes_Setting_Entities {
         'settings' => 'themes_customization[plan_but_bg_color_aftercolor]',
       )));
     }
+  }
     //  =============================
     //  = Section for Our Records    =
     //  =============================

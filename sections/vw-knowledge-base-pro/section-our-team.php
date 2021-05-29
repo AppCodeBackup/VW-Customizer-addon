@@ -53,7 +53,7 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
-    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[our_team_small_heading]', array(
         'default'           => '',
         'type'              => 'option',
