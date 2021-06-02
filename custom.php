@@ -1405,6 +1405,23 @@ class Themes_Setting_Entities {
         'button_labels' => array(
            'select'       => __( 'Select Image', 'themes' ),
       ) ) ) );
+      $wp_customize->add_setting( 'themes_customization_slider_option',
+          array(
+              'default' => '',
+              'transport' => 'postMessage',
+              'sanitize_callback' => 'themes_sanitize_choices'
+          )
+      );
+      $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_slider_option',
+          array(
+              'label' => __('Slider Settings','themes'),
+              'section' => 'customize_slider_section'
+          )
+      ) );
+      $wp_customize->selective_refresh->add_partial( 'themes_customization_slider_option', array(
+          'selector' => '#slider .slider-box ',
+          'render_callback' => 'themes_customize_partial_themes_customization_slider_option',
+      ) );
       $wp_customize->add_setting('themes_customization[slide_number]',array(
           'default'   => '',
           'type'              => 'option',
@@ -1420,6 +1437,7 @@ class Themes_Setting_Entities {
 
       $count =  isset( $this->themes_key['slide_number'] )? $this->themes_key['slide_number'] : 3;
       for($i=1; $i<=$count; $i++) {
+        
         $wp_customize->add_setting( 'themes_customization[slide_image'.$i.']', array(
           // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
           'type'              => 'option',
@@ -2149,6 +2167,23 @@ class Themes_Setting_Entities {
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_about_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_about_option',
+        array(
+            'label' => __('About US Content Settings','themes'),
+            'section' => 'customize_about_us_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_about_option', array(
+        'selector' => '#about-us .container ',
+        'render_callback' => 'themes_customize_partial_themes_customization_about_option',
+    ) );
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[about_left_bgimage]', array(
         // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
@@ -2211,7 +2246,7 @@ class Themes_Setting_Entities {
       ) );
 
       $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[about_right_title]', array(
-        'label'      => __( 'About Image Right Title ','themes').$i.__(' (1600px * 562px)', 'themes' ),
+        'label'      => __( 'About Image Right Title ','themes').$i.__(' (570px * 562px)', 'themes' ),
         'section'    => 'customize_about_us_section',
         'priority'   => Null,
         'settings'   => 'themes_customization[about_right_title]',
@@ -2219,7 +2254,7 @@ class Themes_Setting_Entities {
            'select'       => __( 'Select Image', 'themes' ),
       ) ) ) );
     }
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION') || defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[about_sec_left_title]', array(
         'default'           => '',
         'type'              => 'option',
@@ -2435,7 +2470,7 @@ class Themes_Setting_Entities {
         'settings'         => 'themes_customization[video_desc]',
       ) );
     }
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[about_smalltitle_left_color]', array(
         'default' => '',
         'type'              => 'option',
@@ -2478,48 +2513,50 @@ class Themes_Setting_Entities {
           'type'    => 'text'
         )
       );
-      $wp_customize->add_setting( 'themes_customization[about_smalltitle_right_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[about_smalltitle_right_color]', array(
-        'label' => 'Small Title right Color',
-        'section' => 'customize_about_us_section',
-        'settings' => 'themes_customization[about_smalltitle_right_color]',
-      )));  
-
-      $wp_customize->add_setting('themes_customization[about_smalltitle_right_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[about_smalltitle_right_fontfamily]', array(
-          'section'  => 'customize_about_us_section',
-          'label'    => __( 'Small Title right Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[about_smalltitle_right_font_size]',array(
+      if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[about_smalltitle_right_color]', array(
           'default' => '',
           'type'              => 'option',
           'capability'        => 'manage_options',
           'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[about_smalltitle_right_font_size]',array(
-          'label' => __('Small Title right Font Size in px','themes'),
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[about_smalltitle_right_color]', array(
+          'label' => 'Small Title right Color',
           'section' => 'customize_about_us_section',
-          'setting' => 'themes_customization[about_smalltitle_right_font_size]',
-          'type'    => 'text'
-        )
-      );
+          'settings' => 'themes_customization[about_smalltitle_right_color]',
+        )));  
+
+        $wp_customize->add_setting('themes_customization[about_smalltitle_right_fontfamily]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_select_font'
+         ));
+        $wp_customize->add_control(
+            'themes_customization[about_smalltitle_right_fontfamily]', array(
+            'section'  => 'customize_about_us_section',
+            'label'    => __( 'Small Title right Fonts','themes'),
+            'type'     => 'select',
+            'choices'  => $font_array,
+        ));
+        $wp_customize->add_setting('themes_customization[about_smalltitle_right_font_size]',array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field'
+          )
+          );
+          $wp_customize->add_control('themes_customization[about_smalltitle_right_font_size]',array(
+            'label' => __('Small Title right Font Size in px','themes'),
+            'section' => 'customize_about_us_section',
+            'setting' => 'themes_customization[about_smalltitle_right_font_size]',
+            'type'    => 'text'
+          )
+        );
+      }
     }
     $wp_customize->add_setting( 'themes_customization[about_main_title_color]', array(
       'default' => '',
@@ -2563,49 +2600,51 @@ class Themes_Setting_Entities {
         'type'    => 'text'
       )
     );
-    $wp_customize->add_setting( 'themes_customization[about_list_title_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[about_list_title_color]', array(
-      'label' => 'List Title Color',
-      'section' => 'customize_about_us_section',
-      'settings' => 'themes_customization[about_list_title_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[about_list_title_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[about_list_title_fontfamily]', array(
-        'section'  => 'customize_about_us_section',
-        'label'    => __( 'List Title Fonts','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[about_list_title_font_size]',array(
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[about_list_title_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-      );
-      $wp_customize->add_control('themes_customization[about_list_title_font_size]',array(
-        'label' => __('List Title Font Size in px','themes'),
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[about_list_title_color]', array(
+        'label' => 'List Title Color',
         'section' => 'customize_about_us_section',
-        'setting' => 'themes_customization[about_list_title_font_size]',
-        'type'    => 'text'
-      )
-    );
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+        'settings' => 'themes_customization[about_list_title_color]',
+      )));  
+
+      $wp_customize->add_setting('themes_customization[about_list_title_fontfamily]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+       ));
+      $wp_customize->add_control(
+          'themes_customization[about_list_title_fontfamily]', array(
+          'section'  => 'customize_about_us_section',
+          'label'    => __( 'List Title Fonts','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[about_list_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+        );
+        $wp_customize->add_control('themes_customization[about_list_title_font_size]',array(
+          'label' => __('List Title Font Size in px','themes'),
+          'section' => 'customize_about_us_section',
+          'setting' => 'themes_customization[about_list_title_font_size]',
+          'type'    => 'text'
+        )
+      );
+    }
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[about_text_color]', array(
         'default' => '',
         'type'              => 'option',
@@ -3435,6 +3474,23 @@ class Themes_Setting_Entities {
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_partner_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_partner_option',
+        array(
+            'label' => __('Partners Content Settings','themes'),
+            'section' => 'customize_Partners_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_partner_option', array(
+        'selector' => '#our_partners .container',
+        'render_callback' => 'themes_customize_partial_themes_customization_partner_option',
+    ) );
     if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[our_partners_title]', array(
         'default'           => '',
@@ -3540,7 +3596,7 @@ class Themes_Setting_Entities {
         'settings' => 'themes_customization[our_partners_bg_hovercolor]',
       ))); 
     }
-    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[our_partners_main_heading_text_color]', array(
         'default' => '',
         'type'              => 'option',
@@ -3579,6 +3635,49 @@ class Themes_Setting_Entities {
         'label' => __('Main Heading Font Size in px','themes'),
         'section' => 'customize_Partners_section',
         'setting' => 'themes_customization[our_partners_main_heading_font_size]',
+        'type'    => 'text'
+        )
+      ); 
+    }
+    if(defined('VW_FACTORY_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[our_partners_small_heading_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_partners_small_heading_color]', array(
+        'label' => 'Main Small Text Color',
+        'section' => 'customize_Partners_section',
+        'settings' => 'themes_customization[our_partners_small_heading_color]',
+      )));  
+      $wp_customize->add_setting('themes_customization[our_partners_small_heading_font_family]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[our_partners_small_heading_font_family]', array(
+          'section'  => 'customize_Partners_section',
+          'label'    => __( 'Small Heading Font','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[our_partners_small_heading_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+      );
+      $wp_customize->add_control('themes_customization[our_partners_small_heading_font_size]',array(
+        'label' => __('Small Heading Font Size in px','themes'),
+        'section' => 'customize_Partners_section',
+        'setting' => 'themes_customization[our_partners_small_heading_font_size]',
         'type'    => 'text'
         )
       ); 
@@ -3630,54 +3729,31 @@ class Themes_Setting_Entities {
     ) );
 
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[services_bgimage]', array(
-      'label'      => __( 'Background Image ','themes'),
+      'label'      => __( 'Background Image (1600x562)','themes'),
       'section'    => 'customize_services_section',
       'priority'   => Null,
       'settings'   => 'themes_customization[services_bgimage]',
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
-    $wp_customize->add_setting( 'themes_customization[our_services_main_heading_text_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_services_main_heading_text_color]', array(
-      'label' => 'Main Heading Text Color',
-      'section' => 'customize_services_section',
-      'settings' => 'themes_customization[our_services_main_heading_text_color]',
-    )));  
-    $wp_customize->add_setting('themes_customization[our_services_main_heading_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[our_services_main_heading_font_family]', array(
-        'section'  => 'customize_services_section',
-        'label'    => __( 'Main Heading Font','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[our_services_main_heading_font_size]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
+    $wp_customize->add_setting( 'themes_customization_services_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
     );
-    $wp_customize->add_control('themes_customization[our_services_main_heading_font_size]',array(
-        'label' => __('Main Heading Font Size in px','themes'),
-        'section' => 'customize_services_section',
-        'setting' => 'themes_customization[our_services_main_heading_font_size]',
-        'type'    => 'text'
-      )
-    ); 
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_services_option',
+        array(
+            'label' => __('Services Content Settings','themes'),
+            'section' => 'customize_services_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_services_option', array(
+        'selector' => '#our-services .section-content ',
+        'render_callback' => 'themes_customize_partial_themes_customization_services_option',
+    ) );
+    
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION') || defined('VW_FACTORY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[services_small_title]', array(
         'default'           => '',
@@ -3778,6 +3854,47 @@ class Themes_Setting_Entities {
         'settings'         => 'themes_customization[our_services_view_all_title_btnurl]',
       ) );
     }
+    $wp_customize->add_setting( 'themes_customization[our_services_main_heading_text_color]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_services_main_heading_text_color]', array(
+      'label' => 'Main Heading Text Color',
+      'section' => 'customize_services_section',
+      'settings' => 'themes_customization[our_services_main_heading_text_color]',
+    )));  
+    $wp_customize->add_setting('themes_customization[our_services_main_heading_font_family]',array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_select_font'
+     ));
+    $wp_customize->add_control(
+        'themes_customization[our_services_main_heading_font_family]', array(
+        'section'  => 'customize_services_section',
+        'label'    => __( 'Main Heading Font','themes'),
+        'type'     => 'select',
+        'choices'  => $font_array,
+    ));
+    $wp_customize->add_setting('themes_customization[our_services_main_heading_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+    );
+    $wp_customize->add_control('themes_customization[our_services_main_heading_font_size]',array(
+        'label' => __('Main Heading Font Size in px','themes'),
+        'section' => 'customize_services_section',
+        'setting' => 'themes_customization[our_services_main_heading_font_size]',
+        'type'    => 'text'
+      )
+    ); 
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[themes_servicesmall_title_color]', array(
         'default' => '',
@@ -4076,86 +4193,88 @@ class Themes_Setting_Entities {
           'type'    => 'text'
         )
     );
-    $wp_customize->add_setting( 'themes_customization[all_services_button_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_color]', array(
-      'label' => 'View All Services Button Color',
-      'section' => 'customize_services_section',
-      'settings' => 'themes_customization[all_services_button_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[all_services_button_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[all_services_button_fontfamily]', array(
-        'section'  => 'customize_services_section',
-        'label'    => __( 'View All Services Button Fonts','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[all_services_button_font_size]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control('themes_customization[all_services_button_font_size]',array(
-        'label' => __('View All Services Button Font Size in px','themes'),
-        'section' => 'customize_services_section',
-        'setting' => 'themes_customization[all_services_button_font_size]',
-        'type'    => 'text'
-      )
-    ); 
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-      $wp_customize->add_setting('themes_customization[all_services_button_bgcolor1]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_bgcolor1]', array(
-          'label' => __('View All Services Button Background Color 1', 'themes'),
-          'section' => 'customize_services_section',
-          'settings' => 'themes_customization[all_services_button_bgcolor1]',
-      )));
-      $wp_customize->add_setting('themes_customization[all_services_button_bgcolor2]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_bgcolor2]', array(
-          'label' => __('View All Services Button Background Color 2', 'themes'),
-          'section' => 'customize_services_section',
-          'settings' => 'themes_customization[all_services_button_bgcolor2]',
-      )));
-    }else{
-      $wp_customize->add_setting( 'themes_customization[all_services_button_bgcolor]', array(
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[all_services_button_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
       ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_bgcolor]', array(
-        'label' => 'View All Services Button Background Color',
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_color]', array(
+        'label' => 'View All Services Button Color',
         'section' => 'customize_services_section',
-        'settings' => 'themes_customization[all_services_button_bgcolor]',
-      )));
+        'settings' => 'themes_customization[all_services_button_color]',
+      )));  
+
+      $wp_customize->add_setting('themes_customization[all_services_button_fontfamily]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+       ));
+      $wp_customize->add_control(
+          'themes_customization[all_services_button_fontfamily]', array(
+          'section'  => 'customize_services_section',
+          'label'    => __( 'View All Services Button Fonts','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[all_services_button_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+      );
+      $wp_customize->add_control('themes_customization[all_services_button_font_size]',array(
+          'label' => __('View All Services Button Font Size in px','themes'),
+          'section' => 'customize_services_section',
+          'setting' => 'themes_customization[all_services_button_font_size]',
+          'type'    => 'text'
+        )
+      ); 
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+        $wp_customize->add_setting('themes_customization[all_services_button_bgcolor1]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_bgcolor1]', array(
+            'label' => __('View All Services Button Background Color 1', 'themes'),
+            'section' => 'customize_services_section',
+            'settings' => 'themes_customization[all_services_button_bgcolor1]',
+        )));
+        $wp_customize->add_setting('themes_customization[all_services_button_bgcolor2]', array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_bgcolor2]', array(
+            'label' => __('View All Services Button Background Color 2', 'themes'),
+            'section' => 'customize_services_section',
+            'settings' => 'themes_customization[all_services_button_bgcolor2]',
+        )));
+      }else{
+        $wp_customize->add_setting( 'themes_customization[all_services_button_bgcolor]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[all_services_button_bgcolor]', array(
+          'label' => 'View All Services Button Background Color',
+          'section' => 'customize_services_section',
+          'settings' => 'themes_customization[all_services_button_bgcolor]',
+        )));
+      }
     }
     //  =============================
     //  = Section for Browse Topics    =
@@ -4539,6 +4658,23 @@ class Themes_Setting_Entities {
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_testimonial_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_testimonial_option',
+        array(
+            'label' => __('Testimonial Content Settings','themes'),
+            'section' => 'customize_testimonial_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_testimonial_option', array(
+        'selector' => '#testimonials .testimonials-wrqpper ',
+        'render_callback' => 'themes_customize_partial_themes_customization_testimonial_option',
+    ) );
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[testimonial_left_title]', array(
         'default'           => '',
@@ -4582,22 +4718,24 @@ class Themes_Setting_Entities {
         ) );
       }
     }
-    $wp_customize->add_setting( 'themes_customization[testimonial_quates_image]', array(
-      'default'       =>  '' ,
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_image'
-    ) );
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')|| defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[testimonial_quates_image]', array(
+        'default'       =>  '' ,
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_image'
+      ) );
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[testimonial_quates_image]', array(
-      'label'      => __( 'Testimonial Quote Image ','themes'),
-      'section'    => 'customize_testimonial_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[testimonial_quates_image]',
-      'button_labels' => array(
-         'select'       => __( 'Select Image', 'themes' ),
-    ) ) ) );
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[testimonial_quates_image]', array(
+        'label'      => __( 'Testimonial Quote Image ','themes'),
+        'section'    => 'customize_testimonial_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[testimonial_quates_image]',
+        'button_labels' => array(
+           'select'       => __( 'Select Image', 'themes' ),
+      ) ) ) );
+    }
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[testimonial_round_image]', array(
         'default'       =>  '' ,
@@ -4616,22 +4754,6 @@ class Themes_Setting_Entities {
            'select'       => __( 'Select Image', 'themes' ),
       ) ) ) );
     }
-    $wp_customize->add_setting( 'themes_customization[testimonial_excerpt_no]',
-      array(
-        'default' => 20,
-        'transport' => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new themes_Slider_Custom_Control( $wp_customize, 'themes_customization[testimonial_excerpt_no]',
-        array(
-          'label' => __( 'Services Excerpt Number (Limit 50 Words)', 'themes' ),
-          'section' => 'customize_testimonial_section',
-          'input_attrs' => array(
-            'min' => 5, // Required. Minimum value for the slider
-            'max' => 50, // Required. Maximum value for the slider
-            'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
-          ),
-    )));
     $wp_customize->add_setting( 'themes_customization[themes_testimonial_title_color]', array(
       'default' => '',
       'type'              => 'option',
@@ -4945,13 +5067,13 @@ class Themes_Setting_Entities {
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-home-contact-partners.php';
     }  
     //  =============================
-    //  = Section for Our =
+    //  = Section for Our Faq=
     //  =============================
     if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')|| defined('VW_FACTORY_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-our-faq.php';
     }  
     //  =============================
-    //  = Section for Our Faq =
+    //  = Section for Our Live chat =
     //  =============================
     if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-knowledge-base-pro/section-live-chat.php';
@@ -6055,7 +6177,7 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Our Records    =
     //  =============================
-    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION') ){
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION') ||defined('VW_FACTORY_PRO_VERSION')){
       include CUSTOM_ROOT_PATH . 'sections/vw-software-company/section-our-recodes.php';
     }
     if(defined('VW_HEALTH_CARE_PRO_VERSION') ){

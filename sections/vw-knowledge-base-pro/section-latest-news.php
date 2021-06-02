@@ -53,6 +53,23 @@
     'button_labels' => array(
        'select'       => __( 'Select Image', 'themes' ),
   ) ) ) );
+  $wp_customize->add_setting( 'themes_customization_latest_news_option',
+      array(
+          'default' => '',
+          'transport' => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_choices'
+      )
+  );
+  $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_latest_news_option',
+      array(
+          'label' => __('Best Seller Content Settings','themes'),
+          'section' => 'customize_latest_news_section'
+      )
+  ) );
+  $wp_customize->selective_refresh->add_partial( 'themes_customization_latest_news_option', array(
+      'selector' => '#our-blogs .container',
+      'render_callback' => 'themes_customize_partial_themes_customization_latest_news_option',
+  ) );
   $wp_customize->add_setting( 'themes_customization[latest_news_small_heading]', array(
     'default'           => '',
     'type'              => 'option',
@@ -293,6 +310,102 @@
         'label' => __('Button Font size in px','themes'),
         'section' => 'customize_latest_news_section',
         'setting' => 'themes_customization[themes_latest_button_font_size]',
+        'type'    => 'text'
+      )
+  );
+  $wp_customize->add_setting( 'themes_customization[themes_latest_button_bgcolor]', array(
+    'default' => '',
+    'type'              => 'option',
+    'capability'        => 'manage_options',
+    'transport'         => 'postMessage',
+    'sanitize_callback' => 'sanitize_hex_color'
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_latest_button_bgcolor]', array(
+    'label' => __('Button Background Color', 'themes'),
+    'section' => 'customize_latest_news_section',
+    'settings' => 'themes_customization[themes_latest_button_bgcolor]',
+  )));
+  $wp_customize->add_setting( 'themes_customization[themes_latest_title_color]', array(
+    'default' => '',
+    'type'              => 'option',
+    'capability'        => 'manage_options',
+    'transport'         => 'postMessage',
+    'sanitize_callback' => 'sanitize_hex_color'
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_latest_title_color]', array(
+    'label' => __('Post Title Color', 'themes'),
+    'section' => 'customize_latest_news_section',
+    'settings' => 'themes_customization[themes_latest_title_color]',
+  )));
+
+  $wp_customize->add_setting('themes_customization[themes_latest_title_font_family]',array(
+    'default' => '',
+    'type'              => 'option',
+    'capability'        => 'manage_options',
+    'transport'         => 'postMessage',
+    'sanitize_callback' => 'themes_sanitize_select_font'
+  ));
+  $wp_customize->add_control(
+      'themes_customization[themes_latest_title_font_family]', array(
+      'section'  => 'customize_latest_news_section',
+      'label'    => __('Post Title Font','themes'),
+      'type'     => 'select',
+      'choices'  => $font_array,
+  ));
+  $wp_customize->add_setting('themes_customization[themes_latest_title_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+  );
+  $wp_customize->add_control('themes_customization[themes_latest_title_font_size]',array(
+        'label' => __('Post Title Font size in px','themes'),
+        'section' => 'customize_latest_news_section',
+        'setting' => 'themes_customization[themes_latest_title_font_size]',
+        'type'    => 'text'
+      )
+  );
+  $wp_customize->add_setting( 'themes_customization[themes_latest_text_color]', array(
+    'default' => '',
+    'type'              => 'option',
+    'capability'        => 'manage_options',
+    'transport'         => 'postMessage',
+    'sanitize_callback' => 'sanitize_hex_color'
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_latest_text_color]', array(
+    'label' => __('Post Text Color', 'themes'),
+    'section' => 'customize_latest_news_section',
+    'settings' => 'themes_customization[themes_latest_text_color]',
+  )));
+
+  $wp_customize->add_setting('themes_customization[themes_latest_text_font_family]',array(
+    'default' => '',
+    'type'              => 'option',
+    'capability'        => 'manage_options',
+    'transport'         => 'postMessage',
+    'sanitize_callback' => 'themes_sanitize_select_font'
+  ));
+  $wp_customize->add_control(
+      'themes_customization[themes_latest_text_font_family]', array(
+      'section'  => 'customize_latest_news_section',
+      'label'    => __('Post Text Font','themes'),
+      'type'     => 'select',
+      'choices'  => $font_array,
+  ));
+  $wp_customize->add_setting('themes_customization[themes_latest_text_font_size]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
+      )
+  );
+  $wp_customize->add_control('themes_customization[themes_latest_text_font_size]',array(
+        'label' => __('Post Text Font size in px','themes'),
+        'section' => 'customize_latest_news_section',
+        'setting' => 'themes_customization[themes_latest_text_font_size]',
         'type'    => 'text'
       )
   );

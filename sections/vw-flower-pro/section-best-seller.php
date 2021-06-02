@@ -53,6 +53,23 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_best_seller_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_best_seller_option',
+        array(
+            'label' => __('Best Seller Content Settings','themes'),
+            'section' => 'customize_best_seller_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_best_seller_option', array(
+        'selector' => '#best-seller .container',
+        'render_callback' => 'themes_customize_partial_themes_customization_best_seller_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[best_seller_title_image]', array(
       'default'       =>  '' ,
       'type'              => 'option',
@@ -141,33 +158,34 @@
       'section' => 'customize_best_seller_section',
       'settings' => 'themes_customization[best_seller_products_category]',
     ));
-    $wp_customize->add_setting( 'themes_customization[best_seller_prod_button_title]', array(
-      'default'           => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'wp_kses_post'
-    ) );
-    $wp_customize->add_control( 'themes_customization[best_seller_prod_button_title]', array(
-      'label'            => __( 'Section Button Text', 'themes' ),
-      'section'          => 'customize_best_seller_section',
-      'priority'         => Null,
-      'settings'         => 'themes_customization[best_seller_prod_button_title]',
-    ) );
-    $wp_customize->add_setting('themes_customization[best_seller_prod_button_url]',array(
-        'default' => '',
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[best_seller_prod_button_title]', array(
+        'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'esc_url_raw'
-    ));
-    $wp_customize->add_control('themes_customization[best_seller_prod_button_url]',array(
-        'label' => __('Section Button Url','themes'),
-        'section' => 'customize_best_seller_section',
-        'setting' => 'themes_customization[best_seller_prod_button_url]',
-        'type'    => 'url'
-    ));
-
+        'sanitize_callback' => 'wp_kses_post'
+      ) );    
+      $wp_customize->add_control( 'themes_customization[best_seller_prod_button_title]', array(
+        'label'            => __( 'Section Button Text', 'themes' ),
+        'section'          => 'customize_best_seller_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[best_seller_prod_button_title]',
+      ) );
+      $wp_customize->add_setting('themes_customization[best_seller_prod_button_url]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'esc_url_raw'
+      ));
+      $wp_customize->add_control('themes_customization[best_seller_prod_button_url]',array(
+          'label' => __('Section Button Url','themes'),
+          'section' => 'customize_best_seller_section',
+          'setting' => 'themes_customization[best_seller_prod_button_url]',
+          'type'    => 'url'
+      ));
+    }
     $wp_customize->add_setting( 'themes_customization[best_seller_main_text_color]', array(
       'default' => '',
       'type'              => 'option',
@@ -230,7 +248,7 @@
       'capability'        => 'manage_options',
       'transport'         => 'postMessage',
       'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
+    ));
     $wp_customize->add_control(
         'themes_customization[best_seller_small_text_fontfamily]', array(
         'section'  => 'customize_best_seller_section',
@@ -253,63 +271,63 @@
         'type'    => 'text'
       )
     ); 
-
-    $wp_customize->add_setting( 'themes_customization[seller_sale_title_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_sale_title_color]', array(
-      'label' => 'Sale Title Color',
-      'section' => 'customize_best_seller_section',
-      'settings' => 'themes_customization[seller_sale_title_color]',
-    )));  
-
-    $wp_customize->add_setting('themes_customization[seller_sale_title_fontfamily]',array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-     ));
-    $wp_customize->add_control(
-        'themes_customization[seller_sale_title_fontfamily]', array(
-        'section'  => 'customize_best_seller_section',
-        'label'    => __( 'Sale Title Fonts','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting('themes_customization[seller_sale_title_font_size]',array(
+    if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[seller_sale_title_color]', array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-      )
-    );
-    $wp_customize->add_control('themes_customization[seller_sale_title_font_size]',array(
-        'label' => __('Sale Title Font Size in px','themes'),
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_sale_title_color]', array(
+        'label' => 'Sale Title Color',
         'section' => 'customize_best_seller_section',
-        'setting' => 'themes_customization[seller_sale_title_font_size]',
-        'type'    => 'text'
-      )
-    ); 
+        'settings' => 'themes_customization[seller_sale_title_color]',
+      )));  
 
-    $wp_customize->add_setting( 'themes_customization[seller_sale_bg_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_sale_bg_color]', array(
-      'label' => 'Sale Background Color',
-      'section' => 'customize_best_seller_section',
-      'settings' => 'themes_customization[seller_sale_bg_color]',
-    )));
+      $wp_customize->add_setting('themes_customization[seller_sale_title_fontfamily]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+       ));
+      $wp_customize->add_control(
+          'themes_customization[seller_sale_title_fontfamily]', array(
+          'section'  => 'customize_best_seller_section',
+          'label'    => __( 'Sale Title Fonts','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[seller_sale_title_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+      );
+      $wp_customize->add_control('themes_customization[seller_sale_title_font_size]',array(
+          'label' => __('Sale Title Font Size in px','themes'),
+          'section' => 'customize_best_seller_section',
+          'setting' => 'themes_customization[seller_sale_title_font_size]',
+          'type'    => 'text'
+        )
+      ); 
 
+      $wp_customize->add_setting( 'themes_customization[seller_sale_bg_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_sale_bg_color]', array(
+        'label' => 'Sale Background Color',
+        'section' => 'customize_best_seller_section',
+        'settings' => 'themes_customization[seller_sale_bg_color]',
+      )));
+    }
     $wp_customize->add_setting( 'themes_customization[seller_title_color]', array(
       'default' => '',
       'type'              => 'option',

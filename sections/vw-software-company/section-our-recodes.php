@@ -53,6 +53,23 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_records_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_records_option',
+        array(
+            'label' => __('Records Content Settings','themes'),
+            'section' => 'customize_records_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_records_option', array(
+        'selector' => '#our-records .container ',
+        'render_callback' => 'themes_customize_partial_themes_customization_records_option',
+    ) );
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[our_records_left_image]', array(
         'default'       =>  '' ,
@@ -326,44 +343,46 @@
         'settings' => 'themes_customization[themes_our_record_title_font_size]',
         'type'  => 'text',
     )));
-    $wp_customize->add_setting( 'themes_customization[record_sub_title_color]', array(
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[record_sub_title_color]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[record_sub_title_color]', array(
+          'label' => __('Record Title Color', 'themes'),
+          'section' => 'customize_records_section',
+          'settings' => 'themes_customization[record_sub_title_color]',
+      )));
+      $wp_customize->add_setting('themes_customization[record_sub_title_font_family]',array(
         'default' => '',
         'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[record_sub_title_color]', array(
-        'label' => __('Record Title Color', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_customization[record_sub_title_color]',
-    )));
-    $wp_customize->add_setting('themes_customization[record_sub_title_font_family]',array(
-      'default' => '',
-      'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'themes_sanitize_select_font'
-    ));
-    $wp_customize->add_control(
-        'themes_customization[record_sub_title_font_family]', array(
-        'section'  => 'customize_records_section',
-        'label'    => __( 'Record Title Font Family','themes'),
-        'type'     => 'select',
-        'choices'  => $font_array,
-    ));
-    $wp_customize->add_setting( 'themes_customization[record_sub_title_font_size]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_text_field'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[record_sub_title_font_size]', array(
-        'label' => __('Record Title Font Size in px', 'themes'),
-        'section' => 'customize_records_section',
-        'settings' => 'themes_customization[record_sub_title_font_size]',
-        'type'  => 'text',
-    )));
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+      ));
+      $wp_customize->add_control(
+          'themes_customization[record_sub_title_font_family]', array(
+          'section'  => 'customize_records_section',
+          'label'    => __( 'Record Title Font Family','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting( 'themes_customization[record_sub_title_font_size]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[record_sub_title_font_size]', array(
+          'label' => __('Record Title Font Size in px', 'themes'),
+          'section' => 'customize_records_section',
+          'settings' => 'themes_customization[record_sub_title_font_size]',
+          'type'  => 'text',
+      )));
+    }
 ?>

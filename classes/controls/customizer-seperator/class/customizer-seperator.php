@@ -12,7 +12,7 @@ if( ! class_exists( 'Themes_Seperator_custom_Control' ) ){
 	 * Enqueue our scripts and styles
 	 */
 		public function enqueue() {
-			wp_enqueue_style( 'themes-seperator-style',get_template_directory_uri().'classes/controls/customizer-seperator/css/customizer-seperator.css', null, '1.0.0' );
+			wp_enqueue_style( 'themes-seperator-style',get_template_directory_uri().'/classes/controls/customizer-seperator/css/customizer-seperator.css', null, '1.0.0' );
 		}
 		public function render_content(){ ?>
 			<div class="simple-seperator-custom-control">
