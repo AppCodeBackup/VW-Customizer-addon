@@ -308,7 +308,7 @@
       'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
     ) );
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_faq_button_bgcolor]', array(
-      'label'      => __( 'Button Background Color:', 'themes' ),
+      'label'      => __( 'Box Background Color:', 'themes' ),
       'section'    => 'customize_our_faq_section',
       'priority'   => null,
       'settings'   => 'themes_customization[our_faq_button_bgcolor]'
@@ -341,13 +341,12 @@
 
     $aboutchoose =  isset( $this->themes_key['our_faq_number'] )? $this->themes_key['our_faq_number'] : 4;
     for($i=1; $i<=$aboutchoose; $i++) {	    
-    
       $wp_customize->add_setting( 'themes_customization[our_faq_title'.$i.']', array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
+        'sanitize_callback' => 'sanitize_textarea_field'
       ) );
 
       $wp_customize->add_control( 'themes_customization[our_faq_title'.$i.']', array(
@@ -355,13 +354,14 @@
         'section'          => 'customize_our_faq_section',
         'priority'         => Null,
         'settings'         => 'themes_customization[our_faq_title'.$i.']',
+        'type'  => 'textarea'
       ) );
       $wp_customize->add_setting( 'themes_customization[our_faq_text'.$i.']', array(
         'default'           => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
         'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
+        'sanitize_callback' => 'sanitize_textarea_field'
       ) );
 
       $wp_customize->add_control( 'themes_customization[our_faq_text'.$i.']', array(
@@ -369,6 +369,7 @@
         'section'          => 'customize_our_faq_section',
         'priority'         => Null,
         'settings'         => 'themes_customization[our_faq_text'.$i.']',
+        'type'  => 'textarea'
       ) );
     }
     $wp_customize->add_setting( 'themes_customization[our_faq_image]', array(

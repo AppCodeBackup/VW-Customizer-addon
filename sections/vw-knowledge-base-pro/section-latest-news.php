@@ -225,7 +225,7 @@
     'sanitize_callback' => 'sanitize_hex_color'
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[date_title_color]', array(
-    'label' => __('Date Text Color', 'themes'),
+    'label' => __('Meta Text Color', 'themes'),
     'section' => 'customize_latest_news_section',
     'settings' => 'themes_customization[date_title_color]',
   )));
@@ -240,7 +240,7 @@
   $wp_customize->add_control(
       'themes_customization[date_title_font_family]', array(
       'section'  => 'customize_latest_news_section',
-      'label'    => __('Date Text Font','themes'),
+      'label'    => __('Meta Text Font','themes'),
       'type'     => 'select',
       'choices'  => $font_array,
   ));
@@ -253,24 +253,26 @@
       )
   );
   $wp_customize->add_control('themes_customization[date_title_font_size]',array(
-        'label' => __('Date Text Font size in px','themes'),
+        'label' => __('Meta Text Font size in px','themes'),
         'section' => 'customize_latest_news_section',
         'setting' => 'themes_customization[date_title_font_size]',
         'type'    => 'text'
       )
   );
-  $wp_customize->add_setting( 'themes_customization[date_title_bgcolor]', array(
-    'default' => '',
-    'type'              => 'option',
-    'capability'        => 'manage_options',
-    'transport'         => 'postMessage',
-    'sanitize_callback' => 'sanitize_hex_color'
-  ));
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[date_title_bgcolor]', array(
-    'label' => __('Date Box Background Color', 'themes'),
-    'section' => 'customize_latest_news_section',
-    'settings' => 'themes_customization[date_title_bgcolor]',
-  )));
+  if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+    $wp_customize->add_setting( 'themes_customization[date_title_bgcolor]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[date_title_bgcolor]', array(
+      'label' => __('Date Box Background Color', 'themes'),
+      'section' => 'customize_latest_news_section',
+      'settings' => 'themes_customization[date_title_bgcolor]',
+    )));
+  }
   $wp_customize->add_setting( 'themes_customization[themes_latest_button_color]', array(
     'default' => '',
     'type'              => 'option',

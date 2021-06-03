@@ -1523,7 +1523,7 @@ class Themes_Setting_Entities {
           'type'              => 'option',
           'capability'        => 'manage_options',
           'transport'         => 'postMessage',
-          'sanitize_callback' => 'wp_kses_post'
+          'sanitize_callback' => 'sanitize_textarea_field'
         ) );
 
         $wp_customize->add_control( 'themes_customization[slide_text'.$i.']', array(
@@ -1531,6 +1531,7 @@ class Themes_Setting_Entities {
           'section'          => 'customize_slider_section',
           'priority'         => Null,
           'settings'         => 'themes_customization[slide_text'.$i.']',
+          'type'  => 'textarea'
         ) );
         $wp_customize->add_setting( 'themes_customization[slide_btntext'.$i.']', array(
           'default'           => '',
@@ -1560,6 +1561,28 @@ class Themes_Setting_Entities {
           'priority'         => Null,
           'settings'         => 'themes_customization[slide_btnurl'.$i.']',
         ) );
+        $wp_customize->add_setting(
+            'themes_customization[slide_btntext_icon'.$i.']',
+          array(
+            'default'     => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field'
+          )
+        );
+        $wp_customize->add_control(
+          new themes_Fontawesome_Icon_Chooser(
+            $wp_customize,
+            'themes_customization[slide_btntext_icon'.$i.']',
+            array(
+              'settings'    => 'themes_customization[slide_btntext_icon'.$i.']',
+              'section'   => 'customize_slider_section',
+              'type'      => 'icon',
+              'label'     => esc_html__( 'Button Icon', 'themes' ),
+            )
+          )
+        );
         if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
           $wp_customize->add_setting('themes_customization[slide_tab_number'.$i.']',array(
               'default'   => '',
@@ -6271,6 +6294,23 @@ class Themes_Setting_Entities {
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_get_in_touch_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_get_in_touch_option',
+        array(
+            'label' => __('Get In Touch Content Settings','themes'),
+            'section' => 'customize_our_faq_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_get_in_touch_option', array(
+        'selector' => '#get-in-touch .container',
+        'render_callback' => 'themes_customize_partial_themes_customization_get_in_touch_option',
+    ) );
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[get_in_touch_left_bgimage]', array(
         'default'       =>  '' ,

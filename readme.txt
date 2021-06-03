@@ -4,7 +4,7 @@ Tags: customizer
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 7.2
-Stable tag: 0.0.8
+Stable tag: 0.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,10 @@ Yes.
 
 == Changelog ==
 
-= 0.0.8 - 2021-06-1 =
+= 0.0.9 - 2021-06-03 =
+* Resolved Factory theme bug.
+
+= 0.0.8 - 2021-06-01 =
 * Resolved Color setting bug.
 
 = 0.0.7 - 2021-05-29 =
