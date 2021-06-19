@@ -53,6 +53,23 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_instagram_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_instagram_option',
+        array(
+            'label' => __('Instagram Content Settings','themes'),
+            'section' => 'customize_Instagram_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_instagram_option', array(
+        'selector' => '#instagramsec .container ',
+        'render_callback' => 'themes_customize_partial_themes_customization_instagram_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[instagram_title_image]', array(
       'default'       =>  '' ,
       'type'              => 'option',
@@ -78,7 +95,7 @@
     ) );
     $wp_customize->add_control( 'themes_customization[instagram_small_heading]', array(
       'label'            => __( 'Instagram Small Text', 'themes' ),
-      'section'          => 'customize_get_in_touch_section',
+      'section'          => 'customize_Instagram_section',
       'priority'         => Null,
       'settings'         => 'themes_customization[instagram_small_heading]',
     ) );

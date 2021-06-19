@@ -23,6 +23,23 @@
      'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
+    $wp_customize->add_setting( 'themes_customization_features_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_features_option',
+        array(
+            'label' => __('Features Settings','themes'),
+            'section' => 'customize_features_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_features_option', array(
+        'selector' => '#our-feature .container-fluid ',
+        'render_callback' => 'themes_customize_partial_themes_customization_features_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[our_features_bg_color]', array(
       // 'default'        => '#ddd5c3',
       'type'              => 'option',
@@ -99,23 +116,6 @@
 
     $aboutchoose =  isset( $this->themes_key['our_features_number'] )? $this->themes_key['our_features_number'] : 3;
     for($i=1; $i<=$aboutchoose; $i++) {
-
-      if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
-        $wp_customize->add_setting( 'themes_customization[our_features_bgcolor'.$i.']', array(
-  	      // 'default'        => '#ddd5c3',
-  	      'type'              => 'option',
-  	      'capability'        => 'manage_options',
-  	      'transport'         => 'postMessage',
-  	      'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
-  	    ) );
-
-  	    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[our_features_bgcolor'.$i.']', array(
-  	      'label'      => __( 'Background Color:', 'themes' ).$i,
-  	      'section'    => 'customize_features_section',
-  	      'priority'   => Null,
-  	      'settings'   => 'themes_customization[our_features_bgcolor'.$i.']'
-  	    ) ) );
-      }
 	    $wp_customize->add_setting( 'themes_customization[our_features_image'.$i.']', array(
 	      // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
 	      'type'              => 'option',
@@ -164,18 +164,20 @@
       ) );
       if(defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[features_discount_text'.$i.']', array(
-        //'default'           => '',
+          'default'           => '',
           'type'              => 'option',
           'capability'        => 'manage_options',
           'transport'         => 'postMessage',
-          'sanitize_callback' => 'wp_kses_post'
+          'sanitize_callback' => 'sanitize_textarea_field'
         ) );
-        $wp_customize->add_control(new themes_customization_Editor_Control($wp_customize,'themes_customization[features_discount_text'.$i.']',array(
+
+        $wp_customize->add_control( 'themes_customization[features_discount_text'.$i.']', array(
           'label'            => __( 'Discount Title', 'themes' ),
           'section'          => 'customize_features_section',
           'priority'         => Null,
           'settings'         => 'themes_customization[features_discount_text'.$i.']',
-        ) ));
+          'type'  => 'text'
+        ) );
       }
       if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
         $wp_customize->add_setting( 'themes_customization[features_discount_value'.$i.']', array(
@@ -373,18 +375,20 @@
         )
       ); 
     }
-    $wp_customize->add_setting( 'themes_customization[features_button_bg_color]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[features_button_bg_color]', array(
-      'label' => 'Features Button Background Color',
-      'section' => 'customize_features_section',
-      'settings' => 'themes_customization[features_button_bg_color]',
-    ))); 
+    if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')|| defined('VW_HEALTH_CARE_PRO_VERSION')||defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[features_button_bg_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[features_button_bg_color]', array(
+        'label' => 'Features Button Background Color',
+        'section' => 'customize_features_section',
+        'settings' => 'themes_customization[features_button_bg_color]',
+      ))); 
+    }
     $wp_customize->add_setting( 'themes_customization[features_button_text_color]', array(
       'default' => '',
       'type'              => 'option',

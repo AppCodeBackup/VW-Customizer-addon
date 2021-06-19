@@ -23,6 +23,23 @@
      'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
+    $wp_customize->add_setting( 'themes_customization_contact_us_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_contact_us_option',
+        array(
+            'label' => __('Conatct Us Content Settings','themes'),
+            'section' => 'customize_contact_us_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_contact_us_option', array(
+        'selector' => '#connect_withus .contact-text',
+        'render_callback' => 'themes_customize_partial_themes_customization_contact_us_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[contact_us_bgcolor]', array(
       'default'        => '',
       'type'              => 'option',

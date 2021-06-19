@@ -4,7 +4,7 @@ Tags: customizer
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 7.2
-Stable tag: 0.0.9
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,10 +42,16 @@ Yes.
 
 == Changelog ==
 
-= 0.0.9 - 2021-06-03 =
+= 1.0.1 - 2021-06-18 =
+* Resolved Flower shop theme bug.
+
+= 1.0.0 - 2021-06-14 =
+* Resolved Flower shop theme bug.
+
+= 0.0.9 - 2021-06-3 =
 * Resolved Factory theme bug.
 
-= 0.0.8 - 2021-06-01 =
+= 0.0.8 - 2021-06-1 =
 * Resolved Color setting bug.
 
 = 0.0.7 - 2021-05-29 =

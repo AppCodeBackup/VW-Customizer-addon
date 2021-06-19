@@ -112,20 +112,21 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[best_seller_main_text]',
     ) );
-    $wp_customize->add_setting('themes_customization[best_seller_products_number]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_textarea_field',
-    ));
-    $wp_customize->add_control('themes_customization[best_seller_products_number]',array(
-        'label' => __('Number of Products to show','themes'),
-        'section'   => 'customize_best_seller_section',
-        'type'      => 'number',
-        'priority'   => Null,
-    ));
-
+    if(defined('VW_FACTORY_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[best_seller_products_number]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[best_seller_products_number]',array(
+          'label' => __('Number of Products to show','themes'),
+          'section'   => 'customize_best_seller_section',
+          'type'      => 'number',
+          'priority'   => Null,
+      ));
+    }
     $aboutchoose =  isset( $this->themes_key['best_seller_products_number'] )? $this->themes_key['best_seller_products_number'] : 4;
     $args = array(
       'type'                     => 'product',
@@ -314,19 +315,6 @@
           'type'    => 'text'
         )
       ); 
-
-      $wp_customize->add_setting( 'themes_customization[seller_sale_bg_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_sale_bg_color]', array(
-        'label' => 'Sale Background Color',
-        'section' => 'customize_best_seller_section',
-        'settings' => 'themes_customization[seller_sale_bg_color]',
-      )));
     }
     $wp_customize->add_setting( 'themes_customization[seller_title_color]', array(
       'default' => '',
@@ -413,21 +401,20 @@
         'type'    => 'text'
       )
     ); 
-
-    $wp_customize->add_setting( 'themes_customization[seller_button_color]', array(
+    $wp_customize->add_setting( 'themes_customization[cart_button_color]', array(
       'default' => '',
       'type'              => 'option',
       'capability'        => 'manage_options',
       'transport'         => 'postMessage',
       'sanitize_callback' => 'sanitize_hex_color'
     ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_button_color]', array(
-      'label' => 'Products Button Color',
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[cart_button_color]', array(
+      'label' => 'Products Cart Button Color',
       'section' => 'customize_best_seller_section',
-      'settings' => 'themes_customization[seller_button_color]',
+      'settings' => 'themes_customization[cart_button_color]',
     )));  
 
-    $wp_customize->add_setting('themes_customization[seller_button_fontfamily]',array(
+    $wp_customize->add_setting('themes_customization[cart_button_fontfamily]',array(
       'default' => '',
       'type'              => 'option',
       'capability'        => 'manage_options',
@@ -435,13 +422,13 @@
       'sanitize_callback' => 'themes_sanitize_select_font'
      ));
     $wp_customize->add_control(
-        'themes_customization[seller_button_fontfamily]', array(
+        'themes_customization[cart_button_fontfamily]', array(
         'section'  => 'customize_best_seller_section',
-        'label'    => __( 'Products Button Fonts','themes'),
+        'label'    => __( 'Products Cart Button Fonts','themes'),
         'type'     => 'select',
         'choices'  => $font_array,
     ));
-    $wp_customize->add_setting('themes_customization[seller_button_font_size]',array(
+    $wp_customize->add_setting('themes_customization[cart_button_font_size]',array(
         'default' => '',
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -449,14 +436,62 @@
         'sanitize_callback' => 'sanitize_text_field'
       )
     );
-    $wp_customize->add_control('themes_customization[seller_button_font_size]',array(
-        'label' => __('Products Button Font Size in px','themes'),
+    $wp_customize->add_control('themes_customization[cart_button_font_size]',array(
+        'label' => __('Products Cart Button Font Size in px','themes'),
         'section' => 'customize_best_seller_section',
-        'setting' => 'themes_customization[seller_button_font_size]',
+        'setting' => 'themes_customization[cart_button_font_size]',
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[cart_button_bgcolor1]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[cart_button_bgcolor1]', array(
+      'label' => 'Cart Background Button Color 1',
+      'section' => 'customize_best_seller_section',
+      'settings' => 'themes_customization[cart_button_bgcolor1]',
+    )));
+    $wp_customize->add_setting( 'themes_customization[cart_button_bgcolor2]', array(
+      'default' => '',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'sanitize_hex_color'
+    ));
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[cart_button_bgcolor2]', array(
+      'label' => 'Cart Background Button Color 2',
+      'section' => 'customize_best_seller_section',
+      'settings' => 'themes_customization[cart_button_bgcolor2]',
+    )));
     if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[seller_batch_bgcolor1]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_batch_bgcolor1]', array(
+          'label' => __('Sale Background Color 1', 'themes'),
+          'section' => 'customize_best_seller_section',
+          'settings' => 'themes_customization[seller_batch_bgcolor1]',
+      )));
+      $wp_customize->add_setting('themes_customization[seller_batch_bgcolor2]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_batch_bgcolor2]', array(
+          'label' => __('Sale Background Color 2', 'themes'),
+          'section' => 'customize_best_seller_section',
+          'settings' => 'themes_customization[seller_batch_bgcolor2]',
+      )));
       $wp_customize->add_setting('themes_customization[seller_button_bgcolor1]', array(
           'default' => '',
           'type'              => 'option',
@@ -481,17 +516,30 @@
           'section' => 'customize_best_seller_section',
           'settings' => 'themes_customization[seller_button_bgcolor2]',
       )));
+    }else{
+      $wp_customize->add_setting( 'themes_customization[seller_button_bgcolor]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_button_bgcolor]', array(
+        'label' => 'Products Button Background Color',
+        'section' => 'customize_best_seller_section',
+        'settings' => 'themes_customization[seller_button_bgcolor]',
+      )));
+      $wp_customize->add_setting( 'themes_customization[seller_sale_bg_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_sale_bg_color]', array(
+        'label' => 'Sale Background Color',
+        'section' => 'customize_best_seller_section',
+        'settings' => 'themes_customization[seller_sale_bg_color]',
+      )));
     }
-    $wp_customize->add_setting( 'themes_customization[seller_button_bgcolor]', array(
-      'default' => '',
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'sanitize_hex_color'
-    ));
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[seller_button_bgcolor]', array(
-      'label' => 'Products Button Background Color',
-      'section' => 'customize_best_seller_section',
-      'settings' => 'themes_customization[seller_button_bgcolor]',
-    )));
 ?>

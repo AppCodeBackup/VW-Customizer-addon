@@ -53,6 +53,23 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_category_products_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_category_products_option',
+        array(
+            'label' => __('Daily Deals Content Settings','themes'),
+            'section' => 'customize_category_products_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_category_products_option', array(
+        'selector' => '#category-products .container',
+        'render_callback' => 'themes_customize_partial_themes_customization_category_products_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[deals_clock_tittle]', array(
       'default'           => '',
       'type'              => 'option',
@@ -87,7 +104,7 @@
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[recodes_product_number]',array(
-        'label' => __('Number of Products to show','themes'),
+        'label' => __('Number of Products Tab to show','themes'),
         'section'   => 'customize_category_products_section',
         'type'      => 'number'
     ));
