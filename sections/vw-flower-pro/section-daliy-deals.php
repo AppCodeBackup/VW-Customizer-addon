@@ -104,7 +104,7 @@
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[recodes_product_number]',array(
-        'label' => __('Number of Products Tab to show','themes'),
+        'label' => __('Number of Deal Of the Days Products to show','themes'),
         'section'   => 'customize_category_products_section',
         'type'      => 'number'
     ));
@@ -136,7 +136,7 @@
     $wp_customize->add_control('themes_customization[recodes_product_category]',array(
       'type'    => 'select',
       'choices' => $cats,
-      'label' => __('Select Category','themes'),
+      'label' => __('Deal Of the Days Select Category','themes'),
       'section' => 'customize_category_products_section',
       'settings' => 'themes_customization[recodes_product_category]',
     ));
@@ -161,7 +161,7 @@
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('themes_customization[fetured_product_number]',array(
-        'label' => __('Number of Products to show','themes'),
+        'label' => __('Number of Products Tab to show','themes'),
         'section'   => 'customize_category_products_section',
         'type'      => 'number'
     ));
@@ -181,6 +181,7 @@
         'priority'         => Null,
         'settings'         => 'themes_customization[fetured_product_sec_title'.$i.']',
       ) );
+      
       $wp_customize->add_setting('themes_customization[featured_products_category'.$i.']',array(
         'type'              => 'option',
         'capability'        => 'manage_options',
@@ -190,11 +191,22 @@
       $wp_customize->add_control('themes_customization[featured_products_category'.$i.']',array(
         'type'    => 'select',
         'choices' => $cats,
-        'label' => __('Select Category','themes'),
+        'label' => __('Tab Products Select Category','themes'),
         'section' => 'customize_category_products_section',
         'settings' => 'themes_customization[featured_products_category'.$i.']',
       ));
-
+      $wp_customize->add_setting('themes_customization[featured_products_number'.$i.']',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[featured_products_number'.$i.']',array(
+          'label' => __('Number of Products show','themes'),
+          'section'   => 'customize_category_products_section',
+          'type'      => 'number'
+      ));
     }
     $wp_customize->add_setting( 'themes_customization[category_products_button_title]', array(
       'default'           => '',

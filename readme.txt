@@ -4,15 +4,15 @@ Tags: customizer
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 7.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-ThemeSetting is a Custom Login Page Customizer plugin allows you to easily customize the layout of login, admin login, client login, register pages.
+VW Customizer Addon is a Custom Login Page Customizer plugin allows you to easily customize the layout of login, admin login, client login, register pages.
 
 == Description ==
 
-ThemeSetting Plugin would give you and your users a feeling that it is a custom login page and a part of the site layout. You must checkout the Demo video of how you can customize WordPress login page.
+VW Customizer Addon Plugin would give you and your users a feeling that it is a custom login page and a part of the site layout. You must checkout the Demo video of how you can customize WordPress login page.
 
 == Installation ==
 
@@ -21,26 +21,29 @@ ThemeSetting Plugin would give you and your users a feeling that it is a custom 
 
 == Frequently Asked Questions ==
 
-= How to get started with ThemeSetting? =
+= How to get started with VW Customizer Addon? =
 
-In your WordPress Dashboard, navigate to ThemeSetting > Settings to get started.
+In your WordPress Dashboard, navigate to VW Customizer Addon > Settings to get started.
 
-= Who should use ThemeSetting? =
+= Who should use VW Customizer Addon? =
 
-Every WordPress user should use ThemeSetting. It is easy to use and can tranform your boring wp-login.php login page into a beautiful customized login form page.
+Every WordPress user should use VW Customizer Addon. It is easy to use and can tranform your boring wp-login.php login page into a beautiful customized login form page.
 
-= Do I need to have coding skills to use ThemeSetting? =
+= Do I need to have coding skills to use VW Customizer Addon? =
 
-Absolutely not. You can create and manage custom login page without any coding knowledge. ThemeSetting is the most beginner friendly custom login form solution in the market.
+Absolutely not. You can create and manage custom login page without any coding knowledge. VW Customizer Addon is the most beginner friendly custom login form solution in the market.
 
-= Is ThemeSetting translation ready? =
+= Is VW Customizer Addon translation ready? =
 
-Yes, ThemeSetting has full translation and localization support via the themes textdomain. All .mo and .po translation files should go into the languages folder in the base of the plugin.
+Yes, VW Customizer Addon has full translation and localization support via the themes textdomain. All .mo and .po translation files should go into the languages folder in the base of the plugin.
 
-= Is ThemeSetting WPML Compatible? =
+= Is VW Customizer Addon WPML Compatible? =
 Yes.
 
 == Changelog ==
+
+= 1.0.2 - 2021-06-23 =
+* Resolved Flower shop theme bug.
 
 = 1.0.1 - 2021-06-18 =
 * Resolved Flower shop theme bug.

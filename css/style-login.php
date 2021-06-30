@@ -596,6 +596,7 @@ $pricing_plan_enable = themes_get_option_key( 'pricing_plan_enable', $themes_arr
 
 $pricing_plan_bgcolor = themes_get_option_key( 'pricing_plan_bgcolor', $themes_array );
 $pricing_plan_bgimage = themes_get_option_key( 'pricing_plan_bgimage', $themes_array );
+$pricing_plan_bgimage2 = themes_get_option_key( 'pricing_plan_bgimage2', $themes_array );
 
 $themes_pricing_plan_title_color = themes_get_option_key( 'themes_pricing_plan_title_color', $themes_array );
 $themes_pricing_plan_title_font_family = themes_get_option_key( 'themes_pricing_plan_title_font_family', $themes_array );
@@ -1035,6 +1036,9 @@ $themes_plan_but_text_color = themes_get_option_key( 'plan_but_text_color', $the
 $themes_plan_but_text_font_size = themes_get_option_key( 'plan_but_text_font_size', $themes_array );
 $themes_plan_but_bg_color = themes_get_option_key( 'plan_but_bg_color', $themes_array );
 $plan_but_bg_color_aftercolor = themes_get_option_key( 'plan_but_bg_color_aftercolor', $themes_array );
+
+$pricing_plan_bgcolor_one = themes_get_option_key( 'pricing_plan_bgcolor_one', $themes_array );
+$pricing_plan_bgcolor_two = themes_get_option_key( 'pricing_plan_bgcolor_two', $themes_array );
 
 // Latest News
 
@@ -1657,6 +1661,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 .pricing-plan-content a.read-more{
 	<?php if ( ! empty( $plan_but_bgcolor1  ) || ! empty( $plan_but_bgcolor2  )) : ?>
 	background-image: linear-gradient(90deg, <?php echo $plan_but_bgcolor1 ; ?> 0%, <?php echo $plan_but_bgcolor2 ; ?> 100%);
+	<?php endif; ?>
+}
+.pricing-plan-box{
+	<?php if ( ! empty( $pricing_plan_bgcolor_one  ) || ! empty( $pricing_plan_bgcolor_two  )) : ?>
+	background-image: linear-gradient(90deg, <?php echo $pricing_plan_bgcolor_one ; ?> 0%, <?php echo $pricing_plan_bgcolor_two ; ?> 100%);
 	<?php endif; ?>
 }
 #pricing-plans .pricing-plans-content:hover ul li{
@@ -2305,6 +2314,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $pricing_plan_bgcolor; ?>;
 	<?php elseif ( ! empty( $pricing_plan_bgimage ) ) : ?>
 	background-image: url(<?php echo $pricing_plan_bgimage; ?>);
+	<?php endif; ?>
+}
+#pricing-plans{
+	<?php if ( ! empty( $pricing_plan_bgimage2 ) ) : ?>
+	background-image: url(<?php echo $pricing_plan_bgimage2; ?>);
 	<?php endif; ?>
 }
 #latest-news,#our-blogs{
@@ -3427,7 +3441,7 @@ div#cat_togglee i{
 }
 #best-seller ins,#best-seller del{
 	<?php if ( ! empty( $seller_price_color ) ) : ?>
-	color: <?php echo $seller_price_color; ?>;
+	color: <?php echo $seller_price_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $seller_price_fontfamily ) ) : ?>
 	font-family: <?php echo $seller_price_fontfamily; ?>;

@@ -5451,6 +5451,8 @@ class Themes_Setting_Entities {
         'render_callback' => 'themes_customize_partial_themes_customization_pricing_plan_option',
     ) );
     if(defined('VW_FLOWER_SHOP_PRO_VERSION')){
+      
+
       $wp_customize->add_setting( 'themes_customization[pricing_plan_title_image]', array(
         'default'       =>  '' ,
         'type'              => 'option',
@@ -5543,7 +5545,7 @@ class Themes_Setting_Entities {
       'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pricing_plan_box_bgcolor_afterhover]', array(
-      'label' => 'Content Box Background Color after hover',
+      'label' => 'Iocns Image Background Color',
       'section' => 'customize_pricing_plan_section',
       'settings' => 'themes_customization[pricing_plan_box_bgcolor_afterhover]',
     ))); 
@@ -6454,6 +6456,31 @@ class Themes_Setting_Entities {
           'label' => __('Button Background Color 2', 'themes'),
           'section' => 'customize_pricing_plan_section',
           'settings' => 'themes_customization[plan_but_bgcolor2]',
+      )));
+
+      $wp_customize->add_setting('themes_customization[pricing_plan_bgcolor_one]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pricing_plan_bgcolor_one]', array(
+          'label' => __('Price Box Background Color 1', 'themes'),
+          'section' => 'customize_pricing_plan_section',
+          'settings' => 'themes_customization[pricing_plan_bgcolor_one]',
+      )));
+      $wp_customize->add_setting('themes_customization[pricing_plan_bgcolor_two]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pricing_plan_bgcolor_two]', array(
+          'label' => __('Price Box Background Color 2', 'themes'),
+          'section' => 'customize_pricing_plan_section',
+          'settings' => 'themes_customization[pricing_plan_bgcolor_two]',
       )));
     }else{
       $wp_customize->add_setting( 'themes_customization[plan_but_bg_color]', array(
