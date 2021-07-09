@@ -127,24 +127,27 @@
           'priority'   => Null,
       ));
     }
-    $aboutchoose =  isset( $this->themes_key['best_seller_products_number'] )? $this->themes_key['best_seller_products_number'] : 4;
     $args = array(
-      'type'                     => 'product',
-      'child_of'                 => 0,
-      'parent'                   => '',
-      'orderby'                  => 'term_group',
-      'order'                    => 'ASC',
-      'hide_empty'               => false,
-      'hierarchical'             => 1,
-      'number'                   => '',
-      'taxonomy'                 => 'product_cat',
-      'pad_counts'               => false
+       'type'                     => 'product',
+        'child_of'                 => 0,
+        'parent'                   => '',
+        'orderby'                  => 'term_group',
+        'order'                    => 'ASC',
+        'hide_empty'               => false,
+        'hierarchical'             => 1,
+        'number'                   => '',
+        'taxonomy'                 => 'product_cat',
+        'pad_counts'               => false
     );
     $categories = get_categories( $args );
     $cats = array();
     $i = 0;
     foreach($categories as $category){
-      $cats[$category->name] = $category->name;
+        if($i==0){
+            $default = $category->slug;
+            $i++;
+        }
+        $cats[$category->slug] = $category->name;
     }
     $wp_customize->add_setting('themes_customization[best_seller_products_category]',array(
       'type'              => 'option',

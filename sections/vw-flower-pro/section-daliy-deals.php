@@ -110,22 +110,26 @@
     ));
     $aboutchoose =  isset( $this->themes_key['recodes_product_number'] )? $this->themes_key['recodes_product_number'] : 2;
     $args = array(
-      'type'                     => 'product',
-      'child_of'                 => 0,
-      'parent'                   => '',
-      'orderby'                  => 'term_group',
-      'order'                    => 'ASC',
-      'hide_empty'               => false,
-      'hierarchical'             => 1,
-      'number'                   => '',
-      'taxonomy'                 => 'product_cat',
-      'pad_counts'               => false
+       'type'                     => 'product',
+        'child_of'                 => 0,
+        'parent'                   => '',
+        'orderby'                  => 'term_group',
+        'order'                    => 'ASC',
+        'hide_empty'               => false,
+        'hierarchical'             => 1,
+        'number'                   => '',
+        'taxonomy'                 => 'product_cat',
+        'pad_counts'               => false
     );
     $categories = get_categories( $args );
     $cats = array();
     $i = 0;
     foreach($categories as $category){
-      $cats[$category->name] = $category->name;
+        if($i==0){
+            $default = $category->slug;
+            $i++;
+        }
+        $cats[$category->slug] = $category->name;
     }
     $wp_customize->add_setting('themes_customization[recodes_product_category]',array(
       'type'              => 'option',
@@ -165,8 +169,31 @@
         'section'   => 'customize_category_products_section',
         'type'      => 'number'
     ));
-    $aboutchoose =  isset( $this->themes_key['fetured_product_number'] )? $this->themes_key['fetured_product_number'] : 4;
-    for($i=1; $i<=$aboutchoose; $i++) {
+    $aboutchoose1 =  isset( $this->themes_key['fetured_product_number'] )? $this->themes_key['fetured_product_number'] : 4;
+    $args = array(
+       'type'                     => 'product',
+        'child_of'                 => 0,
+        'parent'                   => '',
+        'orderby'                  => 'term_group',
+        'order'                    => 'ASC',
+        'hide_empty'               => false,
+        'hierarchical'             => 1,
+        'number'                   => '',
+        'taxonomy'                 => 'product_cat',
+        'pad_counts'               => false
+    );
+    $categories = get_categories( $args );
+    $cats = array();
+    $i = 0;
+    foreach($categories as $category){
+        if($i==0){
+            $default = $category->slug;
+            $i++;
+        }
+        $cats[$category->slug] = $category->name;
+    }
+    for($i=1; $i<=$aboutchoose1; $i++) {
+
       $wp_customize->add_setting( 'themes_customization[fetured_product_sec_title'.$i.']', array(
         'default'           => '',
         'type'              => 'option',
@@ -224,8 +251,8 @@
     $wp_customize->add_setting('themes_customization[category_products_button_url]',array(
         'default' => '',
         'type'              => 'option',
-              'capability'        => 'manage_options',
-              'transport'         => 'postMessage',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('themes_customization[category_products_button_url]',array(

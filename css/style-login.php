@@ -2514,7 +2514,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_header_cart_font_size; ?>;
 	<?php endif; ?>
 }
-.side-navigation li a{
+.side-navigation li a,.main-header .side-navigation li{
 	<?php if ( ! empty( $themes_header_padding_leftRight ) ) : ?>
 	padding-left: <?php echo $themes_header_padding_leftRight; ?>;
 	padding-right: <?php echo $themes_header_padding_leftRight; ?>;
@@ -3849,7 +3849,7 @@ div#cat_togglee i{
 	font-size: <?php echo $video_sec_Main_text_font_size; ?>;
 	<?php endif; ?>
 }
-.record_box1 .recrd_inner,.record_box2 .recrd_inner,.record_box3 .recrd_inner,.record_box4 .recrd_inner,.record-count-no{
+#our-records .record-count-no{
 	<?php if ( ! empty( $themes_our_record_number_color ) ) : ?>
 		background: linear-gradient(180deg,<?php echo $themes_our_record_number_color; ?> 0%,<?php echo $themes_our_record_number_color; ?> 100%);
 	<?php endif; ?>
@@ -3859,7 +3859,7 @@ div#cat_togglee i{
 	<?php if ( ! empty( $themes_our_record_number_font_size ) ) : ?>
 	font-size: <?php echo $themes_our_record_number_font_size; ?>;
 	<?php endif; ?>
-    -webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: #fffffff;
     -webkit-background-clip: text
 }
 #our_records .record-text,p.record-count-title{
@@ -4008,7 +4008,7 @@ div#cat_togglee i{
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
-#our_records,#our-records{
+#our_records,#our-records .record-box{
 	<?php if ( ! empty( $records_bgcolor ) ) : ?>
 	background-color: <?php echo $records_bgcolor; ?>;
 	<?php elseif ( ! empty( $records_bgimage ) ) : ?>

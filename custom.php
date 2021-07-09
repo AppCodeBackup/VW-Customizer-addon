@@ -897,14 +897,14 @@ class Themes_Setting_Entities {
         'selector' => '.menubar .container',
         'render_callback' => 'themes_customize_partial_themes_header_section_youtube_link',
       ));
-      $wp_customize->add_setting( 'themes_header_section_sticky',
+      $wp_customize->add_setting( 'vw_health_care_pro_header_section_sticky',
       array(
         'default' => 1,
         'transport' => 'refresh',
         'sanitize_callback' => 'themes_switch_sanitization'
       ));
    
-      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_header_section_sticky',
+      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'vw_health_care_pro_header_section_sticky',
        array(
           'label' => esc_html__( 'Sticky Header On/Off', 'themes' ),
           'section' => 'customize_header_section'
@@ -1159,32 +1159,34 @@ class Themes_Setting_Entities {
             'section' => 'customize_header_section',
             'settings' => 'themes_customization[themes_header_menuhover_color]',
       )));
-      $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor]', array(
-            'label' => __('Menu Item Hover Background Color One', 'themes'),
-            'description' => __('For Gradient color effect select Both Gradient color first and second.', 'themes'),
-            'section' => 'customize_header_section',
-            'settings' => 'themes_customization[themes_header_menuhover_bgcolor]',
-      )));
-      $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
-            'label' => __('Menu Item Hover Background Color Two', 'themes'),
-            'description' => __('For Gradient color effect select Both Gradient color first and second.', 'themes'),
-            'section' => 'customize_header_section',
-            'settings' => 'themes_customization[themes_header_menuhover_bgcolor_t]',
-      )));
+      if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor]', array(
+              'label' => __('Menu Item Hover Background Color One', 'themes'),
+              'description' => __('For Gradient color effect select Both Gradient color first and second.', 'themes'),
+              'section' => 'customize_header_section',
+              'settings' => 'themes_customization[themes_header_menuhover_bgcolor]',
+        )));
+        $wp_customize->add_setting( 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[themes_header_menuhover_bgcolor_t]', array(
+              'label' => __('Menu Item Hover Background Color Two', 'themes'),
+              'description' => __('For Gradient color effect select Both Gradient color first and second.', 'themes'),
+              'section' => 'customize_header_section',
+              'settings' => 'themes_customization[themes_header_menuhover_bgcolor_t]',
+        )));
+      }
       $wp_customize->add_setting( 'themes_customization[themes_dropdownbg_color]', array(
         'default' => '',
         'type'              => 'option',
@@ -1821,7 +1823,7 @@ class Themes_Setting_Entities {
         ));
         $aboutchoose =  isset( $this->themes_key['slider_products_number'] )? $this->themes_key['slider_products_number'] : 4;
         $args = array(
-          'type'                     => 'product',
+         'type'                     => 'product',
           'child_of'                 => 0,
           'parent'                   => '',
           'orderby'                  => 'term_group',
@@ -1831,13 +1833,17 @@ class Themes_Setting_Entities {
           'number'                   => '',
           'taxonomy'                 => 'product_cat',
           'pad_counts'               => false
-        );
-        $categories = get_categories( $args );
-        $cats = array();
-        $i = 0;
-        foreach($categories as $category){
-          $cats[$category->name] = $category->name;
-        }
+      );
+      $categories = get_categories( $args );
+      $cats = array();
+      $i = 0;
+      foreach($categories as $category){
+          if($i==0){
+              $default = $category->slug;
+              $i++;
+          }
+          $cats[$category->slug] = $category->name;
+      }
         $wp_customize->add_setting('themes_customization[slider_products_category]',array(
           'type'              => 'option',
           'capability'        => 'manage_options',
@@ -3053,596 +3059,596 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Featured Products    =
     //  =============================
-    if(defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
-      $wp_customize->add_section( 'customize_Products_section', array(
-        'title'        => __( 'Featured Products', 'themes' ),
-        'description'  => __( 'Customize Products Section', 'themes' ),
-        'priority'     => Null,
-        'panel'        => 'themes_panel',
-      ) );
-      $wp_customize->add_setting( 'themes_customization[radio4_enable]', array(
-        'default'           => false,
-        'type'              => 'option',
-        'capability'         => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_checkbox'
-      ) );
+    // if(defined('VW_FLOWER_SHOP_PRO_VERSION') || defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+    //   $wp_customize->add_section( 'customize_Products_section', array(
+    //     'title'        => __( 'Featured Products', 'themes' ),
+    //     'description'  => __( 'Customize Products Section', 'themes' ),
+    //     'priority'     => Null,
+    //     'panel'        => 'themes_panel',
+    //   ) );
+    //   $wp_customize->add_setting( 'themes_customization[radio4_enable]', array(
+    //     'default'           => false,
+    //     'type'              => 'option',
+    //     'capability'         => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_checkbox'
+    //   ) );
 
-      $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[radio4_enable]', array(
-       'settings'    => 'themes_customization[radio4_enable]',
-        'label'       => __( 'Disable Section:', 'themes'),
-        'section'     => 'customize_Products_section',
-       'priority'   => Null,
-        'type'        => 'ios', // light, ios, flat
-      ) ) );
-      $wp_customize->add_setting( 'themes_customization[fetured_product_bg_color]', array(
-        // 'default'        => '#ddd5c3',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
-      ) );
+    //   $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[radio4_enable]', array(
+    //    'settings'    => 'themes_customization[radio4_enable]',
+    //     'label'       => __( 'Disable Section:', 'themes'),
+    //     'section'     => 'customize_Products_section',
+    //    'priority'   => Null,
+    //     'type'        => 'ios', // light, ios, flat
+    //   ) ) );
+    //   $wp_customize->add_setting( 'themes_customization[fetured_product_bg_color]', array(
+    //     // 'default'        => '#ddd5c3',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color' // validates 3 or 6 digit HTML hex color code.
+    //   ) );
 
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[fetured_product_bg_color]', array(
-        'label'      => __( 'Background Color:', 'themes' ),
-        'section'    => 'customize_Products_section',
-        'priority'   => Null,
-        'settings'   => 'themes_customization[fetured_product_bg_color]'
-      ) ) );
-      $wp_customize->add_setting( 'themes_customization[fetured_product_bg_image]', array(
-        // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_image'
-      ) );
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[fetured_product_bg_color]', array(
+    //     'label'      => __( 'Background Color:', 'themes' ),
+    //     'section'    => 'customize_Products_section',
+    //     'priority'   => Null,
+    //     'settings'   => 'themes_customization[fetured_product_bg_color]'
+    //   ) ) );
+    //   $wp_customize->add_setting( 'themes_customization[fetured_product_bg_image]', array(
+    //     // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_image'
+    //   ) );
 
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[fetured_product_bg_image]', array(
-        'label'      => __( 'Background Image ','themes'),
-        'section'    => 'customize_Products_section',
-        'priority'   => Null,
-        'settings'   => 'themes_customization[fetured_product_bg_image]',
-        'button_labels' => array(
-           'select'       => __( 'Select Image', 'themes' ),
-      ) ) ) );
-      if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
-        $wp_customize->add_setting( 'themes_customization[fetured_product_left_title]', array(
-          'default'           => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'wp_kses_post'
-        ) );
+    //   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[fetured_product_bg_image]', array(
+    //     'label'      => __( 'Background Image ','themes'),
+    //     'section'    => 'customize_Products_section',
+    //     'priority'   => Null,
+    //     'settings'   => 'themes_customization[fetured_product_bg_image]',
+    //     'button_labels' => array(
+    //        'select'       => __( 'Select Image', 'themes' ),
+    //   ) ) ) );
+    //   if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+    //     $wp_customize->add_setting( 'themes_customization[fetured_product_left_title]', array(
+    //       'default'           => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'wp_kses_post'
+    //     ) );
 
-        $wp_customize->add_control( 'themes_customization[fetured_product_left_title]', array(
-          'label'            => __( 'Section Main Title 1', 'themes' ),
-          'section'          => 'customize_Products_section',
-          'priority'         => Null,
-          'settings'         => 'themes_customization[fetured_product_left_title]',
-        ) );
+    //     $wp_customize->add_control( 'themes_customization[fetured_product_left_title]', array(
+    //       'label'            => __( 'Section Main Title 1', 'themes' ),
+    //       'section'          => 'customize_Products_section',
+    //       'priority'         => Null,
+    //       'settings'         => 'themes_customization[fetured_product_left_title]',
+    //     ) );
 
-        $wp_customize->add_setting( 'themes_customization[fetured_product_right_title]', array(
-          'default'           => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'wp_kses_post'
-        ) );
+    //     $wp_customize->add_setting( 'themes_customization[fetured_product_right_title]', array(
+    //       'default'           => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'wp_kses_post'
+    //     ) );
 
-        $wp_customize->add_control( 'themes_customization[fetured_product_right_title]', array(
-          'label'            => __( 'Section Main Title 2', 'themes' ),
-          'section'          => 'customize_Products_section',
-          'priority'         => Null,
-          'settings'         => 'themes_customization[fetured_product_right_title]',
-        ) );
-      }
-      $wp_customize->add_setting( 'themes_customization[featued_tittle]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
+    //     $wp_customize->add_control( 'themes_customization[fetured_product_right_title]', array(
+    //       'label'            => __( 'Section Main Title 2', 'themes' ),
+    //       'section'          => 'customize_Products_section',
+    //       'priority'         => Null,
+    //       'settings'         => 'themes_customization[fetured_product_right_title]',
+    //     ) );
+    //   }
+    //   $wp_customize->add_setting( 'themes_customization[featued_tittle]', array(
+    //     'default'           => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'wp_kses_post'
+    //   ) );
 
-      $wp_customize->add_control( 'themes_customization[featued_tittle]', array(
-        'label'            => __( 'Section Title', 'themes' ),
-        'section'          => 'customize_Products_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[featued_tittle]',
-      ) );
-      $wp_customize->add_setting( 'themes_customization[featued_tittle]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
+    //   $wp_customize->add_control( 'themes_customization[featued_tittle]', array(
+    //     'label'            => __( 'Section Title', 'themes' ),
+    //     'section'          => 'customize_Products_section',
+    //     'priority'         => Null,
+    //     'settings'         => 'themes_customization[featued_tittle]',
+    //   ) );
+    //   $wp_customize->add_setting( 'themes_customization[featued_tittle]', array(
+    //     'default'           => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'wp_kses_post'
+    //   ) );
 
-      $wp_customize->add_setting('themes_customization[fetured_product_number]',array(
-          'default'   => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_textarea_field',
-      ));
-      $wp_customize->add_control('themes_customization[fetured_product_number]',array(
-          'label' => __('Number of Tabs to show','themes'),
-          'section'   => 'customize_Products_section',
-          'type'      => 'number'
-      ));
+    //   $wp_customize->add_setting('themes_customization[fetured_product_number]',array(
+    //       'default'   => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_textarea_field',
+    //   ));
+    //   $wp_customize->add_control('themes_customization[fetured_product_number]',array(
+    //       'label' => __('Number of Tabs to show','themes'),
+    //       'section'   => 'customize_Products_section',
+    //       'type'      => 'number'
+    //   ));
 
-      $aboutchoose =  isset( $this->themes_key['fetured_product_number'] )? $this->themes_key['fetured_product_number'] : 4;
-      $args = array(
-        'type'                     => 'product',
-        'child_of'                 => 0,
-        'parent'                   => '',
-        'orderby'                  => 'term_group',
-        'order'                    => 'ASC',
-        'hide_empty'               => false,
-        'hierarchical'             => 1,
-        'number'                   => '',
-        'taxonomy'                 => 'product_cat',
-        'pad_counts'               => false
-      );
-      $categories = get_categories( $args );
-      $cats = array();
-      $i = 0;
-      foreach($categories as $category){
-        $cats[$category->name] = $category->name;
-      }
-      for($i=1; $i<=$aboutchoose; $i++) {
-        $wp_customize->add_setting( 'themes_customization[fetured_product_sec_title'.$i.']', array(
-          'default'           => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'wp_kses_post'
-        ) );
+    //   $aboutchoose =  isset( $this->themes_key['fetured_product_number'] )? $this->themes_key['fetured_product_number'] : 4;
+    //   $args = array(
+    //     'type'                     => 'product',
+    //     'child_of'                 => 0,
+    //     'parent'                   => '',
+    //     'orderby'                  => 'term_group',
+    //     'order'                    => 'ASC',
+    //     'hide_empty'               => false,
+    //     'hierarchical'             => 1,
+    //     'number'                   => '',
+    //     'taxonomy'                 => 'product_cat',
+    //     'pad_counts'               => false
+    //   );
+    //   $categories = get_categories( $args );
+    //   $cats = array();
+    //   $i = 0;
+    //   foreach($categories as $category){
+    //     $cats[$category->name] = $category->name;
+    //   }
+    //   for($i=1; $i<=$aboutchoose; $i++) {
+    //     $wp_customize->add_setting( 'themes_customization[fetured_product_sec_title'.$i.']', array(
+    //       'default'           => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'wp_kses_post'
+    //     ) );
 
-        $wp_customize->add_control( 'themes_customization[fetured_product_sec_title'.$i.']', array(
-          'label'            => __( 'Title', 'themes' ),
-          'section'          => 'customize_Products_section',
-          'priority'         => Null,
-          'settings'         => 'themes_customization[fetured_product_sec_title'.$i.']',
-        ) );
-        $wp_customize->add_setting('themes_customization[featured_products_category'.$i.']',array(
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'themes_sanitize_select',
-        ));
-        $wp_customize->add_control('themes_customization[featured_products_category'.$i.']',array(
-          'type'    => 'select',
-          'choices' => $cats,
-          'label' => __('Select Category','themes'),
-          'section' => 'customize_Products_section',
-          'settings' => 'themes_customization[featured_products_category'.$i.']',
-        ));
+    //     $wp_customize->add_control( 'themes_customization[fetured_product_sec_title'.$i.']', array(
+    //       'label'            => __( 'Title', 'themes' ),
+    //       'section'          => 'customize_Products_section',
+    //       'priority'         => Null,
+    //       'settings'         => 'themes_customization[fetured_product_sec_title'.$i.']',
+    //     ) );
+    //     $wp_customize->add_setting('themes_customization[featured_products_category'.$i.']',array(
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'themes_sanitize_select',
+    //     ));
+    //     $wp_customize->add_control('themes_customization[featured_products_category'.$i.']',array(
+    //       'type'    => 'select',
+    //       'choices' => $cats,
+    //       'label' => __('Select Category','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'settings' => 'themes_customization[featured_products_category'.$i.']',
+    //     ));
 
-      }
-        $wp_customize->add_setting( 'themes_customization[pro_small_left_title_color]', array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_hex_color'
-        ));
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_small_left_title_color]', array(
-          'label' => 'Small Title Left Color',
-          'section' => 'customize_Products_section',
-          'settings' => 'themes_customization[pro_small_left_title_color]',
-        )));  
+    //   }
+    //     $wp_customize->add_setting( 'themes_customization[pro_small_left_title_color]', array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_hex_color'
+    //     ));
+    //     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_small_left_title_color]', array(
+    //       'label' => 'Small Title Left Color',
+    //       'section' => 'customize_Products_section',
+    //       'settings' => 'themes_customization[pro_small_left_title_color]',
+    //     )));  
 
-        $wp_customize->add_setting('themes_customization[pro_small_left_title_fontfamily]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'themes_sanitize_select_font'
-         ));
-        $wp_customize->add_control(
-            'themes_customization[pro_small_left_title_fontfamily]', array(
-            'section'  => 'customize_Products_section',
-            'label'    => __( 'Small Title Left Fonts','themes'),
-            'type'     => 'select',
-            'choices'  => $font_array,
-        ));
-        $wp_customize->add_setting('themes_customization[pro_small_left_title_font_size]',array(
-            'default' => '',
-            'type'              => 'option',
-            'capability'        => 'manage_options',
-            'transport'         => 'postMessage',
-            'sanitize_callback' => 'sanitize_text_field'
-          )
-          );
-          $wp_customize->add_control('themes_customization[pro_small_left_title_font_size]',array(
-            'label' => __('Small Title Left Font Size in px','themes'),
-            'section' => 'customize_Products_section',
-            'setting' => 'themes_customization[pro_small_left_title_font_size]',
-            'type'    => 'text'
-          )
-        );
-      $wp_customize->add_setting( 'themes_customization[pro_small_right_title_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_small_right_title_color]', array(
-        'label' => 'Small Title Right Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[pro_small_right_title_color]',
-      )));  
+    //     $wp_customize->add_setting('themes_customization[pro_small_left_title_fontfamily]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'themes_sanitize_select_font'
+    //      ));
+    //     $wp_customize->add_control(
+    //         'themes_customization[pro_small_left_title_fontfamily]', array(
+    //         'section'  => 'customize_Products_section',
+    //         'label'    => __( 'Small Title Left Fonts','themes'),
+    //         'type'     => 'select',
+    //         'choices'  => $font_array,
+    //     ));
+    //     $wp_customize->add_setting('themes_customization[pro_small_left_title_font_size]',array(
+    //         'default' => '',
+    //         'type'              => 'option',
+    //         'capability'        => 'manage_options',
+    //         'transport'         => 'postMessage',
+    //         'sanitize_callback' => 'sanitize_text_field'
+    //       )
+    //       );
+    //       $wp_customize->add_control('themes_customization[pro_small_left_title_font_size]',array(
+    //         'label' => __('Small Title Left Font Size in px','themes'),
+    //         'section' => 'customize_Products_section',
+    //         'setting' => 'themes_customization[pro_small_left_title_font_size]',
+    //         'type'    => 'text'
+    //       )
+    //     );
+    //   $wp_customize->add_setting( 'themes_customization[pro_small_right_title_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_small_right_title_color]', array(
+    //     'label' => 'Small Title Right Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[pro_small_right_title_color]',
+    //   )));  
 
-      $wp_customize->add_setting('themes_customization[pro_small_right_title_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[pro_small_right_title_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Small Title Right Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[pro_small_right_title_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[pro_small_right_title_font_size]',array(
-          'label' => __('Small Title Right Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[pro_small_right_title_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[pro_small_right_titlebg_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_small_right_titlebg_color]', array(
-        'label' => 'Small Title Right Background Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[pro_small_right_titlebg_color]',
-      ))); 
-      $wp_customize->add_setting( 'themes_customization[pro_main_title_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_main_title_color]', array(
-        'label' => 'Main Title Right Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[pro_main_title_color]',
-      )));  
+    //   $wp_customize->add_setting('themes_customization[pro_small_right_title_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[pro_small_right_title_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Small Title Right Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[pro_small_right_title_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //     );
+    //     $wp_customize->add_control('themes_customization[pro_small_right_title_font_size]',array(
+    //       'label' => __('Small Title Right Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[pro_small_right_title_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[pro_small_right_titlebg_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_small_right_titlebg_color]', array(
+    //     'label' => 'Small Title Right Background Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[pro_small_right_titlebg_color]',
+    //   ))); 
+    //   $wp_customize->add_setting( 'themes_customization[pro_main_title_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_main_title_color]', array(
+    //     'label' => 'Main Title Right Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[pro_main_title_color]',
+    //   )));  
 
-      $wp_customize->add_setting('themes_customization[pro_main_title_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[pro_main_title_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Main Title Right Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[pro_main_title_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[pro_main_title_font_size]',array(
-          'label' => __('Main Title Right Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[pro_main_title_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[pro_tab_title_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_tab_title_color]', array(
-        'label' => 'Tab Title Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[pro_tab_title_color]',
-      )));  
+    //   $wp_customize->add_setting('themes_customization[pro_main_title_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[pro_main_title_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Main Title Right Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[pro_main_title_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //     );
+    //     $wp_customize->add_control('themes_customization[pro_main_title_font_size]',array(
+    //       'label' => __('Main Title Right Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[pro_main_title_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[pro_tab_title_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_tab_title_color]', array(
+    //     'label' => 'Tab Title Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[pro_tab_title_color]',
+    //   )));  
 
-      $wp_customize->add_setting('themes_customization[pro_tab_title_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[pro_tab_title_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Tab Title Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[pro_tab_title_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-      );
-      $wp_customize->add_control('themes_customization[pro_tab_title_font_size]',array(
-          'label' => __('Tab Title Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[pro_tab_title_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[pro_tab_title_active_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_tab_title_active_color]', array(
-        'label' => 'Active Tab Title Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[pro_tab_title_active_color]',
-      )));  
+    //   $wp_customize->add_setting('themes_customization[pro_tab_title_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[pro_tab_title_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Tab Title Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[pro_tab_title_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //   );
+    //   $wp_customize->add_control('themes_customization[pro_tab_title_font_size]',array(
+    //       'label' => __('Tab Title Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[pro_tab_title_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[pro_tab_title_active_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_tab_title_active_color]', array(
+    //     'label' => 'Active Tab Title Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[pro_tab_title_active_color]',
+    //   )));  
 
-      $wp_customize->add_setting('themes_customization[pro_tab_title_active_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[pro_tab_title_active_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Active Tab Title Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[pro_tab_title_active_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-      );
-      $wp_customize->add_control('themes_customization[pro_tab_title_active_font_size]',array(
-          'label' => __('Active Tab Title Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[pro_tab_title_active_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[pro_tab_title_active_bgcolor]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_tab_title_active_bgcolor]', array(
-        'label' => 'Active Tab Title Background Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[pro_tab_title_active_bgcolor]',
-      ))); 
-      $wp_customize->add_setting( 'themes_customization[product_background_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_background_color]', array(
-        'label' => 'Product Background Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[product_background_color]',
-      ))); 
-      $wp_customize->add_setting( 'themes_customization[product_title_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_title_color]', array(
-        'label' => 'Product Title Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[product_title_color]',
-      ))); 
-      $wp_customize->add_setting('themes_customization[product_title_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[product_title_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Product Title Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[product_title_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[product_title_font_size]',array(
-          'label' => __('Product Title Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[product_title_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[product_text_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_text_color]', array(
-        'label' => 'Product Text Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[product_text_color]',
-      ))); 
-      $wp_customize->add_setting('themes_customization[product_text_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[product_text_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Product Text Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[product_text_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[product_text_font_size]',array(
-          'label' => __('Product Text Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[product_text_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[product_price_text_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_price_text_color]', array(
-        'label' => 'Product Price Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[product_price_text_color]',
-      ))); 
-      $wp_customize->add_setting('themes_customization[product_price_text_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[product_price_text_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Product Price Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[product_price_text_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[product_price_text_font_size]',array(
-          'label' => __('Product Price Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[product_price_text_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[product_button_text_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_button_text_color]', array(
-        'label' => 'Product Button Text Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[product_button_text_color]',
-      ))); 
-      $wp_customize->add_setting('themes_customization[product_button_text_fontfamily]',array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'themes_sanitize_select_font'
-       ));
-      $wp_customize->add_control(
-          'themes_customization[product_button_text_fontfamily]', array(
-          'section'  => 'customize_Products_section',
-          'label'    => __( 'Product Button Text Fonts','themes'),
-          'type'     => 'select',
-          'choices'  => $font_array,
-      ));
-      $wp_customize->add_setting('themes_customization[product_button_text_font_size]',array(
-          'default' => '',
-          'type'              => 'option',
-          'capability'        => 'manage_options',
-          'transport'         => 'postMessage',
-          'sanitize_callback' => 'sanitize_text_field'
-        )
-        );
-        $wp_customize->add_control('themes_customization[product_button_text_font_size]',array(
-          'label' => __('Product Button Text Font Size in px','themes'),
-          'section' => 'customize_Products_section',
-          'setting' => 'themes_customization[product_button_text_font_size]',
-          'type'    => 'text'
-        )
-      );
-      $wp_customize->add_setting( 'themes_customization[product_button_bg_color]', array(
-        'default' => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_button_bg_color]', array(
-        'label' => 'Product Button Background Color',
-        'section' => 'customize_Products_section',
-        'settings' => 'themes_customization[product_button_bg_color]',
-      )));
-    }
+    //   $wp_customize->add_setting('themes_customization[pro_tab_title_active_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[pro_tab_title_active_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Active Tab Title Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[pro_tab_title_active_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //   );
+    //   $wp_customize->add_control('themes_customization[pro_tab_title_active_font_size]',array(
+    //       'label' => __('Active Tab Title Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[pro_tab_title_active_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[pro_tab_title_active_bgcolor]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[pro_tab_title_active_bgcolor]', array(
+    //     'label' => 'Active Tab Title Background Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[pro_tab_title_active_bgcolor]',
+    //   ))); 
+    //   $wp_customize->add_setting( 'themes_customization[product_background_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_background_color]', array(
+    //     'label' => 'Product Background Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[product_background_color]',
+    //   ))); 
+    //   $wp_customize->add_setting( 'themes_customization[product_title_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_title_color]', array(
+    //     'label' => 'Product Title Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[product_title_color]',
+    //   ))); 
+    //   $wp_customize->add_setting('themes_customization[product_title_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[product_title_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Product Title Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[product_title_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //     );
+    //     $wp_customize->add_control('themes_customization[product_title_font_size]',array(
+    //       'label' => __('Product Title Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[product_title_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[product_text_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_text_color]', array(
+    //     'label' => 'Product Text Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[product_text_color]',
+    //   ))); 
+    //   $wp_customize->add_setting('themes_customization[product_text_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[product_text_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Product Text Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[product_text_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //     );
+    //     $wp_customize->add_control('themes_customization[product_text_font_size]',array(
+    //       'label' => __('Product Text Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[product_text_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[product_price_text_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_price_text_color]', array(
+    //     'label' => 'Product Price Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[product_price_text_color]',
+    //   ))); 
+    //   $wp_customize->add_setting('themes_customization[product_price_text_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[product_price_text_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Product Price Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[product_price_text_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //     );
+    //     $wp_customize->add_control('themes_customization[product_price_text_font_size]',array(
+    //       'label' => __('Product Price Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[product_price_text_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[product_button_text_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_button_text_color]', array(
+    //     'label' => 'Product Button Text Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[product_button_text_color]',
+    //   ))); 
+    //   $wp_customize->add_setting('themes_customization[product_button_text_fontfamily]',array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'themes_sanitize_select_font'
+    //    ));
+    //   $wp_customize->add_control(
+    //       'themes_customization[product_button_text_fontfamily]', array(
+    //       'section'  => 'customize_Products_section',
+    //       'label'    => __( 'Product Button Text Fonts','themes'),
+    //       'type'     => 'select',
+    //       'choices'  => $font_array,
+    //   ));
+    //   $wp_customize->add_setting('themes_customization[product_button_text_font_size]',array(
+    //       'default' => '',
+    //       'type'              => 'option',
+    //       'capability'        => 'manage_options',
+    //       'transport'         => 'postMessage',
+    //       'sanitize_callback' => 'sanitize_text_field'
+    //     )
+    //     );
+    //     $wp_customize->add_control('themes_customization[product_button_text_font_size]',array(
+    //       'label' => __('Product Button Text Font Size in px','themes'),
+    //       'section' => 'customize_Products_section',
+    //       'setting' => 'themes_customization[product_button_text_font_size]',
+    //       'type'    => 'text'
+    //     )
+    //   );
+    //   $wp_customize->add_setting( 'themes_customization[product_button_bg_color]', array(
+    //     'default' => '',
+    //     'type'              => 'option',
+    //     'capability'        => 'manage_options',
+    //     'transport'         => 'postMessage',
+    //     'sanitize_callback' => 'sanitize_hex_color'
+    //   ));
+    //   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[product_button_bg_color]', array(
+    //     'label' => 'Product Button Background Color',
+    //     'section' => 'customize_Products_section',
+    //     'settings' => 'themes_customization[product_button_bg_color]',
+    //   )));
+    // }
     //  =============================
     //  = Section for Our App    =
     //  =============================
