@@ -53,6 +53,23 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_symptoms_option',
+      array(
+          'default' => '',
+          'transport' => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_choices'
+      )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_symptoms_option',
+        array(
+            'label' => __('Symptoms Content Settings','themes'),
+            'section' => 'customize_symptoms_us_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_symptoms_option', array(
+        'selector' => '#symptoms-us .container-fluid',
+        'render_callback' => 'themes_customize_partial_themes_customization_symptoms_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[symptoms_left_image]', array(
       // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
       'type'              => 'option',

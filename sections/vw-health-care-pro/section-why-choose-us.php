@@ -53,6 +53,23 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization_why_choose_us_option',
+      array(
+          'default' => '',
+          'transport' => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_choices'
+      )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_why_choose_us_option',
+        array(
+            'label' => __('Why Choose Us Content Settings','themes'),
+            'section' => 'customize_why_choose_us_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_why_choose_us_option', array(
+        'selector' => '#why-choose-us .container-fluid',
+        'render_callback' => 'themes_customize_partial_themes_customization_why_choose_us_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[why_choose_us_right_image]', array(
       // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
       'type'              => 'option',

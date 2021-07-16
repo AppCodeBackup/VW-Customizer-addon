@@ -23,6 +23,23 @@
      'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
+    $wp_customize->add_setting( 'themes_customization_contact_partners_option',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'themes_sanitize_choices'
+        )
+    );
+    $wp_customize->add_control( new Themes_Seperator_custom_Control( $wp_customize, 'themes_customization_contact_partners_option',
+        array(
+            'label' => __('Contact & Partner Content Settings','themes'),
+            'section' => 'customize_contact_partners_section'
+        )
+    ) );
+    $wp_customize->selective_refresh->add_partial( 'themes_customization_contact_partners_option', array(
+        'selector' => '#appointment .container',
+        'render_callback' => 'themes_customize_partial_themes_customization_contact_partners_option',
+    ) );
     $wp_customize->add_setting( 'themes_customization[contact_partners_bg_color]', array(
       'default'        => '',
       'type'              => 'option',
@@ -296,4 +313,58 @@
         'type'    => 'text'
       )
     ); 
+    $wp_customize->add_setting( 'themes_customization[contact_partners_button_color]', array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+      ));
+      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[contact_partners_button_color]', array(
+        'label' => 'Contact Button Color',
+        'section' => 'customize_contact_partners_section',
+        'settings' => 'themes_customization[contact_partners_button_color]',
+      )));  
+
+      $wp_customize->add_setting('themes_customization[contact_partners_button_fontfamily]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_select_font'
+       ));
+      $wp_customize->add_control(
+          'themes_customization[contact_partners_button_fontfamily]', array(
+          'section'  => 'customize_contact_partners_section',
+          'label'    => __( 'Contact Button Fonts','themes'),
+          'type'     => 'select',
+          'choices'  => $font_array,
+      ));
+      $wp_customize->add_setting('themes_customization[contact_partners_button_font_size]',array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text_field'
+        )
+      );
+      $wp_customize->add_control('themes_customization[contact_partners_button_font_size]',array(
+          'label' => __('Contact Button Font Size in px','themes'),
+          'section' => 'customize_contact_partners_section',
+          'setting' => 'themes_customization[contact_partners_button_font_size]',
+          'type'    => 'text'
+        )
+      ); 
+      $wp_customize->add_setting( 'themes_customization[contact_partners_button_bgcolor]', array(
+          'default' => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_hex_color'
+        ));
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'themes_customization[contact_partners_button_bgcolor]', array(
+          'label' => 'Contact Button Background Color',
+          'section' => 'customize_contact_partners_section',
+          'settings' => 'themes_customization[contact_partners_button_bgcolor]',
+        )));
 ?>

@@ -259,7 +259,7 @@
         'type'    => 'text'
       )
   );
-  if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')||defined('VW_HEALTH_CARE_PRO_VERSION')){
+  if(defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
     $wp_customize->add_setting( 'themes_customization[date_title_bgcolor]', array(
       'default' => '',
       'type'              => 'option',
@@ -272,7 +272,7 @@
       'section' => 'customize_latest_news_section',
       'settings' => 'themes_customization[date_title_bgcolor]',
     )));
-  }
+
   $wp_customize->add_setting( 'themes_customization[themes_latest_button_color]', array(
     'default' => '',
     'type'              => 'option',
@@ -369,6 +369,7 @@
         'type'    => 'text'
       )
   );
+}
   $wp_customize->add_setting( 'themes_customization[themes_latest_text_color]', array(
     'default' => '',
     'type'              => 'option',

@@ -37,7 +37,7 @@
         )
     ) );
     $wp_customize->selective_refresh->add_partial( 'themes_customization_features_option', array(
-        'selector' => '#our-feature .container-fluid ',
+        'selector' => '#our-feature .container-fluid,#our-features .container ',
         'render_callback' => 'themes_customize_partial_themes_customization_features_option',
     ) );
     $wp_customize->add_setting( 'themes_customization[our_features_bg_color]', array(

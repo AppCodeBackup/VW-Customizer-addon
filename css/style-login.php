@@ -735,6 +735,10 @@ $themes_footer_widget_content_color = themes_get_option_key( 'themes_footer_widg
 $themes_footer_widget_content_font_family = themes_get_option_key( 'themes_footer_widget_content_font_family', $themes_array );
 $themes_footer_widget_content_font_size = themes_get_option_key( 'themes_footer_widget_content_font_size', $themes_array );
 
+$themes_footer_widget_Menu_color = themes_get_option_key( 'themes_footer_widget_Menu_color', $themes_array );
+$themes_footer_widget_Menu_font_family = themes_get_option_key( 'themes_footer_widget_Menu_font_family', $themes_array );
+$themes_footer_widget_Menu_font_size = themes_get_option_key( 'themes_footer_widget_Menu_font_size', $themes_array );
+
 $themes_spinner_bg_color1 = themes_get_option_key( 'themes_spinner_bg_color1', $themes_array );
 $themes_spinner_bg_color2 = themes_get_option_key( 'themes_spinner_bg_color2', $themes_array );
 
@@ -1087,6 +1091,11 @@ $themes_contact_partners_sub_text_font_size = themes_get_option_key( 'contact_pa
 $themes_contact_partners_text_color = themes_get_option_key( 'contact_partners_text_color', $themes_array );
 $themes_contact_partners_text_fontfamily = themes_get_option_key( 'contact_partners_text_fontfamily', $themes_array );
 $themes_contact_partners_text_font_size = themes_get_option_key( 'contact_partners_text_font_size', $themes_array );
+
+$contact_partners_button_color = themes_get_option_key( 'contact_partners_button_color', $themes_array );
+$contact_partners_button_fontfamily = themes_get_option_key( 'contact_partners_button_fontfamily', $themes_array );
+$contact_partners_button_font_size = themes_get_option_key( 'contact_partners_button_font_size', $themes_array );
+$contact_partners_button_bgcolor = themes_get_option_key( 'contact_partners_button_bgcolor', $themes_array );
 
 // Our Records
 $records_section_enable = themes_get_option_key( 'records_section_enable', $themes_array );
@@ -1495,8 +1504,19 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $themes_our_records_num_text_fontfamily ) ) : ?>
 	font-family: <?php echo $themes_our_records_num_text_fontfamily  ; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $themes_contact_partners_text_font_size ) ) : ?>
-	font-size: <?php echo $themes_contact_partners_text_font_size ; ?>;
+	<?php if ( ! empty( $themes_our_records_num_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_our_records_num_text_fontsize ; ?>;
+	<?php endif; ?>
+}
+#our-records .our-records-content span{
+	<?php if ( ! empty( $themes_our_records_num_text_color ) ) : ?>
+	color: <?php echo $themes_our_records_num_text_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_records_num_text_fontfamily ) ) : ?>
+	font-family: <?php echo $themes_our_records_num_text_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_our_records_num_text_fontsize ) ) : ?>
+	font-size: <?php echo $themes_our_records_num_text_fontsize ; ?>;
 	<?php endif; ?>
 }
 #contact-partners .our-partners p{
@@ -1510,7 +1530,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_contact_partners_text_font_size ; ?>;
 	<?php endif; ?>
 }
-#contact-partners .home-contact-us .contact-sub-title{
+#contact-partners .home-contact-us .contact-sub-title,#appointment .appointment-content span{
 	<?php if ( ! empty( $themes_contact_partners_sub_text_color ) ) : ?>
 	color: <?php echo $themes_contact_partners_sub_text_color ; ?>;
 	<?php endif; ?>
@@ -1521,7 +1541,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo$themes_contact_partners_sub_text_font_size ; ?>;
 	<?php endif; ?>
 }
-#contact-partners .home-contact-us h2{
+#contact-partners .home-contact-us h2,#appointment .appointment-content h2{
 	<?php if ( ! empty( $themes_contact_partners_main_text_color   ) ) : ?>
 	color: <?php echo $themes_contact_partners_main_text_color ; ?>;
 	<?php endif; ?>
@@ -1530,6 +1550,20 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_contact_partners_main_text_font_size ) ) : ?>
 	font-size: <?php echo $themes_contact_partners_main_text_font_size ; ?>;
+	<?php endif; ?>
+}
+#appointment .appointment-shortcode input[type="submit"]{
+	<?php if ( ! empty( $contact_partners_button_color   ) ) : ?>
+	color: <?php echo $contact_partners_button_color ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $contact_partners_button_fontfamily ) ) : ?>
+	font-family: <?php echo $contact_partners_button_fontfamily  ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $contact_partners_button_font_size ) ) : ?>
+	font-size: <?php echo $contact_partners_button_font_size ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $contact_partners_button_bgcolor ) ) : ?>
+	background-color: <?php echo $contact_partners_button_bgcolor ; ?>;
 	<?php endif; ?>
 }
 #get-in-touch a.read-more {
@@ -1595,7 +1629,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_latest_title_font_size ; ?>;
 	<?php endif; ?>
 }
-#our-blogs .blog_text{
+#our-blogs .blog_text,#our-blogs .our-blogs-contents .blogs-title{
 	<?php if ( ! empty( $themes_latest_text_color  ) ) : ?>
 	color: <?php echo $themes_latest_text_color ; ?>;
 	<?php endif; ?>
@@ -1620,7 +1654,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $themes_date_title_bgcolor ; ?>;
 	<?php endif; ?>
 }
-#latest-news .news-title,.our-blogs-head span {
+#latest-news .news-title,.our-blogs-head span,#our-blogs .our-blogs-head span {
 	<?php if ( ! empty( $themes_themes_latest_newsmall_title_color  ) ) : ?>
 	color: <?php echo $themes_themes_latest_newsmall_title_color ; ?>;
 	<?php endif; ?>
@@ -1631,7 +1665,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_themes_latest_newsmall_title_font_size ; ?>;
 	<?php endif; ?>
 }
-#latest-news h2,.our-blogs-head h2{
+#latest-news h2,.our-blogs-head h2,#our-blogs .our-blogs-head h2{
 	<?php if ( ! empty( $themes_latest_news_main_heading_text_color  ) ) : ?>
 	color: <?php echo $themes_latest_news_main_heading_text_color ; ?>;
 	<?php endif; ?>
@@ -1981,7 +2015,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_servicesmall_para_font_size ; ?>;
 	<?php endif; ?>
 }
-#our-services .our-services-content a{
+#our-services .our-services-content a,#our-services .services-small-title, #our-features .feature-main-content span{
 	<?php if ( ! empty( $themes_themes_servicesmall_title_color  ) ) : ?>
 	color: <?php echo $themes_themes_servicesmall_title_color ; ?>;
 	<?php endif; ?>
@@ -1992,7 +2026,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_our_services_main_heading_font_size ; ?>;
 	<?php endif; ?>
 }
-#our-services .our-services-head h2,#our-services .section-content h2{
+#our-services .our-services-head h2,#our-services .section-content h2,.service-main-content h2, #our-features .feature-main-content h2{
 	<?php if ( ! empty( $themes_our_services_main_heading_text_color  ) ) : ?>
 	color: <?php echo $themes_our_services_main_heading_text_color ; ?>;
 	<?php endif; ?>
@@ -2376,6 +2410,11 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-image: url(<?php echo $our_features_bg_image; ?>);
 	<?php endif; ?>
 }
+#appointment .appointment-shortcode{
+	<?php if ( ! empty( $radio_features_enable ) && true == $radio_features_enable ) : ?>
+	position: unset;
+	<?php endif; ?>
+}
 #our-features .our-features-content p {
 	<?php if ( ! empty( $themes_features_small_text_color ) ) : ?>
 	color: <?php echo $themes_features_small_text_color; ?>;
@@ -2586,7 +2625,7 @@ div#cat_togglee i{
 	<?php endif; ?>
 }
 #slider{
-	<?php if ( ! empty( $slider_enabledisable ) && true == $slider_enabledisable ) : ?>
+	<?php if ( ! empty( $slider_enable ) && true == $slider_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
@@ -2611,7 +2650,7 @@ div#cat_togglee i{
 	font-size: <?php echo $themes_slider_small_heading_font_size; ?>;
 	<?php endif; ?>
 }
-#slider .slider-box h1,#productslide .products-box .product-content a,#slider .prop_desc p{
+#slider .slider-box h1,#productslide .products-box .product-content a,#slider .prop_desc p,.slider-box h1 span{
 	<?php if ( ! empty( $themes_main_heading_color ) ) : ?>
 	color: <?php echo $themes_main_heading_color; ?> !important;
 	<?php endif; ?>
@@ -2984,7 +3023,7 @@ div#cat_togglee i{
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
-#our-app{
+#our-app,#newsletter .right-box{
 	<?php if ( ! empty( $our_app_section_bgcolor ) ) : ?>
 	background-color: <?php echo $our_app_section_bgcolor; ?>;
 	<?php elseif ( ! empty( $our_app_section_bgimage ) ) : ?>
@@ -3103,7 +3142,7 @@ div#cat_togglee i{
 	<?php endif; ?>
 }
 
-#contact-partners{
+#contact-partners,#appointment{
 	<?php if ( ! empty( $radio_contact_partners_enable ) && true == $radio_contact_partners_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
@@ -3156,7 +3195,7 @@ div#cat_togglee i{
 	background-image: url(<?php echo $services_bgimage; ?>);
 	<?php endif; ?>
 }
-#services span.head_center,#services p.small-text{
+#services span.head_center,#services p.small-text,#our-services .services-small-title, #our-features .feature-main-content span{
 	<?php if ( ! empty( $themes_servicesmall_title_color ) ) : ?>
 	color: <?php echo $themes_servicesmall_title_color; ?>;
 	<?php endif; ?>
@@ -3218,7 +3257,7 @@ div#cat_togglee i{
 	font-size: <?php echo $themes_service_box_title_font_size; ?>;
 	<?php endif; ?>
 }
-#services .services_content,#our-services .services-post{
+#services .services_content,#our-services .services-post,#our-services .our-services-content .services-text{
 	<?php if ( ! empty( $themes_service_box_content_color ) ) : ?>
 	color: <?php echo $themes_service_box_content_color; ?> !important;
 	<?php endif; ?>
@@ -3229,7 +3268,7 @@ div#cat_togglee i{
 	font-size: <?php echo $themes_service_box_content_font_size; ?> !important;
 	<?php endif; ?>
 }
-#services .themeBbutton a{
+#services .themeBbutton a,#our-services .all-services a{
 	<?php if ( ! empty( $all_services_button_color ) ) : ?>
 	color: <?php echo $all_services_button_color; ?>;
 	<?php endif; ?>
@@ -4059,7 +4098,7 @@ div#cat_togglee i{
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
-#contact_partners{
+#contact_partners,#appointment{
 	<?php if ( ! empty( $radio_contact_partners_enable ) && true == $radio_contact_partners_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
@@ -4112,7 +4151,8 @@ div#cat_togglee i{
 }
 #footer h3{
 	<?php if ( ! empty( $themes_footer_widget_heading_color ) ) : ?>
-	color: <?php echo $themes_footer_widget_heading_color; ?>;
+	color: <?php echo $themes_footer_widget_heading_color; ?> !important;
+	-webkit-text-fill-color:<?php echo $themes_footer_widget_heading_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_footer_widget_heading_font_family  ) ) : ?>
 	font-family: <?php echo $themes_footer_widget_heading_font_family ; ?>;
@@ -4124,12 +4164,11 @@ div#cat_togglee i{
 #footer h3{
 	<?php if ( ! empty( $themes_footer_widget_heading_color1 ) || ! empty( $themes_footer_widget_heading_color2 )) : ?>
 	background: linear-gradient(to top, <?php echo $themes_footer_widget_heading_color1; ?> 20%,<?php echo $themes_footer_widget_heading_color2; ?> 60%);
-	<?php endif; ?>
-	color: #fff;
-    -webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+	<?php endif; ?>
 }
-#footer .textwidget p, #footer .widget p, #footer .post-content a,#footer a,#footer .textwidget p, #footer .widget p, #footer .post-content a, #footer .about_me p, #footer .about_me .dempar,#footer ul li a,#footer .footer-cols .phone-text a{
+#footer .textwidget p, #footer .widget p, #footer .post-content a,#footer a,#footer .textwidget p, #footer .widget p, #footer .post-content a, #footer .about_me p, #footer .about_me .dempar,#footer ul li a,#footer .footer-cols .phone-text a,#footer .about_me table p{
 	<?php if ( ! empty( $themes_footer_widget_content_color ) ) : ?>
 	color: <?php echo $themes_footer_widget_content_color; ?>;
 	<?php endif; ?>
@@ -4138,6 +4177,17 @@ div#cat_togglee i{
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_footer_widget_content_font_size ) ) : ?>
 	font-size: <?php echo $themes_footer_widget_content_font_size; ?>;
+	<?php endif; ?>
+}
+#footer .footer_menu ul li a{
+	<?php if ( ! empty( $themes_footer_widget_Menu_color ) ) : ?>
+	color: <?php echo $themes_footer_widget_Menu_color; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_Menu_font_family  ) ) : ?>
+	font-family: <?php echo $themes_footer_widget_Menu_font_family ; ?>;
+	<?php endif; ?>
+	<?php if ( ! empty( $themes_footer_widget_Menu_font_size ) ) : ?>
+	font-size: <?php echo $themes_footer_widget_Menu_font_size; ?>;
 	<?php endif; ?>
 }
 #preloader{
