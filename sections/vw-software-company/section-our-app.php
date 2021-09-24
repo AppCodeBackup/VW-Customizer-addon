@@ -34,6 +34,8 @@
       'priority'   => Null,
       'settings'   => 'themes_customization[our_app_section_bgcolor]'
     ) ) );
+
+
     $wp_customize->add_setting( 'themes_customization[our_app_section_bgimage]', array(
       'default'       =>  '' ,
       'type'              => 'option',
@@ -41,7 +43,6 @@
       'transport'         => 'postMessage',
       'sanitize_callback' => 'themes_sanitize_image'
     ) );
-
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[our_app_section_bgimage]', array(
       'label'      => __( 'Background Image ','themes'),
       'section'    => 'customize_our_app_section',
@@ -50,22 +51,26 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
-    $wp_customize->add_setting( 'themes_customization[our_app_left_image]', array(
-      'default'       =>  '' ,
-      'type'              => 'option',
-      'capability'        => 'manage_options',
-      'transport'         => 'postMessage',
-      'sanitize_callback' => 'themes_sanitize_image'
-    ) );
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[our_app_left_image]', array(
-      'label'      => __( 'Our App Left Image ','themes'),
-      'section'    => 'customize_our_app_section',
-      'priority'   => Null,
-      'settings'   => 'themes_customization[our_app_left_image]',
-      'button_labels' => array(
-         'select'       => __( 'Select Image', 'themes' ),
-    ) ) ) );
+    if(!defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[our_app_left_image]', array(
+        'default'       =>  '' ,
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_image'
+      ) );
+
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[our_app_left_image]', array(
+        'label'      => __( 'Our App Left Image ','themes'),
+        'section'    => 'customize_our_app_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[our_app_left_image]',
+        'button_labels' => array(
+           'select'       => __( 'Select Image', 'themes' ),
+      ) ) ) );
+    }
+
     $wp_customize->add_setting( 'themes_customization[our_app_main_small_title]', array(
       'default'           => '',
       'type'              => 'option',
@@ -155,6 +160,23 @@
         'priority'         => Null,
         'settings'         => 'themes_customization[our_app_box_one_para'.$i.']',
       ) );
+
+      if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+        $wp_customize->add_setting('themes_customization[app_box_one_para_url'.$i.']',array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'esc_url_raw'
+        ));
+        $wp_customize->add_control( 'themes_customization[app_box_one_para_url'.$i.']', array(
+          'label'            => __( 'Button URL', 'themes' ).$i,
+          'section'          => 'customize_our_app_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[app_box_one_para_url'.$i.']',
+        ) );
+      }
+
       $wp_customize->add_setting( 'themes_customization[our_app_box_two_para'.$i.']', array(
         'default'           => '',
         'type'              => 'option',

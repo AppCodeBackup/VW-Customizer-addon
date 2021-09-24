@@ -3,7 +3,7 @@
  * Plugin Name:       VW Customizer Addon
  * Plugin URI:        
  * Description:       ThemeSetting is a Custom Login Page Customizer plugin allows you to easily customize the layout of login, admin login, client login, register pages.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            VowelWeb

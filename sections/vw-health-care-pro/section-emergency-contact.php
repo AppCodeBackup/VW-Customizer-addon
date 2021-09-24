@@ -69,6 +69,22 @@
       'button_labels' => array(
          'select'       => __( 'Select Image', 'themes' ),
     ) ) ) );
+    $wp_customize->add_setting( 'themes_customization[emergency_contact_pattern_image]', array(
+      'default'       =>  '' ,
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'transport'         => 'postMessage',
+      'sanitize_callback' => 'themes_sanitize_image'
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[emergency_contact_pattern_image]', array(
+      'label'      => __( 'Left Side Small Image ','themes'),
+      'section'    => 'customize_emergency_contact_section',
+      'priority'   => Null,
+      'settings'   => 'themes_customization[emergency_contact_pattern_image]',
+      'button_labels' => array(
+         'select'       => __( 'Select Image', 'themes' ),
+    ) ) ) );
     $wp_customize->add_setting( 'themes_customization[emergency_contact_small_title]', array(
       'default'           => '',
       'type'              => 'option',
@@ -148,18 +164,21 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[emergency_contact_main_para]',
     ) );
-    $wp_customize->add_setting('themes_customization[emergency_contact_app_number]',array(
-        'default'   => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'sanitize_textarea_field',
-    ));
-    $wp_customize->add_control('themes_customization[emergency_contact_app_number]',array(
-        'label' => __('Number of Test to show','themes'),
-        'section'   => 'customize_emergency_contact_section',
-        'type'      => 'number'
-    ));
+
+    if(!defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting('themes_customization[emergency_contact_app_number]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[emergency_contact_app_number]',array(
+          'label' => __('Number of Test to show','themes'),
+          'section'   => 'customize_emergency_contact_section',
+          'type'      => 'number'
+      ));
+    } 
 
     $count =  isset( $this->themes_key['emergency_contact_app_number'] )? $this->themes_key['emergency_contact_app_number'] : 2;
     for($i=1; $i<=$count; $i++) {
@@ -198,6 +217,40 @@
         'priority'         => Null,
         'settings'         => 'themes_customization[emergency_contact_app_title'.$i.']',
       ) );
+      
+      if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+
+        if ( $i == 1 ) {
+
+         $wp_customize->add_setting( 'themes_customization[emergency_contact_app_call_number'.$i.']', array(
+            'default'           => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'wp_kses_post'
+          ) );
+          $wp_customize->add_control( 'themes_customization[emergency_contact_app_call_number'.$i.']', array(
+            'label'            => __( 'Number', 'themes' ),
+            'section'          => 'customize_emergency_contact_section',
+            'priority'         => Null,
+            'settings'         => 'themes_customization[emergency_contact_app_call_number'.$i.']',
+          ) );
+        } else if( $i == 2) {
+         $wp_customize->add_setting('themes_customization[emergency_contact_app_title_url'.$i.']',array(
+            'default' => '',
+            'type'              => 'option',
+            'capability'        => 'manage_options',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'esc_url_raw'
+        ));
+        $wp_customize->add_control( 'themes_customization[emergency_contact_app_title_url'.$i.']', array(
+          'label'            => __( 'Button URL', 'themes' ),
+          'section'          => 'customize_emergency_contact_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[emergency_contact_app_title_url'.$i.']',
+        ) );
+        }
+      }
     }
     
     $wp_customize->add_setting( 'themes_customization[emergency_contact_main_text_color]', array(

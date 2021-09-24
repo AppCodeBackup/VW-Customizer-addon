@@ -1771,7 +1771,7 @@ class Themes_Setting_Entities {
         )));
       }
       $wp_customize->add_setting( 'themes_slider_nav',array(
-        'default' => 1,
+        'default' => 0,
         'transport' => 'refresh',
         'sanitize_callback' => 'themes_switch_sanitization'
       ));
@@ -7426,6 +7426,7 @@ class Themes_Setting_Entities {
           'setting'   => 'themes_customization[contact_page_right_form_title]',
           'type'  => 'textarea'
       ));
+      
       $wp_customize->selective_refresh->add_partial( 'contactpage_form_title', array(
           'selector' => '.contact-box .container',
           'render_callback' => 'themes_customize_partial_contactpage_form_title',
@@ -7845,7 +7846,7 @@ class Themes_Setting_Entities {
       if(defined('VW_HEALTH_CARE_PRO_VERSION')){
         $wp_customize->add_control('themes_customization[themes_shortcode]',array(
             'label' => __('Shortcodes','themes'),
-            'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-health-care-pro-services]</strong></li><li><strong>[vw-health-care-pro-testimonials]</strong></li><li><strong>[vw-health-care-pro-teams]</strong></li></ul>','themes' ),
+            'description' => __('Below  shortcodes are present in the theme. Simply copy and paste into any page or post and get their listing <br><br> <ul><li><strong>[vw-health-care-pro-services]</strong></li><li><strong>[vw-health-care-pro-teams]</strong></li></ul>','themes' ),
             'section' => 'themes_shortcode_section',
             'setting'   => 'themes_customization[themes_shortcode]',
             'type'  => ''
