@@ -83,7 +83,7 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[how_it_work_main_heading]',
     ) );
-    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+    if(!defined('VW_HEALTH_CARE_PRO_VERSION')){
       $wp_customize->add_setting('themes_customization[how_it_work_title_number]',array(
           'default'   => '',
           'type'              => 'option',
@@ -114,7 +114,6 @@
           'settings'         => 'themes_customization[how_it_work_box_title'.$i.']',
         ) );
       }
-    }
     $wp_customize->add_setting('themes_customization[how_it_work_number]',array(
         'default'   => '',
         'type'              => 'option',
@@ -132,22 +131,22 @@
     $aboutchoose =  isset( $this->themes_key['how_it_work_number'] )? $this->themes_key['how_it_work_number'] : 4;
     for($i=1; $i<=$aboutchoose; $i++) {
 
-	    $wp_customize->add_setting( 'themes_customization[how_it_work_title_icon'.$i.']', array(
-	      // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
-	      'type'              => 'option',
-	      'capability'        => 'manage_options',
-	      'transport'         => 'postMessage',
-	      'sanitize_callback' => 'themes_sanitize_image'
-	    ) );
+      $wp_customize->add_setting( 'themes_customization[how_it_work_title_icon'.$i.']', array(
+        // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'themes_sanitize_image'
+      ) );
 
-	    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[how_it_work_title_icon'.$i.']', array(
-	      'label'      => __( 'Blog Image ','themes').$i,
-	      'section'    => 'customize_how_it_work_section',
-	      'priority'   => Null,
-	      'settings'   => 'themes_customization[how_it_work_title_icon'.$i.']',
-	      'button_labels' => array(
-	         'select'       => __( 'Select Image', 'themes' ),
-	    ) ) ) );
+      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[how_it_work_title_icon'.$i.']', array(
+        'label'      => __( 'Blog Image ','themes').$i,
+        'section'    => 'customize_how_it_work_section',
+        'priority'   => Null,
+        'settings'   => 'themes_customization[how_it_work_title_icon'.$i.']',
+        'button_labels' => array(
+           'select'       => __( 'Select Image', 'themes' ),
+      ) ) ) );
     
       $wp_customize->add_setting( 'themes_customization[how_it_work_title'.$i.']', array(
         'default'           => '',
@@ -176,6 +175,163 @@
         'priority'         => Null,
         'settings'         => 'themes_customization[how_it_work_text'.$i.']',
       ) );
+    }
+    }
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){ 
+      $wp_customize->add_setting( 'themes_customization[how_it_work_box_title1]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+      $wp_customize->add_control( 'themes_customization[how_it_work_box_title1]', array(
+        'label'            => __( 'Head Text 1', 'themes' ),
+        'section'          => 'customize_how_it_work_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[how_it_work_box_title1]',
+      ) );
+
+      $wp_customize->add_setting('themes_customization[how_it_work_number1]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[how_it_work_number1]',array(
+          'label' => __("Number of do's list to show','themes"),
+          'section'   => 'customize_how_it_work_section',
+          'type'      => 'number',
+          'priority'   => Null,
+      ));
+
+    $work_choose1 =  isset( $this->themes_key['how_it_work_number1'] )? $this->themes_key['how_it_work_number1'] : 3;
+      for($i=1; $i<=$work_choose1; $i++) {
+
+        $wp_customize->add_setting( 'themes_customization[how_it_work_title_icon1'.$i.']', array(
+          // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_image'
+        ) );
+
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[how_it_work_title_icon1'.$i.']', array(
+          'label'      => __( 'Blog Image 1 ','themes').$i,
+          'section'    => 'customize_how_it_work_section',
+          'priority'   => Null,
+          'settings'   => 'themes_customization[how_it_work_title_icon1'.$i.']',
+          'button_labels' => array(
+             'select'       => __( 'Select Image', 'themes' ),
+        ) ) ) );
+      
+        $wp_customize->add_setting( 'themes_customization[how_it_work_title1'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+
+        $wp_customize->add_control( 'themes_customization[how_it_work_title1'.$i.']', array(
+          'label'            => __( 'Main Title 1', 'themes' ),
+          'section'          => 'customize_how_it_work_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[how_it_work_title1'.$i.']',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[how_it_work_text1'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[how_it_work_text1'.$i.']', array(
+          'label'            => __( 'Main Text 2', 'themes' ),
+          'section'          => 'customize_how_it_work_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[how_it_work_text1'.$i.']',
+        ) );
+      }
+
+        
+      $wp_customize->add_setting( 'themes_customization[how_it_work_box_title2]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+      $wp_customize->add_control( 'themes_customization[how_it_work_box_title2]', array(
+        'label'            => __( 'Head Text 1', 'themes' ),
+        'section'          => 'customize_how_it_work_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[how_it_work_box_title2]',
+      ) );
+
+      $wp_customize->add_setting('themes_customization[how_it_work_number2]',array(
+          'default'   => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_textarea_field',
+      ));
+      $wp_customize->add_control('themes_customization[how_it_work_number2]',array(
+          'label' => __("Number of Don't list to show",'themes'),
+          'section'   => 'customize_how_it_work_section',
+          'type'      => 'number',
+          'priority'   => Null,
+      ));
+
+    $work_choose2 =  isset( $this->themes_key['how_it_work_number2'] )? $this->themes_key['how_it_work_number2'] : 3;
+      for($i=1; $i<=$work_choose2; $i++) {
+
+        $wp_customize->add_setting( 'themes_customization[how_it_work_title_icon2'.$i.']', array(
+          // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_image'
+        ) );
+
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[how_it_work_title_icon2'.$i.']', array(
+          'label'      => __( 'Blog Image 2','themes').$i,
+          'section'    => 'customize_how_it_work_section',
+          'priority'   => Null,
+          'settings'   => 'themes_customization[how_it_work_title_icon2'.$i.']',
+          'button_labels' => array(
+             'select'       => __( 'Select Image', 'themes' ),
+        ) ) ) );
+      
+        $wp_customize->add_setting( 'themes_customization[how_it_work_title2'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+
+        $wp_customize->add_control( 'themes_customization[how_it_work_title2'.$i.']', array(
+          'label'            => __( 'Main Title 2', 'themes' ),
+          'section'          => 'customize_how_it_work_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[how_it_work_title2'.$i.']',
+        ) );
+        $wp_customize->add_setting( 'themes_customization[how_it_work_text2'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[how_it_work_text2'.$i.']', array(
+          'label'            => __( 'Main Text 2', 'themes' ),
+          'section'          => 'customize_how_it_work_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[how_it_work_text2'.$i.']',
+        ) );
+      }        
     }
     
     $wp_customize->add_setting( 'themes_customization[how_it_work_main_heading_text_color]', array(

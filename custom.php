@@ -4122,6 +4122,34 @@ class Themes_Setting_Entities {
       'priority'         => Null,
       'settings'         => 'themes_customization[services_main_title]',
     ) );
+    if(defined('VW_HEALTH_CARE_PRO_VERSION')){
+      $wp_customize->add_setting( 'themes_customization[our_services_view_all_title]', array(
+        'default'           => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'wp_kses_post'
+      ) );
+      $wp_customize->add_control( 'themes_customization[our_services_view_all_title]', array(
+        'label'            => __( 'Section Button', 'themes' ),
+        'section'          => 'customize_services_section',
+        'priority'         => Null,
+        'settings'         => 'themes_customization[our_services_view_all_title]',
+      ) );
+      $wp_customize->add_setting('themes_customization[our_services_view_all_title_btnurl]',array(
+        'default' => '',
+        'type'              => 'option',
+        'capability'        => 'manage_options',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => 'esc_url_raw'
+      ));
+      $wp_customize->add_control('themes_customization[our_services_view_all_title_btnurl]',array(
+          'label' => __('Section Button Link','themes'),
+          'section' => 'customize_services_section',
+          'setting' => 'themes_customization[our_services_view_all_title_btnurl]',
+          'type'    => 'url'
+      ));
+    }
     if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
       $wp_customize->add_setting( 'themes_customization[services_desc]', array(
         'default'           => '',
@@ -5478,7 +5506,7 @@ class Themes_Setting_Entities {
     //  =============================
     //  = Section for Pricing Plans =
     //  =============================
-    if(defined('VW_FACTORY_PRO_VERSION')){}else{
+    if(defined('VW_FACTORY_PRO_VERSION') || defined('VW_HEALTH_CARE_PRO_VERSION')){}else{
     $wp_customize->add_section( 'customize_pricing_plan_section', array(
       'title'        => __( 'Pricing Plans', 'themes' ),
       'description'  => __( 'Customize Records Section', 'themes' ),

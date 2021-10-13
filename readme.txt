@@ -4,7 +4,7 @@ Tags: customizer
 Requires at least: 5.0
 Tested up to: 5.8.1
 Requires PHP: 7.2
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ Yes, VW Customizer Addon has full translation and localization support via the t
 Yes.
 
 == Changelog ==
+
+= 1.0.6 - 2021-10-08 =
+* Settings Updated for health care pro theme.
 
 = 1.0.5 - 2021-09-24 =
 * Image change for newsletter section.
@@ -87,3 +90,4 @@ Yes.
 
 = 0.0.1 - 2021-04-27 =
 * Initial Release.
+
