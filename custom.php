@@ -4736,10 +4736,10 @@ class Themes_Setting_Entities {
             )
         ) );
         $wp_customize->selective_refresh->add_partial( 'themes_customization_newsletter_option', array(
-            'selector' => '#newsletter .container,#newsletter container-fluid',
+            'selector' => '#newsletter .container,#newsletter container-fluid,#newsletter .left-box',
             'render_callback' => 'themes_customize_partial_themes_customization_newsletter_option',
         ) );
-        if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION')){
+        if(defined('VW_FLOWER_SHOP_PRO_VERSION')||defined('VW_SOFTWARE_COMPANY_PRO_VERSION') || defined('VW_KNOWLEDGE_BASE_PRO_VERSION') ||defined('VW_HEALTH_CARE_PRO_VERSION')){
           $wp_customize->add_setting( 'themes_customization[newsletter_small_title]', array(
             'default'           => '',
             'type'              => 'option',
@@ -7415,6 +7415,26 @@ class Themes_Setting_Entities {
           'priority'  => null,
           'panel' => 'themes_panel',
       ));
+
+      if(defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){
+
+        $wp_customize->add_setting( 'themes_customization[contactpage_left_image]', array(
+          // 'default'       =>  plugins_url( 'img/bg.jpg', CUSTOM_ROOT_FILE ) ,
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'themes_sanitize_image'
+        ) );
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themes_customization[contactpage_left_image]', array(
+          'label'      => __( 'Left Image:', 'themes' ),
+          'section'    => 'themes_contact_page_section',
+          'priority'   => Null,
+          'settings'   => 'themes_customization[contactpage_left_image]',
+          'button_labels' => array(
+             'select'       => __( 'Select Image', 'themes' ),
+        ) ) ) );
+      }
+      
       $wp_customize->add_setting('themes_customization[contactpage_form_title]',array(
           'default'   => '',
           'type'              => 'option',

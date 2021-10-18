@@ -4103,6 +4103,7 @@ div#cat_togglee i{
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+<?php if(!defined('VW_SOFTWARE_COMPANY_PRO_VERSION')){ ?>
 #get-in-touch{
 	<?php if ( ! empty( $get_in_touch_section_bgcolor ) ) : ?>
 	background: linear-gradient(135deg,<?php echo $get_in_touch_section_bgcolor; ?> 0%,<?php echo $get_in_touch_section_bgcolor2; ?> 100%);
@@ -4110,6 +4111,7 @@ div#cat_togglee i{
 	background-image: url(<?php echo $get_in_touch_section_bgimage; ?>);
 	<?php endif; ?>
 }
+<?php } ?>
 #get-in-touch h3{
 	<?php if ( ! empty( $get_in_touch_main_text_color ) ) : ?>
 	color: <?php echo $get_in_touch_main_text_color; ?>;

@@ -20,6 +20,12 @@
      'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
+
+      $wp_customize->selective_refresh->add_partial( 'our_app_section_bgimage', array(
+            'selector' => '#newsletter .banner-box',
+            'render_callback' => 'themes_customize_partial_themes_customization_our_our_app_section_bgimage',
+        ) );
+
     $wp_customize->add_setting( 'themes_customization[our_app_section_bgcolor]', array(
       'default'        => '',
       'type'              => 'option',
@@ -69,7 +75,7 @@
         'button_labels' => array(
            'select'       => __( 'Select Image', 'themes' ),
       ) ) ) );
-    }
+    
 
     $wp_customize->add_setting( 'themes_customization[our_app_main_small_title]', array(
       'default'           => '',
@@ -84,6 +90,8 @@
       'priority'         => Null,
       'settings'         => 'themes_customization[our_app_main_small_title]',
     ) );
+    }
+
     $wp_customize->add_setting( 'themes_customization[our_app_main_title]', array(
       'default'           => '',
       'type'              => 'option',
@@ -176,20 +184,21 @@
           'settings'         => 'themes_customization[app_box_one_para_url'.$i.']',
         ) );
       }
-
-      $wp_customize->add_setting( 'themes_customization[our_app_box_two_para'.$i.']', array(
-        'default'           => '',
-        'type'              => 'option',
-        'capability'        => 'manage_options',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post'
-      ) );
-      $wp_customize->add_control( 'themes_customization[our_app_box_two_para'.$i.']', array(
-        'label'            => __( 'Section Text Two', 'themes' ).$i,
-        'section'          => 'customize_our_app_section',
-        'priority'         => Null,
-        'settings'         => 'themes_customization[our_app_box_two_para'.$i.']',
-      ) );
+      if(!defined('VW_HEALTH_CARE_PRO_VERSION')){
+        $wp_customize->add_setting( 'themes_customization[our_app_box_two_para'.$i.']', array(
+          'default'           => '',
+          'type'              => 'option',
+          'capability'        => 'manage_options',
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'wp_kses_post'
+        ) );
+        $wp_customize->add_control( 'themes_customization[our_app_box_two_para'.$i.']', array(
+          'label'            => __( 'Section Text Two', 'themes' ).$i,
+          'section'          => 'customize_our_app_section',
+          'priority'         => Null,
+          'settings'         => 'themes_customization[our_app_box_two_para'.$i.']',
+        ) );
+      }
     }
     $wp_customize->add_setting( 'themes_customization[app_small_left_title_color]', array(
       'default' => '',
