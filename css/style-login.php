@@ -956,7 +956,7 @@ $themes_active_articals_button_bgcolor_afterhover = themes_get_option_key( 'acti
 // Our team
 // why choose us
 $our_team_enabledisable = themes_get_option_key( 'our_team_enabledisable', $themes_array );
-$themes_our_team_title_color = themes_get_option_key( 'our_team_title_color', $themes_array );
+$themes_our_team_title_color = themes_get_option_key( 'themes_our_team_title_color', $themes_array );
 $themes_our_team_title_font_family = themes_get_option_key( 'our_team_title_font_family', $themes_array );
 $themes_our_team_title_font_size = themes_get_option_key( 'our_team_title_font_size', $themes_array );
 
@@ -991,9 +991,9 @@ $themes_why_choose_us_small_text_font_size = themes_get_option_key( 'why_choose_
 $themes_why_choose_us_main_text_color = themes_get_option_key( 'why_choose_us_main_text_color', $themes_array );
 $themes_why_choose_us_main_text_fontfamily = themes_get_option_key( 'why_choose_us_main_text_fontfamily', $themes_array );
 $themes_why_choose_us_main_text_font_size = themes_get_option_key( 'why_choose_us_main_text_font_size', $themes_array );
-$themes_why_choose_us_main_heading_text_color = themes_get_option_key( 'why_choose_us_main_heading_text_color', $themes_array );
-$themes_why_choose_us_main_heading_font_family = themes_get_option_key( 'why_choose_us_main_heading_font_family', $themes_array );
-$themes_why_choose_us_main_heading_font_size = themes_get_option_key( 'why_choose_us_main_heading_font_size', $themes_array );
+$why_choose_us_main_heading_text_color = themes_get_option_key( 'why_choose_us_main_heading_text_color', $themes_array );
+$why_choose_us_main_heading_font_family = themes_get_option_key( 'why_choose_us_main_heading_font_family', $themes_array );
+$why_choose_us_main_heading_font_size = themes_get_option_key( 'why_choose_us_main_heading_font_size', $themes_array );
 
 // Introduction
 
@@ -1174,31 +1174,38 @@ $themes_browse_topics_last_button_text_color_afterhover = themes_get_option_key(
 // symptons
 $radio_symptoms_us_enable = themes_get_option_key( 'radio_symptoms_us_enable', $themes_array );
 $themes_symptoms_us_bg_color = themes_get_option_key( 'symptoms_us_bg_color', $themes_array );
-$themes_symptoms_us_small_text_color = themes_get_option_key( 'symptoms_us_small_text_color', $themes_array );
-$themes_symptoms_us_small_text_fontfamily = themes_get_option_key( 'symptoms_us_small_text_fontfamily', $themes_array );
-$themes_symptoms_us_small_text_font_size = themes_get_option_key( 'symptoms_us_small_text_font_size', $themes_array );
-$themes_symptoms_us_main_text_color = themes_get_option_key( 'symptoms_us_main_text_color', $themes_array );
-$themes_symptoms_us_main_text_fontfamily = themes_get_option_key( 'symptoms_us_main_text_fontfamily', $themes_array );
-$themes_symptoms_us_main_text_font_size = themes_get_option_key( 'symptoms_us_main_text_font_size', $themes_array );
-$themes_symptoms_us_main_heading_text_color = themes_get_option_key( 'symptoms_us_main_heading_text_color', $themes_array );
-$themes_symptoms_us_main_heading_font_family = themes_get_option_key( 'symptoms_us_main_heading_font_family', $themes_array );
-$themes_symptoms_us_main_heading_font_size = themes_get_option_key( 'symptoms_us_main_heading_font_size', $themes_array );
+$symptoms_us_small_text_color = themes_get_option_key( 'symptoms_us_small_text_color', $themes_array );
+$symptoms_us_small_text_fontfamily = themes_get_option_key( 'symptoms_us_small_text_fontfamily', $themes_array );
+$symptoms_us_small_text_font_size = themes_get_option_key( 'symptoms_us_small_text_font_size', $themes_array );
+$symptoms_us_main_text_color = themes_get_option_key( 'symptoms_us_main_text_color', $themes_array );
+$symptoms_us_main_text_fontfamily = themes_get_option_key( 'symptoms_us_main_text_fontfamily', $themes_array );
+$symptoms_us_main_text_font_size = themes_get_option_key( 'symptoms_us_main_text_font_size', $themes_array );
+$symptoms_us_main_heading_text_color = themes_get_option_key( 'symptoms_us_main_heading_text_color', $themes_array );
+$symptoms_us_main_heading_font_family = themes_get_option_key( 'symptoms_us_main_heading_font_family', $themes_array );
+$symptoms_us_main_heading_font_size = themes_get_option_key( 'symptoms_us_main_heading_font_size', $themes_array );
 
 //emergency_contact
 
 $radio_emergency_contact_enable = themes_get_option_key( 'radio_emergency_contact_enable', $themes_array );
 $themes_emergency_contact_color = themes_get_option_key( 'emergency_contact_bg_color', $themes_array );
-$themes_emergency_contact_small_text_color = themes_get_option_key( 'emergency_contact_small_text_color', $themes_array );
-$themes_emergency_contact_small_text_fontfamily = themes_get_option_key( 'emergency_contact_small_text_fontfamily', $themes_array );
-$themes_emergency_contact_small_text_font_size = themes_get_option_key( 'emergency_contact_small_text_font_size', $themes_array );
-$themes_emergency_contact_main_text_color = themes_get_option_key( 'emergency_contact_main_text_color', $themes_array );
-$themes_emergency_contact_main_text_fontfamily = themes_get_option_key( 'emergency_contact_main_text_fontfamily', $themes_array );
-$themes_emergency_contact_main_text_font_size = themes_get_option_key( 'emergency_contact_main_text_font_size', $themes_array );
-$themes_emergency_contact_main_heading_text_color = themes_get_option_key( 'emergency_contact_main_heading_text_color', $themes_array );
-$themes_emergency_contacts_main_heading_font_family = themes_get_option_key( 'emergency_contact_main_heading_font_family', $themes_array );
-$themes_emergency_contact_main_heading_font_size = themes_get_option_key( 'emergency_contact_main_heading_font_size', $themes_array );
+$emergency_contact_sub_text_color = themes_get_option_key( 'emergency_contact_sub_text_color', $themes_array );
+$emergency_contact_sub_text_fontfamily = themes_get_option_key( 'emergency_contact_sub_text_fontfamily', $themes_array );
+$emergency_contact_sub_text_font_size = themes_get_option_key( 'emergency_contact_sub_text_font_size', $themes_array );
+$emergency_contact_main_text_color = themes_get_option_key( 'emergency_contact_main_text_color', $themes_array );
+$emergency_contact_main_text_fontfamily = themes_get_option_key( 'emergency_contact_main_text_fontfamily', $themes_array );
+$emergency_contact_main_text_font_size = themes_get_option_key( 'emergency_contact_main_text_font_size', $themes_array );
+$emergency_contact_text_color = themes_get_option_key( 'emergency_contact_text_color', $themes_array );
+$emergency_contact_text_fontfamily = themes_get_option_key( 'emergency_contact_text_fontfamily', $themes_array );
+$emergency_contact_text_font_size = themes_get_option_key( 'emergency_contact_text_font_size', $themes_array );
 $radio_search_banner_enable = themes_get_option_key( 'radio_search_banner_enable', $themes_array );
+/*-------------Gallery------------*/
+$themes_gallery_title_color_first = themes_get_option_key( 'themes_gallery_title_color_first', $themes_array );
+$themes_gallery_title_font_family = themes_get_option_key( 'themes_gallery_title_font_family', $themes_array );
+$themes_gallery_title_font_size = themes_get_option_key( 'themes_gallery_title_font_size', $themes_array );
 
+$gallery_main_text_color = themes_get_option_key( 'gallery_main_text_color', $themes_array );
+$gallery_main_text_fontfamily = themes_get_option_key( 'gallery_main_text_fontfamily', $themes_array );
+$gallery_main_text_fontsize = themes_get_option_key( 'gallery_main_text_fontsize', $themes_array );
 
 
 /**
@@ -1251,6 +1258,39 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	<?php if ( ! empty( $symptoms_us_bg_image ) ) : ?>
 	background-image: url(<?php echo $symptoms_us_bg_image; ?>);
 	<?php endif; ?>
+}
+.symptoms-content h2{
+  <?php if ( ! empty( $symptoms_us_main_heading_text_color ) ) : ?>
+  color: <?php echo $symptoms_us_main_heading_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $symptoms_us_main_heading_font_family ) ) : ?>
+  font-family: <?php echo $symptoms_us_main_heading_font_family; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $symptoms_us_main_heading_font_size ) ) : ?>
+  font-size: <?php echo $symptoms_us_main_heading_font_size; ?>;
+  <?php endif; ?>
+}
+.symptoms-content p{
+  <?php if ( ! empty( $symptoms_us_small_text_color ) ) : ?>
+  color: <?php echo $symptoms_us_small_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $symptoms_us_small_text_fontfamily ) ) : ?>
+  font-family: <?php echo $symptoms_us_small_text_fontfamily; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $symptoms_us_small_text_font_size ) ) : ?>
+  font-size: <?php echo $symptoms_us_small_text_font_size; ?>;
+  <?php endif; ?>
+}
+.symptoms-content span{
+  <?php if ( ! empty( $symptoms_us_main_text_color ) ) : ?>
+  color: <?php echo $symptoms_us_main_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $symptoms_us_main_text_fontfamily ) ) : ?>
+  font-family: <?php echo $symptoms_us_main_text_fontfamily; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $symptoms_us_main_text_font_size ) ) : ?>
+  font-size: <?php echo $symptoms_us_main_text_font_size; ?>;
+  <?php endif; ?>
 }
 #symptons span, #symptons .side-navigation a{
 	<?php if ( ! empty( $themes_symptoms_us_text_color ) ) : ?>
@@ -1532,7 +1572,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 }
 #contact-partners .home-contact-us .contact-sub-title,#appointment .appointment-content span{
 	<?php if ( ! empty( $themes_contact_partners_sub_text_color ) ) : ?>
-	color: <?php echo $themes_contact_partners_sub_text_color ; ?>;
+	color: <?php echo $themes_contact_partners_sub_text_color; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_contact_partners_sub_text_fontfamily ) ) : ?>
 	font-family: <?php echo $themes_contact_partners_sub_text_fontfamily ; ?>;
@@ -1908,7 +1948,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	background-color: <?php echo $themes_our_team_bg_color ; ?>;
 	<?php endif; ?>
 }
-#our-team .our-team-head h3,#our-teams .section-content h2{
+#our-team .our-team-head h3,#our-teams .section-content h2,#our-teams .our-teams-head h2{
 	<?php if ( ! empty( $themes_our_team_title_color  ) ) : ?>
 	color: <?php echo $themes_our_team_title_color ; ?>;
 	<?php endif; ?>
@@ -1919,7 +1959,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_our_team_title_font_size ; ?>;
 	<?php endif; ?>
 }
-#our-teams .section-content span{
+#our-teams .section-content span,#our-teams .our-teams-head span{
 	<?php if ( ! empty( $our_team_small_title_color  ) ) : ?>
 	color: <?php echo $our_team_small_title_color ; ?>;
 	<?php endif; ?>
@@ -2015,7 +2055,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_servicesmall_para_font_size ; ?>;
 	<?php endif; ?>
 }
-#our-services .our-services-content a,#our-services .services-small-title, #our-features .feature-main-content span{
+#our-services .our-services-content a,#our-services .services-small-title{
 	<?php if ( ! empty( $themes_themes_servicesmall_title_color  ) ) : ?>
 	color: <?php echo $themes_themes_servicesmall_title_color ; ?>;
 	<?php endif; ?>
@@ -2026,7 +2066,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_our_services_main_heading_font_size ; ?>;
 	<?php endif; ?>
 }
-#our-services .our-services-head h2,#our-services .section-content h2,.service-main-content h2, #our-features .feature-main-content h2{
+#our-services .our-services-head h2,#our-services .section-content h2,.service-main-content h2{
 	<?php if ( ! empty( $themes_our_services_main_heading_text_color  ) ) : ?>
 	color: <?php echo $themes_our_services_main_heading_text_color ; ?>;
 	<?php endif; ?>
@@ -2415,7 +2455,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	position: unset;
 	<?php endif; ?>
 }
-#our-features .our-features-content p {
+#our-features .feature-main-content span {
 	<?php if ( ! empty( $themes_features_small_text_color ) ) : ?>
 	color: <?php echo $themes_features_small_text_color; ?>;
 	<?php endif; ?>
@@ -2426,21 +2466,43 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	font-size: <?php echo $themes_features_small_text_font_size; ?>;
 	<?php endif; ?>
 }
-#our-features .our-features-content span{
-	<?php if ( ! empty( $themes_features_main_text_color ) ) : ?>
-	color: <?php echo $themes_features_main_text_color; ?>;
+#our-features .feature-main-content h2 {
+	<?php if ( ! empty( $features_main_text_color ) ) : ?>
+	color: <?php echo $features_main_text_color; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $themes_features_main_text_fontfamily  ) ) : ?>
-	font-family: <?php echo $themes_features_main_text_fontfamily ; ?>;
+	<?php if ( ! empty( $features_main_text_fontfamily  ) ) : ?>
+	font-family: <?php echo $features_main_text_fontfamily ; ?>;
 	<?php endif; ?>
-	<?php if ( ! empty( $themes_features_main_text_font_size ) ) : ?>
-	font-size: <?php echo $themes_features_main_text_font_size; ?>;
+	<?php if ( ! empty( $features_main_text_font_size ) ) : ?>
+	font-size: <?php echo $features_main_text_font_size; ?>;
 	<?php endif; ?>
 }
 #why-choose-us{
 	<?php if ( ! empty( $radio_why_choose_us_enable ) && true == $radio_why_choose_us_enable) : ?>
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
+}
+#why-choose-us .choose-inner span{
+  <?php if ( ! empty( $why_choose_us_main_heading_text_color ) ) : ?>
+  color: <?php echo $why_choose_us_main_heading_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $why_choose_us_main_heading_font_family  ) ) : ?>
+  font-family: <?php echo $why_choose_us_main_heading_font_family ; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $why_choose_us_main_heading_font_size ) ) : ?>
+  font-size: <?php echo $why_choose_us_main_heading_font_size; ?>;
+  <?php endif; ?>
+}
+#why-choose-us .choose-inner h2{
+  <?php if ( ! empty( $why_choose_us_main_heading_text_color ) ) : ?>
+  color: <?php echo $why_choose_us_main_heading_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $why_choose_us_main_heading_font_family  ) ) : ?>
+  font-family: <?php echo $why_choose_us_main_heading_font_family ; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $why_choose_us_main_heading_font_size ) ) : ?>
+  font-size: <?php echo $why_choose_us_main_heading_font_size; ?>;
+  <?php endif; ?>
 }
 #why-choose-us .why-choose-us-content h2{
 	<?php if ( ! empty( $themes_about_main_title_color ) ) : ?>
@@ -2494,10 +2556,10 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	color: <?php echo $themes_headermenu_color; ?>;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_headermenu_font_family ) ) : ?>
-	font-family: <?php echo $themes_headermenu_font_family; ?>;
+	font-family: <?php echo $themes_headermenu_font_family; ?> !important;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_headermenu_font_size ) ) : ?>
-	font-size: <?php echo $themes_headermenu_font_size; ?>;
+	font-size: <?php echo $themes_headermenu_font_size; ?> !important;
 	<?php endif; ?>
 }
 .main-header .side-navigation ul li a:hover{
@@ -2507,7 +2569,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	filter: drop-shadow(4.5px 7.794px 13.5px <?php echo $themes_header_menuhover_bgcolor; ?>);
     background-image: linear-gradient(57deg, <?php echo $themes_header_menuhover_bgcolor; ?> 0%, <?php echo $themes_header_menuhover_bgcolor_t; ?> 100%);
 }
-.main-header .side-navigation ul ul{
+.main-header .side-navigation ul ul,.side-navigation ul ul{
 	<?php if ( ! empty( $themes_dropdownbg_color ) ) : ?>
 	background-color: <?php echo $themes_dropdownbg_color; ?>;
 	<?php endif; ?>
@@ -2522,7 +2584,7 @@ function themes_box_shadow( $shadow, $opacity, $default_shadow = 0, $inset = fal
 	color: <?php echo $themes_header_menu_active_color; ?>!important;
 	<?php endif; ?>
 }
-#sidebar1{
+#sidebar1,amp-sidebar#sidebar1{
 	<?php if ( ! empty( $themes_dropdownbg_responsivecolor ) ) : ?>
 	background: <?php echo $themes_dropdownbg_responsivecolor; ?>!important;
 	<?php endif; ?>
@@ -2782,6 +2844,39 @@ div#cat_togglee i{
 	display: none <?php echo themes_important(); ?>;
 	<?php endif; ?>
 }
+#emergency-contact .left-box h3{
+  <?php if ( ! empty( $emergency_contact_main_text_color ) ) : ?>
+  color: <?php echo $emergency_contact_main_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $emergency_contact_main_text_fontfamily ) ) : ?>
+  font-family: <?php echo $emergency_contact_main_text_fontfamily; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $emergency_contact_main_text_font_size ) ) : ?>
+  font-size: <?php echo $emergency_contact_main_text_font_size; ?>;
+  <?php endif; ?>
+}
+#emergency-contact .left-box span{
+  <?php if ( ! empty( $emergency_contact_sub_text_color ) ) : ?>
+  color: <?php echo $emergency_contact_sub_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $emergency_contact_sub_text_fontfamily ) ) : ?>
+  font-family: <?php echo $emergency_contact_sub_text_fontfamily; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $emergency_contact_sub_text_font_size ) ) : ?>
+  font-size: <?php echo $emergency_contact_sub_text_font_size; ?>;
+  <?php endif; ?>
+}
+#emergency-contact .left-box p{
+  <?php if ( ! empty( $emergency_contact_text_color ) ) : ?>
+  color: <?php echo $emergency_contact_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $emergency_contact_text_fontfamily ) ) : ?>
+  font-family: <?php echo $emergency_contact_text_fontfamily; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $emergency_contact_text_font_size ) ) : ?>
+  font-size: <?php echo $emergency_contact_text_font_size; ?>;
+  <?php endif; ?>
+}
 #search-banner{
 	<?php if ( ! empty( $radio_search_banner_enable ) && true == $radio_search_banner_enable ) : ?>
 	display: none <?php echo themes_important(); ?>;
@@ -2813,7 +2908,7 @@ div#cat_togglee i{
 	background-image: url(<?php echo $fetured_product_bg_image; ?>);
 	<?php endif; ?>
 }
-.about-content h2 span.left-text,#about-us .section-content span{
+.about-content h2 span.left-text,#about-us .section-content span,#about-us .about-us-content span{
 	<?php if ( ! empty( $about_smalltitle_left_color ) ) : ?>
 	color: <?php echo $about_smalltitle_left_color; ?>;
 	<?php endif; ?>
@@ -2835,7 +2930,7 @@ div#cat_togglee i{
 	font-size: <?php echo $about_smalltitle_right_font_size; ?>;
 	<?php endif; ?>
 }
-.about-content h3,#about h3,#about-us .section-content h2{
+.about-content h3,#about h3,#about-us .section-content h2,#about-us .about-us-content h2{
 	<?php if ( ! empty( $about_main_title_color ) ) : ?>
 	color: <?php echo $about_main_title_color; ?> !important;
 	<?php endif; ?>
@@ -2857,7 +2952,8 @@ div#cat_togglee i{
 	font-size: <?php echo $about_list_title_font_size; ?>;
 	<?php endif; ?>
 }
-#about .about-content p,#about-us .section-content p,#about .about-content p{
+#about .about-content p,#about-us .section-content p,#about .about-content ,
+#about-us .about-us-content p{
 	<?php if ( ! empty( $about_text_color ) ) : ?>
 	color: <?php echo $about_text_color; ?>;
 	<?php endif; ?>
@@ -2868,7 +2964,7 @@ div#cat_togglee i{
 	font-size: <?php echo $about_text_font_size; ?>;
 	<?php endif; ?>
 }
-.about-content .right-read,.about-content .left-read, .about-content .right-read,#about-us .section-content a{
+.about-content .right-read,.about-content .left-read, .about-content .right-read,#about-us .section-content a,#about-us .about-us-content a{
 	<?php if ( ! empty( $about_button_text_color ) ) : ?>
 	color: <?php echo $about_button_text_color; ?> !important;
 	<?php endif; ?>
@@ -2879,7 +2975,7 @@ div#cat_togglee i{
 	font-size: <?php echo $about_button_text_font_size; ?> !important;
 	<?php endif; ?>
 }
-.about-content .right-read, .about-content .right-read,#about-us .section-content a{
+.about-content .right-read, .about-content .right-read,#about-us .section-content a,#about-us .about-us-content a{
 	<?php if ( ! empty( $about_button_bg_color ) ) : ?>
 	background-image: linear-gradient(180deg, <?php echo $about_button_bg_color; ?> 0%, <?php echo $about_button_bg_color; ?> 100%);
 	<?php endif; ?>
@@ -3195,7 +3291,7 @@ div#cat_togglee i{
 	background-image: url(<?php echo $services_bgimage; ?>);
 	<?php endif; ?>
 }
-#services span.head_center,#services p.small-text,#our-services .services-small-title, #our-features .feature-main-content span{
+#services span.head_center,#services p.small-text,#our-services .services-small-title{
 	<?php if ( ! empty( $themes_servicesmall_title_color ) ) : ?>
 	color: <?php echo $themes_servicesmall_title_color; ?>;
 	<?php endif; ?>
@@ -3888,9 +3984,9 @@ div#cat_togglee i{
 	font-size: <?php echo $video_sec_Main_text_font_size; ?>;
 	<?php endif; ?>
 }
-#our-records .record-count-no{
+#our-records .our-records-wrapper .record-count-no span{
 	<?php if ( ! empty( $themes_our_record_number_color ) ) : ?>
-		background: linear-gradient(180deg,<?php echo $themes_our_record_number_color; ?> 0%,<?php echo $themes_our_record_number_color; ?> 100%);
+		color: <?php echo $themes_our_record_number_color; ?>;
 	<?php endif; ?>
 	<?php if ( ! empty( $themes_our_record_number_font_family ) ) : ?>
 	font-family: <?php echo $themes_our_record_number_font_family; ?>;
@@ -3922,7 +4018,7 @@ div#cat_togglee i{
 	background-image: linear-gradient(90deg, <?php echo $themes_our_record_icon_hover_bgcolor1; ?> 0%, <?php echo $themes_our_record_icon_hover_bgcolor2; ?> 100%);
 	<?php endif; ?>
 }
-.rtitle-box .sufix-head,.rtitle-box .sufix-title{
+.rtitle-box .sufix-head,.rtitle-box .sufix-title,#our-records .our-records-wrapper .record-count-title{
 	<?php if ( ! empty( $record_sub_title_color ) ) : ?>
 		color: <?php echo $record_sub_title_color; ?>;
 	<?php endif; ?>
@@ -4151,6 +4247,33 @@ div#cat_togglee i{
 	background-image: url(<?php echo $themes_footer_widget_bg_image; ?>);
 	<?php endif; ?>
 }
+
+/*-----------Gallery----------*/
+#our-gallery .our-gallery-head span{
+  <?php if ( ! empty( $themes_gallery_title_color_first ) ) : ?>
+  color: <?php echo $themes_gallery_title_color_first; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $themes_gallery_title_font_family ) ) : ?>
+  font-family: <?php echo $themes_gallery_title_font_family; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $themes_gallery_title_font_size ) ) : ?>
+  font-size: <?php echo $themes_gallery_title_font_size; ?>;
+  <?php endif; ?>
+}
+
+#our-gallery .our-gallery-head h2{
+  <?php if ( ! empty( $gallery_main_text_color ) ) : ?>
+  color: <?php echo $gallery_main_text_color; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $gallery_main_text_fontfamily ) ) : ?>
+  font-family: <?php echo $gallery_main_text_fontfamily; ?>;
+  <?php endif; ?>
+  <?php if ( ! empty( $gallery_main_text_fontsize ) ) : ?>
+  font-size: <?php echo $gallery_main_text_fontsize; ?>;
+  <?php endif; ?>
+}
+/*----------------End Gallery------------------*/
+
 #footer h3{
 	<?php if ( ! empty( $themes_footer_widget_heading_color ) ) : ?>
 	color: <?php echo $themes_footer_widget_heading_color; ?> !important;
