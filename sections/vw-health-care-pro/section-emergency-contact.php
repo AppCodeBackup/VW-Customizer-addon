@@ -8,6 +8,7 @@
       'priority'     => Null,
       'panel'        => 'themes_panel',
     ) );
+
     $wp_customize->add_setting( 'themes_customization[radio_emergency_contact_enable]', array(
       'default'           => false,
       'type'              => 'option',
@@ -23,6 +24,24 @@
      'priority'   => Null,
       'type'        => 'ios', // light, ios, flat
     ) ) );
+
+
+    
+    // $wp_customize->add_setting( 'themes_customization[radio_emergency_contact_enable]', array(
+    //   'default'           => false,
+    //   'type'              => 'option',
+    //   'capability'         => 'manage_options',
+    //   'transport'         => 'postMessage',
+    //   'sanitize_callback' => 'themes_sanitize_checkbox'
+    // ) );
+    // 
+    // $wp_customize->add_control( new Themes_Setting_Radio_Control( $wp_customize, 'themes_customization[radio_emergency_contact_enable]', array(
+    //  'settings'    => 'themes_customization[radio_emergency_contact_enable]',
+    //   'label'       => __( 'Disable Section:', 'themes'),
+    //   'section'     => 'customize_emergency_contact_section',
+    //  'priority'   => Null,
+    //   'type'        => 'ios', // light, ios, flat
+    // ) ) );
     $wp_customize->add_setting( 'themes_customization[emergency_contact_bgcolor]', array(
       'default'        => '',
       'type'              => 'option',

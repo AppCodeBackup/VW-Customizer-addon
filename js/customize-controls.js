@@ -683,11 +683,11 @@ jQuery(document).ready(function($) {
      wp.customize( 'themes_customization[radio_symptoms_us_enable]', function(value) {
     value.bind( function(themes_settingsVal) {
       if ( themes_settingsVal == true ) {
-        themes_find('#symptons').fadeOut();
+        themes_find('#symptoms').fadeOut();
         $('#customize-control-themes_customization-radio_symptoms_us_enable').nextAll().hide();
         $('#customize-control-themes_customization-customize_login_page_title').show();
       } else {
-        themes_find('#symptons').fadeIn();
+        themes_find('#symptoms').fadeIn();
         $('#customize-control-themes_customization-radio_symptoms_us_enable').nextAll().show();
       }
     });

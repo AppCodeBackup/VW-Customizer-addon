@@ -6659,10 +6659,10 @@ class Themes_Setting_Entities {
       include CUSTOM_ROOT_PATH . 'sections/vw-health-care-pro/section-why-choose-us.php';
     }
     //  =============================
-    //  = Section for symptons  =
+    //  = Section for symptoms  =
     //  =============================
     if(defined('VW_HEALTH_CARE_PRO_VERSION')){
-      include CUSTOM_ROOT_PATH . 'sections/vw-health-care-pro/section-symptons.php';
+      include CUSTOM_ROOT_PATH . 'sections/vw-health-care-pro/section-symptoms.php';
     }
     //  =============================
     //  = Section for Emergency Contact  =

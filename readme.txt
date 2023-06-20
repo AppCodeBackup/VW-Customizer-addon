@@ -2,9 +2,9 @@
 Contributors: VowelWeb
 Tags: customizer
 Requires at least: 5.0
-Tested up to: 5.8.1
+Tested up to: 6.2.2
 Requires PHP: 7.2
-Stable tag: 1.0.9
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ Yes, VW Customizer Addon has full translation and localization support via the t
 Yes.
 
 == Changelog ==
+
+= 1.1 - 2023-06-20 =
+* Resolve Issues in health care pro theme.
 
 = 1.0.9 - 2022-03-07 =
 * Resolve Issues in health care pro theme.
@@ -99,4 +102,3 @@ Yes.
 
 = 0.0.1 - 2021-04-27 =
 * Initial Release.
-

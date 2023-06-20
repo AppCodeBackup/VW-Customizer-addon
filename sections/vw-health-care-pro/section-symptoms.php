@@ -67,7 +67,7 @@
         )
     ) );
     $wp_customize->selective_refresh->add_partial( 'themes_customization_symptoms_option', array(
-        'selector' => '#symptoms-us .container-fluid',
+        'selector' => '#symptoms .container-fluid',
         'render_callback' => 'themes_customize_partial_themes_customization_symptoms_option',
     ) );
     $wp_customize->add_setting( 'themes_customization[symptoms_left_image]', array(
